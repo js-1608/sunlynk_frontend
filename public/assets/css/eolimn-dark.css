@@ -1,0 +1,223 @@
+:root {
+  --eolimn-text: #74787C;
+  --eolimn-text-rgb: 116, 120, 124;
+  --eolimn-white: #202220;
+  --eolimn-white-rgb: 32, 34, 32;
+  --eolimn-black: #ffffff;
+  --eolimn-black-rgb: 255, 255, 255;
+  --eolimn-base: #60AC45;
+  --eolimn-base-rgb: 96, 172, 69;
+  --eolimn-text2: #2B2B5E;
+  --eolimn-text2-rgb: 43, 43, 94;
+  --eolimn-text-dark: #202220;
+  --eolimn-text-dark-rgb: 32, 34, 32;
+  --eolimn-text-dark2: #1E2436;
+  --eolimn-text-dark2-rgb: 30, 36, 54;
+  --eolimn-gray: #F5F5F5;
+  --eolimn-gray-rgb: 245, 245, 245;
+  --eolimn-border-color: #DEDEDE;
+  --eolimn-border-color-rgb: 222, 222, 222;
+}
+
+.main-menu .main-menu__list > li > a,
+.main-header__right__info__item,
+.eolimn-btn:hover,
+.main-header__right__number,
+.main-header__right__call:hover .main-header__right__icon,
+.main-header__element__btn,
+.home-showcase .demo-one__title,
+.eolimn-btn--base,
+.sec-title__title,
+.about-one__list__item,
+.main-slider-one__title,
+.main-slider-one__text,
+.main-slider-one__video__popup,
+.service-one .sec-title .sec-title__title,
+.solar-bar__list__icon,
+.solar-bar__list__title,
+.solar-bar__list__text,
+.service-one__content__title,
+.service-one__btn__link,
+.eolimn-owl__carousel--basic-nav.owl-carousel .owl-nav button span,
+.eolimn-owl__carousel--basic-nav.owl-carousel .owl-nav button span:hover,
+.cta__form__title__icon,
+.cta__form__title__tagline,
+.cta__form .sec-title__title,
+.work-process-one__title,
+.work-process-one__item:hover .work-process-one__icon,
+.cta__form .form-one__group button[type=submit],
+.faq-page__accordion-two .accrodion-title .accrodion-title__text,
+.faqs-two__thumb__item__text,
+.project-one--home .sec-title .sec-title__title,
+.testimonial-card__author__title,
+.testimonial-card__quite,
+.team-card__social a:hover,
+.insagram-one__item__icon,
+.project-card__title,
+.blog-two__card__title,
+.blog-two__card__date__day,
+.blog-two__list__title,
+.main-footer__top__list__item:hover .main-footer__top__icon,
+.footer-widget__links__item a:hover,
+.footer-widget__title,
+.footer-widget__social a:hover,
+.cta__form__btn:hover,
+.main-menu .main-menu__list li ul li > a,
+.header-right-sidebar__container__title {
+  color: var(--eolimn-black);
+}
+
+.main-slider-one__video__popup:hover {
+  color: var(--eolimn-white);
+}
+
+.eolimn-btn--base:hover,
+.faq-page__accordion-two .accrodion-title__icon::before {
+  color: var(--eolimn-base);
+}
+
+.header-right-sidebar__overlay {
+  background-color: var(--eolimn-white);
+}
+
+/** Header Dark **/
+.topbar-one__info__item__subtitle,
+.topbar-one__info__item a,
+.topbar-one__info__item p {
+  color: var(--eolimn-gray);
+}
+
+.topbar-one__info__icon {
+  background-color: var(--eolimn-gray);
+}
+
+.main-slider-one__video::before,
+.testimonial-card__inner::after {
+  border: 1px solid rgba(var(--eolimn-black-rgb), 0.25);
+}
+
+/** About Section **/
+.about-one .container::before {
+  background-image: url(../images/shapes/about-line-dark-1-1.png);
+  border-right: 1px solid rgba(var(--eolimn-border-color-rgb), 0.25);
+}
+
+.about-one .container::after {
+  border: 1px solid rgba(var(--eolimn-border-color-rgb), 0.25);
+}
+
+.about-one__shape {
+  z-index: 0;
+}
+
+.solar-bar,
+.service-one__item,
+.work-process-one,
+.client-carousel,
+.testimonial-card__inner {
+  background: var(--eolimn-white);
+}
+
+.service-one__btn__link--hover,
+.work-process-one__icon,
+.cta__form .form-one__group button[type=submit]:hover,
+.header-right-sidebar__container .newsletter-box button:hover,
+.team-card__social a {
+  background: var(--eolimn-black);
+  color: var(--eolimn-base);
+}
+
+.cta__form__btn {
+  -webkit-text-stroke: 1px var(--eolimn-black);
+}
+
+.cta__form::after {
+  background-image: url(../images/shapes/form-one-shape-dark-2-1.png);
+  background-size: cover;
+  right: -1px;
+}
+
+.work-process-one__item {
+  box-shadow: 0 0 0 0;
+  border: 1px solid rgba(var(--eolimn-border-color-rgb), 0.2);
+  background-color: transparent;
+}
+
+.cta__form .form-one__group input[type=text],
+.cta__form .form-one__group input[type=email],
+.faqs-two__thumb__item__icon a,
+.testimonial-card:hover .testimonial-card__quite,
+.project-card__content__icon__item::after,
+.project-card__content__icon__item::before,
+.project-card__dec,
+.blog-two__card__date,
+.blog-two__list__date,
+.footer-widget__newsletter button:hover,
+.footer-widget__newsletter input[type=email],
+.footer-widget__links__item a::before,
+.header-right-sidebar__container .newsletter-box input[type=email] {
+  background: var(--eolimn-black);
+}
+
+.faqs-two__bg::after {
+  background: linear-gradient(90deg, #1F2120 0%, rgba(31, 33, 32, 0.9) 100%);
+}
+
+.faq-page__accordion-two .accrodion,
+.faqs-two__thumb__item__icon::after {
+  background: transparent;
+  border: 1px solid rgba(var(--eolimn-border-color-rgb), 0.2);
+}
+
+.faq-page__accordion-two .accrodion-title .accrodion-title__text::after {
+  background: rgba(var(--eolimn-border-color-rgb), 0.2);
+}
+
+.sec-title--two .sec-title__icon,
+.sec-title--two .sec-title__tagline,
+.sec-title--two .sec-title__title {
+  color: var(--eolimn-black);
+}
+
+.testimonial-card .testimonial-card__star {
+  background: var(--eolimn-text);
+}
+.testimonial-card .testimonial-card__star span {
+  color: var(--eolimn-black);
+}
+
+.team-card__content {
+  border: 1px solid rgba(var(--eolimn-border-color-rgb), 0.2);
+}
+
+.project-card__content__icon__item {
+  background: var(--eolimn-base);
+}
+
+.project-card__content__icon::after {
+  border: 1px solid rgba(var(--eolimn-border-color-rgb), 1);
+}
+
+.blog-two {
+  position: relative;
+  background: var(--eolimn-text-dark);
+  z-index: 1;
+}
+.blog-two__bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: -1;
+  mix-blend-mode: darken;
+  opacity: 0.5;
+}
+
+.blog-two__list__item + .blog-two__list__item {
+  border-top: 1px solid rgba(var(--eolimn-border-color-rgb, #DEDEDE), 0.4);
+}
+/*# sourceMappingURL=eolimn-dark.css.map */

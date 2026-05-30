@@ -1,0 +1,201 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon04c0.eot?pg7xf0');
+  src:  url('fonts/icomoon04c0.eot?pg7xf0#iefix') format('embedded-opentype'),
+    url('fonts/icomoon04c0.ttf?pg7xf0') format('truetype'),
+    url('fonts/icomoon04c0.woff?pg7xf0') format('woff'),
+    url('fonts/icomoon04c0.svg?pg7xf0#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-bage:before {
+  content: "\e939";
+}
+.icon-mark:before {
+  content: "\e938";
+}
+.icon-download:before {
+  content: "\e937";
+}
+.icon-check:before {
+  content: "\e936";
+}
+.icon-double-arrow:before {
+  content: "\e935";
+}
+.icon-pin:before {
+  content: "\e934";
+}
+.icon-worldwide:before {
+  content: "\e92f";
+}
+.icon-trophy:before {
+  content: "\e930";
+}
+.icon-management:before {
+  content: "\e931";
+}
+.icon-closure:before {
+  content: "\e932";
+}
+.icon-check-box:before {
+  content: "\e933";
+}
+.icon-close:before {
+  content: "\e92e";
+}
+.icon-long-arrow-right:before {
+  content: "\e92d";
+}
+.icon-comments-icon:before {
+  content: "\e92a";
+}
+.icon-user:before {
+  content: "\e92b";
+}
+.icon-telephone:before {
+  content: "\e900";
+}
+.icon-phone-call:before {
+  content: "\e901";
+}
+.icon-facebook:before {
+  content: "\e902";
+}
+.icon-twitter:before {
+  content: "\e903";
+}
+.icon-social-media:before {
+  content: "\e904";
+}
+.icon-youtube:before {
+  content: "\e905";
+}
+.icon-clock:before {
+  content: "\e906";
+}
+.icon-email:before {
+  content: "\e907";
+}
+.icon-cart:before {
+  content: "\e908";
+}
+.icon-trolley:before {
+  content: "\e909";
+}
+.icon-search:before {
+  content: "\e90a";
+}
+.icon-menu:before {
+  content: "\e90b";
+}
+.icon-interface:before {
+  content: "\e90c";
+}
+.icon-right:before {
+  content: "\e90d";
+}
+.icon-arrow-point-to-right:before {
+  content: "\e90e";
+}
+.icon-arrow-point-to-up:before {
+  content: "\e90f";
+}
+.icon-arrow-point-to-down:before {
+  content: "\e910";
+}
+.icon-arrow-point-to-left:before {
+  content: "\e911";
+}
+.icon-solar-panel:before {
+  content: "\e912";
+}
+.icon-checked:before {
+  content: "\e913";
+}
+.icon-street-light:before {
+  content: "\e914";
+}
+.icon-traffic:before {
+  content: "\e915";
+}
+.icon-street-light-1:before {
+  content: "\e916";
+}
+.icon-solar-panel-1:before {
+  content: "\e917";
+}
+.icon-battery-charge:before {
+  content: "\e918";
+}
+.icon-eco-house:before {
+  content: "\e919";
+}
+.icon-renewable-energy:before {
+  content: "\e91a";
+}
+.icon-play:before {
+  content: "\e91b";
+}
+.icon-quotes:before {
+  content: "\e91c";
+}
+.icon-double-quotes:before {
+  content: "\e91d";
+}
+.icon-star:before {
+  content: "\e91e";
+}
+.icon-solar-house:before {
+  content: "\e91f";
+}
+.icon-system:before {
+  content: "\e920";
+}
+.icon-solar-system:before {
+  content: "\e921";
+}
+.icon-instagram:before {
+  content: "\e922";
+}
+.icon-mail:before {
+  content: "\e923";
+}
+.icon-solar-panels:before {
+  content: "\e924";
+}
+.icon-heater:before {
+  content: "\e925";
+}
+.icon-plus:before {
+  content: "\e926";
+}
+.icon-sun-energy:before {
+  content: "\e927";
+}
+.icon-quotation:before {
+  content: "\e928";
+}
+.icon-video-editing:before {
+  content: "\e929";
+}
+.icon-bubble:before {
+  content: "\e92c";
+}

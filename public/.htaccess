@@ -1,0 +1,8 @@
+# Hostinger Next.js Static Export Configuration
+# Route 404 errors to the pre-rendered 404 page
+ErrorDocument 404 /404.html
+
+# Enable compression for faster load times
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
