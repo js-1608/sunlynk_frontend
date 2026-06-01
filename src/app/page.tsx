@@ -2,16 +2,20 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Hero from "@/components/Hero";
+import HeroV2 from "@/components/HeroV2";
+import TrustBar from "@/components/TrustBar";
+import ProblemSection from "@/components/ProblemSection";
+import ProductsPreview from "@/components/ProductsPreview";
 import FaqAccordion from "@/components/FaqAccordion";
 import StatsCounter from "@/components/StatsCounter";
 import productsData from "@/data/products.json";
-import { 
-  Sun, 
-  Wind, 
-  BatteryCharging, 
-  Trophy, 
-  Globe, 
-  Activity, 
+import {
+  Sun,
+  Wind,
+  BatteryCharging,
+  Trophy,
+  Globe,
+  Activity,
   ArrowRight
 } from "lucide-react";
 
@@ -64,105 +68,153 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <Hero />
+      {/* <Hero /> */}
 
-      {/* About Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Side: Experience Badge & Image */}
-          <div className="relative flex justify-center">
-            <div className="relative w-full max-w-[500px] aspect-square rounded-2xl overflow-hidden border border-gray-100 shadow-xl">
-              <Image 
-                src="/assets/IMAGE/solar.jpg" 
-                alt="SunLynkSolar Panels" 
-                fill 
-                className="object-cover"
-              />
-            </div>
-            
-            {/* Experience Box */}
-            <div className="absolute -bottom-6 -left-4 bg-primary text-white p-6 rounded-2xl shadow-xl flex items-center gap-4 max-w-[240px]">
-              <span className="text-5xl font-black">10+</span>
-              <span className="text-sm font-semibold leading-tight uppercase tracking-wider">
-                Years of Solar Experience
-              </span>
-            </div>
-          </div>
+      <HeroV2 />
 
-          {/* Right Side: Content */}
-          <div className="flex flex-col gap-5">
+
+
+
+
+      {/* Trust Bar — 4 Pillars */}
+      <TrustBar />
+
+      {/* Services Grid Section */}
+      <section className="py-24 bg-gradient-to-b from-gray-50 to-white border-b border-gray-100 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center gap-4">
             <div className="inline-flex items-center gap-2">
-              <Sun className="text-primary" size={20} />
-              <span className="text-xs uppercase tracking-wider font-bold text-primary">About Us</span>
+              <span className="h-[2px] w-6 bg-primary"></span>
+              <span className="text-xs uppercase tracking-wider font-bold text-primary">Our Solutions</span>
+              <span className="h-[2px] w-6 bg-primary"></span>
             </div>
-            
-            <h2 className="text-3xl md:text-4xl font-extrabold text-dark leading-tight">
-              SunLynk Solar – Innovating Renewable Energy with Smart Solutions
+            <h2 className="text-3xl md:text-4xl font-extrabold text-dark">
+              Solar for Every Need
             </h2>
-            
-            <p className="text-base text-gray-700 font-semibold leading-relaxed">
-              We are a leading solar PV product distributor and solar product specialists for residential & commercial headquartered in New Delhi, India.
+            <p className="text-sm sm:text-base text-gray-500 max-w-2xl leading-relaxed mt-2">
+              Whether it&apos;s your home, your society, or your business — we design custom solar solutions that slash electricity costs and deliver long-term value.
             </p>
-            
-            <p className="text-sm text-gray-600 leading-relaxed">
-              SunLynk Solar is a leading provider of weather stations, solar forecasting, SCADA, and energy storage solutions (ESS) for the renewable energy sector. With a commitment to innovation, precision, and sustainability, we empower solar and wind energy projects with advanced monitoring, control, and automation technologies.
-            </p>
-            <p className="text-sm text-gray-600 leading-relaxed">
-              Our solutions enhance efficiency, optimize performance, and enable seamless grid integration, ensuring reliable, data-driven energy management. Backed by deep industry expertise and a forward-thinking approach, SunLynk Solar is shaping the future of smart renewable energy solutions.
-            </p>
-
-            <Link href="/about" className="btn-primary self-start mt-2">
-              <span>More About Us</span>
-              <ArrowRight size={16} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Solar Bar Quick Services */}
-      <section className="py-8 bg-gray-50 border-y border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-          
-          {/* Card 1 */}
-          <div className="flex items-center gap-4 p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-            <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary shrink-0">
-              <Wind size={28} />
-            </div>
-            <div>
-              <h4 className="font-bold text-gray-800 text-lg">Weather Stations</h4>
-              <p className="text-xs text-gray-500 mt-1">High fidelity Class-A meteorological setups</p>
-            </div>
           </div>
 
-          {/* Card 2 */}
-          <div className="flex items-center gap-4 p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-            <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary shrink-0">
-              <Sun size={28} />
-            </div>
-            <div>
-              <h4 className="font-bold text-gray-800 text-lg">Solar SCADA & Forecast</h4>
-              <p className="text-xs text-gray-500 mt-1">Universal connectivity and scheduling models</p>
-            </div>
-          </div>
+          {/* Services Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
 
-          {/* Card 3 */}
-          <div className="flex items-center gap-4 p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-            <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary shrink-0">
-              <BatteryCharging size={28} />
+            {/* Card 1: Homes */}
+            <div className="group relative bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-500 overflow-hidden flex flex-col">
+              {/* Image Header */}
+              <div className="relative h-52 overflow-hidden">
+                <Image
+                  src="/assets/images/service/solar_homes.png"
+                  alt="Solar panels on a modern home rooftop"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                {/* Stat Badge */}
+                <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm text-emerald-700 text-xs font-extrabold py-1.5 px-3 rounded-full shadow-sm z-10">
+                  Save up to 90%
+                </div>
+              </div>
+
+              {/* Card Body */}
+              <div className="p-6 sm:p-8 flex flex-col flex-grow gap-4">
+                <h3 className="text-xl font-extrabold text-gray-900 group-hover:text-primary transition-colors duration-300">
+                  Homes
+                </h3>
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed flex-grow">
+                  Save up to 90% on your home electricity bills. Our rooftop solar systems are designed for maximum generation, backed by government subsidies, and installed hassle-free — so you start saving from day one.
+                </p>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-primary-hover transition-colors duration-300 mt-auto pt-2 group/btn"
+                >
+                  <span>Know More</span>
+                  <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform duration-300" />
+                </Link>
+              </div>
             </div>
-            <div>
-              <h4 className="font-bold text-gray-800 text-lg">Inverters & BESS</h4>
-              <p className="text-xs text-gray-500 mt-1">Grid-connected conversion and battery storage</p>
+
+            {/* Card 2: Housing Societies */}
+            <div className="group relative bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-500 overflow-hidden flex flex-col">
+              {/* Image Header */}
+              <div className="relative h-52 overflow-hidden">
+                <Image
+                  src="/assets/images/service/solar_housing_society.png"
+                  alt="Housing society with rooftop solar installation"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                {/* Stat Badge */}
+                <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm text-emerald-700 text-xs font-extrabold py-1.5 px-3 rounded-full shadow-sm z-10">
+                  Long Term Value
+                </div>
+              </div>
+
+              {/* Card Body */}
+              <div className="p-6 sm:p-8 flex flex-col flex-grow gap-4">
+                <h3 className="text-xl font-extrabold text-gray-900 group-hover:text-primary transition-colors duration-300">
+                  Housing Societies
+                </h3>
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed flex-grow">
+                  Reduce common-area power costs and add long-term value to your society. We install shared solar systems for lifts, pumps, lighting, and EV charging — cutting your maintenance bills significantly.
+                </p>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-primary-hover transition-colors duration-300 mt-auto pt-2 group/btn"
+                >
+                  <span>Know More</span>
+                  <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform duration-300" />
+                </Link>
+              </div>
             </div>
+
+            {/* Card 3: Commercial */}
+            <div className="group relative bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-500 overflow-hidden flex flex-col">
+              {/* Image Header */}
+              <div className="relative h-52 overflow-hidden">
+                <Image
+                  src="/assets/images/service/solar_commercial.png"
+                  alt="Commercial building with solar panel installation"
+                  fill
+                  className="object-cover transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                {/* Stat Badge */}
+                <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm text-indigo-700 text-xs font-extrabold py-1.5 px-3 rounded-full shadow-sm z-10">
+                  Green Energy
+                </div>
+              </div>
+
+              {/* Card Body */}
+              <div className="p-6 sm:p-8 flex flex-col flex-grow gap-4">
+                <h3 className="text-xl font-extrabold text-gray-900 group-hover:text-primary transition-colors duration-300">
+                  Commercial
+                </h3>
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed flex-grow">
+                  Power your business with green energy and save on costs. From factories to office complexes, our commercial solar systems are engineered for high performance, quick ROI, and energy independence.
+                </p>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-primary-hover transition-colors duration-300 mt-auto pt-2 group/btn"
+                >
+                  <span>Know More</span>
+                  <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform duration-300" />
+                </Link>
+              </div>
+            </div>
+
           </div>
 
         </div>
       </section>
 
       {/* Services Grid Section */}
-      <section className="py-24 bg-white border-b border-gray-100">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto ">
-          
+
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-20 flex flex-col items-center gap-4">
             <div className="inline-flex items-center gap-2">
@@ -179,10 +231,10 @@ export default function Home() {
           </div>
 
           {/* 4-Quadrant Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 max-w-7xl mx-auto overflow-hidden  bg-white">
-            
+          <div className="grid grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto overflow-hidden  bg-white">
+
             {/* Quadrant 1: Residential Solar */}
-            <div className="border-b md:border-r md:border-b border-gray-400 p-8 sm:p-12 hover:bg-slate-50/50 transition-all duration-300 group flex flex-col gap-6">
+            <div className="md:border-r  border-gray-400 p-8 sm:p-12 hover:bg-slate-50/50 transition-all duration-300 group flex flex-col gap-6">
               <div className="text-gray-800 group-hover:text-primary transition-colors duration-300 shrink-0">
                 <svg className="w-10 h-10" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <rect x="13" y="3" width="7" height="7" rx="1.5" />
@@ -201,7 +253,7 @@ export default function Home() {
             </div>
 
             {/* Quadrant 2: Commercial & Industrial */}
-            <div className="border-b border-gray-400 p-8 sm:p-12 hover:bg-slate-50/50 transition-all duration-300 group flex flex-col gap-6">
+            <div className="border-gray-400 p-8 sm:p-12 hover:bg-slate-50/50 transition-all duration-300 group flex flex-col gap-6">
               <div className="text-gray-800 group-hover:text-primary transition-colors duration-300 shrink-0">
                 <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
                   <rect x="4" y="4" width="7" height="16" rx="1.5" />
@@ -220,7 +272,7 @@ export default function Home() {
             </div>
 
             {/* Quadrant 3: Solar Panel Installation */}
-            <div className="border-b md:border-b-0 md:border-r border-gray-400 p-8 sm:p-12 hover:bg-slate-50/50 transition-all duration-300 group flex flex-col gap-6">
+            <div className="md:border-l border-gray-400 p-8 sm:p-12 hover:bg-slate-50/50 transition-all duration-300 group flex flex-col gap-6">
               <div className="text-gray-800 group-hover:text-primary transition-colors duration-300 shrink-0">
                 <svg className="w-10 h-10" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <text x="0" y="8" className="text-[8px] font-black fill-current" fontFamily="Inter, sans-serif">01</text>
@@ -237,105 +289,22 @@ export default function Home() {
                 </p>
               </div>
             </div>
-
-            {/* Quadrant 4: Scalable Solutions */}
-            <div className="p-8 sm:p-12 hover:bg-slate-50/50 transition-all duration-300 group flex flex-col gap-6">
-              <div className="text-gray-800 group-hover:text-primary transition-colors duration-300 shrink-0">
-                <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 3H3v6M3 3l6 6" />
-                  <path d="M15 3h6v6M21 3l-6 6" />
-                  <path d="M9 21H3v-6M3 21l6-6" />
-                  <path d="M15 21h6v-6M21 21l-6-6" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">
-                  Scalable Solutions
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
-                  Flexible solar systems designed to grow with your energy needs and adapt to future expansion.
-                </p>
-              </div>
-            </div>
-
           </div>
 
         </div>
       </section>
 
-      {/* Products Grid Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
-            <div className="inline-flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-primary"></span>
-              <span className="text-xs uppercase tracking-wider font-bold text-primary">Our Products</span>
-              <span className="h-[2px] w-6 bg-primary"></span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-dark">
-              A System You Can Count On
-            </h2>
-            <p className="text-sm text-gray-500 leading-relaxed">
-              We distribute the most bankable technology & products for the success of your solar business.
-            </p>
-          </div>
+      {/* Problem Section — Why SunLynk */}
+      <ProblemSection />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {featuredProducts.map((prod) => (
-              <div 
-                key={prod.id} 
-                className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col h-full group"
-              >
-                {/* Image */}
-                <div className="relative w-full aspect-[4/3] bg-gray-50 overflow-hidden">
-                  <Image 
-                    src={prod.image} 
-                    alt={prod.title} 
-                    fill 
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute top-3 left-3 bg-primary text-white text-[10px] uppercase font-bold py-1 px-2.5 rounded-full">
-                    {prod.categoryName}
-                  </div>
-                </div>
 
-                {/* Details */}
-                <div className="p-5 flex flex-col justify-between flex-grow">
-                  <div>
-                    <h4 className="font-bold text-gray-800 text-base mb-2 group-hover:text-primary transition-colors">
-                      {prod.title}
-                    </h4>
-                    <p className="text-xs text-gray-500 line-clamp-3">
-                      {prod.features[0]}
-                    </p>
-                  </div>
-                  <div className="border-t border-gray-100 pt-4 mt-4 flex justify-between items-center">
-                    <span className="text-xs font-bold text-primary">{prod.powerRange}</span>
-                    <Link 
-                      href={`/products/${prod.slug}`} 
-                      className="text-xs font-bold text-dark hover:text-primary transition-colors flex items-center gap-1"
-                    >
-                      <span>View Details</span>
-                      <ArrowRight size={12} />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="flex justify-center mt-12">
-            <Link href="/products/n-type-bifacial-double-glass" className="btn-secondary">
-              <span>View All Products</span>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Products Preview — Lynk Lite & Lynk Sure */}
+      <ProductsPreview />
 
       {/* We Handle Everything Section */}
       <section className="py-24 bg-gray-50 border-y border-gray-100 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          
+
           {/* Left Column: Text Content and Process Timeline */}
           <div className="lg:col-span-7 flex flex-col gap-10">
             <div className="flex flex-col gap-4">
@@ -349,10 +318,10 @@ export default function Home() {
                 <span className="text-primary font-black">You Just Save.</span>
               </h2>
             </div>
-            
+
             {/* Timeline wrapper */}
             <div className="relative pl-12  space-y-10 py-2">
-              
+
               {/* Timeline Connector Line Glow */}
               {/* <div className="absolute left-[-1.5px] top-4 bottom-4 w-[3px] bg-gradient-to-b from-primary via-primary/50 to-primary/10 pointer-events-none" /> */}
 
@@ -427,27 +396,155 @@ export default function Home() {
 
             </div>
           </div>
-          
+
           {/* Right Column: Visual Image with floating badges */}
           <div className="lg:col-span-5 relative flex justify-center">
             <div className="relative w-full max-w-[480px] aspect-[4/5] rounded-3xl overflow-hidden border border-gray-100 shadow-2xl group">
-              <Image 
-                src="/assets/images/solar_consultation.png" 
-                alt="SunLynk Solar Process Consultation" 
-                fill 
+              <Image
+                src="/assets/images/solar_consultation.png"
+                alt="SunLynk Solar Process Consultation"
+                fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              
+
               {/* Dynamic Overlay glow */}
               {/* <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/10 to-transparent opacity-60 group-hover:opacity-75 transition-opacity duration-300" /> */}
-            </div>           
+            </div>
           </div>
 
         </div>
       </section>
 
+
+
+
+
+
+
+
+      {/* Products Grid Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
+            <div className="inline-flex items-center gap-2">
+              <span className="h-[2px] w-6 bg-primary"></span>
+              <span className="text-xs uppercase tracking-wider font-bold text-primary">Our Products</span>
+              <span className="h-[2px] w-6 bg-primary"></span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-dark">
+              A System You Can Count On
+            </h2>
+            <p className="text-sm text-gray-500 leading-relaxed">
+              We distribute the most bankable technology & products for the success of your solar business.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {featuredProducts.map((prod) => (
+              <div
+                key={prod.id}
+                className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col h-full group"
+              >
+                {/* Image */}
+                <div className="relative w-full aspect-[4/3] bg-gray-50 overflow-hidden">
+                  <Image
+                    src={prod.image}
+                    alt={prod.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute top-3 left-3 bg-primary text-white text-[10px] uppercase font-bold py-1 px-2.5 rounded-full">
+                    {prod.categoryName}
+                  </div>
+                </div>
+
+                {/* Details */}
+                <div className="p-5 flex flex-col justify-between flex-grow">
+                  <div>
+                    <h4 className="font-bold text-gray-800 text-base mb-2 group-hover:text-primary transition-colors">
+                      {prod.title}
+                    </h4>
+                    <p className="text-xs text-gray-500 line-clamp-3">
+                      {prod.features[0]}
+                    </p>
+                  </div>
+                  <div className="border-t border-gray-100 pt-4 mt-4 flex justify-between items-center">
+                    <span className="text-xs font-bold text-primary">{prod.powerRange}</span>
+                    <Link
+                      href={`/products/${prod.slug}`}
+                      className="text-xs font-bold text-dark hover:text-primary transition-colors flex items-center gap-1"
+                    >
+                      <span>View Details</span>
+                      <ArrowRight size={12} />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex justify-center mt-12">
+            <Link href="/products/n-type-bifacial-double-glass" className="btn-secondary">
+              <span>View All Products</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+
+
       {/* Stats Counter Section */}
       <StatsCounter />
+
+      {/* About Section */}
+      {/* <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="relative flex justify-center">
+            <div className="relative w-full max-w-[500px] aspect-square rounded-2xl overflow-hidden border border-gray-100 shadow-xl">
+              <Image 
+                src="/assets/IMAGE/solar.jpg" 
+                alt="SunLynkSolar Panels" 
+                fill 
+                className="object-cover"
+              />
+            </div>
+            
+            <div className="absolute -bottom-6 -left-4 bg-primary text-white p-6 rounded-2xl shadow-xl flex items-center gap-4 max-w-[240px]">
+              <span className="text-5xl font-black">10+</span>
+              <span className="text-sm font-semibold leading-tight uppercase tracking-wider">
+                Years of Solar Experience
+              </span>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-5">
+            <div className="inline-flex items-center gap-2">
+              <Sun className="text-primary" size={20} />
+              <span className="text-xs uppercase tracking-wider font-bold text-primary">About Us</span>
+            </div>
+            
+            <h2 className="text-3xl md:text-4xl font-extrabold text-dark leading-tight">
+              SunLynk Solar – Innovating Renewable Energy with Smart Solutions
+            </h2>
+            
+            <p className="text-base text-gray-700 font-semibold leading-relaxed">
+              We are a leading solar PV product distributor and solar product specialists for residential & commercial headquartered in New Delhi, India.
+            </p>
+            
+            <p className="text-sm text-gray-600 leading-relaxed">
+              SunLynk Solar is a leading provider of weather stations, solar forecasting, SCADA, and energy storage solutions (ESS) for the renewable energy sector. With a commitment to innovation, precision, and sustainability, we empower solar and wind energy projects with advanced monitoring, control, and automation technologies.
+            </p>
+            <p className="text-sm text-gray-600 leading-relaxed">
+              Our solutions enhance efficiency, optimize performance, and enable seamless grid integration, ensuring reliable, data-driven energy management. Backed by deep industry expertise and a forward-thinking approach, SunLynk Solar is shaping the future of smart renewable energy solutions.
+            </p>
+
+            <Link href="/about" className="btn-primary self-start mt-2">
+              <span>More About Us</span>
+              <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section> */}
 
       {/* Work Process */}
       <section className="py-20 bg-gray-50">
@@ -464,7 +561,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-            
+
             {/* Step 1 */}
             <div className="bg-white p-8 rounded-xl border border-gray-100 shadow-sm relative group flex flex-col gap-4">
               <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-lg">
@@ -508,19 +605,19 @@ export default function Home() {
           {/* Left Side: Images */}
           <div className="grid grid-cols-2 gap-4">
             <div className="relative aspect-[3/4] rounded-xl overflow-hidden border border-gray-100 shadow-md">
-              <Image 
-                src="/assets/IMAGE/solar.jpg" 
-                alt="Faq Intro" 
-                fill 
+              <Image
+                src="/assets/IMAGE/solar.jpg"
+                alt="Faq Intro"
+                fill
                 className="object-cover"
               />
             </div>
             <div className="flex flex-col gap-4 justify-between">
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-gray-100 shadow-md">
-                <Image 
-                  src="/assets/IMAGE/forecasting.jpg" 
-                  alt="Faq Detail" 
-                  fill 
+                <Image
+                  src="/assets/IMAGE/forecasting.jpg"
+                  alt="Faq Detail"
+                  fill
                   className="object-cover"
                 />
               </div>
@@ -557,7 +654,7 @@ export default function Home() {
       {/* Blogs Section */}
       <section className="py-24 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          
+
           {/* Header */}
           <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
             <div className="inline-flex items-center gap-2">
@@ -575,15 +672,15 @@ export default function Home() {
 
           {/* Blogs Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
+
             {/* Blog Post 1 */}
             <div className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col hover:shadow-xl hover:border-primary/20 hover:-translate-y-1 transition-all duration-300 group">
               {/* Image wrapper with scale hover */}
               <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-100">
-                <Image 
-                  src="/assets/images/blog_bifacial_panels.png" 
-                  alt="Bifacial Solar Technology" 
-                  fill 
+                <Image
+                  src="/assets/images/blog_bifacial_panels.png"
+                  alt="Bifacial Solar Technology"
+                  fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute top-4 left-4 bg-primary text-white text-[10px] uppercase font-bold py-1 px-3 rounded-full tracking-wider shadow-sm">
@@ -602,8 +699,8 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="border-t border-gray-50 pt-4 mt-auto">
-                  <Link 
-                    href="/blog" 
+                  <Link
+                    href="/blog"
                     className="text-xs font-bold text-dark hover:text-primary transition-colors flex items-center gap-1.5"
                   >
                     <span>Read Article</span>
@@ -616,10 +713,10 @@ export default function Home() {
             {/* Blog Post 2 */}
             <div className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col hover:shadow-xl hover:border-primary/20 hover:-translate-y-1 transition-all duration-300 group">
               <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-100">
-                <Image 
-                  src="/assets/images/blog_weather_station.png" 
-                  alt="Class-A Weather Monitoring" 
-                  fill 
+                <Image
+                  src="/assets/images/blog_weather_station.png"
+                  alt="Class-A Weather Monitoring"
+                  fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute top-4 left-4 bg-primary text-white text-[10px] uppercase font-bold py-1 px-3 rounded-full tracking-wider shadow-sm">
@@ -637,8 +734,8 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="border-t border-gray-50 pt-4 mt-auto">
-                  <Link 
-                    href="/blog" 
+                  <Link
+                    href="/blog"
                     className="text-xs font-bold text-dark hover:text-primary transition-colors flex items-center gap-1.5"
                   >
                     <span>Read Article</span>
@@ -651,10 +748,10 @@ export default function Home() {
             {/* Blog Post 3 */}
             <div className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col hover:shadow-xl hover:border-primary/20 hover:-translate-y-1 transition-all duration-300 group">
               <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-100">
-                <Image 
-                  src="/assets/images/blog_battery_storage.png" 
-                  alt="Battery Storage Integration" 
-                  fill 
+                <Image
+                  src="/assets/images/blog_battery_storage.png"
+                  alt="Battery Storage Integration"
+                  fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute top-4 left-4 bg-primary text-white text-[10px] uppercase font-bold py-1 px-3 rounded-full tracking-wider shadow-sm">
@@ -672,8 +769,8 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="border-t border-gray-50 pt-4 mt-auto">
-                  <Link 
-                    href="/blog" 
+                  <Link
+                    href="/blog"
                     className="text-xs font-bold text-dark hover:text-primary transition-colors flex items-center gap-1.5"
                   >
                     <span>Read Article</span>
@@ -712,14 +809,14 @@ export default function Home() {
           {/* Grid Layout for Project Images */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {projectCases.map((proj, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="relative rounded-xl overflow-hidden aspect-[3/4] shadow-sm hover:shadow-lg hover:scale-[1.02] transition-all duration-300 group cursor-pointer"
               >
-                <Image 
-                  src={proj.src} 
-                  alt={proj.title} 
-                  fill 
+                <Image
+                  src={proj.src}
+                  alt={proj.title}
+                  fill
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent flex flex-col justify-end p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -735,7 +832,7 @@ export default function Home() {
       {/* Google Review Section */}
       <section className="py-24 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          
+
           {/* Header Area */}
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mb-16 border-b border-gray-100 pb-10">
             <div className="max-w-2xl">
@@ -757,10 +854,10 @@ export default function Home() {
               {/* Google G Logo inside clean rounded box */}
               <div className="w-12 h-12 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center shrink-0">
                 <svg className="w-6 h-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
-                  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"/>
+                  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
+                  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+                  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05" />
+                  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335" />
                 </svg>
               </div>
               <div>
@@ -769,7 +866,7 @@ export default function Home() {
                   <div className="flex text-[#fca311]">
                     {[...Array(5)].map((_, i) => (
                       <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
                     ))}
                   </div>
@@ -783,7 +880,7 @@ export default function Home() {
 
           {/* Testimonial Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            
+
             {/* Card 1 */}
             <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 flex flex-col justify-between group">
               <div>
@@ -792,23 +889,23 @@ export default function Home() {
                   <div className="flex text-[#fca311]">
                     {[...Array(5)].map((_, i) => (
                       <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
                     ))}
                   </div>
                   {/* Google G logo tiny */}
                   <svg className="w-4 h-4 opacity-50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
-                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"/>
+                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
+                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05" />
+                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335" />
                   </svg>
                 </div>
                 <p className="text-gray-600 text-sm leading-relaxed mb-6 text-justify">
                   &quot;Excellent experience with SunLynk Solar. The weather monitoring SCADA system they set up for our commercial PV rooftop has been flawless. Customer support is very prompt and technical expert advice was valuable.&quot;
                 </p>
               </div>
-              
+
               {/* User details */}
               <div className="flex items-center gap-3 border-t border-gray-50 pt-4">
                 <div className="w-10 h-10 bg-primary/10 text-primary font-bold rounded-full flex items-center justify-center shrink-0">
@@ -828,22 +925,22 @@ export default function Home() {
                   <div className="flex text-[#fca311]">
                     {[...Array(5)].map((_, i) => (
                       <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
                     ))}
                   </div>
                   <svg className="w-4 h-4 opacity-50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
-                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"/>
+                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
+                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05" />
+                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335" />
                   </svg>
                 </div>
                 <p className="text-gray-600 text-sm leading-relaxed mb-6 text-justify">
                   &quot;Best solar product distributor in Delhi! They offered highly competitive pricing for bifacial N-type double glass modules. Fast delivery, perfect condition, and seamless Modbus connectivity guidelines.&quot;
                 </p>
               </div>
-              
+
               {/* User details */}
               <div className="flex items-center gap-3 border-t border-gray-50 pt-4">
                 <div className="w-10 h-10 bg-secondary/10 text-secondary font-bold rounded-full flex items-center justify-center shrink-0">
@@ -863,22 +960,22 @@ export default function Home() {
                   <div className="flex text-[#fca311]">
                     {[...Array(5)].map((_, i) => (
                       <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
                     ))}
                   </div>
                   <svg className="w-4 h-4 opacity-50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
-                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"/>
+                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
+                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05" />
+                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335" />
                   </svg>
                 </div>
                 <p className="text-gray-600 text-sm leading-relaxed mb-6 text-justify">
                   &quot;Superb installation and paperwork support for solar subsidy. Highly professional team, they handled all the government approvals without me having to follow up even once. Excellent solar energy generation!&quot;
                 </p>
               </div>
-              
+
               {/* User details */}
               <div className="flex items-center gap-3 border-t border-gray-50 pt-4">
                 <div className="w-10 h-10 bg-dark text-white font-bold rounded-full flex items-center justify-center shrink-0">
@@ -898,22 +995,22 @@ export default function Home() {
                   <div className="flex text-[#fca311]">
                     {[...Array(5)].map((_, i) => (
                       <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
                     ))}
                   </div>
                   <svg className="w-4 h-4 opacity-50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
-                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"/>
+                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
+                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05" />
+                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335" />
                   </svg>
                 </div>
                 <p className="text-gray-600 text-sm leading-relaxed mb-6 text-justify">
                   &quot;Very pleased with the residential hybrid inverter and energy storage setup. It has been running for 6 months now without any issues, saving us 80% on bills! Highly recommend SunLynk Solar.&quot;
                 </p>
               </div>
-              
+
               {/* User details */}
               <div className="flex items-center gap-3 border-t border-gray-50 pt-4">
                 <div className="w-10 h-10 bg-blue-100 text-blue-600 font-bold rounded-full flex items-center justify-center shrink-0">
@@ -931,10 +1028,10 @@ export default function Home() {
           {/* Call to action at bottom of reviews */}
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-12 pt-8 border-t border-gray-50">
             <span className="text-sm text-gray-500 font-medium">Are you a satisfied customer?</span>
-            <a 
-              href="https://google.com" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://google.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-primary-hover transition-colors"
             >
               <span>Write a Google Review</span>
@@ -946,7 +1043,7 @@ export default function Home() {
       </section>
 
       {/* Client Logos Carousel Section */}
-      <section className="py-16 bg-white border-t border-gray-100">
+      {/* <section className="py-16 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="flex flex-wrap items-center justify-center gap-12 md:gap-16 opacity-75 grayscale hover:grayscale-0 transition-all duration-300">
             {clientLogos.map((logo, idx) => (
@@ -961,7 +1058,8 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
+
     </div>
   );
 }

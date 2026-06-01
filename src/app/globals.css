@@ -26,6 +26,35 @@
       background-position: 100% 50%;
     }
   }
+
+  @keyframes sunPulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.08);
+    }
+  }
+
+  @keyframes sunSpin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes sunGlow {
+    0%, 100% {
+      opacity: 0.2;
+      r: 20;
+    }
+    50% {
+      opacity: 0.45;
+      r: 25;
+    }
+  }
 }
 
 .solar-sweep-bg {

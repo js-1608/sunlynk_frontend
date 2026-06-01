@@ -57,31 +57,30 @@ export default function Header() {
             <Mail size={14} className="text-primary" />
             <span>info@SunLynkSolar.com</span>
           </a>
-          <a href="tel:+919711882204" className="hidden sm:flex items-center gap-1.5 hover:text-primary transition-colors">
+          <a href="tel:+919711882204" className="flex items-center gap-1.5 hover:text-primary transition-colors">
             <Phone size={14} className="text-primary" />
             <span>+91 8922036792</span>
           </a>
         </div>
-        <div className="text-gray-400">
+        <div className="text-gray-400 hidden sm:flex ">
           <span>Hours: Mon - Sat: 9:00 AM - 6:30 PM (Sun Closed)</span>
         </div>
       </div>
 
       {/* Main Header */}
       <header
-        className={`w-full bg-white transition-all duration-300 z-50 ${
-          isSticky
-            ? "fixed top-0 left-0 shadow-lg border-b border-gray-100 py-3"
-            : "relative py-4"
-        }`}
+        className={`w-full  bg-white transition-all duration-300 z-50 border-b border-gray-300 ${isSticky
+          ? "fixed top-0 left-0 shadow-lg py-2"
+          : "relative py-2"
+          }`}
       >
-        <div className="max-w-7xl mx-auto px-4 md:px-8 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-4 md:px-4 flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="relative flex items-center">
             <Image
               src="/logo.png"
               alt="SunLynk Solar Logo"
-              width={180}
+              width={200}
               height={100}
               priority
               className="object-contain"
@@ -93,17 +92,15 @@ export default function Header() {
           <nav className="hidden lg:flex items-center gap-6 text-md">
             <Link
               href="/"
-              className={`font-semibold hover:text-primary transition-colors ${
-                pathname === "/" ? "text-primary" : "text-gray-800"
-              }`}
+              className={`font-semibold hover:text-primary transition-colors ${pathname === "/" ? "text-primary" : "text-gray-800"
+                }`}
             >
               Home
             </Link>
             <Link
               href="/brands"
-              className={`font-semibold hover:text-primary transition-colors ${
-                pathname === "/brands" ? "text-primary" : "text-gray-500"
-              }`}
+              className={`font-semibold hover:text-primary transition-colors ${pathname === "/brands" ? "text-primary" : "text-gray-500"
+                }`}
             >
               Our Brand
             </Link>
@@ -244,25 +241,22 @@ export default function Header() {
 
             <Link
               href="#"
-              className={`font-semibold hover:text-primary transition-colors ${
-                pathname === "/about" ? "text-primary" : "text-gray-800"
-              }`}
+              className={`font-semibold hover:text-primary transition-colors ${pathname === "/about" ? "text-primary" : "text-gray-800"
+                }`}
             >
               About us
             </Link>
             <Link
               href="#"
-              className={`font-semibold hover:text-primary transition-colors ${
-                pathname.startsWith("/blog") ? "text-primary" : "text-gray-800"
-              }`}
+              className={`font-semibold hover:text-primary transition-colors ${pathname.startsWith("/blog") ? "text-primary" : "text-gray-800"
+                }`}
             >
               Blog
             </Link>
             <Link
               href="/contact"
-              className={`font-semibold hover:text-primary transition-colors ${
-                pathname === "/contact" ? "text-primary" : "text-gray-800"
-              }`}
+              className={`font-semibold hover:text-primary transition-colors ${pathname === "/contact" ? "text-primary" : "text-gray-800"
+                }`}
             >
               Contact us
             </Link>
