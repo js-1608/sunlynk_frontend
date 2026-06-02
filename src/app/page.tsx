@@ -439,21 +439,6 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Advantage 3 */}
-                <div className="flex gap-4 group">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
-                    <Umbrella size={22} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900 text-[15px] sm:text-base mb-1 group-hover:text-primary transition-colors duration-300">
-                      Comprehensive Insurance
-                    </h4>
-                    <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">
-                      All-risk insurance coverage to protect your solar setup investment against unexpected accidents.
-                    </p>
-                  </div>
-                </div>
-
                 {/* Advantage 4 */}
                 <div className="flex gap-4 group">
                   <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
@@ -470,7 +455,7 @@ export default function Home() {
                 </div>
 
                 {/* Advantage 5 - spans full width on desktop */}
-                <div className="flex gap-4 group sm:col-span-2">
+                <div className="flex gap-4 group ">
                   <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
                     <Sun size={22} />
                   </div>
