@@ -65,7 +65,7 @@ export default function Brands() {
     <div>
       {/* Page Header */}
       <section className="relative bg-dark text-white py-16 overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center opacity-10 pointer-events-none"
           style={{ backgroundImage: "url(/assets/images/backgrounds/page-header-bg-1-1.jpg)" }}
         ></div>
@@ -81,9 +81,9 @@ export default function Brands() {
       </section>
 
       {/* Brands Info */}
-      <section className="py-20 bg-white">
+      <section className="py-18 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          
+
           {/* Top text */}
           <div className="max-w-3xl mx-auto text-center mb-16 flex flex-col gap-4">
             <div className="inline-flex items-center gap-2 justify-center">
@@ -101,19 +101,18 @@ export default function Brands() {
           {/* Brands grid */}
           <div className="flex flex-col gap-12">
             {brands.map((brand, idx) => (
-              <div 
-                key={idx} 
-                className={`bg-gray-50 border border-gray-100 rounded-2xl p-8 lg:p-12 shadow-sm hover:shadow-md transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center ${
-                  idx % 2 === 1 ? "lg:flex-row-reverse" : ""
-                }`}
+              <div
+                key={idx}
+                className={`bg-gray-50 border border-gray-100 rounded-2xl p-8 lg:p-12 shadow-sm hover:shadow-md transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center ${idx % 2 === 1 ? "lg:flex-row-reverse" : ""
+                  }`}
               >
                 {/* Brand Logo & Info */}
                 <div className="lg:col-span-4 flex flex-col items-center lg:items-start gap-4">
                   <div className="relative w-40 h-20 bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex items-center justify-center">
-                    <Image 
-                      src={brand.logo} 
-                      alt={brand.name} 
-                      fill 
+                    <Image
+                      src={brand.logo}
+                      alt={brand.name}
+                      fill
                       className="object-contain p-2"
                     />
                   </div>
@@ -128,7 +127,7 @@ export default function Brands() {
                   <p className="text-sm text-gray-600 leading-relaxed text-justify">
                     {brand.desc}
                   </p>
-                  
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
                     {brand.highlights.map((h, i) => (
                       <div key={i} className="flex items-center gap-2 text-sm text-gray-700">

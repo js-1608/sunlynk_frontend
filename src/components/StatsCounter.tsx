@@ -47,7 +47,7 @@ const StatCard: React.FC<StatItemProps> = ({ icon, target, prefix = "", suffix, 
     const animate = (timestamp: number) => {
       const elapsed = timestamp - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      
+
       // Easing out quadratic
       const easeProgress = progress * (2 - progress);
       const currentValue = Math.floor(easeProgress * target);
@@ -70,7 +70,7 @@ const StatCard: React.FC<StatItemProps> = ({ icon, target, prefix = "", suffix, 
   };
 
   return (
-    <div 
+    <div
       ref={cardRef}
       className="relative flex flex-col items-start p-8 bg-slate-50 border border-slate-100 rounded-2xl hover:border-primary/30 hover:shadow-lg transition-all duration-300 group overflow-hidden"
     >
@@ -80,7 +80,7 @@ const StatCard: React.FC<StatItemProps> = ({ icon, target, prefix = "", suffix, 
       </div>
 
       <div className="flex flex-col items-start mt-6">
-        <span className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight tracking-tight select-none">
+        <span className="text-xl md:text-2xl font-extrabold text-gray-900 leading-tight tracking-tight select-none">
           {prefix}{formatNumber(count)}{suffix}
         </span>
         <span className="text-sm font-semibold text-gray-500 mt-2">
@@ -93,10 +93,10 @@ const StatCard: React.FC<StatItemProps> = ({ icon, target, prefix = "", suffix, 
 
 export default function StatsCounter() {
   return (
-    <section className="relative py-20 bg-white border-y border-gray-100 overflow-hidden">
-      
+    <section className="relative py-18 bg-white border-y border-gray-100 overflow-hidden">
+
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-        
+
         {/* Title matches screenshot */}
         <h2 className="text-3xl md:text-4xl font-extrabold text-dark text-center mb-12 tracking-tight">
           Powering Homes Across India
@@ -104,32 +104,32 @@ export default function StatsCounter() {
 
         {/* 4 Stats Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <StatCard 
-            icon={<Home size={22} />} 
-            target={40000} 
-            suffix="+" 
-            label="Homes Solarized" 
+          <StatCard
+            icon={<Home size={22} />}
+            target={40000}
+            suffix="+"
+            label="Homes Solarized"
             useComma={true}
           />
-          <StatCard 
-            icon={<Sun size={22} />} 
-            target={150} 
-            suffix="+ MW" 
-            label="Power Installed" 
+          <StatCard
+            icon={<Sun size={22} />}
+            target={150}
+            suffix="+ MW"
+            label="Power Installed"
           />
-          <StatCard 
-            icon={<IndianRupee size={22} />} 
-            target={250} 
+          <StatCard
+            icon={<IndianRupee size={22} />}
+            target={250}
             prefix="₹"
-            suffix="+ Cr" 
-            label="Subsidy Delivered" 
+            suffix="+ Cr"
+            label="Subsidy Delivered"
           />
-          <StatCard 
-            icon={<Shield size={22} />} 
-            target={1} 
+          <StatCard
+            icon={<Shield size={22} />}
+            target={1}
             prefix="#"
-            suffix=" Home Solar" 
-            label="On National Portal" 
+            suffix=" Home Solar"
+            label="On National Portal"
           />
         </div>
 
@@ -144,9 +144,9 @@ export default function StatsCounter() {
               We are present in 29 Cities across 9 States, and are growing every day.
             </p>
           </div>
-          <a 
-            href="/contact" 
-            className="w-full md:w-auto text-center bg-primary hover:bg-primary-hover text-white font-bold py-3.5 px-8 rounded-2xl transition-all duration-300 shadow-lg shadow-primary/15 hover:shadow-primary/25 shrink-0"
+          <a
+            href="/contact"
+            className="w-full md:w-auto text-center bg-primary hover:bg-primary-hover text-white font-bold py-3.5 px-8 rounded-lg transition-all duration-300 shadow-lg shadow-primary/15 hover:shadow-primary/25 shrink-0"
           >
             Unlock Your Solar Savings
           </a>

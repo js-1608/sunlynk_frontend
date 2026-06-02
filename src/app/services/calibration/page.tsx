@@ -29,7 +29,7 @@ export default function Calibration() {
     <div>
       {/* Page Header */}
       <section className="relative bg-dark text-white py-16 overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center opacity-10 pointer-events-none"
           style={{ backgroundImage: "url(/assets/images/backgrounds/page-header-bg-1-1.jpg)" }}
         ></div>
@@ -47,9 +47,9 @@ export default function Calibration() {
       </section>
 
       {/* Details */}
-      <section className="py-20 bg-white">
+      <section className="py-18 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
+
           {/* Left Column: text (col-span-7) */}
           <div className="lg:col-span-7 flex flex-col gap-6 text-left">
             <div className="inline-flex items-center gap-2">
@@ -91,10 +91,10 @@ export default function Calibration() {
 
           {/* Right Column: Image (col-span-5) */}
           <div className="lg:col-span-5 relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border border-gray-100 bg-gray-50">
-            <Image 
-              src="/assets/IMAGE/solar_scada.png" 
-              alt="Calibration testing" 
-              fill 
+            <Image
+              src="/assets/IMAGE/solar_scada.png"
+              alt="Calibration testing"
+              fill
               className="object-cover"
             />
           </div>
@@ -102,12 +102,12 @@ export default function Calibration() {
       </section>
 
       {/* Services breakdown list */}
-      <section className="py-20 bg-gray-50 border-t border-gray-100">
+      <section className="py-18 bg-gray-50 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((srv, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="bg-white p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3 text-left"
               >
                 <h4 className="text-lg font-bold text-gray-800">{srv.title}</h4>
@@ -123,8 +123,8 @@ export default function Calibration() {
                 Contact our service department to schedule sensor collection, tunnel validation, or request a technician visit.
               </p>
             </div>
-            <Link 
-              href="/contact" 
+            <Link
+              href="/contact"
               className="btn-primary shrink-0"
             >
               <span>Schedule Calibration</span>

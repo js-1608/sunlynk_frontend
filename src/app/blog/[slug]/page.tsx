@@ -30,7 +30,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
     <div>
       {/* Page Header */}
       <section className="relative bg-dark text-white py-16 overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center opacity-10 pointer-events-none"
           style={{ backgroundImage: "url(/assets/images/backgrounds/page-header-bg-1-1.jpg)" }}
         ></div>
@@ -48,17 +48,17 @@ export default async function BlogDetailPage({ params }: PageProps) {
       </section>
 
       {/* Main Details content */}
-      <section className="py-20 bg-white">
+      <section className="py-18 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
-          
+
           {/* Left Column: Post content (col-span-8) */}
           <div className="lg:col-span-8 flex flex-col gap-6 text-left">
             {/* Image */}
             <div className="relative w-full aspect-[16/9] bg-gray-50 rounded-2xl overflow-hidden shadow-md border border-gray-100">
-              <Image 
-                src={post.image} 
-                alt={post.title} 
-                fill 
+              <Image
+                src={post.image}
+                alt={post.title}
+                fill
                 className="object-cover"
               />
               <div className="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-md flex flex-col items-center shadow-md">
@@ -89,7 +89,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
             </h2>
 
             {/* HTML Body */}
-            <div 
+            <div
               className="text-sm md:text-base text-gray-700 leading-relaxed text-justify flex flex-col gap-4 mt-2"
               dangerouslySetInnerHTML={{ __html: post.content }}
             ></div>
@@ -102,7 +102,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
                   <span key={i} className="bg-gray-100 text-gray-600 px-3 py-1 rounded-md">{c}</span>
                 ))}
               </div>
-              
+
               <div className="flex items-center gap-2 flex-wrap">
                 <span className="font-bold text-gray-800 uppercase tracking-wider">Tags:</span>
                 {post.tags.map((t, i) => (
@@ -160,7 +160,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
                     </div>
                     <div className="flex-1 text-left min-w-0">
                       <span className="text-[10px] text-primary font-bold uppercase tracking-wider block">{rp.date}</span>
-                      <Link 
+                      <Link
                         href={`/blog/${rp.slug}`}
                         className="text-xs font-bold text-gray-700 hover:text-primary transition-colors line-clamp-2 mt-0.5"
                       >

@@ -40,7 +40,7 @@ export default function Warranty() {
     <div>
       {/* Page Header */}
       <section className="relative bg-dark text-white py-16 overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center opacity-10 pointer-events-none"
           style={{ backgroundImage: "url(/assets/images/backgrounds/page-header-bg-1-1.jpg)" }}
         ></div>
@@ -58,14 +58,14 @@ export default function Warranty() {
       </section>
 
       {/* Form Content */}
-      <section className="py-20 bg-white">
+      <section className="py-18 bg-white">
         <div className="max-w-4xl mx-auto px-4">
           <div className="bg-gray-50 border border-gray-100 p-8 rounded-2xl shadow-lg text-left">
             <div className="flex items-center gap-3 text-red-600 mb-6">
               <ShieldAlert size={28} />
               <h2 className="text-2xl font-bold text-gray-800">Register a Warranty Claim</h2>
             </div>
-            
+
             <p className="text-sm text-gray-600 mb-8 leading-relaxed">
               If your solar module, inverter, or weather station sensor is showing defects or performance drop under the warranty period, please fill out this claim form. Our service engineers will verify the claim criteria and contact you for replacement or repair service.
             </p>
@@ -83,8 +83,8 @@ export default function Warranty() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="flex flex-col gap-1.5">
                     <label htmlFor="name" className="text-sm font-semibold text-gray-700">Contact Name</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       id="name"
                       placeholder="Enter contact name"
                       value={formData.name}
@@ -95,8 +95,8 @@ export default function Warranty() {
                   </div>
                   <div className="flex flex-col gap-1.5">
                     <label htmlFor="email" className="text-sm font-semibold text-gray-700">Email Address</label>
-                    <input 
-                      type="email" 
+                    <input
+                      type="email"
                       id="email"
                       placeholder="Enter email address"
                       value={formData.email}
@@ -110,8 +110,8 @@ export default function Warranty() {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
                   <div className="flex flex-col gap-1.5">
                     <label htmlFor="phone" className="text-sm font-semibold text-gray-700">Phone Number</label>
-                    <input 
-                      type="tel" 
+                    <input
+                      type="tel"
                       id="phone"
                       placeholder="Enter phone number"
                       value={formData.phone}
@@ -122,8 +122,8 @@ export default function Warranty() {
                   </div>
                   <div className="flex flex-col gap-1.5 sm:col-span-2">
                     <label htmlFor="productSerial" className="text-sm font-semibold text-gray-700">Product Model / Serial Number</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       id="productSerial"
                       placeholder="e.g. DMEGC DM610 / S/N: 29384729"
                       value={formData.productSerial}
@@ -136,8 +136,8 @@ export default function Warranty() {
 
                 <div className="flex flex-col gap-1.5">
                   <label htmlFor="purchaseDate" className="text-sm font-semibold text-gray-700">Purchase / Installation Date</label>
-                  <input 
-                    type="date" 
+                  <input
+                    type="date"
                     id="purchaseDate"
                     value={formData.purchaseDate}
                     onChange={handleChange}
@@ -148,7 +148,7 @@ export default function Warranty() {
 
                 <div className="flex flex-col gap-1.5">
                   <label htmlFor="issueDescription" className="text-sm font-semibold text-gray-700">Detailed Defect / Issue Description</label>
-                  <textarea 
+                  <textarea
                     id="issueDescription"
                     rows={4}
                     placeholder="Describe the issue, degradation, or defect in detail..."
@@ -159,8 +159,8 @@ export default function Warranty() {
                   ></textarea>
                 </div>
 
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   className="btn-primary mt-2 flex items-center justify-center gap-2"
                 >
                   <Send size={16} />

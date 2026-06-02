@@ -35,7 +35,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
     <div>
       {/* Page Header */}
       <section className="relative bg-dark text-white py-16 overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center opacity-10 pointer-events-none"
           style={{ backgroundImage: "url(/assets/images/backgrounds/page-header-bg-1-1.jpg)" }}
         ></div>
@@ -62,17 +62,17 @@ export default async function SolutionDetailPage({ params }: PageProps) {
       </section>
 
       {/* Main Solution Details */}
-      <section className="py-20 bg-white">
+      <section className="py-18 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
-          
+
           {/* Solution content Left (col-span-8) */}
           <div className="lg:col-span-8 flex flex-col gap-8 text-left">
             {/* Main Image */}
             <div className="relative w-full aspect-[16/9] bg-gray-50 rounded-2xl overflow-hidden shadow-md border border-gray-100">
-              <Image 
-                src={solution.image} 
-                alt={solution.title} 
-                fill 
+              <Image
+                src={solution.image}
+                alt={solution.title}
+                fill
                 className="object-cover"
               />
             </div>
@@ -90,8 +90,8 @@ export default async function SolutionDetailPage({ params }: PageProps) {
               <h4 className="text-xl font-bold text-dark">Real Benefits</h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {solution.benefits.map((b, idx) => (
-                  <div 
-                    key={idx} 
+                  <div
+                    key={idx}
                     className="flex gap-3 items-start p-4 bg-gray-50 border border-gray-100 rounded-xl hover:shadow-sm transition-all"
                   >
                     <CheckCircle className="text-primary shrink-0 mt-0.5" size={18} />
@@ -106,10 +106,10 @@ export default async function SolutionDetailPage({ params }: PageProps) {
               <div className="flex flex-col gap-4 mt-4">
                 <h4 className="text-xl font-bold text-dark">System Architecture</h4>
                 <div className="relative w-full aspect-[16/10] bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 shadow p-4">
-                  <Image 
-                    src={solution.architectureImage} 
-                    alt="System Architecture diagram" 
-                    fill 
+                  <Image
+                    src={solution.architectureImage}
+                    alt="System Architecture diagram"
+                    fill
                     className="object-contain p-4"
                   />
                 </div>
@@ -151,8 +151,8 @@ export default async function SolutionDetailPage({ params }: PageProps) {
               <p className="text-xs text-gray-400 leading-relaxed">
                 Need a comprehensive turnkey design solution or calibration service quotation for your renewable array?
               </p>
-              <Link 
-                href="/contact" 
+              <Link
+                href="/contact"
                 className="w-full bg-primary hover:bg-primary-hover text-white text-sm font-bold py-3 rounded-md transition-colors flex items-center justify-center gap-2"
               >
                 <span>Request Quotation</span>

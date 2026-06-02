@@ -30,7 +30,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
     <div>
       {/* Page Header */}
       <section className="relative bg-dark text-white py-16 overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center opacity-10 pointer-events-none"
           style={{ backgroundImage: "url(/assets/images/backgrounds/page-header-bg-1-1.jpg)" }}
         ></div>
@@ -57,9 +57,9 @@ export default async function ProductDetailPage({ params }: PageProps) {
       </section>
 
       {/* Main Content Details */}
-      <section className="py-20 bg-white">
+      <section className="py-18 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
-          
+
           {/* Sidebar Left (col-span-4) */}
           <div className="lg:col-span-4 flex flex-col gap-8">
             {/* Sidebar Navigation */}
@@ -68,13 +68,12 @@ export default async function ProductDetailPage({ params }: PageProps) {
               <ul className="flex flex-col gap-2">
                 {sidebarProducts.map((p) => (
                   <li key={p.id}>
-                    <Link 
+                    <Link
                       href={`/products/${p.slug}`}
-                      className={`flex justify-between items-center px-4 py-3 rounded-md border text-sm font-semibold transition-all duration-300 ${
-                        p.id === product.id 
-                          ? "bg-primary border-primary text-white" 
+                      className={`flex justify-between items-center px-4 py-3 rounded-md border text-sm font-semibold transition-all duration-300 ${p.id === product.id
+                          ? "bg-primary border-primary text-white"
                           : "bg-white border-gray-200 text-gray-700 hover:bg-gray-50 hover:text-primary"
-                      }`}
+                        }`}
                     >
                       <span className="truncate">{p.title}</span>
                       <ChevronRight size={16} />
@@ -90,7 +89,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
               <p className="text-xs text-gray-400 leading-relaxed">
                 Download the technical specifications and mechanical parameters datasheet for the {product.title}.
               </p>
-              <a 
+              <a
                 href={product.datasheet}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -124,10 +123,10 @@ export default async function ProductDetailPage({ params }: PageProps) {
           <div className="lg:col-span-8 flex flex-col gap-8 text-left">
             {/* Product Image */}
             <div className="relative w-full aspect-[16/9] bg-gray-50 rounded-2xl overflow-hidden shadow-md border border-gray-100">
-              <Image 
-                src={product.image} 
-                alt={product.title} 
-                fill 
+              <Image
+                src={product.image}
+                alt={product.title}
+                fill
                 className="object-cover"
               />
             </div>
@@ -159,7 +158,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
                   const parts = feature.split(":");
                   const title = parts[0];
                   const desc = parts.slice(1).join(":");
-                  
+
                   return (
                     <li key={idx} className="flex items-start gap-3 text-sm text-gray-700 bg-white border border-gray-100 p-4 rounded-xl shadow-sm hover:shadow transition-shadow">
                       <CheckCircle className="text-primary shrink-0 mt-0.5" size={18} />
@@ -206,8 +205,8 @@ export default async function ProductDetailPage({ params }: PageProps) {
                   Let us help you design and scale your solar generation portfolio with our authorized bankable equipment.
                 </p>
               </div>
-              <Link 
-                href="/contact" 
+              <Link
+                href="/contact"
                 className="btn-primary"
               >
                 <span>Request Custom Quote</span>

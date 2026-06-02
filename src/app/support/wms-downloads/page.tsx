@@ -38,7 +38,7 @@ export default function WmsDownloads() {
     <div>
       {/* Page Header */}
       <section className="relative bg-dark text-white py-16 overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center opacity-10 pointer-events-none"
           style={{ backgroundImage: "url(/assets/images/backgrounds/page-header-bg-1-1.jpg)" }}
         ></div>
@@ -56,14 +56,14 @@ export default function WmsDownloads() {
       </section>
 
       {/* List */}
-      <section className="py-20 bg-white">
+      <section className="py-18 bg-white">
         <div className="max-w-4xl mx-auto px-4">
           <h3 className="text-2xl font-bold text-gray-800 mb-6 text-left">Weather Monitoring Sensor Documentation</h3>
-          
+
           <div className="flex flex-col gap-4">
             {downloads.map((dl, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="bg-gray-50 border border-gray-100 p-5 rounded-xl flex items-center justify-between gap-4 shadow-sm hover:shadow-md transition-shadow text-left"
               >
                 <div className="flex items-center gap-4">
@@ -79,8 +79,8 @@ export default function WmsDownloads() {
                     </div>
                   </div>
                 </div>
-                
-                <a 
+
+                <a
                   href={dl.link}
                   className="bg-white hover:bg-primary border border-gray-200 hover:border-primary text-gray-700 hover:text-white p-3 rounded-lg shadow-sm transition-all duration-300 shrink-0"
                 >

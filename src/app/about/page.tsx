@@ -46,7 +46,7 @@ export default function About() {
     <div>
       {/* Page Header */}
       <section className="relative bg-dark text-white py-16 overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center opacity-10 pointer-events-none"
           style={{ backgroundImage: "url(/assets/images/backgrounds/page-header-bg-1-1.jpg)" }}
         ></div>
@@ -62,19 +62,19 @@ export default function About() {
       </section>
 
       {/* Main Info */}
-      <section className="py-20 bg-white">
+      <section className="py-18 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Column: Media */}
           <div className="relative">
             <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-100">
-              <Image 
-                src="/assets/IMAGE/solar.jpg" 
-                alt="Solar plant" 
-                fill 
+              <Image
+                src="/assets/IMAGE/solar.jpg"
+                alt="Solar plant"
+                fill
                 className="object-cover"
               />
             </div>
-            
+
             {/* Experience overlay */}
             <div className="absolute -bottom-8 -right-4 bg-primary text-white p-6 rounded-2xl shadow-xl flex items-center gap-4 max-w-[220px]">
               <span className="text-4xl font-extrabold">10+</span>
@@ -83,7 +83,7 @@ export default function About() {
 
             {/* Video play floating block */}
             <div className="absolute -top-6 -left-4 bg-white/90 backdrop-blur p-4 rounded-xl border border-gray-200 shadow-lg flex items-center gap-3">
-              <a 
+              <a
                 href="https://www.youtube.com/watch?v=h9MbznbxlLc"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -101,7 +101,7 @@ export default function About() {
               <Sun size={18} className="text-primary" />
               <span className="text-xs uppercase tracking-wider font-bold text-primary">We provide future of energy</span>
             </div>
-            
+
             <h2 className="text-3xl font-extrabold text-dark leading-tight">
               Powering the transition with precision and smart automation.
             </h2>
@@ -125,9 +125,9 @@ export default function About() {
       </section>
 
       {/* Core Values / Vision */}
-      <section className="py-20 bg-dark text-white relative overflow-hidden">
+      <section className="py-18 bg-dark text-white relative overflow-hidden">
         {/* Background shape */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center opacity-5 pointer-events-none"
           style={{ backgroundImage: "url(/assets/images/shapes/service-shape-2-1.png)" }}
         ></div>
@@ -145,8 +145,8 @@ export default function About() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {values.map((v) => (
-              <div 
-                key={v.id} 
+              <div
+                key={v.id}
                 className="bg-white/5 border border-white/10 rounded-xl p-8 hover:bg-white/10 transition-all duration-300 flex gap-6"
               >
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
@@ -164,7 +164,7 @@ export default function About() {
       </section>
 
       {/* Mission Cards */}
-      <section className="py-20 bg-white">
+      <section className="py-18 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
             <div className="inline-flex items-center gap-2">
@@ -179,8 +179,8 @@ export default function About() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {missions.map((m, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="bg-gray-50 border border-gray-100 rounded-xl p-8 hover:shadow-lg transition-all flex flex-col gap-4"
               >
                 <div className="inline-flex items-center justify-center w-12 h-12 bg-primary text-white font-extrabold rounded-lg">

@@ -82,7 +82,7 @@ export default function HeroV2() {
 
             {/* Subheading */}
             <p className="text-base sm:text-lg text-gray-400 font-medium leading-relaxed -mt-2">
-              For the next <span className="text-secondary font-extrabold">5 years</span> — and beyond.
+              For the next <span className="text-secondary font-extrabold">25 years</span> — and beyond.*
             </p>
 
             {/* Body */}
@@ -94,12 +94,12 @@ export default function HeroV2() {
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 href="/contact"
-                className="group bg-primary hover:bg-primary-hover text-white font-bold text-sm py-4 px-8 rounded transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 flex items-center gap-2"
+                className="group bg-primary hover:bg-primary-hover text-white font-bold text-md py-3 px-8 rounded transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 flex items-center gap-2"
               >
                 <span>Get free quote</span>
-                <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
+                <ArrowRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
               </Link>
-              <a
+              {/* <a
                 href="#sunlynk-why"
                 className="group flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-primary transition-colors py-4 px-2 hidden lg:flex"
               >
@@ -109,7 +109,7 @@ export default function HeroV2() {
                   </svg>
                 </span>
                 <span>See how it works</span>
-              </a>
+              </a> */}
             </div>
 
             {/* Trust mini */}
@@ -193,9 +193,8 @@ export default function HeroV2() {
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <p className={`text-[18px] font-black leading-none tabular-nums transition-colors duration-300 ${
-                        billAmount === 0 ? 'text-green-600' : 'text-red-500'
-                      }`}>
+                      <p className={`text-[18px] font-black leading-none tabular-nums transition-colors duration-300 ${billAmount === 0 ? 'text-green-600' : 'text-red-500'
+                        }`}>
                         ₹{formattedBill}
                       </p>
                       {/* {billAmount === 0 && (

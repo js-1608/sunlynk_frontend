@@ -47,7 +47,7 @@ export default function Contact() {
     <div>
       {/* Page Header */}
       <section className="relative bg-dark text-white py-16 overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center opacity-10 pointer-events-none"
           style={{ backgroundImage: "url(/assets/images/backgrounds/page-header-bg-1-1.jpg)" }}
         ></div>
@@ -63,15 +63,15 @@ export default function Contact() {
       </section>
 
       {/* Contact Form & Main Media */}
-      <section className="py-20 bg-white">
+      <section className="py-18 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Left Column: Image/Branding */}
           <div className="relative flex justify-center items-center">
             <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border border-gray-100">
-              <Image 
-                src="/assets/images/resources/cntact-1-1.png" 
-                alt="Contact SunLynk Solar" 
-                fill 
+              <Image
+                src="/assets/images/resources/cntact-1-1.png"
+                alt="Contact SunLynk Solar"
+                fill
                 className="object-cover"
               />
             </div>
@@ -99,10 +99,10 @@ export default function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-1">
                     <label htmlFor="name" className="text-xs text-gray-400 font-bold uppercase tracking-wider">Your Name</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       id="name"
-                      placeholder="Enter your name" 
+                      placeholder="Enter your name"
                       value={formData.name}
                       onChange={handleChange}
                       required
@@ -111,10 +111,10 @@ export default function Contact() {
                   </div>
                   <div className="flex flex-col gap-1">
                     <label htmlFor="email" className="text-xs text-gray-400 font-bold uppercase tracking-wider">Your Email</label>
-                    <input 
-                      type="email" 
+                    <input
+                      type="email"
                       id="email"
-                      placeholder="Enter your email" 
+                      placeholder="Enter your email"
                       value={formData.email}
                       onChange={handleChange}
                       required
@@ -125,10 +125,10 @@ export default function Contact() {
 
                 <div className="flex flex-col gap-1">
                   <label htmlFor="subject" className="text-xs text-gray-400 font-bold uppercase tracking-wider">Subject</label>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     id="subject"
-                    placeholder="Enter subject" 
+                    placeholder="Enter subject"
                     value={formData.subject}
                     onChange={handleChange}
                     required
@@ -138,10 +138,10 @@ export default function Contact() {
 
                 <div className="flex flex-col gap-1">
                   <label htmlFor="message" className="text-xs text-gray-400 font-bold uppercase tracking-wider">Message</label>
-                  <textarea 
+                  <textarea
                     id="message"
                     rows={4}
-                    placeholder="Write message..." 
+                    placeholder="Write message..."
                     value={formData.message}
                     onChange={handleChange}
                     required
@@ -149,8 +149,8 @@ export default function Contact() {
                   ></textarea>
                 </div>
 
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   className="w-full btn-primary mt-2"
                 >
                   <Send size={16} />
@@ -163,15 +163,15 @@ export default function Contact() {
       </section>
 
       {/* Locations and Map */}
-      <section className="py-20 bg-gray-50 border-t border-gray-100">
+      <section className="py-18 bg-gray-50 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
-          
+
           {/* Map */}
           <div className="lg:col-span-6 rounded-2xl overflow-hidden shadow-md border border-gray-200 aspect-[4/3] bg-gray-200 relative min-h-[350px]">
-            <iframe 
-              title="SunLynkSaket Location Map" 
+            <iframe
+              title="SunLynkSaket Location Map"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.6865249568936!2d77.21146747533166!3d28.534080775719323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1e3e00000001%3A0x64e622f6d0f622d0!2sSaket%20District%20Centre%2C%20Sector%206%2C%20Pushp%20Vihar%2C%20New%20Delhi%2C%20Delhi%20110017!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-              className="w-full h-full border-0 absolute inset-0" 
+              className="w-full h-full border-0 absolute inset-0"
               allowFullScreen
             ></iframe>
           </div>
@@ -179,8 +179,8 @@ export default function Contact() {
           {/* Location Cards */}
           <div className="lg:col-span-6 flex flex-col gap-6">
             {offices.map((off, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow"
               >
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0">

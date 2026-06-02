@@ -9,7 +9,7 @@ export default function BlogList() {
     <div>
       {/* Page Header */}
       <section className="relative bg-dark text-white py-16 overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center opacity-10 pointer-events-none"
           style={{ backgroundImage: "url(/assets/images/backgrounds/page-header-bg-1-1.jpg)" }}
         ></div>
@@ -25,20 +25,20 @@ export default function BlogList() {
       </section>
 
       {/* Blog Grid */}
-      <section className="py-20 bg-white">
+      <section className="py-18 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogsData.map((post) => (
-              <div 
+              <div
                 key={post.id}
                 className="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full group"
               >
                 {/* Image */}
                 <div className="relative aspect-[16/10] w-full bg-gray-50 overflow-hidden">
-                  <Image 
-                    src={post.image} 
-                    alt={post.title} 
-                    fill 
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
                     className="object-cover group-hover:scale-105 transition-transform duration-350"
                   />
                   <div className="absolute bottom-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-md flex flex-col items-center">
@@ -65,13 +65,13 @@ export default function BlogList() {
                     <h4 className="font-bold text-gray-800 text-lg mb-3 group-hover:text-primary transition-colors line-clamp-2">
                       {post.title}
                     </h4>
-                    
+
                     <p className="text-sm text-gray-500 line-clamp-3 leading-relaxed mb-4">
                       {post.excerpt}
                     </p>
                   </div>
 
-                  <Link 
+                  <Link
                     href={`/blog/${post.slug}`}
                     className="inline-flex items-center gap-1 text-sm font-bold text-dark hover:text-primary transition-colors mt-auto self-start group"
                   >

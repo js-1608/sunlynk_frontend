@@ -9,6 +9,7 @@ import ProductsPreview from "@/components/ProductsPreview";
 import FaqAccordion from "@/components/FaqAccordion";
 import StatsCounter from "@/components/StatsCounter";
 import productsData from "@/data/products.json";
+import SolarCalculator from "@/components/SolarCalculator";
 import {
   Sun,
   Wind,
@@ -18,6 +19,7 @@ import {
   Activity,
   ArrowRight
 } from "lucide-react";
+import GoogleReviews from "@/components/GoogleReviews";
 
 export default function Home() {
   const faqs = [
@@ -79,8 +81,9 @@ export default function Home() {
       {/* Trust Bar — 4 Pillars */}
       <TrustBar />
 
+
       {/* Services Grid Section */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white border-b border-gray-100 overflow-hidden">
+      <section className="py- bg-gradient-to-b from-gray-50 to-white border-b border-gray-100 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
 
           {/* Section Header */}
@@ -212,10 +215,9 @@ export default function Home() {
       </section>
 
       {/* Services Grid Section */}
-      <section className="py-24 bg-white">
+      {/* <section className="py-18 bg-white">
         <div className="max-w-7xl mx-auto ">
 
-          {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-20 flex flex-col items-center gap-4">
             <div className="inline-flex items-center gap-2">
               <span className="h-[2px] w-6 bg-primary"></span>
@@ -230,10 +232,8 @@ export default function Home() {
             </p>
           </div>
 
-          {/* 4-Quadrant Services Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto overflow-hidden  bg-white">
 
-            {/* Quadrant 1: Residential Solar */}
             <div className="md:border-r  border-gray-400 p-8 sm:p-12 hover:bg-slate-50/50 transition-all duration-300 group flex flex-col gap-6">
               <div className="text-gray-800 group-hover:text-primary transition-colors duration-300 shrink-0">
                 <svg className="w-10 h-10" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -252,7 +252,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Quadrant 2: Commercial & Industrial */}
             <div className="border-gray-400 p-8 sm:p-12 hover:bg-slate-50/50 transition-all duration-300 group flex flex-col gap-6">
               <div className="text-gray-800 group-hover:text-primary transition-colors duration-300 shrink-0">
                 <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
@@ -271,7 +270,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Quadrant 3: Solar Panel Installation */}
             <div className="md:border-l border-gray-400 p-8 sm:p-12 hover:bg-slate-50/50 transition-all duration-300 group flex flex-col gap-6">
               <div className="text-gray-800 group-hover:text-primary transition-colors duration-300 shrink-0">
                 <svg className="w-10 h-10" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -292,126 +290,324 @@ export default function Home() {
           </div>
 
         </div>
+      </section> */}
+
+      {/* Our Process Section */}
+      <section className="py-18 md:py-18 bg-white border-t border-gray-100 overflow-hidden" id="solar-process">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto mb-14 md:mb-20 flex flex-col items-center gap-4">
+            <div className="inline-flex items-center gap-2">
+              <span className="h-[2px] w-6 bg-primary"></span>
+              <span className="text-xs uppercase tracking-wider font-bold text-primary">How We Work</span>
+              <span className="h-[2px] w-6 bg-primary"></span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-dark leading-tight">
+              Our Simple 4-Step Process
+            </h2>
+            <p className="text-sm sm:text-base text-gray-500 max-w-2xl leading-relaxed mt-1">
+              From the initial rooftop evaluation to lifetime maintenance, we manage every detail under one roof to make your solar transition completely seamless.
+            </p>
+
+            {/* Speech bubble / Consultant avatar guide */}
+            <div className="inline-flex items-center gap-3.5 bg-slate-50 border border-gray-200/80 rounded-full py-1.5 pl-2 pr-5 shadow-sm mt-4 hover:border-primary/20 transition-all duration-300">
+              <div className="relative w-12 h-12 rounded-full overflow-hidden border border-white shadow-sm shrink-0">
+                <Image
+                  src="/assets/images/sunlynk_guy.png"
+                  alt="SunLynk Guide"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <p className="text-[11px] sm:text-xs text-gray-600 font-medium">
+                <span className="text-primary font-bold">SunLynk Expert:</span> We handle all the surveys, 3D layouts, and subsidy papers for you.
+              </p>
+            </div>
+          </div>
+
+          {/* Process Steps */}
+          <div className="relative max-w-7xl mx-auto">
+
+            {/* Connecting Dashed Line (Desktop only) — aligned to center of circles */}
+            <div className="absolute top-[96px] left-[12%] right-[12%] border-t-2 border-dashed border-primary/25  lg:block z-0" />
+
+            {/* Mobile: Horizontal slider showing ~1.4 cards. Desktop: 4-col grid */}
+            <div
+              className="flex overflow-x-auto lg:grid lg:grid-cols-4 gap-6 lg:gap-6 relative z-10 snap-x snap-mandatory scroll-smooth pb-6 lg:pb-0 -mx-4 px-4 lg:mx-0 lg:px-0"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            >
+
+              {/* Step 1 */}
+              <div className="snap-start shrink-0 w-[240px] sm:w-[260px] lg:w-auto flex flex-col items-center text-center group">
+                {/* Circle Image */}
+                <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-white bg-white shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.25)] group-hover:border-primary/60 transition-all duration-500 overflow-hidden shrink-0 z-10">
+                  <Image
+                    src="/assets/images/process_survey.png"
+                    alt="Free Home Visit & Rooftop Survey"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                </div>
+                {/* Step Badge */}
+                <div className="bg-primary text-white text-[10px] font-black uppercase tracking-wider px-4 py-1.5 rounded-full shadow-md -mt-4 z-20 relative">
+                  Step 01
+                </div>
+                {/* Text Content */}
+                <div className="mt-4 flex flex-col items-center gap-1.5 px-1">
+                  <h3 className="font-extrabold text-gray-900 text-sm sm:text-base lg:text-lg group-hover:text-primary transition-colors duration-300 leading-snug">
+                    Free Home Visit &amp; Survey
+                  </h3>
+                  <p className="text-[11px] sm:text-xs lg:text-sm text-gray-500 max-w-[220px]">
+                    Our experts visit your property to evaluate shade, check roof strength, and measure usable space.
+                  </p>
+                </div>
+              </div>
+
+              {/* Step 2 */}
+              <div className="snap-start shrink-0 w-[240px] sm:w-[260px] lg:w-auto flex flex-col items-center text-center group">
+                {/* Circle Image */}
+                <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-white bg-white shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.25)] group-hover:border-primary/60 transition-all duration-500 overflow-hidden shrink-0 z-10">
+                  <Image
+                    src="/assets/images/process_design.png"
+                    alt="3D Solar Layout Design"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                </div>
+                {/* Step Badge */}
+                <div className="bg-primary text-white text-[10px] font-black uppercase tracking-wider px-4 py-1.5 rounded-full shadow-md -mt-4 z-20 relative">
+                  Step 02
+                </div>
+                {/* Text Content */}
+                <div className="mt-4 flex flex-col items-center gap-1.5 px-1">
+                  <h3 className="font-extrabold text-gray-900 text-sm sm:text-base lg:text-lg group-hover:text-primary transition-colors duration-300 leading-snug">
+                    3D Solar Design
+                  </h3>
+                  <p className="text-[11px] sm:text-xs lg:text-sm text-gray-500  max-w-[220px]">
+                    We model a customized 3D layout showing optimal panel placement and shading zones.
+                  </p>
+                </div>
+              </div>
+
+              {/* Step 3 */}
+              <div className="snap-start shrink-0 w-[240px] sm:w-[260px] lg:w-auto flex flex-col items-center text-center group">
+                {/* Circle Image */}
+                <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-white bg-white shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.25)] group-hover:border-primary/60 transition-all duration-500 overflow-hidden shrink-0 z-10">
+                  <Image
+                    src="/assets/images/process_installation.png"
+                    alt="Govt Approvals & Professional Installation"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                </div>
+                {/* Step Badge */}
+                <div className="bg-primary text-white text-[10px] font-black uppercase tracking-wider px-4 py-1.5 rounded-full shadow-md -mt-4 z-20 relative">
+                  Step 03
+                </div>
+                {/* Text Content */}
+                <div className="mt-4 flex flex-col items-center gap-1.5 px-1">
+                  <h3 className="font-extrabold text-gray-900 text-sm sm:text-base lg:text-lg group-hover:text-primary transition-colors duration-300 leading-snug">
+                    Installation &amp; Execution
+                  </h3>
+                  <p className="text-[11px] sm:text-xs lg:text-sm text-gray-500  max-w-[220px]">
+                    We handle net metering, DISCOM permissions, and install panels with certified precision.
+                  </p>
+                </div>
+              </div>
+
+              {/* Step 4 */}
+              <div className="snap-start shrink-0 w-[240px] sm:w-[260px] lg:w-auto flex flex-col items-center text-center group">
+                {/* Circle Image */}
+                <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-white bg-white shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.25)] group-hover:border-primary/60 transition-all duration-500 overflow-hidden shrink-0 z-10">
+                  <Image
+                    src="/assets/images/process_service.png"
+                    alt="After-Sales Service & Performance Monitoring"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                </div>
+                {/* Step Badge */}
+                <div className="bg-primary text-white text-[10px] font-black uppercase tracking-wider px-4 py-1.5 rounded-full shadow-md -mt-4 z-20 relative">
+                  Step 04
+                </div>
+                {/* Text Content */}
+                <div className="mt-4 flex flex-col items-center gap-1.5 px-1">
+                  <h3 className="font-extrabold text-gray-900 text-sm sm:text-base lg:text-lg group-hover:text-primary transition-colors duration-300 leading-snug">
+                    After-Sales Service
+                  </h3>
+                  <p className="text-[11px] sm:text-xs lg:text-sm text-gray-500  max-w-[220px]">
+                    Enjoy post-commissioning performance checks, warranty claims, and proactive support.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
       </section>
 
-      {/* Problem Section — Why SunLynk */}
-      <ProblemSection />
+
+
+      {/* Solar Savings Calculator */}
+      <SolarCalculator />
 
 
       {/* Products Preview — Lynk Lite & Lynk Sure */}
       <ProductsPreview />
 
+
+
+      {/* Problem Section — Why SunLynk */}
+      <ProblemSection />
+
+
+
+      {/* Stats Counter Section */}
+      <StatsCounter />
+
+
       {/* We Handle Everything Section */}
-      <section className="py-24 bg-gray-50 border-y border-gray-100 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+      <section className="py-16 md:py-20 bg-gray-50 border-y border-gray-100 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
 
-          {/* Left Column: Text Content and Process Timeline */}
-          <div className="lg:col-span-7 flex flex-col gap-10">
-            <div className="flex flex-col gap-4">
-              <div className="inline-flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-primary"></span>
-                <span className="text-xs uppercase tracking-wider font-bold text-primary">Your Journey</span>
-                <span className="h-[2px] w-6 bg-primary"></span>
+          {/* Mobile: images first, Desktop: side by side */}
+          <div className="flex flex-col-reverse lg:grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+
+            {/* Left Column: Text + Steps */}
+            <div className="lg:col-span-7 flex flex-col gap-8">
+              <div className="flex flex-col gap-3">
+                <div className="inline-flex items-center gap-2">
+                  <span className="h-[2px] w-6 bg-primary"></span>
+                  <span className="text-xs uppercase tracking-wider font-bold text-primary">Your Journey</span>
+                  <span className="h-[2px] w-6 bg-primary"></span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-dark leading-tight">
+                  We Handle Everything. <br className="hidden sm:inline" />
+                  <span className="text-primary font-black">You Just Save.</span>
+                </h2>
+                <p className="text-sm sm:text-base text-gray-500 max-w-xl">
+                  From site survey to government subsidy paperwork — our team manages the entire process so you can sit back and enjoy clean energy savings.
+                </p>
               </div>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-dark">
-                We Handle Everything. <br className="hidden sm:inline" />
-                <span className="text-primary font-black">You Just Save.</span>
-              </h2>
+
+              {/* Steps Grid — 2 cols on sm+, 1 col on mobile */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+
+                {/* Step 1 */}
+                <div className="flex gap-4 group">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary font-black text-sm flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                    01
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 text-[15px] sm:text-base mb-1 group-hover:text-primary transition-colors duration-300">
+                      Free Home Visit & Survey
+                    </h4>
+                    <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">
+                      Our team measures your rooftop to design a solar system for maximum generation.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Step 2 */}
+                <div className="flex gap-4 group">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary font-black text-sm flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                    02
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 text-[15px] sm:text-base mb-1 group-hover:text-primary transition-colors duration-300">
+                      Free 3D Solar Design
+                    </h4>
+                    <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">
+                      We share a personalised 3D rooftop solar design, so you can clearly see how it will look.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Step 3 */}
+                <div className="flex gap-4 group">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary font-black text-sm flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                    03
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 text-[15px] sm:text-base mb-1 group-hover:text-primary transition-colors duration-300">
+                      Installation & Subsidy Support
+                    </h4>
+                    <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">
+                      Our experts install your system and handle all government paperwork — no follow-ups needed.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Step 4 */}
+                <div className="flex gap-4 group">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary font-black text-sm flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                    04
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 text-[15px] sm:text-base mb-1 group-hover:text-primary transition-colors duration-300">
+                      Solar On. You Save. We Maintain.
+                    </h4>
+                    <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">
+                      Your system starts saving from day one, while we handle maintenance year after year.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* CTA */}
+              <div>
+                <a
+                  href="/contact"
+                  className="inline-flex items-center gap-2 bg-primary hover:bg-primary-hover text-white font-bold py-3 px-7 rounded-lg transition-all duration-300 shadow-lg shadow-primary/15 hover:shadow-primary/25 text-sm"
+                >
+                  Get Free Solar Consultation
+                  <ArrowRight size={16} />
+                </a>
+              </div>
             </div>
 
-            {/* Timeline wrapper */}
-            <div className="relative pl-12  space-y-10 py-2">
-
-              {/* Timeline Connector Line Glow */}
-              {/* <div className="absolute left-[-1.5px] top-4 bottom-4 w-[3px] bg-gradient-to-b from-primary via-primary/50 to-primary/10 pointer-events-none" /> */}
-
-              {/* Item 1 */}
-              <div className="relative group">
-                {/* Custom Concentric Rings Bullet */}
-                <div className="absolute left-[-60px] top-0 w-9 h-9 rounded-full border border-primary/20 bg-white flex items-center justify-center shadow-sm group-hover:border-primary transition-all duration-300">
-                  <div className="w-6.5 h-6.5 rounded-full border border-primary/40 flex items-center justify-center group-hover:border-primary/80 transition-all duration-300">
-                    <div className="w-2.5 h-2.5 bg-primary rounded-full group-hover:scale-125 transition-transform duration-300 animate-pulse" />
-                  </div>
+            {/* Right Column: 2 Images Stacked Layout */}
+            <div className="lg:col-span-5 relative w-full">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                {/* Image 1 — Rooftop */}
+                <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
+                  <Image
+                    src="/assets/images/handle_rooftop.png"
+                    alt="Solar panels on Indian rooftop"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </div>
-                <div>
-                  <h4 className="font-bold text-gray-900 text-lg sm:text-xl mb-1 group-hover:text-primary transition-colors duration-300">
-                    Free Home Visit & Rooftop Survey
-                  </h4>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed text-justify max-w-2xl">
-                    Our team measures your rooftop to design a solar system for maximum generation.
-                  </p>
+
+                {/* Image 2 — Team + stat badge */}
+                <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-lg border border-gray-100 group mt-6 sm:mt-8">
+                  <Image
+                    src="/assets/images/handle_team.png"
+                    alt="SunLynk solar installation team"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </div>
               </div>
 
-              {/* Item 2 */}
-              <div className="relative group">
-                <div className="absolute left-[-60px] top-0 w-9 h-9 rounded-full border border-primary/20 bg-white flex items-center justify-center shadow-sm group-hover:border-primary transition-all duration-300">
-                  <div className="w-6.5 h-6.5 rounded-full border border-primary/40 flex items-center justify-center group-hover:border-primary/80 transition-all duration-300">
-                    <div className="w-2.5 h-2.5 bg-primary rounded-full group-hover:scale-125 transition-transform duration-300" />
-                  </div>
+              {/* Floating Stat Badge */}
+              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white border border-gray-100 rounded-xl shadow-lg px-5 py-3 flex items-center gap-3 z-20">
+                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                  <Sun className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900 text-lg sm:text-xl mb-1 group-hover:text-primary transition-colors duration-300">
-                    Free 3D Solar Design
-                  </h4>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed text-justify max-w-2xl">
-                    We share a personalised 3D rooftop solar design, so you can clearly see how it will look on your home.
-                  </p>
+                  <span className="text-lg font-black text-gray-900 leading-none">40,000+</span>
+                  <span className="block text-[10px] text-gray-500 font-semibold uppercase tracking-wide">Homes Solarized</span>
                 </div>
               </div>
-
-              {/* Item 3 */}
-              <div className="relative group">
-                <div className="absolute left-[-60px] top-0 w-9 h-9 rounded-full border border-primary/20 bg-white flex items-center justify-center shadow-sm group-hover:border-primary transition-all duration-300">
-                  <div className="w-6.5 h-6.5 rounded-full border border-primary/40 flex items-center justify-center group-hover:border-primary/80 transition-all duration-300">
-                    <div className="w-2.5 h-2.5 bg-primary rounded-full group-hover:scale-125 transition-transform duration-300" />
-                  </div>
-                </div>
-                <div>
-                  <h4 className="font-bold text-gray-900 text-lg sm:text-xl mb-1 group-hover:text-primary transition-colors duration-300">
-                    Hassle-Free Installation & Subsidy Support
-                  </h4>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed text-justify max-w-2xl">
-                    Our experts install your solar system and handle all paperwork, including the subsidy—no follow-ups needed.
-                  </p>
-                </div>
-              </div>
-
-              {/* Item 4 */}
-              <div className="relative group">
-                <div className="absolute left-[-60px] top-0 w-9 h-9 rounded-full border border-primary/20 bg-white flex items-center justify-center shadow-sm group-hover:border-primary transition-all duration-300">
-                  <div className="w-6.5 h-6.5 rounded-full border border-primary/40 flex items-center justify-center group-hover:border-primary/80 transition-all duration-300">
-                    <div className="w-2.5 h-2.5 bg-primary rounded-full group-hover:scale-125 transition-transform duration-300" />
-                  </div>
-                </div>
-                <div>
-                  <h4 className="font-bold text-gray-900 text-lg sm:text-xl mb-1 group-hover:text-primary transition-colors duration-300">
-                    Solar On. You Save. We Maintain.
-                  </h4>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed text-justify max-w-2xl">
-                    Your system starts saving from day one, while we handle maintenance for smooth performance year after year.
-                  </p>
-                </div>
-              </div>
-
             </div>
+
           </div>
-
-          {/* Right Column: Visual Image with floating badges */}
-          <div className="lg:col-span-5 relative flex justify-center">
-            <div className="relative w-full max-w-[480px] aspect-[4/5] rounded-3xl overflow-hidden border border-gray-100 shadow-2xl group">
-              <Image
-                src="/assets/images/solar_consultation.png"
-                alt="SunLynk Solar Process Consultation"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-
-              {/* Dynamic Overlay glow */}
-              {/* <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/10 to-transparent opacity-60 group-hover:opacity-75 transition-opacity duration-300" /> */}
-            </div>
-          </div>
-
         </div>
       </section>
 
@@ -423,7 +619,7 @@ export default function Home() {
 
 
       {/* Products Grid Section */}
-      <section className="py-20 bg-white">
+      <section className="py-18 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
             <div className="inline-flex items-center gap-2">
@@ -493,11 +689,9 @@ export default function Home() {
 
 
 
-      {/* Stats Counter Section */}
-      <StatsCounter />
 
       {/* About Section */}
-      {/* <section className="py-20 bg-white">
+      {/* <section className="py-18 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative flex justify-center">
             <div className="relative w-full max-w-[500px] aspect-square rounded-2xl overflow-hidden border border-gray-100 shadow-xl">
@@ -547,7 +741,7 @@ export default function Home() {
       </section> */}
 
       {/* Work Process */}
-      <section className="py-20 bg-gray-50">
+      {/* <section className="py-18 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
             <div className="inline-flex items-center gap-2">
@@ -562,7 +756,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
 
-            {/* Step 1 */}
+            
             <div className="bg-white p-8 rounded-xl border border-gray-100 shadow-sm relative group flex flex-col gap-4">
               <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-lg">
                 1
@@ -573,7 +767,7 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Step 2 */}
+       
             <div className="bg-white p-8 rounded-xl border border-gray-100 shadow-sm relative group flex flex-col gap-4">
               <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-lg">
                 2
@@ -584,7 +778,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Step 3 */}
             <div className="bg-white p-8 rounded-xl border border-gray-100 shadow-sm relative group flex flex-col gap-4">
               <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-lg">
                 3
@@ -597,10 +790,10 @@ export default function Home() {
 
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* FAQ Section */}
-      <section className="py-20 bg-white">
+      <section className="py-18 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Side: Images */}
           <div className="grid grid-cols-2 gap-4">
@@ -652,7 +845,7 @@ export default function Home() {
       </section>
 
       {/* Blogs Section */}
-      <section className="py-24 bg-white border-t border-gray-100">
+      <section className="py-18 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
 
           {/* Header */}
@@ -793,7 +986,7 @@ export default function Home() {
       </section>
 
       {/* Project Cases Section */}
-      <section className="py-20 bg-gray-50">
+      {/* <section className="py-18 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
             <div className="inline-flex items-center gap-2">
@@ -806,7 +999,6 @@ export default function Home() {
             </h2>
           </div>
 
-          {/* Grid Layout for Project Images */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {projectCases.map((proj, idx) => (
               <div
@@ -827,220 +1019,12 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Google Review Section */}
-      <section className="py-24 bg-white border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
 
-          {/* Header Area */}
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mb-16 border-b border-gray-100 pb-10">
-            <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 mb-3">
-                <span className="h-[2px] w-6 bg-primary"></span>
-                <span className="text-xs uppercase tracking-wider font-bold text-primary">Reviews</span>
-                <span className="h-[2px] w-6 bg-primary"></span>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-dark leading-tight tracking-tight">
-                Google Reviews & Customer Feedback
-              </h2>
-              <p className="text-sm sm:text-base text-gray-500 mt-2">
-                Discover what our partners, clients, and homeowners say about our engineering standards, premium modules, and solar subsidy support.
-              </p>
-            </div>
+      <GoogleReviews />
 
-            {/* Google Aggregate Box */}
-            <div className="bg-slate-50 border border-slate-100 rounded-2xl p-6 flex items-center gap-5 shadow-sm hover:shadow-md transition-shadow duration-300">
-              {/* Google G Logo inside clean rounded box */}
-              <div className="w-12 h-12 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center shrink-0">
-                <svg className="w-6 h-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
-                  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
-                  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05" />
-                  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335" />
-                </svg>
-              </div>
-              <div>
-                <div className="flex items-center gap-1.5">
-                  <span className="text-2xl font-black text-gray-800">4.9</span>
-                  <div className="flex text-[#fca311]">
-                    {[...Array(5)].map((_, i) => (
-                      <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
-                </div>
-                <p className="text-xs text-gray-500 font-bold mt-1 uppercase tracking-wide">
-                  142 Reviews on Google
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Testimonial Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-            {/* Card 1 */}
-            <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 flex flex-col justify-between group">
-              <div>
-                {/* Rating Stars & Google badge */}
-                <div className="flex justify-between items-center mb-4">
-                  <div className="flex text-[#fca311]">
-                    {[...Array(5)].map((_, i) => (
-                      <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
-                  {/* Google G logo tiny */}
-                  <svg className="w-4 h-4 opacity-50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
-                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
-                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05" />
-                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335" />
-                  </svg>
-                </div>
-                <p className="text-gray-600 text-sm leading-relaxed mb-6 text-justify">
-                  &quot;Excellent experience with SunLynk Solar. The weather monitoring SCADA system they set up for our commercial PV rooftop has been flawless. Customer support is very prompt and technical expert advice was valuable.&quot;
-                </p>
-              </div>
-
-              {/* User details */}
-              <div className="flex items-center gap-3 border-t border-gray-50 pt-4">
-                <div className="w-10 h-10 bg-primary/10 text-primary font-bold rounded-full flex items-center justify-center shrink-0">
-                  RS
-                </div>
-                <div>
-                  <span className="block text-sm font-bold text-gray-800">Rajesh Sharma</span>
-                  <span className="block text-[10px] text-gray-400">1 month ago • Verified Partner</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 2 */}
-            <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 flex flex-col justify-between group">
-              <div>
-                <div className="flex justify-between items-center mb-4">
-                  <div className="flex text-[#fca311]">
-                    {[...Array(5)].map((_, i) => (
-                      <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <svg className="w-4 h-4 opacity-50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
-                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
-                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05" />
-                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335" />
-                  </svg>
-                </div>
-                <p className="text-gray-600 text-sm leading-relaxed mb-6 text-justify">
-                  &quot;Best solar product distributor in Delhi! They offered highly competitive pricing for bifacial N-type double glass modules. Fast delivery, perfect condition, and seamless Modbus connectivity guidelines.&quot;
-                </p>
-              </div>
-
-              {/* User details */}
-              <div className="flex items-center gap-3 border-t border-gray-50 pt-4">
-                <div className="w-10 h-10 bg-secondary/10 text-secondary font-bold rounded-full flex items-center justify-center shrink-0">
-                  AP
-                </div>
-                <div>
-                  <span className="block text-sm font-bold text-gray-800">Amit Patel</span>
-                  <span className="block text-[10px] text-gray-400">2 weeks ago • Verified Buyer</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 flex flex-col justify-between group">
-              <div>
-                <div className="flex justify-between items-center mb-4">
-                  <div className="flex text-[#fca311]">
-                    {[...Array(5)].map((_, i) => (
-                      <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <svg className="w-4 h-4 opacity-50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
-                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
-                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05" />
-                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335" />
-                  </svg>
-                </div>
-                <p className="text-gray-600 text-sm leading-relaxed mb-6 text-justify">
-                  &quot;Superb installation and paperwork support for solar subsidy. Highly professional team, they handled all the government approvals without me having to follow up even once. Excellent solar energy generation!&quot;
-                </p>
-              </div>
-
-              {/* User details */}
-              <div className="flex items-center gap-3 border-t border-gray-50 pt-4">
-                <div className="w-10 h-10 bg-dark text-white font-bold rounded-full flex items-center justify-center shrink-0">
-                  SK
-                </div>
-                <div>
-                  <span className="block text-sm font-bold text-gray-800">Sanjay Krishnan</span>
-                  <span className="block text-[10px] text-gray-400">3 weeks ago • Homeowner</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 4 */}
-            <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 flex flex-col justify-between group">
-              <div>
-                <div className="flex justify-between items-center mb-4">
-                  <div className="flex text-[#fca311]">
-                    {[...Array(5)].map((_, i) => (
-                      <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <svg className="w-4 h-4 opacity-50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
-                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
-                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05" />
-                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335" />
-                  </svg>
-                </div>
-                <p className="text-gray-600 text-sm leading-relaxed mb-6 text-justify">
-                  &quot;Very pleased with the residential hybrid inverter and energy storage setup. It has been running for 6 months now without any issues, saving us 80% on bills! Highly recommend SunLynk Solar.&quot;
-                </p>
-              </div>
-
-              {/* User details */}
-              <div className="flex items-center gap-3 border-t border-gray-50 pt-4">
-                <div className="w-10 h-10 bg-blue-100 text-blue-600 font-bold rounded-full flex items-center justify-center shrink-0">
-                  NV
-                </div>
-                <div>
-                  <span className="block text-sm font-bold text-gray-800">Neha Verma</span>
-                  <span className="block text-[10px] text-gray-400">1 month ago • Homeowner</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          {/* Call to action at bottom of reviews */}
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-12 pt-8 border-t border-gray-50">
-            <span className="text-sm text-gray-500 font-medium">Are you a satisfied customer?</span>
-            <a
-              href="https://google.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-primary-hover transition-colors"
-            >
-              <span>Write a Google Review</span>
-              <ArrowRight size={14} />
-            </a>
-          </div>
-
-        </div>
-      </section>
 
       {/* Client Logos Carousel Section */}
       {/* <section className="py-16 bg-white border-t border-gray-100">
