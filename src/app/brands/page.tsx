@@ -103,7 +103,7 @@ export default function Brands() {
             {brands.map((brand, idx) => (
               <div
                 key={idx}
-                className={`bg-gray-50 border border-gray-100 rounded-2xl p-8 lg:p-12 shadow-sm hover:shadow-md transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center ${idx % 2 === 1 ? "lg:flex-row-reverse" : ""
+                className={`bg-gray-1000 border border-gray-100 rounded-2xl p-8 lg:p-12 shadow-sm hover:shadow-md transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center ${idx % 2 === 1 ? "lg:flex-row-reverse" : ""
                   }`}
               >
                 {/* Brand Logo & Info */}

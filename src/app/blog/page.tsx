@@ -34,7 +34,7 @@ export default function BlogList() {
                 className="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full group"
               >
                 {/* Image */}
-                <div className="relative aspect-[16/10] w-full bg-gray-50 overflow-hidden">
+                <div className="relative aspect-[16/10] w-full bg-gray-1000 overflow-hidden">
                   <Image
                     src={post.image}
                     alt={post.title}

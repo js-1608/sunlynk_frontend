@@ -73,7 +73,7 @@ export default function Contact() {
       </section>
 
       {/* Locations and Map */}
-      <section className="py-18 bg-gray-50 border-t border-gray-100">
+      <section className="py-18 bg-gray-1000 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
 
           {/* Map */}

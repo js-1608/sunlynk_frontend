@@ -63,7 +63,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
           {/* Sidebar Left (col-span-4) */}
           <div className="lg:col-span-4 flex flex-col gap-8">
             {/* Sidebar Navigation */}
-            <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 shadow-sm">
+            <div className="bg-gray-1000 border border-gray-100 rounded-2xl p-6 shadow-sm">
               <h4 className="font-bold text-gray-800 text-lg mb-4 border-b border-gray-200 pb-2">Related Products</h4>
               <ul className="flex flex-col gap-2">
                 {sidebarProducts.map((p) => (
@@ -71,8 +71,8 @@ export default async function ProductDetailPage({ params }: PageProps) {
                     <Link
                       href={`/products/${p.slug}`}
                       className={`flex justify-between items-center px-4 py-3 rounded-md border text-sm font-semibold transition-all duration-300 ${p.id === product.id
-                          ? "bg-primary border-primary text-white"
-                          : "bg-white border-gray-200 text-gray-700 hover:bg-gray-50 hover:text-primary"
+                        ? "bg-primary border-primary text-white"
+                        : "bg-white border-gray-200 text-gray-700 hover:bg-gray-1000 hover:text-primary"
                         }`}
                     >
                       <span className="truncate">{p.title}</span>
@@ -122,7 +122,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
           {/* Product detail Right (col-span-8) */}
           <div className="lg:col-span-8 flex flex-col gap-8 text-left">
             {/* Product Image */}
-            <div className="relative w-full aspect-[16/9] bg-gray-50 rounded-2xl overflow-hidden shadow-md border border-gray-100">
+            <div className="relative w-full aspect-[16/9] bg-gray-1000 rounded-2xl overflow-hidden shadow-md border border-gray-100">
               <Image
                 src={product.image}
                 alt={product.title}
@@ -132,7 +132,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
             </div>
 
             {/* Specifications Card */}
-            <div className="bg-gray-50 border border-gray-100 rounded-2xl p-8 flex flex-col gap-4">
+            <div className="bg-gray-1000 border border-gray-100 rounded-2xl p-8 flex flex-col gap-4">
               <h3 className="text-2xl font-extrabold text-dark">{product.title}</h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4 border-t border-gray-200">
                 <div>
@@ -182,7 +182,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
             <div className="flex flex-col gap-4 mt-4">
               <h4 className="text-xl font-bold text-dark">Where can I get some?</h4>
               <div className="border border-gray-200 rounded-lg overflow-hidden">
-                <div className="p-4 bg-gray-50 border-b border-gray-200">
+                <div className="p-4 bg-gray-1000 border-b border-gray-200">
                   <h5 className="font-bold text-gray-800 text-sm">How do I request a quote for this product?</h5>
                   <p className="text-xs text-gray-600 mt-2 leading-relaxed">
                     You can request a custom quotation by clicking the floating &ldquo;Buy Now&rdquo; button on the bottom right or filling out the inquiry form below. Our engineering team will review your project requirements and provide customized specifications.

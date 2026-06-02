@@ -356,7 +356,7 @@ export default function ContactForm({ hideTabs = false }: ContactFormProps) {
                         onClick={() => setSocForm({ ...socForm, designation: role })}
                         className={`py-3 px-3 rounded-xl border text-xs font-bold transition-all cursor-pointer ${socForm.designation === role
                           ? "border-primary bg-primary/8 text-primary shadow-sm scale-[1.01]"
-                          : "border-gray-200 bg-white text-gray-700 hover:bg-gray-50 hover:border-gray-300"
+                          : "border-gray-200 bg-white text-gray-700 hover:bg-gray-1000 hover:border-gray-300"
                           }`}
                       >
                         {role}

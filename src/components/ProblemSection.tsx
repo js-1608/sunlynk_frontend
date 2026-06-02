@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function ProblemSection() {
   return (
-    <section id="sunlynk-why" className="py-16 bg-gray-50">
+    <section id="sunlynk-why" className="py-16 bg-gray-1000">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         {/* Header — centered */}
         <div className="max-w-3xl mx-auto text-center mb-16">

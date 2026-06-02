@@ -64,7 +64,7 @@ export default function InverterDownloads() {
             {downloads.map((dl, idx) => (
               <div
                 key={idx}
-                className="bg-gray-50 border border-gray-100 p-5 rounded-xl flex items-center justify-between gap-4 shadow-sm hover:shadow-md transition-shadow text-left"
+                className="bg-gray-1000 border border-gray-100 p-5 rounded-xl flex items-center justify-between gap-4 shadow-sm hover:shadow-md transition-shadow text-left"
               >
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">

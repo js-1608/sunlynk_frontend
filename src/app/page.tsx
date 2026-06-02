@@ -74,18 +74,7 @@ export default function Home() {
 
   return (
     <div>
-      {/* Hero Section */}
-      {/* <Hero /> */}
-
       <HeroV2 />
-
-
-
-
-
-      {/* Trust Bar — 4 Pillars */}
-      <TrustBar />
-
 
       {/* Services Grid Section */}
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white border-b border-gray-100 overflow-hidden">
@@ -219,83 +208,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Grid Section */}
-      {/* <section className="py-18 bg-white">
-        <div className="max-w-7xl mx-auto ">
 
-          <div className="text-center max-w-3xl mx-auto mb-20 flex flex-col items-center gap-4">
-            <div className="inline-flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-primary"></span>
-              <span className="text-xs uppercase tracking-wider font-bold text-primary">Services</span>
-              <span className="h-[2px] w-6 bg-primary"></span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-dark">
-              Powering Your Future with Our Services
-            </h2>
-            <p className="text-sm sm:text-base text-gray-500 max-w-2xl leading-relaxed mt-2">
-              We provide end-to-end solar energy solutions designed to maximize efficiency, reduce costs, and support your transition to renewable energy.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto overflow-hidden  bg-white">
-
-            <div className="md:border-r  border-gray-400 p-8 sm:p-12 hover:bg-slate-50/50 transition-all duration-300 group flex flex-col gap-6">
-              <div className="text-gray-800 group-hover:text-primary transition-colors duration-300 shrink-0">
-                <svg className="w-10 h-10" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="13" y="3" width="7" height="7" rx="1.5" />
-                  <rect x="4" y="13" width="7" height="7" rx="1.5" />
-                  <rect x="13" y="13" width="7" height="7" rx="1.5" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">
-                  Residential Solar
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
-                  Smart solar systems tailored for homeowners to reduce electricity bills and increase property value with clean energy.
-                </p>
-              </div>
-            </div>
-
-            <div className="border-gray-400 p-8 sm:p-12 hover:bg-slate-50/50 transition-all duration-300 group flex flex-col gap-6">
-              <div className="text-gray-800 group-hover:text-primary transition-colors duration-300 shrink-0">
-                <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="4" y="4" width="7" height="16" rx="1.5" />
-                  <rect x="13" y="4" width="7" height="7" rx="1.5" />
-                  <rect x="13" y="13" width="7" height="7" rx="1.5" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">
-                  Commercial & Industrial
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
-                  High-performance solar installations built for businesses and industries seeking energy independence and operational savings.
-                </p>
-              </div>
-            </div>
-
-            <div className="md:border-l border-gray-400 p-8 sm:p-12 hover:bg-slate-50/50 transition-all duration-300 group flex flex-col gap-6">
-              <div className="text-gray-800 group-hover:text-primary transition-colors duration-300 shrink-0">
-                <svg className="w-10 h-10" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <text x="0" y="8" className="text-[8px] font-black fill-current" fontFamily="Inter, sans-serif">01</text>
-                  <line x1="0" y1="11" x2="16" y2="11" stroke="currentColor" strokeWidth="2.5" />
-                  <text x="0" y="20" className="text-[8px] font-black fill-current" fontFamily="Inter, sans-serif">10</text>
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">
-                  Solar Panel Installation
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
-                  Professional installation services ensuring optimal system performance, safety, and long-term reliability.
-                </p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section> */}
 
       {/* Our Process Section */}
       <section className="py-18 md:py-18 bg-gradient-to-b from-white to-gray-50 overflow-hidden" id="solar-process">
@@ -462,14 +375,15 @@ export default function Home() {
 
 
 
-      {/* Solar Savings Calculator */}
-      <SolarCalculator />
 
 
+
+      {/* Trust Bar — 4 Pillars */}
+      <TrustBar />
 
 
       {/* We Handle Everything Section */}
-      <section className="py-16 md:py-20 bg-gray-50 border-y border-gray-100 overflow-hidden">
+      <section className="py-16 md:py-20 bg-gray-1000 border-y border-gray-100 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
 
           {/* Mobile: images first, Desktop: side by side */}
@@ -626,6 +540,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Solar Savings Calculator */}
+      <SolarCalculator />
+
       {/* Stats Counter Section */}
       <StatsCounter />
 
@@ -657,7 +574,7 @@ export default function Home() {
                 className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col h-full group"
               >
                 {/* Image */}
-                <div className="relative w-full aspect-[4/3] bg-gray-50 overflow-hidden">
+                <div className="relative w-full aspect-[4/3] bg-gray-1000 overflow-hidden">
                   <Image
                     src={prod.image}
                     alt={prod.title}
@@ -756,7 +673,7 @@ export default function Home() {
       </section> */}
 
       {/* Work Process */}
-      {/* <section className="py-18 bg-gray-50">
+      {/* <section className="py-18 bg-gray-1000">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
             <div className="inline-flex items-center gap-2">
@@ -1001,7 +918,7 @@ export default function Home() {
       </section>
 
       {/* Project Cases Section */}
-      {/* <section className="py-18 bg-gray-50">
+      {/* <section className="py-18 bg-gray-1000">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
             <div className="inline-flex items-center gap-2">

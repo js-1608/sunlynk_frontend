@@ -94,13 +94,13 @@ export default function Header() {
                 <ChevronDown size={16} />
               </button>
               <div className="absolute left-0 top-full hidden group-hover:block bg-white shadow-xl rounded-md border border-gray-100 py-2 w-56 mt-1 transition-all duration-200">
-                <Link href="/contact" className="block px-4 py-2 hover:bg-gray-50 text-sm text-gray-700 hover:text-primary font-semibold">
+                <Link href="/contact" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-semibold">
                   Homes
                 </Link>
-                <Link href="/contact" className="block px-4 py-2 hover:bg-gray-50 text-sm text-gray-700 hover:text-primary font-semibold">
+                <Link href="/contact" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-semibold">
                   Commercial
                 </Link>
-                <Link href="/contact" className="block px-4 py-2 hover:bg-gray-50 text-sm text-gray-700 hover:text-primary font-semibold">
+                <Link href="/contact" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-semibold">
                   Housing Societies
                 </Link>
               </div>
@@ -113,13 +113,13 @@ export default function Header() {
                 <ChevronDown size={16} />
               </button>
               <div className="absolute left-0 top-full hidden group-hover:block bg-white shadow-xl rounded-md border border-gray-100 py-2 w-56 mt-1 transition-all duration-200">
-                <Link href="/contact" className="block px-4 py-2 hover:bg-gray-50 text-sm text-gray-700 hover:text-primary font-semibold">
+                <Link href="/contact" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-semibold">
                   Off-Grid Solar
                 </Link>
-                <Link href="/contact" className="block px-4 py-2 hover:bg-gray-50 text-sm text-gray-700 hover:text-primary font-semibold">
+                <Link href="/contact" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-semibold">
                   On Grid Solar
                 </Link>
-                <Link href="/contact" className="block px-4 py-2 hover:bg-gray-50 text-sm text-gray-700 hover:text-primary font-semibold">
+                <Link href="/contact" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-semibold">
                   Hybrid solar
                 </Link>
               </div>
@@ -132,13 +132,13 @@ export default function Header() {
                 <ChevronDown size={16} />
               </button>
               <div className="absolute left-0 top-full hidden group-hover:block bg-white shadow-xl rounded-md border border-gray-100 py-2 w-56 mt-1 transition-all duration-200">
-                <Link href="#" className="block px-4 py-2 hover:bg-gray-50 text-sm text-gray-700 hover:text-primary font-medium">
+                <Link href="#" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-medium">
                   Warranty Claims
                 </Link>
-                <Link href="#" className="block px-4 py-2 hover:bg-gray-50 text-sm text-gray-700 hover:text-primary font-medium">
+                <Link href="#" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-medium">
                   WMS Products
                 </Link>
-                <Link href="#" className="block px-4 py-2 hover:bg-gray-50 text-sm text-gray-700 hover:text-primary font-medium">
+                <Link href="#" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-medium">
                   Inverters and Panels
                 </Link>
               </div>
@@ -161,8 +161,8 @@ export default function Header() {
             <Link
               href="/contact"
               className={`font-bold text-sm px-5 py-2 rounded-md transition-all duration-300 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-95 ml-2 ${pathname === "/contact"
-                  ? "bg-primary-hover text-white"
-                  : "bg-primary hover:bg-primary-hover text-white"
+                ? "bg-primary-hover text-white"
+                : "bg-primary hover:bg-primary-hover text-white"
                 }`}
             >
               Contact us

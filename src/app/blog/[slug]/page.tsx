@@ -54,7 +54,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
           {/* Left Column: Post content (col-span-8) */}
           <div className="lg:col-span-8 flex flex-col gap-6 text-left">
             {/* Image */}
-            <div className="relative w-full aspect-[16/9] bg-gray-50 rounded-2xl overflow-hidden shadow-md border border-gray-100">
+            <div className="relative w-full aspect-[16/9] bg-gray-1000 rounded-2xl overflow-hidden shadow-md border border-gray-100">
               <Image
                 src={post.image}
                 alt={post.title}
@@ -118,7 +118,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
             <div className="mt-8 flex flex-col gap-6">
               <h3 className="text-xl font-bold text-gray-800 border-b border-gray-100 pb-2">Comments (02)</h3>
               <div className="flex flex-col gap-6">
-                <div className="flex gap-4 items-start p-5 bg-gray-50 border border-gray-100 rounded-xl">
+                <div className="flex gap-4 items-start p-5 bg-gray-1000 border border-gray-100 rounded-xl">
                   <div className="relative w-12 h-12 bg-gray-200 rounded-full overflow-hidden shrink-0">
                     <Image src="/assets/images/blog/blog-comment-1-1.webp" alt="User comment avatar" fill className="object-cover" />
                   </div>
@@ -131,7 +131,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
                   </div>
                 </div>
 
-                <div className="flex gap-4 items-start p-5 bg-gray-50 border border-gray-100 rounded-xl">
+                <div className="flex gap-4 items-start p-5 bg-gray-1000 border border-gray-100 rounded-xl">
                   <div className="relative w-12 h-12 bg-gray-200 rounded-full overflow-hidden shrink-0">
                     <Image src="/assets/images/blog/blog-comment-1-2.webp" alt="User comment avatar" fill className="object-cover" />
                   </div>
@@ -150,7 +150,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
           {/* Right Column: Sidebar (col-span-4) */}
           <div className="lg:col-span-4 flex flex-col gap-8">
             {/* Recent Posts widget */}
-            <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 shadow-sm">
+            <div className="bg-gray-1000 border border-gray-100 rounded-2xl p-6 shadow-sm">
               <h4 className="font-bold text-gray-800 text-base mb-4 border-b border-gray-200 pb-2">Recent Posts</h4>
               <ul className="flex flex-col gap-4">
                 {recentPosts.map((rp) => (
@@ -173,7 +173,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
             </div>
 
             {/* Categories list */}
-            <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 shadow-sm">
+            <div className="bg-gray-1000 border border-gray-100 rounded-2xl p-6 shadow-sm">
               <h4 className="font-bold text-gray-800 text-base mb-4 border-b border-gray-200 pb-2">Categories</h4>
               <ul className="flex flex-col gap-2">
                 <li className="flex justify-between items-center text-xs font-bold text-gray-600">

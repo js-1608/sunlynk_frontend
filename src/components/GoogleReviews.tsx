@@ -2,6 +2,7 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 const GoogleGLogoSvg = () => (
   <svg className="w-6 h-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -38,6 +39,7 @@ interface Review {
   text: string;
   avatarBg: string;
   avatarText: string;
+  image?: string;
 }
 
 const reviews: Review[] = [
@@ -48,6 +50,7 @@ const reviews: Review[] = [
     text: "Excellent experience with SunLynk Solar. The weather monitoring SCADA system they set up for our commercial PV rooftop has been flawless. Customer support is very prompt and technical expert advice was valuable.",
     avatarBg: "bg-primary/10",
     avatarText: "text-primary",
+    image: "/assets/images/review/review1.jpeg",
   },
   {
     initials: "AP",
@@ -56,6 +59,7 @@ const reviews: Review[] = [
     text: "Best solar product distributor in Delhi! They offered highly competitive pricing for bifacial N-type double glass modules. Fast delivery, perfect condition, and seamless Modbus connectivity guidelines.",
     avatarBg: "bg-secondary/10",
     avatarText: "text-secondary",
+    image: "/assets/images/review/review2.jpeg",
   },
   {
     initials: "SK",
@@ -64,6 +68,7 @@ const reviews: Review[] = [
     text: "Superb installation and paperwork support for solar subsidy. Highly professional team, they handled all the government approvals without me having to follow up even once. Excellent solar energy generation!",
     avatarBg: "bg-dark",
     avatarText: "text-white",
+    image: "/assets/images/review/review3.jpeg",
   },
   {
     initials: "NV",
@@ -72,21 +77,37 @@ const reviews: Review[] = [
     text: "Very pleased with the residential hybrid inverter and energy storage setup. It has been running for 6 months now without any issues, saving us 80% on bills! Highly recommend SunLynk Solar.",
     avatarBg: "bg-blue-100",
     avatarText: "text-blue-600",
+    image: "/assets/images/review/review4.jpeg",
   },
 ];
 
 function ReviewCard({ review }: { review: Review }) {
   return (
     <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 flex flex-col justify-between h-full">
-      <div>
+      <div className="flex flex-col flex-grow">
         {/* Rating Stars & Google badge */}
         <div className="flex justify-between items-center mb-4">
           <StarRating size={4} />
           <GoogleGLogoTiny />
         </div>
-        <p className="text-gray-600 text-sm leading-relaxed mb-6">
+        <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">
           &quot;{review.text}&quot;
         </p>
+
+        {review.image && (
+          <div className="relative w-full h-40 rounded-xl overflow-hidden mb-6 group/img border border-slate-100 shrink-0">
+            <Image
+              src={review.image}
+              alt={`${review.name}'s solar installation`}
+              fill
+              className="object-cover transition-transform duration-500 group-hover/img:scale-105"
+            />
+            {/* Subtle overlay badge */}
+            <div className="absolute bottom-2 left-2 bg-black/60 backdrop-blur-sm text-white text-[9px] font-bold px-2 py-1 rounded">
+              Actual Installation
+            </div>
+          </div>
+        )}
       </div>
 
       {/* User details */}

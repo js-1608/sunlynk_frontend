@@ -110,7 +110,7 @@ export default function About() {
               <p>
                 At SunLynk Solar India, we are at the forefront of innovation in renewable energy solutions. As a leading provider of weather stations, SCADA, and energy storage system (ESS) solutions, we empower businesses to optimize performance, maximize efficiency, and harness the full potential of clean energy.
               </p>
-              <p className="font-semibold text-gray-800 border-l-4 border-primary pl-4 py-1 bg-gray-50">
+              <p className="font-semibold text-gray-800 border-l-4 border-primary pl-4 py-1 bg-gray-1000">
                 Our expertise extends across the renewable energy landscape, delivering cutting-edge technologies for solar and wind power projects. We specialize in high-precision weather monitoring, real-time SCADA systems, and intelligent ESS solutions, ensuring seamless operations for utility-scale power plants.
               </p>
               <p>
@@ -181,7 +181,7 @@ export default function About() {
             {missions.map((m, idx) => (
               <div
                 key={idx}
-                className="bg-gray-50 border border-gray-100 rounded-xl p-8 hover:shadow-lg transition-all flex flex-col gap-4"
+                className="bg-gray-1000 border border-gray-100 rounded-xl p-8 hover:shadow-lg transition-all flex flex-col gap-4"
               >
                 <div className="inline-flex items-center justify-center w-12 h-12 bg-primary text-white font-extrabold rounded-lg">
                   {m.title}

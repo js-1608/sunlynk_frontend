@@ -90,7 +90,7 @@ export default function Calibration() {
           </div>
 
           {/* Right Column: Image (col-span-5) */}
-          <div className="lg:col-span-5 relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border border-gray-100 bg-gray-50">
+          <div className="lg:col-span-5 relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border border-gray-100 bg-gray-1000">
             <Image
               src="/assets/IMAGE/solar_scada.png"
               alt="Calibration testing"
@@ -102,7 +102,7 @@ export default function Calibration() {
       </section>
 
       {/* Services breakdown list */}
-      <section className="py-18 bg-gray-50 border-t border-gray-100">
+      <section className="py-18 bg-gray-1000 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((srv, idx) => (

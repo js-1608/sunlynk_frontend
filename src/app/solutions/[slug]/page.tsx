@@ -68,7 +68,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
           {/* Solution content Left (col-span-8) */}
           <div className="lg:col-span-8 flex flex-col gap-8 text-left">
             {/* Main Image */}
-            <div className="relative w-full aspect-[16/9] bg-gray-50 rounded-2xl overflow-hidden shadow-md border border-gray-100">
+            <div className="relative w-full aspect-[16/9] bg-gray-1000 rounded-2xl overflow-hidden shadow-md border border-gray-100">
               <Image
                 src={solution.image}
                 alt={solution.title}
@@ -92,7 +92,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
                 {solution.benefits.map((b, idx) => (
                   <div
                     key={idx}
-                    className="flex gap-3 items-start p-4 bg-gray-50 border border-gray-100 rounded-xl hover:shadow-sm transition-all"
+                    className="flex gap-3 items-start p-4 bg-gray-1000 border border-gray-100 rounded-xl hover:shadow-sm transition-all"
                   >
                     <CheckCircle className="text-primary shrink-0 mt-0.5" size={18} />
                     <span className="text-sm text-gray-700 leading-relaxed font-semibold">{b}</span>
@@ -105,7 +105,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
             {solution.architectureImage && (
               <div className="flex flex-col gap-4 mt-4">
                 <h4 className="text-xl font-bold text-dark">System Architecture</h4>
-                <div className="relative w-full aspect-[16/10] bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 shadow p-4">
+                <div className="relative w-full aspect-[16/10] bg-gray-1000 rounded-2xl overflow-hidden border border-gray-100 shadow p-4">
                   <Image
                     src={solution.architectureImage}
                     alt="System Architecture diagram"
@@ -128,7 +128,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
           {/* Sidebar Right (col-span-4) */}
           <div className="lg:col-span-4 flex flex-col gap-8">
             {/* SunLynk Advantage list */}
-            <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 shadow-sm">
+            <div className="bg-gray-1000 border border-gray-100 rounded-2xl p-6 shadow-sm">
               <h4 className="font-bold text-gray-800 text-lg mb-4 border-b border-gray-200 pb-2 uppercase tracking-wider text-xs">
                 SunLynk Advantage
               </h4>
