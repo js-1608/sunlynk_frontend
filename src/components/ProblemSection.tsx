@@ -24,7 +24,7 @@ export default function ProblemSection() {
           <div className="lg:col-span-5">
             <div className="relative w-full aspect-[5/4] rounded overflow-hidden shadow-lg">
               <Image
-                src="/assets/images/backgrounds/slider-2-1.jpg"
+                src="/assets/images/backgrounds/slider-2-1.webp"
                 alt="Solar installation on residential rooftop"
                 fill
                 className="object-cover"

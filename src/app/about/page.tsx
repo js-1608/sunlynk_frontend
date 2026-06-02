@@ -48,7 +48,7 @@ export default function About() {
       <section className="relative bg-dark text-white py-16 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-10 pointer-events-none"
-          style={{ backgroundImage: "url(/assets/images/backgrounds/page-header-bg-1-1.jpg)" }}
+          style={{ backgroundImage: "url(/assets/images/backgrounds/page-header-bg-1-1.webp)" }}
         ></div>
         <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
           <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-2">SunLynk Solar</span>
@@ -68,7 +68,7 @@ export default function About() {
           <div className="relative">
             <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-100">
               <Image
-                src="/assets/IMAGE/solar.jpg"
+                src="/assets/IMAGE/solar.webp"
                 alt="Solar plant"
                 fill
                 className="object-cover"
@@ -129,7 +129,7 @@ export default function About() {
         {/* Background shape */}
         <div
           className="absolute inset-0 bg-cover bg-center opacity-5 pointer-events-none"
-          style={{ backgroundImage: "url(/assets/images/shapes/service-shape-2-1.png)" }}
+          style={{ backgroundImage: "url(/assets/images/shapes/service-shape-2-1.webp)" }}
         ></div>
 
         <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">

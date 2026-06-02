@@ -8,7 +8,7 @@
     "type": "DMXXXM10T-B78HSW/HBW",
     "powerRange": "610 - 625 W",
     "efficiency": "22.36 %",
-    "image": "/assets/IMAGE/solar.jpg",
+    "image": "/assets/IMAGE/solar.webp",
     "datasheet": "/data/solarPV/1. N-Type Bifacial with Double Glass DM610-625M10T-B78HSW_HBW.pdf",
     "features": [
       "Bifacial Module Application: Up to 25 % higher electricity yields due to active cell technology in bifacial glass/glass modules on both sides.",
@@ -26,7 +26,7 @@
     "type": "DM535-550M10-B72HSW",
     "powerRange": "535 - 550 W",
     "efficiency": "21.28 %",
-    "image": "/assets/IMAGE/solar.jpg",
+    "image": "/assets/IMAGE/solar.webp",
     "datasheet": "/data/solarPV/2. Bifacial with Dual Glass DM535-550M10-B72HSW_HBW.pdf",
     "features": [
       "Bifacial Module Application: High power generation on the back side.",
@@ -44,7 +44,7 @@
     "type": "DM540-555M10-72HSW",
     "powerRange": "540 - 555 W",
     "efficiency": "21.48 %",
-    "image": "/assets/IMAGE/solar.jpg",
+    "image": "/assets/IMAGE/solar.webp",
     "datasheet": "/data/solarPV/3. Mono-Facial DM540-555M10-72HSW_HBW.pdf",
     "features": [
       "High Power Output: Leverages high-efficiency mono PERC technology.",
@@ -61,7 +61,7 @@
     "type": "Hyper NOVA N590",
     "powerRange": "580 - 595 W",
     "efficiency": "22.6 %",
-    "image": "/assets/IMAGE/solar.jpg",
+    "image": "/assets/IMAGE/solar.webp",
     "datasheet": "/data/solarPV/4. Hyper NOVA N590.pdf",
     "features": [
       "N-Type TOPCon Technology: High efficiency with lower degradation.",
@@ -78,7 +78,7 @@
     "type": "Quasar 670W",
     "powerRange": "660 - 675 W",
     "efficiency": "21.7 %",
-    "image": "/assets/IMAGE/solar.jpg",
+    "image": "/assets/IMAGE/solar.webp",
     "datasheet": "/data/solarPV/5. Quasar 670.pdf",
     "features": [
       "Ultra High Power: Based on 210mm large wafer technology.",
@@ -95,7 +95,7 @@
     "type": "Quasar-bi 685W",
     "powerRange": "675 - 690 W",
     "efficiency": "22.1 %",
-    "image": "/assets/IMAGE/solar.jpg",
+    "image": "/assets/IMAGE/solar.webp",
     "datasheet": "/data/solarPV/6. Quasar-bi 685.pdf",
     "features": [
       "Bifacial Energy Yields: Extra generation from albedo reflection.",
@@ -112,7 +112,7 @@
     "type": "Hyper Nova N640",
     "powerRange": "630 - 650 W",
     "efficiency": "22.3 %",
-    "image": "/assets/IMAGE/solar.jpg",
+    "image": "/assets/IMAGE/solar.webp",
     "datasheet": "/data/solarPV/7. Hyper Nova N640.pdf",
     "features": [
       "Advanced TOPCon cells: Superior power-to-area ratio.",
@@ -129,7 +129,7 @@
     "type": "Single/Three Phase String Inverters",
     "powerRange": "3 kW - 12 kW",
     "efficiency": "98.2 %",
-    "image": "/assets/IMAGE/product/hitachi/hitachi (1).png",
+    "image": "/assets/IMAGE/product/hitachi/hitachi (1).webp",
     "datasheet": "/data/inverters/hitachi_residential.pdf",
     "features": [
       "Smart Ongrid Inverter with RMS inbuilt.",
@@ -146,7 +146,7 @@
     "type": "Hitachi / Sineng C&I Inverters",
     "powerRange": "15 kW - 125 kW",
     "efficiency": "98.7 %",
-    "image": "/assets/IMAGE/product/hitachi/hitachi (4).png",
+    "image": "/assets/IMAGE/product/hitachi/hitachi (4).webp",
     "datasheet": "/data/inverters/hitachi_commercial.pdf",
     "features": [
       "Suitable for high-capacity commercial rooftops.",
@@ -163,7 +163,7 @@
     "type": "Hitachi / Sineng Utility Central Inverter",
     "powerRange": "1 MW - 3.125 MW",
     "efficiency": "99.0 %",
-    "image": "/assets/IMAGE/product/hitachi/hitachi (3).png",
+    "image": "/assets/IMAGE/product/hitachi/hitachi (3).webp",
     "datasheet": "/data/inverters/hitachi_central.pdf",
     "features": [
       "Utility scale configuration with high efficiency transformer coupling.",
@@ -180,7 +180,7 @@
     "type": "Compact Weather Sensors",
     "powerRange": "N/A",
     "efficiency": "High Accuracy",
-    "image": "/assets/IMAGE/solar.jpg",
+    "image": "/assets/IMAGE/solar.webp",
     "datasheet": "/data/sensors/rooftop_wms.pdf",
     "features": [
       "Compact and easy-to-install sensors for rooftop weather monitoring.",
@@ -197,7 +197,7 @@
     "type": "Professional Class-A WMS",
     "powerRange": "N/A",
     "efficiency": "Class A Compliant",
-    "image": "/assets/IMAGE/solar.jpg",
+    "image": "/assets/IMAGE/solar.webp",
     "datasheet": "/data/sensors/utility_wms.pdf",
     "features": [
       "Class-A Pyranometer for high precision solar radiation measurement.",
@@ -214,7 +214,7 @@
     "type": "Data Acquisition System",
     "powerRange": "N/A",
     "efficiency": "Reliable Storage",
-    "image": "/assets/IMAGE/solar.jpg",
+    "image": "/assets/IMAGE/solar.webp",
     "datasheet": "/data/sensors/data_logger.pdf",
     "features": [
       "Stores local weather data and uploads to cloud/SCADA.",
@@ -231,7 +231,7 @@
     "type": "Residential BESS Inverter",
     "powerRange": "3 kW - 10 kW",
     "efficiency": "97.6 %",
-    "image": "/assets/IMAGE/solar.jpg",
+    "image": "/assets/IMAGE/solar.webp",
     "datasheet": "/data/storage/low_voltage_hybrid.pdf",
     "features": [
       "48V battery compatibility for safe residential storage.",
@@ -248,7 +248,7 @@
     "type": "Commercial BESS Inverter",
     "powerRange": "10 kW - 50 kW",
     "efficiency": "98.2 %",
-    "image": "/assets/IMAGE/solar.jpg",
+    "image": "/assets/IMAGE/solar.webp",
     "datasheet": "/data/storage/high_voltage_hybrid.pdf",
     "features": [
       "High voltage battery compatibility (150V - 800V) for higher efficiency.",

@@ -10,6 +10,7 @@ import FaqAccordion from "@/components/FaqAccordion";
 import StatsCounter from "@/components/StatsCounter";
 import productsData from "@/data/products.json";
 import SolarCalculator from "@/components/SolarCalculator";
+import ContactForm from "@/components/ContactForm";
 import {
   Sun,
   Wind,
@@ -17,7 +18,11 @@ import {
   Trophy,
   Globe,
   Activity,
-  ArrowRight
+  ArrowRight,
+  Users,
+  ShieldCheck,
+  Umbrella,
+  Zap
 } from "lucide-react";
 import GoogleReviews from "@/components/GoogleReviews";
 
@@ -83,7 +88,7 @@ export default function Home() {
 
 
       {/* Services Grid Section */}
-      <section className="py- bg-gradient-to-b from-gray-50 to-white border-b border-gray-100 overflow-hidden">
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white border-b border-gray-100 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
 
           {/* Section Header */}
@@ -109,7 +114,7 @@ export default function Home() {
               {/* Image Header */}
               <div className="relative h-52 overflow-hidden">
                 <Image
-                  src="/assets/images/service/solar_homes.png"
+                  src="/assets/images/service/solar_homes.webp"
                   alt="Solar panels on a modern home rooftop"
                   fill
                   className="object-cover"
@@ -144,7 +149,7 @@ export default function Home() {
               {/* Image Header */}
               <div className="relative h-52 overflow-hidden">
                 <Image
-                  src="/assets/images/service/solar_housing_society.png"
+                  src="/assets/images/service/solar_housing_society.webp"
                   alt="Housing society with rooftop solar installation"
                   fill
                   className="object-cover"
@@ -179,7 +184,7 @@ export default function Home() {
               {/* Image Header */}
               <div className="relative h-52 overflow-hidden">
                 <Image
-                  src="/assets/images/service/solar_commercial.png"
+                  src="/assets/images/service/solar_commercial.webp"
                   alt="Commercial building with solar panel installation"
                   fill
                   className="object-cover transition-transform duration-700"
@@ -293,7 +298,7 @@ export default function Home() {
       </section> */}
 
       {/* Our Process Section */}
-      <section className="py-18 md:py-18 bg-white border-t border-gray-100 overflow-hidden" id="solar-process">
+      <section className="py-18 md:py-18 bg-gradient-to-b from-white to-gray-50 overflow-hidden" id="solar-process">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
 
           {/* Section Header */}
@@ -314,7 +319,7 @@ export default function Home() {
             <div className="inline-flex items-center gap-3.5 bg-slate-50 border border-gray-200/80 rounded-full py-1.5 pl-2 pr-5 shadow-sm mt-4 hover:border-primary/20 transition-all duration-300">
               <div className="relative w-12 h-12 rounded-full overflow-hidden border border-white shadow-sm shrink-0">
                 <Image
-                  src="/assets/images/sunlynk_guy.png"
+                  src="/assets/images/sunlynk_guy.webp"
                   alt="SunLynk Guide"
                   fill
                   className="object-cover"
@@ -343,7 +348,7 @@ export default function Home() {
                 {/* Circle Image */}
                 <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-white bg-white shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.25)] group-hover:border-primary/60 transition-all duration-500 overflow-hidden shrink-0 z-10">
                   <Image
-                    src="/assets/images/process_survey.png"
+                    src="/assets/images/process_survey.webp"
                     alt="Free Home Visit & Rooftop Survey"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
@@ -369,7 +374,7 @@ export default function Home() {
                 {/* Circle Image */}
                 <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-white bg-white shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.25)] group-hover:border-primary/60 transition-all duration-500 overflow-hidden shrink-0 z-10">
                   <Image
-                    src="/assets/images/process_design.png"
+                    src="/assets/images/process_design.webp"
                     alt="3D Solar Layout Design"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
@@ -395,7 +400,7 @@ export default function Home() {
                 {/* Circle Image */}
                 <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-white bg-white shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.25)] group-hover:border-primary/60 transition-all duration-500 overflow-hidden shrink-0 z-10">
                   <Image
-                    src="/assets/images/process_installation.png"
+                    src="/assets/images/process_installation.webp"
                     alt="Govt Approvals & Professional Installation"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
@@ -421,7 +426,7 @@ export default function Home() {
                 {/* Circle Image */}
                 <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-white bg-white shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.25)] group-hover:border-primary/60 transition-all duration-500 overflow-hidden shrink-0 z-10">
                   <Image
-                    src="/assets/images/process_service.png"
+                    src="/assets/images/process_service.webp"
                     alt="After-Sales Service & Performance Monitoring"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
@@ -450,8 +455,6 @@ export default function Home() {
 
 
 
-      {/* Solar Savings Calculator */}
-      <SolarCalculator />
 
 
       {/* Products Preview — Lynk Lite & Lynk Sure */}
@@ -459,13 +462,10 @@ export default function Home() {
 
 
 
-      {/* Problem Section — Why SunLynk */}
-      <ProblemSection />
+      {/* Solar Savings Calculator */}
+      <SolarCalculator />
 
 
-
-      {/* Stats Counter Section */}
-      <StatsCounter />
 
 
       {/* We Handle Everything Section */}
@@ -475,82 +475,97 @@ export default function Home() {
           {/* Mobile: images first, Desktop: side by side */}
           <div className="flex flex-col-reverse lg:grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
-            {/* Left Column: Text + Steps */}
+            {/* Left Column: Text + Why Choose Us Grid */}
             <div className="lg:col-span-7 flex flex-col gap-8">
               <div className="flex flex-col gap-3">
                 <div className="inline-flex items-center gap-2">
                   <span className="h-[2px] w-6 bg-primary"></span>
-                  <span className="text-xs uppercase tracking-wider font-bold text-primary">Your Journey</span>
+                  <span className="text-xs uppercase tracking-wider font-bold text-primary">Why Choose Us</span>
                   <span className="h-[2px] w-6 bg-primary"></span>
                 </div>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-dark leading-tight">
-                  We Handle Everything. <br className="hidden sm:inline" />
-                  <span className="text-primary font-black">You Just Save.</span>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-dark leading-tight text-left">
+                  Why Partners & Homeowners <br className="hidden sm:inline" />
+                  <span className="text-primary font-black">Choose SunLynk</span>
                 </h2>
-                <p className="text-sm sm:text-base text-gray-500 max-w-xl">
-                  From site survey to government subsidy paperwork — our team manages the entire process so you can sit back and enjoy clean energy savings.
+                <p className="text-sm sm:text-base text-gray-500 max-w-xl text-left">
+                  We deliver top-tier engineering, long-term reliability, and guaranteed performance parameters for every solar solution.
                 </p>
               </div>
 
-              {/* Steps Grid — 2 cols on sm+, 1 col on mobile */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+              {/* Core Advantages Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 text-left">
 
-                {/* Step 1 */}
+                {/* Advantage 1 */}
                 <div className="flex gap-4 group">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary font-black text-sm flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                    01
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
+                    <Users size={22} />
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 text-[15px] sm:text-base mb-1 group-hover:text-primary transition-colors duration-300">
-                      Free Home Visit & Survey
+                      Experienced Team
                     </h4>
                     <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">
-                      Our team measures your rooftop to design a solar system for maximum generation.
+                      10+ years of trusted engineering expertise delivering higher quality installations.
                     </p>
                   </div>
                 </div>
 
-                {/* Step 2 */}
+                {/* Advantage 2 */}
                 <div className="flex gap-4 group">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary font-black text-sm flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                    02
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
+                    <ShieldCheck size={22} />
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 text-[15px] sm:text-base mb-1 group-hover:text-primary transition-colors duration-300">
-                      Free 3D Solar Design
+                      25-Year Product Warranty
                     </h4>
                     <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">
-                      We share a personalised 3D rooftop solar design, so you can clearly see how it will look.
+                      Long-term performance and product reliability warranty for absolute peace of mind.
                     </p>
                   </div>
                 </div>
 
-                {/* Step 3 */}
+                {/* Advantage 3 */}
                 <div className="flex gap-4 group">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary font-black text-sm flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                    03
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
+                    <Umbrella size={22} />
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 text-[15px] sm:text-base mb-1 group-hover:text-primary transition-colors duration-300">
-                      Installation & Subsidy Support
+                      Comprehensive Insurance
                     </h4>
                     <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">
-                      Our experts install your system and handle all government paperwork — no follow-ups needed.
+                      All-risk insurance coverage to protect your solar setup investment against unexpected accidents.
                     </p>
                   </div>
                 </div>
 
-                {/* Step 4 */}
+                {/* Advantage 4 */}
                 <div className="flex gap-4 group">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary font-black text-sm flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                    04
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
+                    <Zap size={22} />
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 text-[15px] sm:text-base mb-1 group-hover:text-primary transition-colors duration-300">
-                      Solar On. You Save. We Maintain.
+                      Quicker Project Execution
                     </h4>
                     <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">
-                      Your system starts saving from day one, while we handle maintenance year after year.
+                      Swift design engineering, rapid execution, and seamless grid commissioning.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Advantage 5 - spans full width on desktop */}
+                <div className="flex gap-4 group sm:col-span-2">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
+                    <Sun size={22} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 text-[15px] sm:text-base mb-1 group-hover:text-primary transition-colors duration-300">
+                      Unit Generation Guarantee
+                    </h4>
+                    <p className="text-xs sm:text-sm text-gray-500 leading-relaxed max-w-xl">
+                      We guarantee specified electricity output and pay ₹8/unit for any generation deficit.
                     </p>
                   </div>
                 </div>
@@ -558,7 +573,7 @@ export default function Home() {
               </div>
 
               {/* CTA */}
-              <div>
+              <div className="text-left">
                 <a
                   href="/contact"
                   className="inline-flex items-center gap-2 bg-primary hover:bg-primary-hover text-white font-bold py-3 px-7 rounded-lg transition-all duration-300 shadow-lg shadow-primary/15 hover:shadow-primary/25 text-sm"
@@ -575,7 +590,7 @@ export default function Home() {
                 {/* Image 1 — Rooftop */}
                 <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                   <Image
-                    src="/assets/images/handle_rooftop.png"
+                    src="/assets/images/handle_rooftop.webp"
                     alt="Solar panels on Indian rooftop"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -586,7 +601,7 @@ export default function Home() {
                 {/* Image 2 — Team + stat badge */}
                 <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-lg border border-gray-100 group mt-6 sm:mt-8">
                   <Image
-                    src="/assets/images/handle_team.png"
+                    src="/assets/images/teams.png"
                     alt="SunLynk solar installation team"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -611,11 +626,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Stats Counter Section */}
+      <StatsCounter />
 
-
-
-
-
+      {/* Problem Section — Why SunLynk */}
+      <ProblemSection />
 
 
       {/* Products Grid Section */}
@@ -696,7 +711,7 @@ export default function Home() {
           <div className="relative flex justify-center">
             <div className="relative w-full max-w-[500px] aspect-square rounded-2xl overflow-hidden border border-gray-100 shadow-xl">
               <Image 
-                src="/assets/IMAGE/solar.jpg" 
+                src="/assets/IMAGE/solar.webp" 
                 alt="SunLynkSolar Panels" 
                 fill 
                 className="object-cover"
@@ -799,7 +814,7 @@ export default function Home() {
           <div className="grid grid-cols-2 gap-4">
             <div className="relative aspect-[3/4] rounded-xl overflow-hidden border border-gray-100 shadow-md">
               <Image
-                src="/assets/IMAGE/solar.jpg"
+                src="/assets/IMAGE/solar.webp"
                 alt="Faq Intro"
                 fill
                 className="object-cover"
@@ -808,7 +823,7 @@ export default function Home() {
             <div className="flex flex-col gap-4 justify-between">
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-gray-100 shadow-md">
                 <Image
-                  src="/assets/IMAGE/forecasting.jpg"
+                  src="/assets/IMAGE/forecasting.webp"
                   alt="Faq Detail"
                   fill
                   className="object-cover"
@@ -871,7 +886,7 @@ export default function Home() {
               {/* Image wrapper with scale hover */}
               <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-100">
                 <Image
-                  src="/assets/images/blog_bifacial_panels.png"
+                  src="/assets/images/blog_bifacial_panels.webp"
                   alt="Bifacial Solar Technology"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -907,7 +922,7 @@ export default function Home() {
             <div className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col hover:shadow-xl hover:border-primary/20 hover:-translate-y-1 transition-all duration-300 group">
               <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-100">
                 <Image
-                  src="/assets/images/blog_weather_station.png"
+                  src="/assets/images/blog_weather_station.webp"
                   alt="Class-A Weather Monitoring"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -942,7 +957,7 @@ export default function Home() {
             <div className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col hover:shadow-xl hover:border-primary/20 hover:-translate-y-1 transition-all duration-300 group">
               <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-100">
                 <Image
-                  src="/assets/images/blog_battery_storage.png"
+                  src="/assets/images/blog_battery_storage.webp"
                   alt="Battery Storage Integration"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -1021,9 +1036,50 @@ export default function Home() {
         </div>
       </section> */}
 
-      {/* Google Review Section */}
-
       <GoogleReviews />
+
+      {/* Consultation Contact Form Section */}
+      {/* <section className="py-20 bg-gradient-to-b from-white to-gray-50 border-t border-gray-100 overflow-hidden" id="free-consultation">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            
+            <div className="flex flex-col gap-6 text-left lg:col-span-5">
+              <div className="inline-flex items-center gap-2 self-start">
+                <span className="h-[2px] w-6 bg-[#1C5085]"></span>
+                <span className="text-xs uppercase tracking-wider font-bold text-[#1C5085]">Start Saving Today</span>
+                <span className="h-[2px] w-6 bg-[#1C5085]"></span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-black text-dark leading-tight tracking-tight">
+                Ready to cut your <br />
+                <span className="text-[#1C5085]">electricity bills?</span>
+              </h2>
+              <p className="text-sm sm:text-base text-gray-500 leading-relaxed text-justify">
+                Schedule a 1-on-1 free consultation with our solar engineers. We will analyze your roof space, estimate your monthly savings, and design a customized solar transition roadmap.
+              </p>
+              
+              <div className="flex flex-col gap-3 mt-2 text-sm text-gray-700 font-semibold">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-5 h-5 bg-[#DBEAFE] text-[#1C5085] rounded-full flex items-center justify-center text-[10px] font-bold">✓</div>
+                  <span>Free 3D Rooftop Simulation Layout</span>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <div className="w-5 h-5 bg-[#DBEAFE] text-[#1C5085] rounded-full flex items-center justify-center text-[10px] font-bold">✓</div>
+                  <span>Custom Energy Bill Analysis & ROI Report</span>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <div className="w-5 h-5 bg-[#DBEAFE] text-[#1C5085] rounded-full flex items-center justify-center text-[10px] font-bold">✓</div>
+                  <span>Expert Advice with Zero Purchase Pressure</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="w-full lg:col-span-7">
+              <ContactForm />
+            </div>
+
+          </div>
+        </div>
+      </section> */}
 
 
       {/* Client Logos Carousel Section */}

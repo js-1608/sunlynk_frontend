@@ -42,7 +42,7 @@ export default function Warranty() {
       <section className="relative bg-dark text-white py-16 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-10 pointer-events-none"
-          style={{ backgroundImage: "url(/assets/images/backgrounds/page-header-bg-1-1.jpg)" }}
+          style={{ backgroundImage: "url(/assets/images/backgrounds/page-header-bg-1-1.webp)" }}
         ></div>
         <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
           <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-2">Customer Support</span>

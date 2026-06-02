@@ -1,33 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Phone, MapPin, Send, Check } from "lucide-react";
+import { MapPin } from "lucide-react";
+import ContactForm from "@/components/ContactForm";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 3000);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { id, value } = e.target;
-    setFormData((prev) => ({ ...prev, [id]: value }));
-  };
-
   const offices = [
     {
       title: "Mailing Address",
@@ -49,7 +28,7 @@ export default function Contact() {
       <section className="relative bg-dark text-white py-16 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-10 pointer-events-none"
-          style={{ backgroundImage: "url(/assets/images/backgrounds/page-header-bg-1-1.jpg)" }}
+          style={{ backgroundImage: "url(/assets/images/backgrounds/page-header-bg-1-1.webp)" }}
         ></div>
         <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
           <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-2">Get in Touch</span>
@@ -64,100 +43,31 @@ export default function Contact() {
 
       {/* Contact Form & Main Media */}
       <section className="py-18 bg-white">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Column: Image/Branding */}
-          <div className="relative flex justify-center items-center">
-            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border border-gray-100">
+          <div className="flex flex-col gap-6 justify-center text-left">
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1C5085] leading-tight tracking-tight">
+                Schedule a FREE consultation <br className="hidden sm:inline" />
+                with us today!
+              </h2>
+              <p className="text-sm sm:text-base text-gray-500 mt-3 font-semibold leading-relaxed">
+                Please fill the form and we will get in touch with you for the consultation
+              </p>
+            </div>
+            <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-gray-150 group">
               <Image
-                src="/assets/images/resources/cntact-1-1.png"
+                src="/assets/images/resources/cntact-1-1.webp"
                 alt="Contact SunLynk Solar"
                 fill
-                className="object-cover"
+                className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
               />
             </div>
           </div>
 
           {/* Right Column: Contact Form */}
-          <div className="bg-dark text-white p-8 rounded-2xl shadow-2xl border border-gray-800 flex flex-col gap-6">
-            <div>
-              <h2 className="text-2xl font-bold mb-2">Get In Touch with SunLynk Solar</h2>
-              <p className="text-sm text-gray-400 leading-relaxed">
-                We take great pride in everything that we do. Complete control over products allows us to ensure our customers receive the best quality service.
-              </p>
-            </div>
-
-            {submitted ? (
-              <div className="flex flex-col items-center justify-center py-12 text-center bg-white/5 border border-white/10 rounded-xl">
-                <div className="w-12 h-12 bg-primary/20 text-primary border border-primary/35 rounded-full flex items-center justify-center mb-3">
-                  <Check size={24} />
-                </div>
-                <h4 className="font-bold text-lg text-white">Message Sent!</h4>
-                <p className="text-sm text-gray-400 mt-1">Thank you. We will get back to you shortly.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="flex flex-col gap-1">
-                    <label htmlFor="name" className="text-xs text-gray-400 font-bold uppercase tracking-wider">Your Name</label>
-                    <input
-                      type="text"
-                      id="name"
-                      placeholder="Enter your name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="bg-white/5 border border-white/10 rounded-md py-2.5 px-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-white"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-1">
-                    <label htmlFor="email" className="text-xs text-gray-400 font-bold uppercase tracking-wider">Your Email</label>
-                    <input
-                      type="email"
-                      id="email"
-                      placeholder="Enter your email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="bg-white/5 border border-white/10 rounded-md py-2.5 px-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-white"
-                    />
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-1">
-                  <label htmlFor="subject" className="text-xs text-gray-400 font-bold uppercase tracking-wider">Subject</label>
-                  <input
-                    type="text"
-                    id="subject"
-                    placeholder="Enter subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    className="bg-white/5 border border-white/10 rounded-md py-2.5 px-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-white"
-                  />
-                </div>
-
-                <div className="flex flex-col gap-1">
-                  <label htmlFor="message" className="text-xs text-gray-400 font-bold uppercase tracking-wider">Message</label>
-                  <textarea
-                    id="message"
-                    rows={4}
-                    placeholder="Write message..."
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    className="bg-white/5 border border-white/10 rounded-md py-2.5 px-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-white resize-none"
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full btn-primary mt-2"
-                >
-                  <Send size={16} />
-                  <span>Send Message</span>
-                </button>
-              </form>
-            )}
+          <div className="flex justify-center items-start w-full">
+            <ContactForm />
           </div>
         </div>
       </section>

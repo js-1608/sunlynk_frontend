@@ -32,7 +32,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
       <section className="relative bg-dark text-white py-16 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-10 pointer-events-none"
-          style={{ backgroundImage: "url(/assets/images/backgrounds/page-header-bg-1-1.jpg)" }}
+          style={{ backgroundImage: "url(/assets/images/backgrounds/page-header-bg-1-1.webp)" }}
         ></div>
         {/* Infinite sliding text banner */}
         <div className="absolute top-0 left-0 w-full overflow-hidden bg-primary/20 py-2.5">

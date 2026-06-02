@@ -32,7 +32,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
       <section className="relative bg-dark text-white py-16 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-10 pointer-events-none"
-          style={{ backgroundImage: "url(/assets/images/backgrounds/page-header-bg-1-1.jpg)" }}
+          style={{ backgroundImage: "url(/assets/images/backgrounds/page-header-bg-1-1.webp)" }}
         ></div>
         <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
           <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-2">News Details</span>
@@ -120,7 +120,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
               <div className="flex flex-col gap-6">
                 <div className="flex gap-4 items-start p-5 bg-gray-50 border border-gray-100 rounded-xl">
                   <div className="relative w-12 h-12 bg-gray-200 rounded-full overflow-hidden shrink-0">
-                    <Image src="/assets/images/blog/blog-comment-1-1.jpg" alt="User comment avatar" fill className="object-cover" />
+                    <Image src="/assets/images/blog/blog-comment-1-1.webp" alt="User comment avatar" fill className="object-cover" />
                   </div>
                   <div>
                     <h5 className="font-bold text-gray-800 text-sm">Layerdrops</h5>
@@ -133,7 +133,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
                 <div className="flex gap-4 items-start p-5 bg-gray-50 border border-gray-100 rounded-xl">
                   <div className="relative w-12 h-12 bg-gray-200 rounded-full overflow-hidden shrink-0">
-                    <Image src="/assets/images/blog/blog-comment-1-2.jpg" alt="User comment avatar" fill className="object-cover" />
+                    <Image src="/assets/images/blog/blog-comment-1-2.webp" alt="User comment avatar" fill className="object-cover" />
                   </div>
                   <div>
                     <h5 className="font-bold text-gray-800 text-sm">SolarExpert</h5>

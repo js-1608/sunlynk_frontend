@@ -5,11 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Hero() {
-  const [mainImage, setMainImage] = useState("/assets/IMAGE/2.png");
+  const [mainImage, setMainImage] = useState("/assets/IMAGE/2.webp");
   const [activeThumb, setActiveThumb] = useState(0);
 
   const images = [
-    { src: "/assets/IMAGE/2.png", thumb: "/assets/IMAGE/1 (2).png" },
+    { src: "/assets/IMAGE/2.webp", thumb: "/assets/IMAGE/1 (2).png" },
     { src: "/assets/IMAGE/1 (1).png", thumb: "/assets/IMAGE/1 (1).png" },
     { src: "/assets/IMAGE/1 (3).png", thumb: "/assets/IMAGE/1 (3).png" },
   ];
@@ -56,7 +56,7 @@ export default function Hero() {
           {/* Pill Image Box */}
           <div className="w-[250px] h-[60px] rounded-full overflow-hidden border border-white/25 relative shadow-lg my-1">
             <Image 
-              src="/assets/IMAGE/solar.jpg" 
+              src="/assets/IMAGE/solar.webp" 
               alt="Solar installation engineers" 
               fill 
               className="object-cover object-center"

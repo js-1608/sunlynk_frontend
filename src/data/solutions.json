@@ -5,7 +5,7 @@
     "title": "Energy Storage Solutions",
     "subtitle": "Battery Energy Storage Systems (BESS)",
     "description": "We offer complete grid-tied and hybrid energy storage solutions (ESS) for residential, C&I, and utility-scale projects. Our systems support peak shaving, backup power, frequency regulation, and integration with solar PV systems.",
-    "image": "/assets/IMAGE/solar.jpg",
+    "image": "/assets/IMAGE/solar.webp",
     "benefits": [
       "Provides reliable backup power during outages.",
       "Reduces electrical demand charges through Peak Shaving.",
@@ -24,8 +24,8 @@
     "title": "SCADA Solutions for Utility Scale Projects & Storage",
     "subtitle": "Complete SCADA Solution Provider",
     "description": "SunLynk Solar is your comprehensive partner for controlling and monitoring solutions. We offer full support throughout all stages of your project, starting from turnkey design solutions and extending to post-OEM enhancements, troubleshooting, and training. Regardless of your project’s specific needs, our extensive experience allows us to deliver meticulous project management, on-site troubleshooting, and the ability to adapt to your evolving capacity requirements.",
-    "image": "/assets/IMAGE/scadapannelsolar.png",
-    "architectureImage": "/assets/IMAGE/scada architecture.png",
+    "image": "/assets/IMAGE/scadapannelsolar.webp",
+    "architectureImage": "/assets/IMAGE/scada architecture.webp",
     "benefits": [
       "Quickly Understand Your Operations and Take Action",
       "Rich Personalized Portal and Web Browser Visualization",
@@ -62,7 +62,7 @@
     "title": "Weather Monitoring Solutions",
     "subtitle": "Professional Meteorological Stations",
     "description": "We specialize in delivering high-accuracy Weather Monitoring Stations (WMS) tailored for solar and wind power plants. Our solutions ensure full compliance with international standards such as IEC 61724-1, enabling accurate performance ratio (PR) calculations and resource assessment.",
-    "image": "/assets/IMAGE/scadasannelsolar.png",
+    "image": "/assets/IMAGE/scadapannelsolar.webp",
     "benefits": [
       "Precise solar irradiance measurements with Class-A pyranometers.",
       "Real-time tracking of wind speed, wind direction, ambient temp, and module temp.",
@@ -81,7 +81,7 @@
     "title": "Forecasting & Now Casting Solutions",
     "subtitle": "Solar and Wind Power Forecasting",
     "description": "Our forecasting services provide solar and wind power generation forecasts to help grid operators and developers minimize scheduling penalties and optimize grid stability. We combine satellite imagery, numerical weather prediction (NWP) models, and machine learning models for high-accuracy predictions.",
-    "image": "/assets/IMAGE/forecasting.jpg",
+    "image": "/assets/IMAGE/forecasting.webp",
     "benefits": [
       "Compliance with state regulatory scheduling and forecasting mandates.",
       "Advanced neural networks for day-ahead and intra-day forecasting.",

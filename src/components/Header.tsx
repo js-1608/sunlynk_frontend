@@ -68,7 +68,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="relative flex items-center">
             <Image
-              src="/logo.png"
+              src="/logo.webp"
               alt="SunLynk Solar Logo"
               width={200}
               height={100}

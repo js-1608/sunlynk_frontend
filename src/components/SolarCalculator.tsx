@@ -63,7 +63,7 @@ export default function SolarCalculator() {
             <span className="h-[2px] w-6 bg-primary"></span>
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold text-dark leading-tight">
-            Solar Calculator
+            Calculate your solar savings
           </h2>
           <p className="text-sm sm:text-base text-gray-500 max-w-2xl leading-relaxed mt-1">
             Calculate your recommended system size, required roof area, and estimated electricity savings in seconds.
@@ -156,7 +156,7 @@ export default function SolarCalculator() {
             {/* Illustration */}
             <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden border border-gray-150 shadow-inner group">
               <Image
-                src="/assets/images/solar_savings_coins.png"
+                src="/assets/images/solar_savings_coins.webp"
                 alt="Solar savings illustration"
                 fill
                 className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
