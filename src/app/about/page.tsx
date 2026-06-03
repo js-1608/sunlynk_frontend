@@ -99,7 +99,7 @@ export default function About() {
           <div className="flex flex-col gap-6">
             <div className="inline-flex items-center gap-2">
               <Sun size={18} className="text-primary" />
-              <span className="text-sm uppercase tracking-wider font-bold text-primary">We provide future of energy</span>
+              <span className="text-base uppercase tracking-wider font-bold text-primary">We provide future of energy</span>
             </div>
 
             <h2 className="text-3xl md:text-5xl font-extrabold text-dark leading-tight">
@@ -136,7 +136,7 @@ export default function About() {
           <div className="max-w-xl mb-16 flex flex-col gap-3">
             <div className="inline-flex items-center gap-2">
               <Sun size={18} className="text-primary" />
-              <span className="text-sm uppercase tracking-wider font-bold text-primary">Our Vision & Core Values</span>
+              <span className="text-base uppercase tracking-wider font-bold text-primary">Our Vision & Core Values</span>
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold leading-tight">
               We Create Green Energy for Everyone
@@ -169,7 +169,7 @@ export default function About() {
           <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
             <div className="inline-flex items-center gap-2">
               <span className="h-[2px] w-6 bg-primary"></span>
-              <span className="text-sm uppercase tracking-wider font-bold text-primary">Our Missions</span>
+              <span className="text-base uppercase tracking-wider font-bold text-primary">Our Missions</span>
               <span className="h-[2px] w-6 bg-primary"></span>
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold text-dark">

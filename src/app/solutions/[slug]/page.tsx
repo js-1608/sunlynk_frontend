@@ -78,7 +78,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
             </div>
 
             <div className="flex flex-col gap-4">
-              <span className="text-sm uppercase tracking-wider font-bold text-primary">{solution.subtitle}</span>
+              <span className="text-base uppercase tracking-wider font-bold text-primary">{solution.subtitle}</span>
               <h3 className="text-2xl font-extrabold text-dark">Description</h3>
               <p className="text-sm text-gray-600 leading-relaxed text-justify">
                 {solution.description}

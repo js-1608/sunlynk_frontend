@@ -61,7 +61,7 @@ export default function ProductsPreview() {
         <div className="text-center max-w-2xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 mb-5">
             <span className="h-[2px] w-6 bg-primary" />
-            <span className="text-sm uppercase tracking-[0.15em] font-bold text-primary">Our Plans</span>
+            <span className="text-base uppercase tracking-[0.15em] font-bold text-primary">Our Plans</span>
             <span className="h-[2px] w-6 bg-primary" />
           </div>
           <h2 className="text-3xl md:text-5xl font-extrabold text-dark leading-tight mb-3">

@@ -84,7 +84,7 @@ export default function Home() {
           <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center gap-4">
             <div className="inline-flex items-center gap-2">
               <span className="h-[2px] w-6 bg-primary"></span>
-              <span className="text-sm uppercase tracking-wider font-bold text-primary">Our Solutions</span>
+              <span className="text-base uppercase tracking-wider font-bold text-primary">Our Solutions</span>
               <span className="h-[2px] w-6 bg-primary"></span>
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold text-dark">
@@ -218,7 +218,7 @@ export default function Home() {
           <div className="text-center max-w-3xl mx-auto mb-14 md:mb-20 flex flex-col items-center gap-4">
             <div className="inline-flex items-center gap-2">
               <span className="h-[2px] w-6 bg-primary"></span>
-              <span className="text-sm uppercase tracking-wider font-bold text-primary">How We Work</span>
+              <span className="text-base uppercase tracking-wider font-bold text-primary">How We Work</span>
               <span className="h-[2px] w-6 bg-primary"></span>
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold text-dark leading-tight">
@@ -394,10 +394,10 @@ export default function Home() {
               <div className="flex flex-col gap-3">
                 <div className="inline-flex items-center gap-2">
                   <span className="h-[2px] w-6 bg-primary"></span>
-                  <span className="text-sm uppercase tracking-wider font-bold text-primary">Why Choose Us</span>
+                  <span className="text-base uppercase tracking-wider font-bold text-primary">Why Choose Us</span>
                   <span className="h-[2px] w-6 bg-primary"></span>
                 </div>
-                <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-dark leading-tight text-left">
+                <h2 className="text-2xl sm:text-4xl md:text-4xl font-extrabold text-dark leading-tight text-left">
                   Why Partners & Homeowners <br className="hidden sm:inline" />
                   <span className="text-primary font-black">Choose SunLynk</span>
                 </h2>
@@ -510,7 +510,7 @@ export default function Home() {
               </div>
 
               {/* Floating Stat Badge */}
-              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white border border-gray-100 rounded-xl shadow-lg px-5 py-3 flex items-center gap-3 z-20">
+              {/* <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white border border-gray-100 rounded-xl shadow-lg px-5 py-3 flex items-center gap-3 z-20">
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
                   <Sun className="w-5 h-5 text-primary" />
                 </div>
@@ -518,7 +518,7 @@ export default function Home() {
                   <span className="text-lg font-black text-gray-900 leading-none">40,000+</span>
                   <span className="block text-[10px] text-gray-500 font-semibold uppercase tracking-wide">Homes Solarized</span>
                 </div>
-              </div>
+              </div> */}
             </div>
 
           </div>
@@ -541,7 +541,7 @@ export default function Home() {
           <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
             <div className="inline-flex items-center gap-2">
               <span className="h-[2px] w-6 bg-primary"></span>
-              <span className="text-sm uppercase tracking-wider font-bold text-primary">Our Products</span>
+              <span className="text-base uppercase tracking-wider font-bold text-primary">Our Products</span>
               <span className="h-[2px] w-6 bg-primary"></span>
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold text-dark">
@@ -631,7 +631,7 @@ export default function Home() {
           <div className="flex flex-col gap-5">
             <div className="inline-flex items-center gap-2">
               <Sun className="text-primary" size={20} />
-              <span className="text-sm uppercase tracking-wider font-bold text-primary">About Us</span>
+              <span className="text-base uppercase tracking-wider font-bold text-primary">About Us</span>
             </div>
             
             <h2 className="text-3xl md:text-5xl font-extrabold text-dark leading-tight">
@@ -663,7 +663,7 @@ export default function Home() {
           <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
             <div className="inline-flex items-center gap-2">
               <span className="h-[2px] w-6 bg-primary"></span>
-              <span className="text-sm uppercase tracking-wider font-bold text-primary">Work Process</span>
+              <span className="text-base uppercase tracking-wider font-bold text-primary">Work Process</span>
               <span className="h-[2px] w-6 bg-primary"></span>
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold text-dark">
@@ -747,7 +747,7 @@ export default function Home() {
             <div className="flex flex-col gap-4 mb-8">
               <div className="inline-flex items-center gap-2">
                 <Sun className="text-primary" size={20} />
-                <span className="text-sm uppercase tracking-wider font-bold text-primary">Questions For Us</span>
+                <span className="text-base uppercase tracking-wider font-bold text-primary">Questions For Us</span>
               </div>
               <h3 className="text-3xl md:text-5xl font-extrabold text-dark leading-tight">Some FAQ Questions</h3>
               <p className="text-sm text-gray-600 leading-relaxed">
@@ -769,7 +769,7 @@ export default function Home() {
           <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
             <div className="inline-flex items-center gap-2">
               <span className="h-[2px] w-6 bg-primary"></span>
-              <span className="text-sm uppercase tracking-wider font-bold text-primary">News & Articles</span>
+              <span className="text-base uppercase tracking-wider font-bold text-primary">News & Articles</span>
               <span className="h-[2px] w-6 bg-primary"></span>
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold text-dark leading-tight">
@@ -908,7 +908,7 @@ export default function Home() {
           <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
             <div className="inline-flex items-center gap-2">
               <span className="h-[2px] w-6 bg-primary"></span>
-              <span className="text-sm uppercase tracking-wider font-bold text-primary">We Created</span>
+              <span className="text-base uppercase tracking-wider font-bold text-primary">We Created</span>
               <span className="h-[2px] w-6 bg-primary"></span>
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold text-dark">
@@ -948,7 +948,7 @@ export default function Home() {
             <div className="flex flex-col gap-6 text-left lg:col-span-5">
               <div className="inline-flex items-center gap-2 self-start">
                 <span className="h-[2px] w-6 bg-[#1C5085]"></span>
-                <span className="text-sm uppercase tracking-wider font-bold text-[#1C5085]">Start Saving Today</span>
+                <span className="text-base uppercase tracking-wider font-bold text-[#1C5085]">Start Saving Today</span>
                 <span className="h-[2px] w-6 bg-[#1C5085]"></span>
               </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-dark leading-tight tracking-tight">

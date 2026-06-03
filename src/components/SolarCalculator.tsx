@@ -59,7 +59,7 @@ export default function SolarCalculator() {
         <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center gap-4">
           <div className="inline-flex items-center gap-2">
             <span className="h-[2px] w-6 bg-primary"></span>
-            <span className="text-sm uppercase tracking-wider font-bold text-primary">Solar Savings</span>
+            <span className="text-base uppercase tracking-wider font-bold text-primary">Solar Savings</span>
             <span className="h-[2px] w-6 bg-primary"></span>
           </div>
           <h2 className="text-3xl md:text-5xl font-extrabold text-dark leading-tight">

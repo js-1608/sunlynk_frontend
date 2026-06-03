@@ -88,7 +88,7 @@ export default function Brands() {
           <div className="max-w-3xl mx-auto text-center mb-16 flex flex-col gap-4">
             <div className="inline-flex items-center gap-2 justify-center">
               <Sun className="text-primary" size={20} />
-              <span className="text-sm uppercase tracking-wider font-bold text-primary">Authorized Distribution</span>
+              <span className="text-base uppercase tracking-wider font-bold text-primary">Authorized Distribution</span>
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold text-dark leading-tight">
               We Partner with Industry-Leading Global Brands

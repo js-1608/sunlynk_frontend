@@ -54,7 +54,7 @@ export default function Calibration() {
           <div className="lg:col-span-7 flex flex-col gap-6 text-left">
             <div className="inline-flex items-center gap-2">
               <Sun className="text-primary" size={20} />
-              <span className="text-sm uppercase tracking-wider font-bold text-primary">Precision & Compliance</span>
+              <span className="text-base uppercase tracking-wider font-bold text-primary">Precision & Compliance</span>
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold text-dark leading-tight">
               Maintain Solar PR Accuracy with Periodic Recalibration
