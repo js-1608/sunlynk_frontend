@@ -65,8 +65,7 @@ export default function ProductsPreview() {
             <span className="h-[2px] w-6 bg-primary" />
           </div>
           <h2 className="text-3xl md:text-5xl font-extrabold text-dark leading-tight mb-3">
-            Choose your solar plan
-          </h2>
+            Choose your Solar Plan          </h2>
           <p className="text-sm text-gray-500 leading-relaxed">
             Two plans. One goal — complete peace of mind for your solar investment.
           </p>

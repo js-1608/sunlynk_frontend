@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Check, HelpCircle, ArrowRight } from "lucide-react";
+import { Check, HelpCircle, ArrowRight, ArrowUpRight, Phone, Mail, FileSpreadsheet, FileText, Info } from "lucide-react";
 
 type Tab = "residential" | "society" | "commercial";
 
@@ -13,6 +13,16 @@ type ContactFormProps = {
 export default function ContactForm({ hideTabs = false }: ContactFormProps) {
   const [activeTab, setActiveTab] = useState<Tab>("residential");
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const tabParam = params.get("tab");
+      if (tabParam === "residential" || tabParam === "society" || tabParam === "commercial") {
+        setActiveTab(tabParam as Tab);
+      }
+    }
+  }, []);
 
   // Form State: Residential
   const [resForm, setResForm] = useState({
@@ -46,15 +56,45 @@ export default function ContactForm({ hideTabs = false }: ContactFormProps) {
     agreed: true,
   });
 
-  const handleResSubmit = (e: React.FormEvent) => {
+  const submitLead = async (formData: any) => {
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/leads`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to submit lead");
+      }
+      return true;
+    } catch (error: any) {
+      console.error("Lead submission error:", error);
+      alert(`Submission Error: ${error.message || "Something went wrong"}`);
+      return false;
+    }
+  };
+
+  const handleResSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!resForm.monthlyBill) {
       alert("Please select your monthly electricity bill range.");
       return;
     }
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
+
+    const success = await submitLead({
+      type: "residential",
+      fullName: resForm.fullName,
+      whatsappNumber: resForm.whatsappNumber,
+      pinCode: resForm.pinCode,
+      monthlyBill: resForm.monthlyBill,
+    });
+
+    if (success) {
+      setSubmitted(true);
       setResForm({
         fullName: "",
         whatsappNumber: "",
@@ -62,18 +102,32 @@ export default function ContactForm({ hideTabs = false }: ContactFormProps) {
         monthlyBill: "",
         agreed: true,
       });
-    }, 4000);
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 300000);
+    }
   };
 
-  const handleSocSubmit = (e: React.FormEvent) => {
+  const handleSocSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!socForm.designation) {
       alert("Please select your designation in the society.");
       return;
     }
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
+
+    const success = await submitLead({
+      type: "society",
+      fullName: socForm.fullName,
+      societyName: socForm.societyName,
+      whatsappNumber: socForm.whatsappNumber,
+      pinCode: socForm.pinCode,
+      monthlyBill: socForm.monthlyBill,
+      agmStatus: socForm.agmStatus,
+      designation: socForm.designation,
+    });
+
+    if (success) {
+      setSubmitted(true);
       setSocForm({
         fullName: "",
         societyName: "",
@@ -84,14 +138,26 @@ export default function ContactForm({ hideTabs = false }: ContactFormProps) {
         designation: "",
         agreed: true,
       });
-    }, 4000);
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 300000);
+    }
   };
 
-  const handleComSubmit = (e: React.FormEvent) => {
+  const handleComSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
+    const success = await submitLead({
+      type: "commercial",
+      fullName: comForm.fullName,
+      companyName: comForm.companyName,
+      city: comForm.city,
+      pinCode: comForm.pinCode,
+      whatsappNumber: comForm.whatsappNumber,
+      monthlyBill: comForm.monthlyBill,
+    });
+
+    if (success) {
+      setSubmitted(true);
       setComForm({
         fullName: "",
         companyName: "",
@@ -101,7 +167,10 @@ export default function ContactForm({ hideTabs = false }: ContactFormProps) {
         monthlyBill: "",
         agreed: true,
       });
-    }, 4000);
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 300000);
+    }
   };
 
   return (
@@ -154,14 +223,161 @@ export default function ContactForm({ hideTabs = false }: ContactFormProps) {
       {/* Main Form Content Card */}
       <div className="bg-[#F8FAFC] border border-gray-200/80 rounded-3xl p-6 md:p-8 shadow-xl text-left text-gray-900 relative">
         {submitted ? (
-          <div className="flex flex-col items-center justify-center py-16 text-center">
-            <div className="w-16 h-16 bg-primary/10 text-primary border border-primary/20 rounded-full flex items-center justify-center mb-4 animate-bounce">
-              <Check size={32} />
+          <div className="py-8 md:py-12 px-4 text-center">
+            {/* Header Success Section */}
+            <div className="flex flex-col items-center justify-center mb-8">
+              <div className="w-20 h-20 bg-emerald-50 text-emerald-600 border border-emerald-100 rounded-full flex items-center justify-center mb-5 animate-pulse shadow-md shadow-emerald-500/10">
+                <Check size={40} className="stroke-[2.5]" />
+              </div>
+              <h4 className="font-black text-2xl md:text-3xl text-slate-900 tracking-tight">Consultation Booked!</h4>
+              <p className="text-sm text-slate-500 mt-2.5 max-w-md leading-relaxed font-medium">
+                Thank you for choosing SunLynk Solar. We have successfully registered your inquiry and reserved a consultation slot.
+              </p>
             </div>
-            <h4 className="font-extrabold text-2xl text-dark">Consultation Booked!</h4>
-            <p className="text-sm text-gray-600 mt-2 max-w-sm leading-relaxed">
-              Thank you for choosing SunLynk. Our certified solar experts will contact you on WhatsApp / Phone within 24 hours.
-            </p>
+
+            {/* Next Steps Timeline */}
+            <div className="bg-white border border-slate-100 rounded-2xl p-6 mb-8 shadow-sm">
+              <h5 className="text-xs font-bold text-slate-400 uppercase tracking-widest text-left mb-6 flex items-center gap-1.5">
+                <Info size={14} className="text-primary" />
+                What Happens Next?
+              </h5>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left relative">
+                {/* Step 1 */}
+                <div className="flex gap-4 md:flex-col md:gap-3">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs font-bold shrink-0 shadow-md shadow-emerald-500/20">
+                    ✓
+                  </div>
+                  <div>
+                    <h6 className="font-bold text-sm text-slate-900">Request Logged</h6>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">
+                      Your technical parameters are logged in our secure console.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Step 2 */}
+                <div className="flex gap-4 md:flex-col md:gap-3">
+                  <div className="w-8 h-8 rounded-full bg-primary/10 text-primary border border-primary/30 flex items-center justify-center text-xs font-bold shrink-0 animate-pulse">
+                    2
+                  </div>
+                  <div>
+                    <h6 className="font-bold text-sm text-slate-900">Expert Assigned</h6>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">
+                      Our system is allocating a certified technician in your region.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Step 3 */}
+                <div className="flex gap-4 md:flex-col md:gap-3">
+                  <div className="w-8 h-8 rounded-full bg-slate-100 text-slate-400 border border-slate-200 flex items-center justify-center text-xs font-bold shrink-0">
+                    3
+                  </div>
+                  <div>
+                    <h6 className="font-bold text-sm text-slate-900">Expert Connect</h6>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">
+                      We will contact you via WhatsApp/Call to share custom estimates.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Links Section */}
+            <div className="text-left mb-8">
+              <span className="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-4">
+                Explore Respective Pages while you wait:
+              </span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs">
+                <Link
+                  href="/solutions/weather-monitoring-solutions"
+                  className="group bg-white border border-slate-100 hover:border-primary/30 p-4 rounded-xl shadow-sm transition-all duration-300 hover:scale-[1.01] flex justify-between items-center cursor-pointer"
+                >
+                  <div>
+                    <span className="font-bold text-xs text-slate-900 block group-hover:text-primary transition-colors">
+                      Solar Solutions
+                    </span>
+                    <span className="text-[10px] text-slate-400 font-medium block mt-0.5">
+                      Explore Weather, SCADA & Forecasting
+                    </span>
+                  </div>
+                  <ArrowUpRight size={16} className="text-slate-400 group-hover:text-primary transition-colors" />
+                </Link>
+
+                <Link
+                  href="/support/wms-downloads"
+                  className="group bg-white border border-slate-100 hover:border-primary/30 p-4 rounded-xl shadow-sm transition-all duration-300 hover:scale-[1.01] flex justify-between items-center cursor-pointer"
+                >
+                  <div>
+                    <span className="font-bold text-xs text-slate-900 block group-hover:text-primary transition-colors">
+                      Support & Downloads
+                    </span>
+                    <span className="text-[10px] text-slate-400 font-medium block mt-0.5">
+                      Download manuals and spec sheets
+                    </span>
+                  </div>
+                  <ArrowUpRight size={16} className="text-slate-400 group-hover:text-primary transition-colors" />
+                </Link>
+
+                <Link
+                  href="/blog"
+                  className="group bg-white border border-slate-100 hover:border-primary/30 p-4 rounded-xl shadow-sm transition-all duration-300 hover:scale-[1.01] flex justify-between items-center cursor-pointer"
+                >
+                  <div>
+                    <span className="font-bold text-xs text-slate-900 block group-hover:text-primary transition-colors">
+                      Read Our Blog
+                    </span>
+                    <span className="text-[10px] text-slate-400 font-medium block mt-0.5">
+                      Latest solar tech insights & subsidy updates
+                    </span>
+                  </div>
+                  <ArrowUpRight size={16} className="text-slate-400 group-hover:text-primary transition-colors" />
+                </Link>
+
+                <Link
+                  href="/about"
+                  className="group bg-white border border-slate-100 hover:border-primary/30 p-4 rounded-xl shadow-sm transition-all duration-300 hover:scale-[1.01] flex justify-between items-center cursor-pointer"
+                >
+                  <div>
+                    <span className="font-bold text-xs text-slate-900 block group-hover:text-primary transition-colors">
+                      About SunLynk
+                    </span>
+                    <span className="text-[10px] text-slate-400 font-medium block mt-0.5">
+                      Learn about our mission and solar footprint
+                    </span>
+                  </div>
+                  <ArrowUpRight size={16} className="text-slate-400 group-hover:text-primary transition-colors" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Direct Contacts Footer */}
+            <div className="border-t border-slate-100 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-semibold text-slate-500">
+              <button
+                type="button"
+                onClick={() => setSubmitted(false)}
+                className="text-primary hover:text-primary-hover underline font-bold cursor-pointer"
+              >
+                Book another consultation
+              </button>
+              <div className="flex items-center gap-4">
+                <a
+                  href="mailto:info@SunLynkSolar.com"
+                  className="flex items-center gap-1.5 hover:text-primary transition-colors"
+                >
+                  <Mail size={14} className="text-primary" />
+                  <span>info@SunLynkSolar.com</span>
+                </a>
+                <a
+                  href="tel:+919711882204"
+                  className="flex items-center gap-1.5 hover:text-primary transition-colors"
+                >
+                  <Phone size={14} className="text-primary" />
+                  <span>+91 8922036792</span>
+                </a>
+              </div>
+            </div>
           </div>
         ) : (
           <>
@@ -169,7 +385,7 @@ export default function ContactForm({ hideTabs = false }: ContactFormProps) {
             {activeTab === "residential" && (
               <div className="mb-6 flex flex-col gap-1.5">
                 <h3 className="text-xl md:text-2xl font-black text-gray-900">
-                  Book a FREE Consultation
+                  Submit
                 </h3>
                 <p className="text-xs md:text-sm text-gray-500 leading-relaxed font-medium">
                   Get genuine advice from our solar experts. No pressure, book only if you are satisfied!

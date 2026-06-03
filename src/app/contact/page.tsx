@@ -47,7 +47,7 @@ export default function Contact() {
           {/* Left Column: Image/Branding */}
           <div className="flex flex-col gap-6 justify-center text-left">
             <div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1C5085] leading-tight tracking-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-3xl font-extrabold  leading-tight tracking-tight">
                 Schedule a FREE consultation <br className="hidden sm:inline" />
                 with us today!
               </h2>

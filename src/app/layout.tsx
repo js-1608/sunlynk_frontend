@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import BuyNowModal from "@/components/BuyNowModal";
+import ClientLayoutWrapper from "@/components/ClientLayoutWrapper";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -31,10 +29,7 @@ export default function RootLayout({
       className={`${dmSans.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white text-dark">
-        <Header />
-        <main className="flex-grow">{children}</main>
-        <Footer />
-        {/* <BuyNowModal /> */}
+        <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
       </body>
     </html>
   );
