@@ -42,12 +42,12 @@ export default function Contact() {
       </section>
 
       {/* Contact Form & Main Media */}
-      <section className="py-18 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Column: Image/Branding */}
           <div className="flex flex-col gap-6 justify-center text-left">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1C5085] leading-tight tracking-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1C5085] leading-tight tracking-tight">
                 Schedule a FREE consultation <br className="hidden sm:inline" />
                 with us today!
               </h2>
@@ -73,7 +73,7 @@ export default function Contact() {
       </section>
 
       {/* Locations and Map */}
-      <section className="py-18 bg-gray-1000 border-t border-gray-100">
+      <section className="py-16 bg-gray-1000 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
 
           {/* Map */}

@@ -81,16 +81,16 @@ export default function Brands() {
       </section>
 
       {/* Brands Info */}
-      <section className="py-18 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
 
           {/* Top text */}
           <div className="max-w-3xl mx-auto text-center mb-16 flex flex-col gap-4">
             <div className="inline-flex items-center gap-2 justify-center">
               <Sun className="text-primary" size={20} />
-              <span className="text-xs uppercase tracking-wider font-bold text-primary">Authorized Distribution</span>
+              <span className="text-sm uppercase tracking-wider font-bold text-primary">Authorized Distribution</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-dark leading-tight">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-dark leading-tight">
               We Partner with Industry-Leading Global Brands
             </h2>
             <p className="text-sm text-gray-600 leading-relaxed">

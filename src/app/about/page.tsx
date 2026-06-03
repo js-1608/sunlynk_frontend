@@ -62,7 +62,7 @@ export default function About() {
       </section>
 
       {/* Main Info */}
-      <section className="py-18 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Column: Media */}
           <div className="relative">
@@ -99,10 +99,10 @@ export default function About() {
           <div className="flex flex-col gap-6">
             <div className="inline-flex items-center gap-2">
               <Sun size={18} className="text-primary" />
-              <span className="text-xs uppercase tracking-wider font-bold text-primary">We provide future of energy</span>
+              <span className="text-sm uppercase tracking-wider font-bold text-primary">We provide future of energy</span>
             </div>
 
-            <h2 className="text-3xl font-extrabold text-dark leading-tight">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-dark leading-tight">
               Powering the transition with precision and smart automation.
             </h2>
 
@@ -125,7 +125,7 @@ export default function About() {
       </section>
 
       {/* Core Values / Vision */}
-      <section className="py-18 bg-dark text-white relative overflow-hidden">
+      <section className="py-16 bg-dark text-white relative overflow-hidden">
         {/* Background shape */}
         <div
           className="absolute inset-0 bg-cover bg-center opacity-5 pointer-events-none"
@@ -136,9 +136,9 @@ export default function About() {
           <div className="max-w-xl mb-16 flex flex-col gap-3">
             <div className="inline-flex items-center gap-2">
               <Sun size={18} className="text-primary" />
-              <span className="text-xs uppercase tracking-wider font-bold text-primary">Our Vision & Core Values</span>
+              <span className="text-sm uppercase tracking-wider font-bold text-primary">Our Vision & Core Values</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-extrabold leading-tight">
+            <h2 className="text-3xl md:text-5xl font-extrabold leading-tight">
               We Create Green Energy for Everyone
             </h2>
           </div>
@@ -164,15 +164,15 @@ export default function About() {
       </section>
 
       {/* Mission Cards */}
-      <section className="py-18 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
             <div className="inline-flex items-center gap-2">
               <span className="h-[2px] w-6 bg-primary"></span>
-              <span className="text-xs uppercase tracking-wider font-bold text-primary">Our Missions</span>
+              <span className="text-sm uppercase tracking-wider font-bold text-primary">Our Missions</span>
               <span className="h-[2px] w-6 bg-primary"></span>
             </div>
-            <h2 className="text-3xl font-extrabold text-dark">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-dark">
               Core Pillars of Our Mission
             </h2>
           </div>

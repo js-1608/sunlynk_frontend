@@ -58,7 +58,7 @@ export default function Warranty() {
       </section>
 
       {/* Form Content */}
-      <section className="py-18 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
           <div className="bg-gray-1000 border border-gray-100 p-8 rounded-2xl shadow-lg text-left">
             <div className="flex items-center gap-3 text-red-600 mb-6">

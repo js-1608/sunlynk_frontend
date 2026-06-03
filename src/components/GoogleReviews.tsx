@@ -156,7 +156,7 @@ export default function GoogleReviews() {
   };
 
   return (
-    <section className="py-18 bg-white border-t border-gray-100" id="google-reviews">
+    <section className="py-16 bg-white border-t border-gray-100" id="google-reviews">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
 
         {/* Header Area */}
@@ -164,10 +164,10 @@ export default function GoogleReviews() {
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="h-[2px] w-6 bg-primary"></span>
-              <span className="text-xs uppercase tracking-wider font-bold text-primary">Reviews</span>
+              <span className="text-sm uppercase tracking-wider font-bold text-primary">Reviews</span>
               <span className="h-[2px] w-6 bg-primary"></span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-dark leading-tight tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-dark leading-tight tracking-tight">
               Google Reviews & Customer Feedback
             </h2>
             <p className="text-sm sm:text-base text-gray-500 mt-2">

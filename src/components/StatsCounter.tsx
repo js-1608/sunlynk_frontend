@@ -93,12 +93,12 @@ const StatCard: React.FC<StatItemProps> = ({ icon, target, prefix = "", suffix, 
 
 export default function StatsCounter() {
   return (
-    <section className="relative py-18 bg-white border-y border-gray-100 overflow-hidden">
+    <section className="relative py-16 bg-white border-y border-gray-100 overflow-hidden">
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
 
         {/* Title matches screenshot */}
-        <h2 className="text-3xl md:text-4xl font-extrabold text-dark text-center mb-12 tracking-tight">
+        <h2 className="text-3xl md:text-5xl font-extrabold text-dark text-center mb-12 tracking-tight">
           Powering Homes Across India
         </h2>
 

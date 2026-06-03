@@ -9,7 +9,7 @@ export default function ProblemSection() {
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         {/* Header — centered */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-[2.75rem] font-black text-dark leading-tight tracking-tight mb-5">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-dark leading-tight tracking-tight mb-5">
             Solar should be simple.{" "}
             <span className="text-primary">So why does it feel risky?</span>
           </h2>

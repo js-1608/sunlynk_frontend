@@ -47,16 +47,16 @@ export default function Calibration() {
       </section>
 
       {/* Details */}
-      <section className="py-18 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
           {/* Left Column: text (col-span-7) */}
           <div className="lg:col-span-7 flex flex-col gap-6 text-left">
             <div className="inline-flex items-center gap-2">
               <Sun className="text-primary" size={20} />
-              <span className="text-xs uppercase tracking-wider font-bold text-primary">Precision & Compliance</span>
+              <span className="text-sm uppercase tracking-wider font-bold text-primary">Precision & Compliance</span>
             </div>
-            <h2 className="text-3xl font-extrabold text-dark leading-tight">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-dark leading-tight">
               Maintain Solar PR Accuracy with Periodic Recalibration
             </h2>
             <p className="text-sm text-gray-600 leading-relaxed text-justify">
@@ -102,7 +102,7 @@ export default function Calibration() {
       </section>
 
       {/* Services breakdown list */}
-      <section className="py-18 bg-gray-1000 border-t border-gray-100">
+      <section className="py-16 bg-gray-1000 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((srv, idx) => (

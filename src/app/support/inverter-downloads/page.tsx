@@ -56,7 +56,7 @@ export default function InverterDownloads() {
       </section>
 
       {/* List */}
-      <section className="py-18 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
           <h3 className="text-2xl font-bold text-gray-800 mb-6 text-left">Inverters & Panels Documentation</h3>
 

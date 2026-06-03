@@ -42,7 +42,7 @@ const plans = [
 
 export default function ProductsPreview() {
   return (
-    <section className="relative py-24 bg-white overflow-hidden">
+    <section className="relative py-16 bg-white overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none opacity-20">
         <iframe
@@ -61,10 +61,10 @@ export default function ProductsPreview() {
         <div className="text-center max-w-2xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 mb-5">
             <span className="h-[2px] w-6 bg-primary" />
-            <span className="text-xs uppercase tracking-[0.15em] font-bold text-primary">Our Plans</span>
+            <span className="text-sm uppercase tracking-[0.15em] font-bold text-primary">Our Plans</span>
             <span className="h-[2px] w-6 bg-primary" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-dark leading-tight mb-3">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-dark leading-tight mb-3">
             Choose your solar plan
           </h2>
           <p className="text-sm text-gray-500 leading-relaxed">

@@ -57,7 +57,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
       </section>
 
       {/* Main Content Details */}
-      <section className="py-18 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
 
           {/* Sidebar Left (col-span-4) */}

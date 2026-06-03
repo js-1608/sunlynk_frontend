@@ -48,7 +48,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
       </section>
 
       {/* Main Details content */}
-      <section className="py-18 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
 
           {/* Left Column: Post content (col-span-8) */}
