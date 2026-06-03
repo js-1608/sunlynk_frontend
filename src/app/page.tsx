@@ -379,7 +379,7 @@ export default function Home() {
 
 
       {/* Trust Bar — 4 Pillars */}
-      <TrustBar />
+      {/* <TrustBar /> */}
 
 
       {/* We Handle Everything Section */}
