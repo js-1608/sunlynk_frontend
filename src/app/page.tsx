@@ -211,8 +211,20 @@ export default function Home() {
 
 
       {/* Our Process Section */}
-      <section className="py-16 bg-gradient-to-b from-white to-gray-50 overflow-hidden" id="solar-process">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
+      <section className="relative py-16 overflow-hidden" id="solar-process">
+        {/* Dark Primary Gradient Background with Overlay Image */}
+        <div className="absolute inset-0 pointer-events-none z-0">
+          <Image
+            src="/new_assets/home_hero.jpg"
+            alt="Solar rooftop background"
+            fill
+            className="object-cover opacity-50 mix-blend-overlay"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#1C342A] via-[#050d09b4] to-[#1C342A]"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
 
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-14 md:mb-20 flex flex-col items-center gap-4">
@@ -221,16 +233,16 @@ export default function Home() {
               <span className="text-base uppercase tracking-wider font-bold text-primary">How We Work</span>
               <span className="h-[2px] w-6 bg-primary"></span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-dark leading-tight">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-white leading-tight">
               Our Simple 4-Step Process
             </h2>
-            <p className="text-sm sm:text-base text-gray-500 max-w-2xl leading-relaxed mt-1">
+            <p className="text-sm sm:text-base text-gray-300 max-w-2xl leading-relaxed mt-1">
               From the initial rooftop evaluation to lifetime maintenance, we manage every detail under one roof to make your solar transition completely seamless.
             </p>
 
             {/* Speech bubble / Consultant avatar guide */}
-            <div className="inline-flex items-center gap-3.5 bg-slate-50 border border-gray-200/80 rounded-full py-1.5 pl-2 pr-5 shadow-sm mt-4 hover:border-primary/20 transition-all duration-300">
-              <div className="relative w-12 h-12 rounded-full overflow-hidden border border-white shadow-sm shrink-0">
+            <div className="inline-flex items-center gap-3.5 bg-white/5 border border-white/10 rounded-full py-1.5 pl-2 pr-5 shadow-lg mt-4 hover:border-primary/20 transition-all duration-300 backdrop-blur-md">
+              <div className="relative w-12 h-12 rounded-full overflow-hidden border border-white/20 shadow-sm shrink-0">
                 <Image
                   src="/assets/images/sunlynk_guy.webp"
                   alt="SunLynk Guide"
@@ -238,7 +250,7 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <p className="text-[11px] sm:text-xs text-gray-600 font-medium">
+              <p className="text-[11px] sm:text-xs text-gray-300 font-medium">
                 <span className="text-primary font-bold">SunLynk Expert:</span> We handle all the surveys, 3D layouts, and subsidy papers for you.
               </p>
             </div>
@@ -248,7 +260,7 @@ export default function Home() {
           <div className="relative max-w-7xl mx-auto">
 
             {/* Connecting Dashed Line (Desktop only) — aligned to center of circles */}
-            <div className="absolute top-[96px] left-[12%] right-[12%] border-t-2 border-dashed border-primary/25  lg:block z-0" />
+            <div className="absolute top-[96px] left-[12%] right-[12%] border-t-2 border-dashed border-primary/35 lg:block z-0" />
 
             {/* Mobile: Horizontal slider showing ~1.4 cards. Desktop: 4-col grid */}
             <div
@@ -259,7 +271,7 @@ export default function Home() {
               {/* Step 1 */}
               <div className="snap-start shrink-0 w-[240px] sm:w-[260px] lg:w-auto flex flex-col items-center text-center group">
                 {/* Circle Image */}
-                <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-white bg-white shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.25)] group-hover:border-primary/60 transition-all duration-500 overflow-hidden shrink-0 z-10">
+                <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-[#12281D] bg-[#0A1811] shadow-[0_8px_30px_-4px_rgba(0,0,0,0.5)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.35)] group-hover:border-primary transition-all duration-500 overflow-hidden shrink-0 z-10">
                   <Image
                     src="/assets/images/process_survey.webp"
                     alt="Free Home Visit & Rooftop Survey"
@@ -273,10 +285,10 @@ export default function Home() {
                 </div>
                 {/* Text Content */}
                 <div className="mt-4 flex flex-col items-center gap-1.5 px-1">
-                  <h3 className="font-extrabold text-gray-900 text-sm sm:text-base lg:text-lg group-hover:text-primary transition-colors duration-300 leading-snug">
+                  <h3 className="font-extrabold text-white text-sm sm:text-base lg:text-lg group-hover:text-primary transition-colors duration-300 leading-snug">
                     Free Home Visit &amp; Survey
                   </h3>
-                  <p className="text-[11px] sm:text-xs lg:text-sm text-gray-500 max-w-[220px]">
+                  <p className="text-[11px] sm:text-xs lg:text-sm text-gray-400 max-w-[220px]">
                     Our experts visit your property to evaluate shade, check roof strength, and measure usable space.
                   </p>
                 </div>
@@ -285,7 +297,7 @@ export default function Home() {
               {/* Step 2 */}
               <div className="snap-start shrink-0 w-[240px] sm:w-[260px] lg:w-auto flex flex-col items-center text-center group">
                 {/* Circle Image */}
-                <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-white bg-white shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.25)] group-hover:border-primary/60 transition-all duration-500 overflow-hidden shrink-0 z-10">
+                <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-[#12281D] bg-[#0A1811] shadow-[0_8px_30px_-4px_rgba(0,0,0,0.5)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.35)] group-hover:border-primary transition-all duration-500 overflow-hidden shrink-0 z-10">
                   <Image
                     src="/assets/images/process_design.webp"
                     alt="3D Solar Layout Design"
@@ -299,10 +311,10 @@ export default function Home() {
                 </div>
                 {/* Text Content */}
                 <div className="mt-4 flex flex-col items-center gap-1.5 px-1">
-                  <h3 className="font-extrabold text-gray-900 text-sm sm:text-base lg:text-lg group-hover:text-primary transition-colors duration-300 leading-snug">
+                  <h3 className="font-extrabold text-white text-sm sm:text-base lg:text-lg group-hover:text-primary transition-colors duration-300 leading-snug">
                     3D Solar Design
                   </h3>
-                  <p className="text-[11px] sm:text-xs lg:text-sm text-gray-500  max-w-[220px]">
+                  <p className="text-[11px] sm:text-xs lg:text-sm text-gray-400 max-w-[220px]">
                     We model a customized 3D layout showing optimal panel placement and shading zones.
                   </p>
                 </div>
@@ -311,7 +323,7 @@ export default function Home() {
               {/* Step 3 */}
               <div className="snap-start shrink-0 w-[240px] sm:w-[260px] lg:w-auto flex flex-col items-center text-center group">
                 {/* Circle Image */}
-                <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-white bg-white shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.25)] group-hover:border-primary/60 transition-all duration-500 overflow-hidden shrink-0 z-10">
+                <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-[#12281D] bg-[#0A1811] shadow-[0_8px_30px_-4px_rgba(0,0,0,0.5)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.35)] group-hover:border-primary transition-all duration-500 overflow-hidden shrink-0 z-10">
                   <Image
                     src="/assets/images/process_installation.webp"
                     alt="Govt Approvals & Professional Installation"
@@ -325,10 +337,10 @@ export default function Home() {
                 </div>
                 {/* Text Content */}
                 <div className="mt-4 flex flex-col items-center gap-1.5 px-1">
-                  <h3 className="font-extrabold text-gray-900 text-sm sm:text-base lg:text-lg group-hover:text-primary transition-colors duration-300 leading-snug">
+                  <h3 className="font-extrabold text-white text-sm sm:text-base lg:text-lg group-hover:text-primary transition-colors duration-300 leading-snug">
                     Installation &amp; Execution
                   </h3>
-                  <p className="text-[11px] sm:text-xs lg:text-sm text-gray-500  max-w-[220px]">
+                  <p className="text-[11px] sm:text-xs lg:text-sm text-gray-400 max-w-[220px]">
                     We handle net metering, DISCOM permissions, and install panels with certified precision.
                   </p>
                 </div>
@@ -337,7 +349,7 @@ export default function Home() {
               {/* Step 4 */}
               <div className="snap-start shrink-0 w-[240px] sm:w-[260px] lg:w-auto flex flex-col items-center text-center group">
                 {/* Circle Image */}
-                <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-white bg-white shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.25)] group-hover:border-primary/60 transition-all duration-500 overflow-hidden shrink-0 z-10">
+                <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-[#12281D] bg-[#0A1811] shadow-[0_8px_30px_-4px_rgba(0,0,0,0.5)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.35)] group-hover:border-primary transition-all duration-500 overflow-hidden shrink-0 z-10">
                   <Image
                     src="/assets/images/process_service.webp"
                     alt="After-Sales Service & Performance Monitoring"
@@ -351,10 +363,10 @@ export default function Home() {
                 </div>
                 {/* Text Content */}
                 <div className="mt-4 flex flex-col items-center gap-1.5 px-1">
-                  <h3 className="font-extrabold text-gray-900 text-sm sm:text-base lg:text-lg group-hover:text-primary transition-colors duration-300 leading-snug">
+                  <h3 className="font-extrabold text-white text-sm sm:text-base lg:text-lg group-hover:text-primary transition-colors duration-300 leading-snug">
                     After-Sales Service
                   </h3>
-                  <p className="text-[11px] sm:text-xs lg:text-sm text-gray-500  max-w-[220px]">
+                  <p className="text-[11px] sm:text-xs lg:text-sm text-gray-400 max-w-[220px]">
                     Enjoy post-commissioning performance checks, warranty claims, and proactive support.
                   </p>
                 </div>
@@ -381,9 +393,11 @@ export default function Home() {
       {/* Trust Bar — 4 Pillars */}
       {/* <TrustBar /> */}
 
+      {/* Solar Savings Calculator */}
+      <SolarCalculator />
 
       {/* We Handle Everything Section */}
-      <section className="py-16 bg-gray-1000 border-y border-gray-100 overflow-hidden">
+      <section className="py-16 bg-[#1C342A] border-y border-gray-100 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
 
           {/* Mobile: images first, Desktop: side by side */}
@@ -397,11 +411,11 @@ export default function Home() {
                   <span className="text-base uppercase tracking-wider font-bold text-primary">Why Choose Us</span>
                   <span className="h-[2px] w-6 bg-primary"></span>
                 </div>
-                <h2 className="text-2xl sm:text-4xl md:text-4xl font-extrabold text-dark leading-tight text-left">
+                <h2 className="text-2xl sm:text-4xl md:text-4xl font-extrabold text-white leading-tight text-left">
                   Why Partners & Homeowners <br className="hidden sm:inline" />
                   <span className="text-primary font-black">Choose SunLynk</span>
                 </h2>
-                <p className="text-sm sm:text-base text-gray-500 max-w-xl text-left">
+                <p className="text-sm sm:text-base text-gray-300 max-w-xl text-left">
                   We deliver top-tier engineering, long-term reliability, and guaranteed performance parameters for every solar solution.
                 </p>
               </div>
@@ -415,10 +429,10 @@ export default function Home() {
                     <Users size={22} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-900 text-[15px] sm:text-base mb-1 group-hover:text-primary transition-colors duration-300">
+                    <h4 className="font-bold text-white text-[15px] sm:text-base mb-1 group-hover:text-primary transition-colors duration-300">
                       Experienced Team
                     </h4>
-                    <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
                       10+ years of trusted engineering expertise delivering higher quality installations.
                     </p>
                   </div>
@@ -430,10 +444,10 @@ export default function Home() {
                     <ShieldCheck size={22} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-900 text-[15px] sm:text-base mb-1 group-hover:text-primary transition-colors duration-300">
+                    <h4 className="font-bold text-white text-[15px] sm:text-base mb-1 group-hover:text-primary transition-colors duration-300">
                       25-Year Product Warranty
                     </h4>
-                    <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
                       Long-term performance and product reliability warranty for absolute peace of mind.
                     </p>
                   </div>
@@ -445,10 +459,10 @@ export default function Home() {
                     <Zap size={22} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-900 text-[15px] sm:text-base mb-1 group-hover:text-primary transition-colors duration-300">
+                    <h4 className="font-bold text-white text-[15px] sm:text-base mb-1 group-hover:text-primary transition-colors duration-300">
                       Quicker Project Execution
                     </h4>
-                    <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
                       Swift design engineering, rapid execution, and seamless grid commissioning.
                     </p>
                   </div>
@@ -460,10 +474,10 @@ export default function Home() {
                     <Sun size={22} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-900 text-[15px] sm:text-base mb-1 group-hover:text-primary transition-colors duration-300">
+                    <h4 className="font-bold text-white text-[15px] sm:text-base mb-1 group-hover:text-primary transition-colors duration-300">
                       Unit Generation Guarantee
                     </h4>
-                    <p className="text-xs sm:text-sm text-gray-500 leading-relaxed max-w-xl">
+                    <p className="text-xs sm:text-sm text-gray-300 leading-relaxed max-w-xl">
                       We guarantee specified electricity output and pay ₹8/unit for any generation deficit.
                     </p>
                   </div>
@@ -525,8 +539,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Solar Savings Calculator */}
-      <SolarCalculator />
+
 
       {/* Stats Counter Section */}
       {/* <StatsCounter /> */}
