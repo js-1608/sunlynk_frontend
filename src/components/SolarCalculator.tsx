@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 
 export default function SolarCalculator() {
-  const [pincode, setPincode] = useState("226010");
+  const [pincode, setPincode] = useState("");
   const [bill, setBill] = useState(5000);
 
   // Validation

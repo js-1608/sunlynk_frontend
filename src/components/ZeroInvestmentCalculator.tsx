@@ -90,7 +90,7 @@ export default function ZeroInvestmentCalculator() {
               </div>
 
               {/* Cropped Expert Image */}
-              <div className="absolute right-0 top-0 bottom-0 w-40 md:w- shrink-0 z-0">
+              <div className="absolute right-0 top-0 bottom-0 h-full aspect-[287/307] z-0">
                 {/* Soft glow behind the avatar to integrate it into the card */}
                 {/* <div className="absolute inset-x-4 bottom-2 top-4 bg-emerald-400/30 rounded-full blur-md -z-10" /> */}
                 <Image
@@ -99,7 +99,7 @@ export default function ZeroInvestmentCalculator() {
                   fill
                   sizes="(max-width: 768px) 128px, 150px"
                   priority
-                  className="object-contain object-bottom select-none pointer-events-none group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover object-bottom select-none pointer-events-none group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
             </div>

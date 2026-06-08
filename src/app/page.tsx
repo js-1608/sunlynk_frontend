@@ -221,8 +221,8 @@ export default function Home() {
             className="object-cover mix-blend-overlay"
             priority
           />
-          <div className="absolute inset-0 bg-black/40"></div>
-          {/* <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-black/10 to-white/15" ></div> */}
+          {/* <div className="absolute inset-0 bg-black/40"></div> */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#065F46]/10 via-[#065F46]/70 to-[#065F46]/60" ></div>
 
         </div>
 
@@ -273,7 +273,7 @@ export default function Home() {
               {/* Step 1 */}
               <div className="snap-start shrink-0 w-[240px] sm:w-[260px] lg:w-auto flex flex-col items-center text-center group">
                 {/* Circle Image */}
-                <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-[#12281D] bg-[#0A1811] shadow-[0_8px_30px_-4px_rgba(0,0,0,0.5)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.35)] group-hover:border-primary transition-all duration-500 overflow-hidden shrink-0 z-10">
+                <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-[#fff] bg-[#0A1811] shadow-[0_8px_30px_-4px_rgba(0,0,0,0.5)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.35)] group-hover:border-primary transition-all duration-500 overflow-hidden shrink-0 z-10">
                   <Image
                     src="/assets/images/process_survey.webp"
                     alt="Free Home Visit & Rooftop Survey"
@@ -299,7 +299,7 @@ export default function Home() {
               {/* Step 2 */}
               <div className="snap-start shrink-0 w-[240px] sm:w-[260px] lg:w-auto flex flex-col items-center text-center group">
                 {/* Circle Image */}
-                <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-[#12281D] bg-[#0A1811] shadow-[0_8px_30px_-4px_rgba(0,0,0,0.5)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.35)] group-hover:border-primary transition-all duration-500 overflow-hidden shrink-0 z-10">
+                <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-[#fff] bg-[#0A1811] shadow-[0_8px_30px_-4px_rgba(0,0,0,0.5)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.35)] group-hover:border-primary transition-all duration-500 overflow-hidden shrink-0 z-10">
                   <Image
                     src="/assets/images/process_design.webp"
                     alt="3D Solar Layout Design"
@@ -325,7 +325,7 @@ export default function Home() {
               {/* Step 3 */}
               <div className="snap-start shrink-0 w-[240px] sm:w-[260px] lg:w-auto flex flex-col items-center text-center group">
                 {/* Circle Image */}
-                <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-[#12281D] bg-[#0A1811] shadow-[0_8px_30px_-4px_rgba(0,0,0,0.5)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.35)] group-hover:border-primary transition-all duration-500 overflow-hidden shrink-0 z-10">
+                <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-[#fff] bg-[#0A1811] shadow-[0_8px_30px_-4px_rgba(0,0,0,0.5)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.35)] group-hover:border-primary transition-all duration-500 overflow-hidden shrink-0 z-10">
                   <Image
                     src="/assets/images/process_installation.webp"
                     alt="Govt Approvals & Professional Installation"
@@ -351,7 +351,7 @@ export default function Home() {
               {/* Step 4 */}
               <div className="snap-start shrink-0 w-[240px] sm:w-[260px] lg:w-auto flex flex-col items-center text-center group">
                 {/* Circle Image */}
-                <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-[#12281D] bg-[#0A1811] shadow-[0_8px_30px_-4px_rgba(0,0,0,0.5)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.35)] group-hover:border-primary transition-all duration-500 overflow-hidden shrink-0 z-10">
+                <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-[#fff] bg-[#0A1811] shadow-[0_8px_30px_-4px_rgba(0,0,0,0.5)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.35)] group-hover:border-primary transition-all duration-500 overflow-hidden shrink-0 z-10">
                   <Image
                     src="/assets/images/process_service.webp"
                     alt="After-Sales Service & Performance Monitoring"
