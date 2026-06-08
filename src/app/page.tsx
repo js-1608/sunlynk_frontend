@@ -101,11 +101,10 @@ export default function Home() {
             {/* Card 1: Homes */}
             <div className="group relative bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-500 overflow-hidden flex flex-col">
               {/* Image Header */}
-              <div className="relative h-52 overflow-hidden">
-                <Image
-                  src="/assets/images/service/solar_homes.webp"
+              <div className="relative h-60 overflow-hidden">
+                <img
+                  src="/new_assets/solarHome.png"
                   alt="Solar panels on a modern home rooftop"
-                  fill
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
@@ -136,12 +135,11 @@ export default function Home() {
             {/* Card 2: Housing Societies */}
             <div className="group relative bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-500 overflow-hidden flex flex-col">
               {/* Image Header */}
-              <div className="relative h-52 overflow-hidden">
-                <Image
-                  src="/assets/images/service/solar_housing_society.webp"
+              <div className="relative h-60 overflow-hidden">
+                <img
+                  src="/new_assets/housingSocities.png"
                   alt="Housing society with rooftop solar installation"
-                  fill
-                  className="object-cover"
+                  className="object-cover object-bottom"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                 {/* Stat Badge */}
@@ -171,11 +169,10 @@ export default function Home() {
             {/* Card 3: Commercial */}
             <div className="group relative bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-500 overflow-hidden flex flex-col">
               {/* Image Header */}
-              <div className="relative h-52 overflow-hidden">
-                <Image
-                  src="/assets/images/service/solar_commercial.webp"
+              <div className="relative h-60 overflow-hidden">
+                <img
+                  src="/new_assets/commercial.PNG"
                   alt="Commercial building with solar panel installation"
-                  fill
                   className="object-cover transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
