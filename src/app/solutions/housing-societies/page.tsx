@@ -87,10 +87,10 @@ export default function HousingSocietiesPage() {
         </div>
 
         {/* Glow grid waves */}
-        <div 
+        <div
           className="absolute inset-0 pointer-events-none opacity-25 z-1"
-          style={{ 
-            backgroundImage: "radial-gradient(#25a55a 1px, transparent 1px)", 
+          style={{
+            backgroundImage: "radial-gradient(#25a55a 1px, transparent 1px)",
             backgroundSize: "26px 26px"
           }}
         ></div>
@@ -101,13 +101,13 @@ export default function HousingSocietiesPage() {
 
         <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Left Column: Context */}
             <div className="lg:col-span-7 flex flex-col gap-6 text-left">
               <div className="inline-flex self-start bg-primary/20 rounded-full py-1.5 px-4 text-xs font-bold text-primary border border-primary/30 animate-pulse">
                 🏢 Green Community Living
               </div>
-              
+
               <h1 className="text-4xl sm:text-6xl font-black text-white leading-none tracking-tight">
                 Green Societies. <br />
                 <span className="text-primary relative inline-block">
@@ -115,7 +115,7 @@ export default function HousingSocietiesPage() {
                   <span className="absolute left-0 bottom-1 h-[6px] w-full bg-[#fca311]/60 rounded-full -z-10"></span>
                 </span>
               </h1>
-              
+
               <p className="text-base sm:text-lg text-gray-300 leading-relaxed font-semibold max-w-xl">
                 Elevate your residential society's infrastructure. Power common-area lights, elevators, pumps, and EV chargers using clean solar energy, reducing maintenance bill overheads for all residents.
               </p>
@@ -165,11 +165,11 @@ export default function HousingSocietiesPage() {
       {/* Solutions Config */}
       <section className="py-20 bg-white border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          
+
           <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center gap-3">
             <div className="inline-flex items-center gap-2">
               <span className="h-[2px] w-6 bg-primary"></span>
-              <span className="text-xs uppercase tracking-widest font-black text-primary">Society Layouts</span>
+              <span className="text-base uppercase tracking-wider font-bold text-primary">Society Layouts</span>
               <span className="h-[2px] w-6 bg-primary"></span>
             </div>
             <h2 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight">
@@ -182,8 +182,8 @@ export default function HousingSocietiesPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {solutions.map((sol, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`border rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group ${sol.theme}`}
               >
                 <div className="flex flex-col gap-4 text-left">
@@ -223,11 +223,11 @@ export default function HousingSocietiesPage() {
       {/* Creative Applications Micro-Cards */}
       <section className="py-20 bg-[#f4faf7] border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          
+
           <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center gap-3">
             <div className="inline-flex items-center gap-2">
               <span className="h-[2px] w-6 bg-primary"></span>
-              <span className="text-xs uppercase tracking-widest font-black text-primary">Applications</span>
+              <span className="text-base uppercase tracking-wider font-bold text-primary">Applications</span>
               <span className="h-[2px] w-6 bg-primary"></span>
             </div>
             <h2 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight">
@@ -240,8 +240,8 @@ export default function HousingSocietiesPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {applications.map((item, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="bg-white border border-gray-150 rounded-2xl p-6 hover:border-primary/30 hover:shadow-md transition-all duration-300 flex gap-4 text-left group"
               >
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-black text-xs shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300">
@@ -262,7 +262,7 @@ export default function HousingSocietiesPage() {
       <section className="py-20 bg-[#fafdfb] border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Left Column: Real Solar Image */}
             <div className="lg:col-span-5 relative w-full group">
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-xl border border-gray-150">
@@ -290,7 +290,7 @@ export default function HousingSocietiesPage() {
               <div className="flex flex-col gap-3">
                 <div className="inline-flex items-center gap-2">
                   <span className="h-[2px] w-6 bg-primary"></span>
-                  <span className="text-xs uppercase tracking-widest font-black text-primary">Benefits</span>
+                  <span className="text-base uppercase tracking-wider font-bold text-primary">Benefits</span>
                   <span className="h-[2px] w-6 bg-primary"></span>
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight">
@@ -303,8 +303,8 @@ export default function HousingSocietiesPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {benefits.map((b, idx) => (
-                  <div 
-                    key={idx} 
+                  <div
+                    key={idx}
                     className="bg-white border border-gray-150 p-5 rounded-2xl shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 text-left flex flex-col gap-2.5"
                   >
                     <div className="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
@@ -332,7 +332,7 @@ export default function HousingSocietiesPage() {
           <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center gap-3">
             <div className="inline-flex items-center gap-2">
               <span className="h-[2px] w-6 bg-primary"></span>
-              <span className="text-xs uppercase tracking-widest font-black text-primary">Society Portfolio</span>
+              <span className="text-base uppercase tracking-wider font-bold text-primary">Society Portfolio</span>
               <span className="h-[2px] w-6 bg-primary"></span>
             </div>
             <h2 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight">
@@ -395,11 +395,11 @@ export default function HousingSocietiesPage() {
       {/* FAQ Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
+
           <div className="lg:col-span-5 text-left flex flex-col gap-4 sticky top-24">
             <div className="inline-flex items-center gap-2">
               <span className="h-[2px] w-6 bg-primary"></span>
-              <span className="text-xs uppercase tracking-widest font-black text-primary">FAQ</span>
+              <span className="text-base uppercase tracking-wider font-bold text-primary">FAQ</span>
               <span className="h-[2px] w-6 bg-primary"></span>
             </div>
             <h3 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight">Frequently Asked Questions</h3>

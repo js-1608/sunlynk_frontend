@@ -215,13 +215,15 @@ export default function Home() {
         {/* Dark Primary Gradient Background with Overlay Image */}
         <div className="absolute inset-0 pointer-events-none z-0">
           <Image
-            src="/new_assets/home_hero.jpg"
+            src="/new_assets/hero banner.JPG"
             alt="Solar rooftop background"
             fill
-            className="object-cover opacity-50 mix-blend-overlay"
+            className="object-cover mix-blend-overlay"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#1C342A] via-[#050d09b4] to-[#1C342A]"></div>
+          <div className="absolute inset-0 bg-black/40"></div>
+          {/* <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-black/10 to-white/15" ></div> */}
+
         </div>
 
         <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
@@ -250,7 +252,7 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <p className="text-[11px] sm:text-xs text-gray-300 font-medium">
+              <p className="text-[11px] sm:text-xs text-white font-medium">
                 <span className="text-primary font-bold">SunLynk Expert:</span> We handle all the surveys, 3D layouts, and subsidy papers for you.
               </p>
             </div>
@@ -288,7 +290,7 @@ export default function Home() {
                   <h3 className="font-extrabold text-white text-sm sm:text-base lg:text-lg group-hover:text-primary transition-colors duration-300 leading-snug">
                     Free Home Visit &amp; Survey
                   </h3>
-                  <p className="text-[11px] sm:text-xs lg:text-sm text-gray-400 max-w-[220px]">
+                  <p className="text-[11px] sm:text-xs lg:text-sm text-gray-200 max-w-[220px]">
                     Our experts visit your property to evaluate shade, check roof strength, and measure usable space.
                   </p>
                 </div>
@@ -314,7 +316,7 @@ export default function Home() {
                   <h3 className="font-extrabold text-white text-sm sm:text-base lg:text-lg group-hover:text-primary transition-colors duration-300 leading-snug">
                     3D Solar Design
                   </h3>
-                  <p className="text-[11px] sm:text-xs lg:text-sm text-gray-400 max-w-[220px]">
+                  <p className="text-[11px] sm:text-xs lg:text-sm text-gray-200 max-w-[220px]">
                     We model a customized 3D layout showing optimal panel placement and shading zones.
                   </p>
                 </div>
@@ -340,7 +342,7 @@ export default function Home() {
                   <h3 className="font-extrabold text-white text-sm sm:text-base lg:text-lg group-hover:text-primary transition-colors duration-300 leading-snug">
                     Installation &amp; Execution
                   </h3>
-                  <p className="text-[11px] sm:text-xs lg:text-sm text-gray-400 max-w-[220px]">
+                  <p className="text-[11px] sm:text-xs lg:text-sm text-gray-200 max-w-[220px]">
                     We handle net metering, DISCOM permissions, and install panels with certified precision.
                   </p>
                 </div>
@@ -366,7 +368,7 @@ export default function Home() {
                   <h3 className="font-extrabold text-white text-sm sm:text-base lg:text-lg group-hover:text-primary transition-colors duration-300 leading-snug">
                     After-Sales Service
                   </h3>
-                  <p className="text-[11px] sm:text-xs lg:text-sm text-gray-400 max-w-[220px]">
+                  <p className="text-[11px] sm:text-xs lg:text-sm text-gray-200 max-w-[220px]">
                     Enjoy post-commissioning performance checks, warranty claims, and proactive support.
                   </p>
                 </div>
@@ -721,57 +723,6 @@ export default function Home() {
         </div>
       </section> */}
 
-      {/* FAQ Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Side: Images */}
-          <div className="grid grid-cols-2 gap-4">
-            <div className="relative aspect-[3/4] rounded-xl overflow-hidden border border-gray-100 shadow-md">
-              <Image
-                src="/assets/IMAGE/solar.webp"
-                alt="Faq Intro"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="flex flex-col gap-4 justify-between">
-              <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-gray-100 shadow-md">
-                <Image
-                  src="/assets/IMAGE/forecasting.webp"
-                  alt="Faq Detail"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              {/* Play Video Trigger */}
-              <div className="bg-primary/5 border border-primary/20 p-6 rounded-xl flex flex-col justify-center items-center text-center">
-                <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mb-3">
-                  <Sun size={20} />
-                </div>
-                <h5 className="font-bold text-gray-800 text-sm">Watch Our Intro</h5>
-                <p className="text-xs text-gray-500 mt-1">Solar PV & SCADA Solutions Overview</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Side: Accordion */}
-          <div>
-            <div className="flex flex-col gap-4 mb-8">
-              <div className="inline-flex items-center gap-2">
-                <Sun className="text-primary" size={20} />
-                <span className="text-base uppercase tracking-wider font-bold text-primary">Questions For Us</span>
-              </div>
-              <h3 className="text-3xl md:text-5xl font-extrabold text-dark leading-tight">Some FAQ Questions</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Learn more about solar modules, meteorological data loggers, SCADA platforms, and storage integration technologies.
-              </p>
-            </div>
-
-            {/* Accordion container */}
-            <FaqAccordion faqs={faqs} />
-          </div>
-        </div>
-      </section>
 
       {/* Blogs Section */}
       <section className="py-16 bg-white border-t border-gray-100">
@@ -951,6 +902,58 @@ export default function Home() {
       </section> */}
 
       <GoogleReviews />
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left Side: Images */}
+          <div className="grid grid-cols-2 gap-4">
+            <div className="relative aspect-[3/4] rounded-xl overflow-hidden border border-gray-100 shadow-md">
+              <Image
+                src="/assets/IMAGE/solar.webp"
+                alt="Faq Intro"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="flex flex-col gap-4 justify-between">
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-gray-100 shadow-md">
+                <Image
+                  src="/assets/IMAGE/forecasting.webp"
+                  alt="Faq Detail"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              {/* Play Video Trigger */}
+              <div className="bg-primary/5 border border-primary/20 p-6 rounded-xl flex flex-col justify-center items-center text-center">
+                <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mb-3">
+                  <Sun size={20} />
+                </div>
+                <h5 className="font-bold text-gray-800 text-sm">Watch Our Intro</h5>
+                <p className="text-xs text-gray-500 mt-1">Solar PV & SCADA Solutions Overview</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Side: Accordion */}
+          <div>
+            <div className="flex flex-col gap-4 mb-8">
+              <div className="inline-flex items-center gap-2">
+                <Sun className="text-primary" size={20} />
+                <span className="text-base uppercase tracking-wider font-bold text-primary">Questions For Us</span>
+              </div>
+              <h3 className="text-3xl md:text-5xl font-extrabold text-dark leading-tight">Some FAQ Questions</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Learn more about solar modules, meteorological data loggers, SCADA platforms, and storage integration technologies.
+              </p>
+            </div>
+
+            {/* Accordion container */}
+            <FaqAccordion faqs={faqs} />
+          </div>
+        </div>
+      </section>
 
       {/* Consultation Contact Form Section */}
       {/* <section className="py-20 bg-gradient-to-b from-white to-gray-50 border-t border-gray-100 overflow-hidden" id="free-consultation">

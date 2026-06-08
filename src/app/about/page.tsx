@@ -105,16 +105,17 @@ export default function About() {
       {/* Page Header Banner */}
       <section className="px-4 md:px-8 pt-6 pb-2">
         <div className="max-w-7xl mx-auto relative rounded-2xl overflow-hidden py-24 md:py-32 bg-dark text-white flex items-center justify-center">
-          {/* Background image & gradient overlay */}
+          {/* Background video & gradient overlay */}
           <div className="absolute inset-0 z-0">
-            <Image
-              src="/assets/images/about_hero_bg.png"
-              alt="Wind energy background"
-              fill
-              className="object-cover opacity-35"
-              priority
+            <video
+              src="https://madebydesignesia.com/themes/solaria/video/1.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full absolute inset-0 object-cover opacity-45"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-emerald-950/70 via-teal-900/40 to-dark/95" />
+            <div className="absolute inset-0 bg-gradient-to-b from-emerald-950/60 via-slate-950/20 to-dark/90" />
           </div>
 
           <div className="relative z-10 flex flex-col items-center justify-center gap-4 text-center px-4">
@@ -138,7 +139,7 @@ export default function About() {
           <div className="relative flex justify-center lg:justify-start">
             <div className="relative w-full max-w-[500px] aspect-[1] rounded-[3rem] rounded-tr-[120px] rounded-bl-[120px] overflow-hidden shadow-2xl border-4 border-emerald-500/10">
               <Image
-                src="/assets/images/engineers_field.png"
+                src="/new_assets/sunlynksolar truck.PNG"
                 alt="Clean energy engineers collaborating"
                 fill
                 className="object-cover"
@@ -271,12 +272,12 @@ export default function About() {
         {/* Background image & gradient overlay */}
         <div className="absolute inset-0 z-0 select-none pointer-events-none">
           <Image
-            src="/assets/images/service/solar_homes.webp"
+            src="/new_assets/hero banner.jpg"
             alt="Solar panels background"
             fill
-            className="object-cover opacity-35"
+            className="object-cover opacity-80"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-emerald-950/70 via-teal-900/40 to-dark/95" />
+          <div className="absolute inset-0 bg-gradient-to-b from-emerald-950/70 via-teal-900/0 to-dark/10" />
         </div>
         <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center gap-3">

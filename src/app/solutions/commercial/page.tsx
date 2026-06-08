@@ -72,7 +72,7 @@ export default function CommercialPage() {
 
   return (
     <div className="bg-[#070b12] text-gray-200 min-h-screen">
-      
+
       {/* Tech-Dark Corporate Hero Section */}
       <section className="relative overflow-hidden py-20 lg:py-32 border-b border-gray-900">
         {/* Real background image with dark overlay */}
@@ -86,12 +86,12 @@ export default function CommercialPage() {
           />
           <div className="absolute inset-0 bg-[#070b12]/80 backdrop-blur-[1px]"></div>
         </div>
-        
+
         {/* Technical grid dots */}
-        <div 
+        <div
           className="absolute inset-0 pointer-events-none opacity-25 z-1"
-          style={{ 
-            backgroundImage: "radial-gradient(rgba(255,255,255,0.07) 1.2px, transparent 1.2px)", 
+          style={{
+            backgroundImage: "radial-gradient(rgba(255,255,255,0.07) 1.2px, transparent 1.2px)",
             backgroundSize: "28px 28px"
           }}
         ></div>
@@ -114,13 +114,13 @@ export default function CommercialPage() {
 
         <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Left Column: Context */}
             <div className="lg:col-span-7 flex flex-col gap-6 text-left">
               <div className="inline-flex self-start bg-[#2ecc71]/20 rounded-full py-1.5 px-4 text-xs font-bold text-primary border border-primary/30">
                 ⚡ Industrial Grid Engineering
               </div>
-              
+
               <h1 className="text-4xl sm:text-6xl font-black leading-none text-white tracking-tight">
                 Turn Rooftop <br />
                 <span className="text-primary relative inline-block">
@@ -128,7 +128,7 @@ export default function CommercialPage() {
                   <span className="absolute left-0 bottom-1.5 h-[6px] w-full bg-primary/20 rounded-full -z-10"></span>
                 </span>
               </h1>
-              
+
               <p className="text-base sm:text-lg text-gray-300 leading-relaxed font-semibold max-w-xl">
                 Utility costs represent a major chunk of operational overhead. Stabilize your business expenses with a custom engineered commercial solar network featuring quick payback structures and premium SCADA controls.
               </p>
@@ -174,11 +174,11 @@ export default function CommercialPage() {
       {/* Solutions Available */}
       <section className="py-20 bg-[#090e18] border-b border-gray-900">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          
+
           <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center gap-3">
             <div className="inline-flex items-center gap-2">
               <span className="h-[2px] w-6 bg-primary"></span>
-              <span className="text-xs uppercase tracking-widest font-black text-primary">C&I Systems</span>
+              <span className="text-base uppercase tracking-wider font-bold text-primary">C&I Systems</span>
               <span className="h-[2px] w-6 bg-primary"></span>
             </div>
             <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
@@ -191,8 +191,8 @@ export default function CommercialPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {solutions.map((sol, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`border border-gray-850 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-primary/30 transition-all duration-300 group ${sol.theme}`}
               >
                 <div className="flex flex-col gap-4 text-left">
@@ -232,11 +232,11 @@ export default function CommercialPage() {
       {/* Creative Interactive Suitability Grid */}
       <section className="py-20 bg-[#070b12] border-b border-gray-900">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          
+
           <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center gap-3">
             <div className="inline-flex items-center gap-2">
               <span className="h-[2px] w-6 bg-primary"></span>
-              <span className="text-xs uppercase tracking-widest font-black text-primary">Suitability Profile</span>
+              <span className="text-base uppercase tracking-wider font-bold text-primary">Suitability Profile</span>
               <span className="h-[2px] w-6 bg-primary"></span>
             </div>
             <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
@@ -249,8 +249,8 @@ export default function CommercialPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {suitableFor.map((item, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="bg-[#0E1524]/40 border border-gray-850 rounded-2xl p-6 hover:border-primary/30 transition-all duration-300 flex gap-4 text-left group"
               >
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-black text-xs shrink-0 group-hover:bg-primary group-hover:text-dark transition-all duration-300">
@@ -271,13 +271,13 @@ export default function CommercialPage() {
       <section className="py-20 bg-[#090e18] border-b border-gray-900">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Left Side: Technical benefits */}
             <div className="lg:col-span-7 flex flex-col gap-6 text-left">
               <div className="flex flex-col gap-3">
                 <div className="inline-flex items-center gap-2">
                   <span className="h-[2px] w-6 bg-primary"></span>
-                  <span className="text-xs uppercase tracking-widest font-black text-primary">Benefits</span>
+                  <span className="text-base uppercase tracking-wider font-bold text-primary">Benefits</span>
                   <span className="h-[2px] w-6 bg-primary"></span>
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight">
@@ -287,8 +287,8 @@ export default function CommercialPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {benefits.map((b, idx) => (
-                  <div 
-                    key={idx} 
+                  <div
+                    key={idx}
                     className="bg-[#0E1524]/60 border border-gray-850 p-6 rounded-3xl shadow-sm hover:border-primary/25 transition-all duration-300 text-left flex flex-col gap-2"
                   >
                     <div className="w-8 h-8 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
@@ -336,7 +336,7 @@ export default function CommercialPage() {
           <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center gap-3">
             <div className="inline-flex items-center gap-2">
               <span className="h-[2px] w-6 bg-primary"></span>
-              <span className="text-xs uppercase tracking-widest font-black text-primary">C&I Portfolio</span>
+              <span className="text-base uppercase tracking-wider font-bold text-primary">C&I Portfolio</span>
               <span className="h-[2px] w-6 bg-primary"></span>
             </div>
             <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
@@ -399,7 +399,7 @@ export default function CommercialPage() {
       {/* FAQ Section */}
       <section className="py-20 bg-[#070b12]">
         <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
+
           <div className="lg:col-span-5 text-left flex flex-col gap-4 sticky top-24">
             <div className="inline-flex items-center gap-2">
               <span className="h-[2px] w-6 bg-primary"></span>

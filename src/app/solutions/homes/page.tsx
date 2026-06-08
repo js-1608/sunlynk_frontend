@@ -7,6 +7,8 @@ import ContactForm from "@/components/ContactForm";
 import SolarCalculator from "@/components/SolarCalculator";
 import FaqAccordion from "@/components/FaqAccordion";
 import GoogleReviews from "@/components/GoogleReviews";
+import ZeroInvestmentCalculator from "@/components/ZeroInvestmentCalculator";
+
 
 export const metadata: Metadata = {
   title: "Residential Solar & Home Rooftop Energy Solutions | SunLynk Solar",
@@ -16,12 +18,36 @@ export const metadata: Metadata = {
 
 export default function HomesPage() {
   const benefits = [
-    { title: "Slash Bills up to 90%", desc: "Dramatically cut your domestic power bills by offsetting daytime energy draw with solar power." },
-    { title: "Customized 3D Layouts", desc: "Our engineers design system structures optimized precisely for your rooftop geometry and shade zones." },
-    { title: "Hassle-Free Subsidies", desc: "Complete documentation and approvals under the PM Surya Ghar Yojana processed by our team." },
-    { title: "Smart Mobile Tracking", desc: "Monitor generation, self-consumption, and battery metrics in real-time from our app." },
-    { title: "Professional Installation", desc: "Built by certified technicians using premium components for long-term safety." },
-    { title: "25-Year Performance", desc: "Long-term product warranty provides absolute security for decades of operation." }
+    {
+      title: "Significant reduction in electricity bills",
+      desc: "Save up to 90% on domestic power costs by shifting your daytime load to clean solar energy.",
+      icon: Coins
+    },
+    {
+      title: "Customized system design for maximum generation",
+      desc: "Our engineers design structures optimized precisely for your rooftop geometry and shade-free zones.",
+      icon: Sparkles
+    },
+    {
+      title: "Government subsidy assistance for eligible homeowners",
+      desc: "Complete documentation and approvals under the PM Surya Ghar Yojana processed by our team.",
+      icon: Award
+    },
+    {
+      title: "Real-time performance monitoring",
+      desc: "Track energy generation, self-consumption, and grid exports directly from your smartphone.",
+      icon: Zap
+    },
+    {
+      title: "Professional installation and long-term support",
+      desc: "Built by certified technicians using premium components for long-term safety and maintenance.",
+      icon: Wrench
+    },
+    {
+      title: "Reliable solar solutions built for 25+ years of operation",
+      desc: "Long-term product warranty provides absolute security for decades of clean energy generation.",
+      icon: ShieldCheck
+    }
   ];
 
   const solutions = [
@@ -64,9 +90,10 @@ export default function HomesPage() {
 
   return (
     <div className="bg-white text-dark">
-      <section className="relative overflow-hidden bg-white py-12 lg:py-0">
-        {/* Faded Background Image at Bottom Left */}
-        <div className="absolute left-0 bottom-0 w-full lg:w-[62%] h-[55%] lg:h-[80%] z-0 pointer-events-none overflow-hidden">
+      <section className="relative overflow-hidden bg-white">
+
+        {/* ── Desktop-only background image (bottom-left) ── */}
+        <div className="absolute left-0 bottom-0 w-[62%] h-[80%] z-0 pointer-events-none overflow-hidden hidden lg:block">
           <Image
             src="/new_assets/sunlynksolartruckfamily.PNG"
             alt="Residential solar rooftop background"
@@ -74,66 +101,78 @@ export default function HomesPage() {
             className="object-cover object-bottom"
             priority
           />
-          {/* Subtle fade overlays to blend the image into the white page background */}
-          <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/40 to-white"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-white"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/40 to-white" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-white" />
         </div>
 
-        {/* Right side background panel on desktop */}
-        <div className="absolute top-0 right-0 h-full w-[45%] bg-[#F1F5F9]/60 hidden lg:block z-0"></div>
+        {/* ── Desktop-only right panel ── */}
+        <div className="absolute top-0 right-0 h-full w-[45%] bg-[#F1F5F9]/60 hidden lg:block z-0" />
 
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start min-h-[600px]">
+        {/* ── Mobile background tint (very subtle) ── */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50/60 to-white lg:hidden z-0 pointer-events-none" />
 
-            {/* Left Column: Creative Title & Specs */}
-            <div className="lg:col-span-7 flex flex-col gap-6 text-left text-slate-900 py-12 lg:py-16 items-start">
-              {/* <div className="inline-flex self-start bg-primary/10 rounded-full py-1.5 px-4 text-xs font-bold text-primary border border-primary/20">
-                Smart Home Energy Evolution
-              </div> */}
+        <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 md:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-12 items-start min-h-[unset] lg:min-h-[600px]">
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tight text-slate-950">
-                Save up to 90% <br />
-                <span className="text-primary">on your electricity bills.</span>
-              </h1>
+            {/* ── Left: Headline + badge ── */}
+            <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-5 text-left pt-8 sm:pt-10 pb-2 lg:py-16">
 
-
-              <div className="flex items-center gap-2 bg-white/80 border border-gray-200/80 rounded-full py-1.5 px-4 self-start text-xs font-bold text-slate-600 shadow-sm">
-                <span className="text-amber-500 text-sm">★★★★★</span>
-                <span>Rated 4.8 on Google | 12,000+ Happy Homes</span>
+              {/* Star badge */}
+              <div className="flex items-center gap-2 bg-white border border-gray-200 rounded-full py-1.5 px-3.5 self-start text-[11px] sm:text-xs font-bold text-slate-600 shadow-sm">
+                <span className="text-amber-500 text-sm leading-none">★★★★★</span>
+                <span>Rated 4.8 on Google</span>
+                <span className="hidden sm:inline text-slate-300">|</span>
+                <span className="hidden sm:inline">12,000+ Happy Homes</span>
               </div>
 
-              {/* Blueprint features layout */}
-              {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2 max-w-xl">
-                <div className="flex items-start gap-3.5 p-4 bg-white/95 border border-gray-200/60 shadow-md hover:shadow-lg transition-all duration-300 rounded-2xl">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 text-primary">
-                    <Sun size={20} />
-                  </div>
-                  <div>
-                    <h3 className="font-extrabold text-sm text-slate-950">PM Surya Ghar Subsidy</h3>
-                    <p className="text-[11px] text-slate-500 mt-1 font-medium leading-relaxed">Direct-benefit government subsidies up to ₹78,000.</p>
-                  </div>
-                </div>
+              {/* Headline */}
+              <h1 className="text-[2rem] sm:text-4xl lg:text-5xl font-black leading-[1.12] tracking-tight text-slate-950">
+                Save up to 90%{" "}
+                <span className="block sm:inline">
+                  <br className="hidden sm:block lg:hidden" />
+                  <span className="text-primary">on your electricity bills.</span>
+                </span>
+              </h1>
 
-                <div className="flex items-start gap-3.5 p-4 bg-white/95 border border-gray-200/60 shadow-md hover:shadow-lg transition-all duration-300 rounded-2xl">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 text-primary">
-                    <ShieldCheck size={20} />
-                  </div>
-                  <div>
-                    <h3 className="font-extrabold text-sm text-slate-950">5-Yr Savings Guarantee</h3>
-                    <p className="text-[11px] text-slate-500 mt-1 font-medium leading-relaxed">Complete generation assurance and protection parameters.</p>
-                  </div>
-                </div>
-              </div> */}
+              {/* Sub-copy — visible on mobile, hidden on desktop to keep it clean */}
+              <p className="text-sm sm:text-base text-slate-500 leading-relaxed max-w-sm lg:hidden">
+                India's most trusted solar partner. PM Surya Ghar subsidy handled
+                end-to-end. Zero hassle, guaranteed savings.
+              </p>
+
+              {/* Trust pills row — mobile only */}
+              <div className="flex flex-wrap gap-2 lg:hidden">
+                {["PM Subsidy up to ₹78,000", "25-yr Performance Guarantee", "Free Site Survey"].map((t) => (
+                  <span
+                    key={t}
+                    className="text-[11px] font-semibold text-slate-600 bg-slate-100 rounded-full px-3 py-1"
+                  >
+                    ✓ {t}
+                  </span>
+                ))}
+              </div>
             </div>
 
-            {/* Right Column: Premium Form Card */}
-            <div className="lg:col-span-5 w-full relative py-12 lg:py-16">
-              <ContactForm hideTabs={true} defaultTab="residential" />
+            {/* ── Right: Form card ── */}
+            <div className="lg:col-span-5 w-full pt-2 pb-8 sm:pb-10 lg:py-16">
+              {/*
+              On mobile the form card sits directly below the headline with
+              comfortable top spacing. On desktop it aligns to the right panel.
+            */}
+              <div className="bg-white rounded-2xl sm:rounded-3xl shadow-[0_4px_32px_rgba(0,0,0,0.10)] border border-slate-200/60 overflow-hidden">
+                <ContactForm hideTabs={true} defaultTab="residential" />
+              </div>
+
+              {/* Mobile-only reassurance line below form */}
+              <p className="mt-3 text-center text-[11px] text-slate-400 lg:hidden">
+                🔒 Your data is safe. No spam, ever.
+              </p>
             </div>
 
           </div>
         </div>
       </section>
+
 
       {/* Structured Solution Choices */}
       <section className="py-20 bg-white border-y border-gray-100">
@@ -142,7 +181,7 @@ export default function HomesPage() {
           <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center gap-3">
             <div className="inline-flex items-center gap-2">
               <span className="h-[2px] w-6 bg-primary"></span>
-              <span className="text-xs uppercase tracking-widest font-black text-primary">Solutions Available</span>
+              <span className="text-base uppercase tracking-wider font-bold text-primary">Solutions Available</span>
               <span className="h-[2px] w-6 bg-primary"></span>
             </div>
             <h2 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight">
@@ -157,7 +196,7 @@ export default function HomesPage() {
             {solutions.map((sol, index) => (
               <div
                 key={index}
-                className={`border rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group ${sol.bg}`}
+                className={`border rounded-xl p-6 sm:p-8 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group ${sol.bg}`}
               >
                 <div className="flex flex-col gap-5">
                   <div className="w-12 h-12 rounded-2xl bg-white shadow flex items-center justify-center text-primary border border-gray-150">
@@ -194,23 +233,27 @@ export default function HomesPage() {
       </section>
 
       {/* Creative Premium Benefits Grid */}
-      <section className="py-20 bg-[#1C342A]">
+      <section className="py-20 bg-[#065F46]">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
             {/* Left Column: Real Solar Image */}
             <div className="lg:col-span-5 relative w-full">
-              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-xl border border-gray-150 group">
-                <Image
-                  src="/assets/images/service/solar_homes.webp"
-                  alt="High quality home solar rooftop installation"
-                  fill
-                  className="object-cover group-hover:scale-102 transition-transform duration-500"
+              <div className="relative aspect-[4/5] rounded-xl overflow-hidden shadow-xl border border-gray-150 group">
+                {/* <video
+                  src="/new_assets/_assist_video.mp4"
+                  className="w-full h-full absolute inset-0 object-cover group-hover:scale-102 transition-transform duration-500"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                /> */}
+                <img src="/new_assets/modisolar.avif" alt="solar modi yojna" className="w-full h-full absolute inset-0 object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none"></div>
 
                 {/* Floating stat card on the image */}
-                <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md border border-white/20 rounded-2xl p-4 shadow-lg text-left">
+                <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md border border-white/20 rounded-xl p-4 shadow-lg text-left">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
                       <Sparkles size={20} className="animate-pulse" />
@@ -229,7 +272,7 @@ export default function HomesPage() {
               <div className="flex flex-col gap-3">
                 <div className="inline-flex items-center gap-2">
                   <span className="h-[2px] w-6 bg-primary"></span>
-                  <span className="text-xs uppercase tracking-widest font-black text-primary">Key Benefits</span>
+                  <span className="text-base uppercase tracking-wider font-bold text-primary">Key Benefits</span>
                   <span className="h-[2px] w-6 bg-primary"></span>
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight">
@@ -242,20 +285,27 @@ export default function HomesPage() {
 
               {/* Benefits micro-grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {benefits.map((b, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-white border border-gray-150 p-5 rounded-2xl shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 text-left flex flex-col gap-2.5"
-                  >
-                    <div className="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
-                      <CheckCircle size={14} />
+                {benefits.map((b, idx) => {
+                  const IconComponent = b.icon;
+                  return (
+                    <div
+                      key={idx}
+                      className="bg-white border border-gray-100 p-5 rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-left flex gap-4 items-start group"
+                    >
+                      <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 border border-primary/20 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        <IconComponent className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <h3 className="font-extrabold text-sm sm:text-base text-gray-950 group-hover:text-primary transition-colors duration-300">
+                          {b.title}
+                        </h3>
+                        <p className="text-[11px] sm:text-xs text-gray-500 leading-relaxed mt-1">
+                          {b.desc}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="font-extrabold text-xs sm:text-sm text-gray-950">{b.title}</h3>
-                      <p className="text-[11px] text-gray-500 leading-relaxed mt-1">{b.desc}</p>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
@@ -271,7 +321,7 @@ export default function HomesPage() {
           <div className="text-center max-w-3xl mx-auto mb-20 flex flex-col items-center gap-3">
             <div className="inline-flex items-center gap-2">
               <span className="h-[2px] w-6 bg-primary"></span>
-              <span className="text-xs uppercase tracking-widest font-black text-primary">Your Journey</span>
+              <span className="text-base uppercase tracking-wider font-bold text-primary">Your Journey</span>
               <span className="h-[2px] w-6 bg-primary"></span>
             </div>
             <h2 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight">
@@ -376,6 +426,110 @@ export default function HomesPage() {
               </div>
 
             </div>         </div>
+        </div>
+      </section>
+
+      {/* Capacity Reference Table Section */}
+      <section className="py-24 bg-slate-200 border-y border-slate-100 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+            {/* Left Column: Title and details */}
+            <div className="lg:col-span-4 flex flex-col gap-6 text-left">
+              <div className="flex flex-col gap-3">
+                <div className="inline-flex items-center gap-2">
+                  <span className="h-[1px] w-6 bg-primary"></span>
+                  <span className="text-base uppercase tracking-wider font-bold text-primary">
+                    Capacity Reference
+                  </span>
+                  <span className="h-[1px] w-6 bg-primary"></span>
+
+                </div>
+                <h2 className="text-3xl sm:text-5xl font-black text-slate-900 leading-tight uppercase mt-2">
+                  From 1 kW to 10 kW
+                </h2>
+                <p className="text-sm sm:text-base text-slate-500 leading-relaxed text-justify mt-2">
+                  Home systems range from compact setups to large residential arrays. We size your residential rooftop solar panels to align with your family's actual monthly unit consumption, rather than just filling up empty roof space.
+                </p>
+              </div>
+
+              {/* Example Card */}
+              <div className="bg-white border border-slate-200/60 rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
+                <span className="block text-xs font-extrabold text-slate-400 uppercase mb-2">
+                  Example:
+                </span>
+                <p className="text-[11px] sm:text-xs text-slate-500 leading-relaxed">
+                  A standard <strong className="text-slate-950 font-bold">3 kW</strong> home setup generates roughly <strong className="text-slate-950 font-bold">360 units</strong> of free electricity every month, ideal for offsetting the billing costs of a typical 3BHK Indian household running regular modern appliances.
+                </p>
+              </div>
+            </div>
+
+            {/* Right Column: Table */}
+            <div className="lg:col-span-8 flex flex-col gap-4">
+              <div className="w-full overflow-x-auto rounded-xl border border-slate-200/80 shadow-xl">
+                <table className="w-full min-w-[700px] border-collapse bg-white text-left">
+                  <thead>
+                    <tr className="bg-gradient-to-r from-primary to-[#065F46] text-white">
+                      <th className="p-5 text-[10px] font-extrabold uppercase tracking-wider border-r border-white/10">Capacity</th>
+                      <th className="p-5 text-[10px] font-extrabold uppercase tracking-wider border-r border-white/10">Rooftop Area</th>
+                      <th className="p-5 text-[10px] font-extrabold uppercase tracking-wider border-r border-white/10">Daily Generation</th>
+                      <th className="p-5 text-[10px] font-extrabold uppercase tracking-wider border-r border-white/10">Monthly Units</th>
+                      <th className="p-5 text-[10px] font-extrabold uppercase tracking-wider">Ideal For</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100">
+                    <tr className="hover:bg-emerald-50/20 transition-colors">
+                      <td className="p-5 text-[12px] font-black text-primary border-r border-slate-100">1 kW</td>
+                      <td className="p-5 text-[12px] text-slate-600 border-r border-slate-100 font-semibold">~80-100 sq ft</td>
+                      <td className="p-5 text-[12px] text-slate-600 border-r border-slate-100 font-semibold">~4 units</td>
+                      <td className="p-5 text-[12px] text-slate-600 border-r border-slate-100 font-semibold">~120 units</td>
+                      <td className="p-5 text-[12px] text-slate-500 font-medium">Small apartments, basic lighting loads</td>
+                    </tr>
+                    <tr className="hover:bg-emerald-50/20 transition-colors">
+                      <td className="p-5 text-[12px] font-black text-primary border-r border-slate-100">2 kW</td>
+                      <td className="p-5 text-[12px] text-slate-600 border-r border-slate-100 font-semibold">~160-200 sq ft</td>
+                      <td className="p-5 text-[12px] text-slate-600 border-r border-slate-100 font-semibold">~8 units</td>
+                      <td className="p-5 text-[12px] text-slate-600 border-r border-slate-100 font-semibold">~240 units</td>
+                      <td className="p-5 text-[12px] text-slate-500 font-medium">1-2 BHK homes, regional flats</td>
+                    </tr>
+                    <tr className="bg-emerald-50/30 hover:bg-emerald-50/50 transition-colors">
+                      <td className="p-5 text-sm font-black text-primary border-r border-slate-100">
+                        <div className="flex items-center gap-2">
+                          <span>3 kW</span>
+                        </div>
+                      </td>
+                      <td className="p-5 text-sm text-slate-600 border-r border-slate-100 font-semibold">~240-300 sq ft</td>
+                      <td className="p-5 text-sm text-slate-600 border-r border-slate-100 font-semibold">~12 units</td>
+                      <td className="p-5 text-sm text-slate-600 border-r border-slate-100 font-semibold">~360 units</td>
+                      <td className="p-5 text-sm text-slate-900 font-bold">3 BHK homes (Most Popular Size)</td>
+                    </tr>
+                    <tr className="hover:bg-emerald-50/20 transition-colors">
+                      <td className="p-5 text-[12px] font-black text-primary border-r border-slate-100">5 kW</td>
+                      <td className="p-5 text-[12px] text-slate-600 border-r border-slate-100 font-semibold">~400-500 sq ft</td>
+                      <td className="p-5 text-[12px] text-slate-600 border-r border-slate-100 font-semibold">~20 units</td>
+                      <td className="p-5 text-[12px] text-slate-600 border-r border-slate-100 font-semibold">~600 units</td>
+                      <td className="p-5 text-[12px] text-slate-500 font-medium">Large independent floors, small villas</td>
+                    </tr>
+                    <tr className="hover:bg-emerald-50/20 transition-colors">
+                      <td className="p-5 text-[12px] font-black text-primary border-r border-slate-100">10 kW</td>
+                      <td className="p-5 text-[12px] text-slate-600 border-r border-slate-100 font-semibold">~800-1,000 sq ft</td>
+                      <td className="p-5 text-[12px] text-slate-600 border-r border-slate-100 font-semibold">~40 units</td>
+                      <td className="p-5 text-[12px] text-slate-600 border-r border-slate-100 font-semibold">~1,200 units</td>
+                      <td className="p-5 text-[12px] text-slate-500 font-medium">Luxury bungalows, large country estates</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-500 font-semibold text-center lg:text-left flex flex-wrap items-center justify-center lg:justify-start gap-1 mt-1">
+                <span>Still not sure?</span>
+                <a href="#solar-calculator" className="text-emerald-700 hover:underline font-bold inline-flex items-center gap-1 transition-colors">
+                  Calculate your solar requirement with our Solar Calculator
+                  <ArrowRight size={14} className="animate-pulse" />
+                </a>
+              </p>
+            </div>
+
+          </div>
         </div>
       </section>
 
@@ -521,8 +675,11 @@ export default function HomesPage() {
         </div>
       </section>
 
+      {/* Zero Investment EMI Calculator */}
+      <ZeroInvestmentCalculator />
+
       {/* Solar Savings Calculator */}
-      <SolarCalculator />
+      {/* <SolarCalculator /> */}
 
       {/* Real Installations Showcase */}
       <GoogleReviews />
@@ -536,14 +693,14 @@ export default function HomesPage() {
           <div className="lg:col-span-5 text-left flex flex-col gap-4 sticky top-24">
             <div className="inline-flex items-center gap-2">
               <span className="h-[2px] w-6 bg-primary"></span>
-              <span className="text-xs uppercase tracking-widest font-black text-primary">FAQ</span>
+              <span className="text-base uppercase tracking-wider font-bold text-primary">FAQ</span>
               <span className="h-[2px] w-6 bg-primary"></span>
             </div>
             <h3 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight">Frequently Asked Questions</h3>
             <p className="text-sm text-gray-500 leading-relaxed text-justify">
               Clear answers to the most common queries homeowners raise regarding panel durability, grid interfaces, and net-metering structures.
             </p>
-            <div className="p-6 bg-slate-50 border border-gray-200/80 rounded-3xl flex flex-col gap-3.5 mt-4">
+            <div className="p-6 bg-slate-50 border border-gray-200/80 rounded-xl flex flex-col gap-3.5 mt-4">
               <span className="font-extrabold text-sm text-gray-800 block">Have specific queries?</span>
               <div className="flex flex-col gap-2">
                 <a href="tel:+918922036792" className="flex items-center gap-2 text-xs font-bold text-gray-700 hover:text-primary transition-colors">

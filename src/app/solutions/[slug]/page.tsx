@@ -191,7 +191,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
             <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center gap-3">
               <div className="inline-flex items-center gap-2">
                 <span className="h-[2px] w-6 bg-primary"></span>
-                <span className="text-xs uppercase tracking-widest font-black text-primary">Our Process</span>
+                <span className="text-base uppercase tracking-wider font-bold text-primary">Our Process</span>
                 <span className="h-[2px] w-6 bg-primary"></span>
               </div>
               <h2 className="text-3xl md:text-4xl font-black text-gray-900 leading-tight">
