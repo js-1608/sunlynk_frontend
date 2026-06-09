@@ -271,7 +271,7 @@ export default function LynkSureShowcase() {
           {/* TAB 2: LynkSure Guarantee (5-Year Commitment) */}
           {activeTab === "guarantee" && (
             <div className="flex flex-col gap-10">
-              <div className="text-center max-w-2xl mx-auto">
+              <div className="text-center max-w-5xl mx-auto">
                 <span className="text-[10px] sm:text-xs font-bold text-emerald-600 uppercase tracking-widest block mb-1">
                   Complete peace-of-mind backing
                 </span>

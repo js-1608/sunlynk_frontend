@@ -543,6 +543,10 @@ export default function Home() {
 
 
 
+
+
+
+
       {/* Stats Counter Section */}
       {/* <StatsCounter /> */}
 
