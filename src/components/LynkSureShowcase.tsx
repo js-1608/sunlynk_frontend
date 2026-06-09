@@ -1,0 +1,572 @@
+"use client";
+
+import React, { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  Shield,
+  Wind,
+  Mountain,
+  Layers,
+  Wrench,
+  Zap,
+  Headphones,
+  Calendar,
+  ArrowRight,
+  TrendingUp,
+  Coins,
+  FileText,
+  Building2,
+  Sparkles,
+  CheckCircle2,
+  Award
+} from "lucide-react";
+
+type TabId = "mounting" | "guarantee" | "finance";
+
+interface FeaturePoint {
+  id: number;
+  title: string;
+  desc: string;
+  icon: React.ComponentType<any>;
+  x: string; // absolute position X
+  y: string; // absolute position Y
+}
+
+export default function LynkSureShowcase() {
+  const [activeTab, setActiveTab] = useState<TabId>("mounting");
+  const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
+
+  const tabs = [
+    { id: "mounting", label: "LynkShield Mounting", icon: Shield },
+    { id: "guarantee", label: "LynkSure 5-Yr Promise", icon: Award },
+    { id: "finance", label: "Subsidy & PSU Loans", icon: Coins },
+  ] as const;
+
+  // 4 Core highlighting points with positions on the central 3D structure image
+  const mountingFeatures: FeaturePoint[] = [
+    {
+      id: 0,
+      title: "170 km/h Wind Shield",
+      desc: "Aerodynamically certified to withstand cyclonic wind speeds. Built robust enough to withstand Lucknow's severe storm seasons without buckling or lifting.",
+      icon: Wind,
+      x: "25%",
+      y: "28%"
+    },
+    {
+      id: 1,
+      title: "Tough Terrain Ready",
+      desc: "Versatile, customizable foundation joints that adapt flawlessly to sloped roofs, high parapets, or uneven rooftop surfaces, keeping panels safe.",
+      icon: Mountain,
+      x: "30%",
+      y: "75%"
+    },
+    {
+      id: 2,
+      title: "80+ Microns HDGI Steel",
+      desc: "Hot-Dip Galvanized Iron frame containing a protective zinc layer. Zero rust, zero corrosion even in heavy monsoon rain or high humidity environments.",
+      icon: Layers,
+      x: "72%",
+      y: "32%"
+    },
+    {
+      id: 3,
+      title: "5-Inch Leg Columns",
+      desc: "Extra thick structural steel columns provide deep mechanical anchorage, maximum deadweight distribution, and rock-solid high-wind load resistance.",
+      icon: Wrench,
+      x: "65%",
+      y: "68%"
+    }
+  ];
+
+  return (
+    <section className="py-24 bg-[#065F46] text-white relative overflow-hidden" id="lynk-showcase">
+
+      {/* High-tech engineering grid pattern overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none opacity-80" />
+
+      {/* Decorative ambient glows */}
+      <div className="absolute right-[-10%] top-[15%] w-[45%] h-[45%] bg-primary/10 rounded-full blur-[140px] pointer-events-none"></div>
+      <div className="absolute left-[-15%] bottom-[15%] w-[40%] h-[40%] bg-[#fca311]/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center gap-4">
+          <div className="inline-flex items-center gap-2 bg-emerald-950/70 border border-emerald-500/30 rounded-full py-1.5 px-4 backdrop-blur-md shadow-lg">
+            <Sparkles className="w-3.5 h-3.5 text-primary animate-pulse" />
+            <span className="text-[10px] sm:text-xs uppercase tracking-wider font-extrabold text-primary">SunLynk Core Technology</span>
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+            Engineered for <span className="text-primary">25 Years</span>.<br className="hidden sm:inline" />
+            Backed for <span className="text-primary">5 Years</span>.
+          </h2>
+          <p className="text-sm sm:text-base text-gray-300 max-w-xl leading-relaxed">
+            Discover the proprietary structural engineering and complete peace-of-mind guarantee package that sets our solar installations apart.
+          </p>
+        </div>
+
+        {/* Dynamic Glassmorphic Tabs Selector */}
+        <div className="flex justify-center mb-16">
+          <div className="inline-flex flex-wrap sm:flex-nowrap gap-1.5 p-1.5 bg-[#111827]/50 border border-white/[0.08] rounded-2xl backdrop-blur-md w-full max-w-2xl justify-center sm:justify-between shadow-2xl">
+            {tabs.map((tab) => {
+              const TabIcon = tab.icon;
+              const isActive = activeTab === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl text-sm font-black transition-all duration-300 cursor-pointer outline-none w-full sm:w-auto ${isActive
+                    ? "bg-primary text-white shadow-lg shadow-emerald-500/20 scale-[1.02] border-b border-white/10"
+                    : "text-slate-400 hover:text-white hover:bg-white/[0.03]"
+                    }`}
+                >
+                  <TabIcon size={16} className={isActive ? "text-white animate-pulse" : "text-slate-400"} />
+                  <span>{tab.label}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Tabs Content Container */}
+        <div className="transition-all duration-500 min-h-[480px]">
+
+          {/* TAB 1: LynkShield Mounting Structure */}
+          {activeTab === "mounting" && (
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+
+              {/* Left Column (Interactive Cards list - 5 cols) */}
+              <div className="lg:col-span-5 flex flex-col gap-5">
+                <div className="text-left mb-2">
+                  <span className="text-[10px] sm:text-xs font-bold text-primary uppercase tracking-widest block mb-1">
+                    Proprietary Structure
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight">
+                    LynkShield™ Platform
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
+                    Hover over the features below to highlight their exact locations on the structural engineering layout.
+                  </p>
+                </div>
+
+                <div className="flex flex-col gap-4">
+                  {mountingFeatures.map((feat) => {
+                    const FeatIcon = feat.icon;
+                    const isHighlighted = hoveredFeature === feat.id;
+                    return (
+                      <div
+                        key={feat.id}
+                        onMouseEnter={() => setHoveredFeature(feat.id)}
+                        onMouseLeave={() => setHoveredFeature(null)}
+                        className={`group relative border rounded-xl p-5 text-left cursor-pointer transition-all duration-300 backdrop-blur-sm ${isHighlighted
+                          ? "bg-emerald-950/40 border-primary shadow-xl shadow-emerald-950/30 scale-[1.01]"
+                          : "bg-[#111827]/30 border-white/[0.06] hover:border-white/20"
+                          }`}
+                      >
+                        <div className="flex items-start gap-4">
+                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 ${isHighlighted ? "bg-primary text-white scale-110" : "bg-primary/10 text-primary"
+                            }`}>
+                            <FeatIcon size={18} />
+                          </div>
+                          <div>
+                            <h4 className={`font-extrabold text-base transition-colors ${isHighlighted ? "text-primary" : "text-white"
+                              }`}>
+                              {feat.title}
+                            </h4>
+                            <p className="text-xs text-gray-300 leading-relaxed mt-1">
+                              {feat.desc}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Right Column (Hero Product Image Spotlight - 7 cols) */}
+              <div className="lg:col-span-7 flex flex-col gap-6 items-center">
+
+                {/* Visual Glassmorphic Showcase Box */}
+                <div className="relative w-full aspect-[4/3] flex items-center justify-center group">
+
+                  {/* Neon outline border animation */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/10 opacity-30 pointer-events-none" />
+
+                  {/* Ambient background glow inside the frame */}
+                  <div className="absolute w-56 h-56 bg-primary/20 rounded-full blur-[80px] pointer-events-none" />
+
+                  {/* Main Product Image */}
+                  <div className="relative w-full h-full flex items-center justify-center">
+                    <Image
+                      src="/assets/images/review/review2.jpeg"
+                      alt="LynkShield Solar Mounting Structure"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 900px"
+                      priority
+                      className="object-cover transition-transform duration-500 scale-[1.02] group-hover:scale-105"
+                    />
+                  </div>
+
+                  {/* Interactive Glowing Hotspot Markers */}
+                  {mountingFeatures.map((feat) => {
+                    const isHighlighted = hoveredFeature === feat.id;
+                    return (
+                      <button
+                        key={feat.id}
+                        onMouseEnter={() => setHoveredFeature(feat.id)}
+                        onMouseLeave={() => setHoveredFeature(null)}
+                        className="absolute w-8 h-8 rounded-full flex items-center justify-center z-20 transition-all duration-300 focus:outline-none cursor-pointer"
+                        style={{
+                          top: feat.y,
+                          left: feat.x,
+                          transform: "translate(-50%, -50%)"
+                        }}
+                      >
+                        {/* Glowing pulse rings */}
+                        <span className={`absolute inline-flex h-full w-full rounded-full bg-primary opacity-75 ${isHighlighted ? "animate-ping scale-150" : "animate-pulse"
+                          }`} />
+                        {/* Main central core */}
+                        <span className={`relative inline-flex rounded-full h-4.5 w-4.5 items-center justify-center shadow-lg border-2 border-white transition-all duration-300 ${isHighlighted ? "bg-white text-emerald-950 scale-125" : "bg-primary text-white"
+                          }`}>
+                          <span className="text-[9px] font-black leading-none">{feat.id + 1}</span>
+                        </span>
+
+                        {/* Tooltip on hover */}
+                        <div className={`absolute bottom-9 left-1/2 -translate-x-1/2 bg-[#0C1E15] border border-primary/30 text-white text-[10px] font-bold py-1.5 px-3 rounded-lg shadow-xl backdrop-blur-md whitespace-nowrap transition-all duration-300 pointer-events-none z-30 ${isHighlighted ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-2 scale-95"
+                          }`}>
+                          {feat.title}
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Quick Spec Specs Bar */}
+                <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  <div className="bg-[#111827]/40 border border-white/[0.06] rounded-xl p-3.5 text-center">
+                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Wind resistance</span>
+                    <span className="text-sm font-black text-white mt-1 block">170 km/h</span>
+                  </div>
+                  <div className="bg-[#111827]/40 border border-white/[0.06] rounded-xl p-3.5 text-center">
+                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Zinc protection</span>
+                    <span className="text-sm font-black text-white mt-1 block">80+ Microns</span>
+                  </div>
+                  <div className="bg-[#111827]/40 border border-white/[0.06] rounded-xl p-3.5 text-center">
+                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Structural Steel</span>
+                    <span className="text-sm font-black text-white mt-1 block">HDGI Column</span>
+                  </div>
+                  <div className="bg-[#111827]/40 border border-white/[0.06] rounded-xl p-3.5 text-center">
+                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Structure Life</span>
+                    <span className="text-sm font-black text-primary mt-1 block">25 Years</span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          )}
+
+          {/* TAB 2: LynkSure Guarantee (5-Year Commitment) */}
+          {activeTab === "guarantee" && (
+            <div className="flex flex-col gap-10">
+              <div className="text-center max-w-2xl mx-auto">
+                <span className="text-[10px] sm:text-xs font-bold text-primary uppercase tracking-widest block mb-1">
+                  Complete peace-of-mind backing
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-black text-white mb-2">
+                  The LynkSure™ Warranty Promise
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  We don&apos;t just install panels and walk away. Our 5-year guarantee ensures your solar powerhouse performs at peak parameters with absolutely zero maintenance headaches.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                {/* Card 1: Zero Repair Cost */}
+                <div className="group relative bg-[#111827]/45 border border-white/[0.06] hover:border-primary/40 rounded-2xl p-6.5 backdrop-blur-sm transition-all duration-300 flex flex-col justify-between hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-emerald-950/15 text-left">
+                  <div>
+                    <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                      <Wrench size={20} />
+                    </div>
+                    <div className="flex items-baseline gap-1.5 mb-2">
+                      <span className="text-3xl font-black text-primary">₹0</span>
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Repair Cost</span>
+                    </div>
+                    <h4 className="text-base font-extrabold text-white mb-2 group-hover:text-primary transition-colors">
+                      Zero Repair &amp; Replacement
+                    </h4>
+                    <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                      Parts, labor, wiring, transport and inverters — everything is 100% covered. You never pay a single rupee for repairs.
+                    </p>
+                  </div>
+                  <div className="border-t border-white/[0.06] pt-4 mt-6">
+                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                      5yr Parts &amp; Labour Covered
+                    </span>
+                  </div>
+                </div>
+
+                {/* Card 2: Guaranteed Generation */}
+                <div className="group relative bg-[#111827]/45 border border-white/[0.06] hover:border-primary/40 rounded-2xl p-6.5 backdrop-blur-sm transition-all duration-300 flex flex-col justify-between hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-emerald-950/15 text-left">
+                  <div>
+                    <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                      <Zap size={20} />
+                    </div>
+                    <div className="flex items-baseline gap-1.5 mb-2">
+                      <span className="text-3xl font-black text-primary">₹8</span>
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">per unit short</span>
+                    </div>
+                    <h4 className="text-base font-extrabold text-white mb-2 group-hover:text-primary transition-colors">
+                      Guaranteed Generation
+                    </h4>
+                    <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                      We promise 25% higher generation compared to local installers. Underperform? We pay ₹8/unit deficit.
+                    </p>
+                  </div>
+                  <div className="border-t border-white/[0.06] pt-4 mt-6">
+                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                      Savings Protection Guarantee
+                    </span>
+                  </div>
+                </div>
+
+                {/* Card 3: After Sales Service */}
+                <div className="group relative bg-[#111827]/45 border border-white/[0.06] hover:border-primary/40 rounded-2xl p-6.5 backdrop-blur-sm transition-all duration-300 flex flex-col justify-between hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-emerald-950/15 text-left">
+                  <div>
+                    <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                      <Headphones size={20} />
+                    </div>
+                    <div className="flex items-baseline gap-1.5 mb-2">
+                      <span className="text-3xl font-black text-primary">5yr+</span>
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Dedicated Care</span>
+                    </div>
+                    <h4 className="text-base font-extrabold text-white mb-2 group-hover:text-primary transition-colors">
+                      After Sales Service
+                    </h4>
+                    <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                      Enjoy a single-window support mechanism. Call our toll-free helpdesk, and our mobile engineers will resolve issues in 24-48 hrs.
+                    </p>
+                  </div>
+                  <div className="border-t border-white/[0.06] pt-4 mt-6">
+                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                      1800+ Days alongside you
+                    </span>
+                  </div>
+                </div>
+
+                {/* Card 4: 5 Year Commitment */}
+                <div className="group relative bg-[#111827]/45 border border-white/[0.06] hover:border-primary/40 rounded-2xl p-6.5 backdrop-blur-sm transition-all duration-300 flex flex-col justify-between hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-emerald-950/15 text-left">
+                  <div>
+                    <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                      <Calendar size={20} />
+                    </div>
+                    <div className="flex items-baseline gap-1.5 mb-2">
+                      <span className="text-3xl font-black text-primary">5 Yr</span>
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Commitment</span>
+                    </div>
+                    <h4 className="text-base font-extrabold text-white mb-2 group-hover:text-primary transition-colors">
+                      Journey-Long Partnership
+                    </h4>
+                    <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                      Ours is not a one-time transaction. We continuously monitor your plant&apos;s daily generation and alert you of any efficiency drops.
+                    </p>
+                  </div>
+                  <div className="border-t border-white/[0.06] pt-4 mt-6">
+                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                      Full Lifecycle Monitoring
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          )}
+
+          {/* TAB 3: Subsidy & PSU Loans */}
+          {activeTab === "finance" && (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+
+              {/* Subsidy Process Card */}
+              <div className="bg-gradient-to-br from-[#111827]/60 to-[#0A1611]/60 border border-white/[0.08] rounded-3xl p-6 sm:p-8 backdrop-blur-sm text-left shadow-2xl">
+                <div className="flex items-center gap-3.5 mb-8">
+                  <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center border border-primary/20">
+                    <FileText size={22} />
+                  </div>
+                  <div>
+                    <span className="text-[10px] text-primary font-bold uppercase tracking-widest block">
+                      Hassle-Free Approval
+                    </span>
+                    <h3 className="font-extrabold text-xl sm:text-2xl text-white">
+                      Rooftop Subsidy Process
+                    </h3>
+                  </div>
+                </div>
+
+                {/* Steps Visual Layout */}
+                <div className="flex flex-col gap-8 relative before:absolute before:left-3.5 before:top-2 before:bottom-2 before:w-[2px] before:bg-white/10">
+
+                  {/* Step 1 */}
+                  <div className="flex items-start gap-5 relative group">
+                    <div className="w-7.5 h-7.5 rounded-full bg-primary flex items-center justify-center text-xs font-black shrink-0 mt-0.5 z-10 border-4 border-[#063b2c] transition-transform duration-300 group-hover:scale-110">
+                      1
+                    </div>
+                    <div>
+                      <h4 className="text-sm sm:text-base font-extrabold text-white group-hover:text-primary transition-colors">Portal Registration</h4>
+                      <p className="text-xs sm:text-sm text-gray-300 mt-1.5 leading-relaxed">
+                        We register your roof layout and customer metrics on the PM Surya Ghar National Portal.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Step 2 */}
+                  <div className="flex items-start gap-5 relative group">
+                    <div className="w-7.5 h-7.5 rounded-full bg-primary flex items-center justify-center text-xs font-black shrink-0 mt-0.5 z-10 border-4 border-[#063b2c] transition-transform duration-300 group-hover:scale-110">
+                      2
+                    </div>
+                    <div>
+                      <h4 className="text-sm sm:text-base font-extrabold text-white group-hover:text-primary transition-colors">DISCOM Liaisoning</h4>
+                      <p className="text-xs sm:text-sm text-gray-300 mt-1.5 leading-relaxed">
+                        We file feasibility reports with grid operators and obtain administrative approvals. No follow-ups needed on your end.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Step 3 */}
+                  <div className="flex items-start gap-5 relative group">
+                    <div className="w-7.5 h-7.5 rounded-full bg-primary flex items-center justify-center text-xs font-black shrink-0 mt-0.5 z-10 border-4 border-[#063b2c] transition-transform duration-300 group-hover:scale-110">
+                      3
+                    </div>
+                    <div>
+                      <h4 className="text-sm sm:text-base font-extrabold text-white group-hover:text-primary transition-colors">Net-Metering Sync</h4>
+                      <p className="text-xs sm:text-sm text-gray-300 mt-1.5 leading-relaxed">
+                        Following physical installation, we synchronize bidirectional net-meter setups to start tracking power return.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Step 4 */}
+                  <div className="flex items-start gap-5 relative group">
+                    <div className="w-7.5 h-7.5 rounded-full bg-primary flex items-center justify-center text-xs font-black shrink-0 mt-0.5 z-10 border-4 border-[#063b2c] transition-transform duration-300 group-hover:scale-110">
+                      4
+                    </div>
+                    <div>
+                      <h4 className="text-sm sm:text-base font-extrabold text-white group-hover:text-primary transition-colors">Direct Subsidy Credit</h4>
+                      <p className="text-xs sm:text-sm text-gray-300 mt-1.5 leading-relaxed">
+                        Under PM Surya Ghar Muft Bijli Yojana, up to ₹78,000 subsidy is deposited directly into your bank account.
+                      </p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              {/* PSU Bank Loans Card */}
+              <div className="bg-gradient-to-br from-[#111827]/60 to-[#0A1611]/60 border border-white/[0.08] rounded-3xl p-6 sm:p-8 backdrop-blur-sm text-left shadow-2xl flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-3.5 mb-8">
+                    <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center border border-primary/20">
+                      <Building2 size={22} />
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-primary font-bold uppercase tracking-widest block">
+                        Official Bank Financing
+                      </span>
+                      <h3 className="font-extrabold text-xl sm:text-2xl text-white">
+                        PSU Solar Loans
+                      </h3>
+                    </div>
+                  </div>
+
+                  {/* Financing Points */}
+                  <div className="flex flex-col gap-6">
+
+                    <div className="flex gap-4 group">
+                      <div className="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        <TrendingUp size={16} />
+                      </div>
+                      <div>
+                        <h4 className="text-sm sm:text-base font-bold text-white mb-1 transition-colors group-hover:text-primary">
+                          Low Interest Rates
+                        </h4>
+                        <p className="text-xs sm:text-sm text-gray-300 leading-normal">
+                          Interest rates starting as low as 7.00% p.a. through official national banking tie-ups.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-4 group">
+                      <div className="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        <Shield size={16} />
+                      </div>
+                      <div>
+                        <h4 className="text-sm sm:text-base font-bold text-white mb-1 transition-colors group-hover:text-primary">
+                          Collateral-Free Option
+                        </h4>
+                        <p className="text-xs sm:text-sm text-gray-300 leading-normal">
+                          Get loan sanctions up to ₹10 Lakhs with zero collateral required for residential properties.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-4 group">
+                      <div className="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        <Coins size={16} />
+                      </div>
+                      <div>
+                        <h4 className="text-sm sm:text-base font-bold text-white mb-1 transition-colors group-hover:text-primary">
+                          Self-Paying EMI Scheme
+                        </h4>
+                        <p className="text-xs sm:text-sm text-gray-300 leading-normal">
+                          Zero out-of-pocket investment: monthly solar bill savings are larger than your monthly EMI.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-4 group">
+                      <div className="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        <CheckCircle2 size={16} />
+                      </div>
+                      <div>
+                        <h4 className="text-sm sm:text-base font-bold text-white mb-1 transition-colors group-hover:text-primary">
+                          Fast &amp; Simple Sanctions
+                        </h4>
+                        <p className="text-xs sm:text-sm text-gray-300 leading-normal">
+                          Streamlined application process through partnered nationalized banks with minimal documentation.
+                        </p>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div className="mt-10 border-t border-white/[0.06] pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                  <div>
+                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">
+                      Official Lending Partners
+                    </span>
+                    <span className="text-sm font-black text-slate-300 mt-1 block">
+                      SBI • PNB • Bank of Baroda
+                    </span>
+                  </div>
+                  <Link
+                    href="/contact"
+                    className="bg-primary hover:bg-primary-hover text-white text-xs font-black py-3 px-6 rounded-full inline-flex items-center gap-1.5 shadow-md shadow-emerald-500/15 hover:shadow-lg transition-all self-start sm:self-center cursor-pointer outline-none"
+                  >
+                    Check Loan Eligibility
+                    <ArrowRight size={13} />
+                  </Link>
+                </div>
+              </div>
+
+            </div>
+          )}
+
+        </div>
+
+      </div>
+    </section>
+  );
+}

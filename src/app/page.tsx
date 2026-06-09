@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import GoogleReviews from "@/components/GoogleReviews";
 import ZeroInvestmentCalculator from "@/components/ZeroInvestmentCalculator";
+import LynkSureShowcase from "@/components/LynkSureShowcase";
 
 export default function Home() {
   const faqs = [
@@ -387,6 +388,7 @@ export default function Home() {
 
 
 
+      <LynkSureShowcase />
 
 
 
