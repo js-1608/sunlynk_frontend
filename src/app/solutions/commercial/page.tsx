@@ -256,7 +256,7 @@ export default function CommercialPage() {
       </section>
 
       {/* Creative Interactive Suitability Grid */}
-      <section className="py-20 bg-[#020C09] border-b border-white/[0.06]">
+      <section className="py-20 bg-[#065F46] border-b border-white/[0.06]">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
 
           <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center gap-3">
@@ -373,7 +373,7 @@ export default function CommercialPage() {
       <CommercialCalculator />
 
       {/* Real Projects Portfolio */}
-      <section className="py-20 bg-slate-50/50 border-t border-slate-100">
+      {/* <section className="py-20 bg-slate-50/50 border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center gap-3">
             <div className="inline-flex items-center gap-2">
@@ -390,7 +390,6 @@ export default function CommercialPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Project 1 */}
             <div className="group relative overflow-hidden rounded-3xl border border-slate-200 aspect-[4/3] shadow-md hover:border-primary/20 transition-all duration-300">
               <Image
                 src="/assets/IMAGE/project/p (2).avif"
@@ -405,7 +404,6 @@ export default function CommercialPage() {
               </div>
             </div>
 
-            {/* Project 2 */}
             <div className="group relative overflow-hidden rounded-3xl border border-slate-200 aspect-[4/3] shadow-md hover:border-primary/20 transition-all duration-300">
               <Image
                 src="/assets/IMAGE/solar.webp"
@@ -420,7 +418,6 @@ export default function CommercialPage() {
               </div>
             </div>
 
-            {/* Project 3 */}
             <div className="group relative overflow-hidden rounded-3xl border border-slate-200 aspect-[4/3] shadow-md hover:border-primary/20 transition-all duration-300">
               <Image
                 src="/assets/IMAGE/project/p (3).avif"
@@ -436,7 +433,7 @@ export default function CommercialPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <GoogleReviews />
 
