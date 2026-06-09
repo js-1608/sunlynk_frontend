@@ -25,6 +25,7 @@ import {
   Zap
 } from "lucide-react";
 import GoogleReviews from "@/components/GoogleReviews";
+import ZeroInvestmentCalculator from "@/components/ZeroInvestmentCalculator";
 
 export default function Home() {
   const faqs = [
@@ -396,7 +397,7 @@ export default function Home() {
       <SolarCalculator />
 
       {/* We Handle Everything Section */}
-      <section className="py-16 bg-[#1C342A] border-y border-gray-100 overflow-hidden">
+      <section className="py-16 bg-[#065F46] border-y border-gray-100 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
 
           {/* Mobile: images first, Desktop: side by side */}
@@ -722,10 +723,9 @@ export default function Home() {
 
 
       {/* Blogs Section */}
-      <section className="py-16 bg-white border-t border-gray-100">
+      {/* <section className="py-16 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
 
-          {/* Header */}
           <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
             <div className="inline-flex items-center gap-2">
               <span className="h-[2px] w-6 bg-primary"></span>
@@ -740,12 +740,9 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Blogs Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            {/* Blog Post 1 */}
             <div className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col hover:shadow-xl hover:border-primary/20 hover:-translate-y-1 transition-all duration-300 group">
-              {/* Image wrapper with scale hover */}
               <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-100">
                 <Image
                   src="/assets/images/blog_bifacial_panels.webp"
@@ -757,7 +754,6 @@ export default function Home() {
                   Technology
                 </div>
               </div>
-              {/* Blog body */}
               <div className="p-6 flex flex-col justify-between flex-grow">
                 <div>
                   <span className="text-xs font-semibold text-gray-400 block mb-2">May 12, 2026 • 5 min read</span>
@@ -780,7 +776,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Blog Post 2 */}
             <div className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col hover:shadow-xl hover:border-primary/20 hover:-translate-y-1 transition-all duration-300 group">
               <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-100">
                 <Image
@@ -815,7 +810,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Blog Post 3 */}
             <div className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col hover:shadow-xl hover:border-primary/20 hover:-translate-y-1 transition-all duration-300 group">
               <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-100">
                 <Image
@@ -852,7 +846,6 @@ export default function Home() {
 
           </div>
 
-          {/* View All Blogs CTA */}
           <div className="flex justify-center mt-12">
             <Link href="/blog" className="btn-secondary">
               <span>View All News & Blog</span>
@@ -860,7 +853,10 @@ export default function Home() {
           </div>
 
         </div>
-      </section>
+      </section> */}
+
+
+      <ZeroInvestmentCalculator />
 
       {/* Project Cases Section */}
       {/* <section className="py-18 bg-gray-1000">
