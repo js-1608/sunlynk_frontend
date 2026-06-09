@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 type SystemSize = "3kW" | "4kW" | "5kW";
-type Tenure = 36 | 48 | 60;
+type Tenure = 60;
 
 interface CalculatorData {
   suitable: string;
@@ -19,8 +19,6 @@ const calculatorData: Record<SystemSize, CalculatorData> = {
     suitable: "Suitable for Rs. 1500 to Rs. 2500 monthly bill",
     saving: "2900",
     emi: {
-      36: "3400",
-      48: "2700",
       60: "2200",
     },
   },
@@ -28,8 +26,6 @@ const calculatorData: Record<SystemSize, CalculatorData> = {
     suitable: "Suitable for Rs. 2500 to Rs. 4000 monthly bill",
     saving: "4200",
     emi: {
-      36: "4800",
-      48: "3800",
       60: "3100",
     },
   },
@@ -37,8 +33,6 @@ const calculatorData: Record<SystemSize, CalculatorData> = {
     suitable: "Suitable for Rs. 4000 to Rs. 8000 monthly bill",
     saving: "5500",
     emi: {
-      36: "6200",
-      48: "4900",
       60: "4000",
     },
   },
@@ -140,6 +134,13 @@ export default function ZeroInvestmentCalculator() {
                   );
                 })}
               </div>
+              <p className="text-xs text-slate-450 mt-2.5 leading-normal">
+                For other system size{" "}
+                <Link href="/contact" className="text-primary hover:underline font-bold transition-all">
+                  contact our expert
+                </Link>
+                {" "} to get custom EMI plans.
+              </p>
             </div>
 
             {/* EMI Tenure selector */}
@@ -148,7 +149,7 @@ export default function ZeroInvestmentCalculator() {
                 EMI Tenure
               </span>
               <div className="flex flex-wrap gap-2.5">
-                {([36, 48, 60] as Tenure[]).map((tenure) => {
+                {([60] as Tenure[]).map((tenure) => {
                   const isActive = selectedTenure === tenure;
                   return (
                     <button
