@@ -482,7 +482,7 @@ export default function Home() {
                 {/* Circle Image */}
                 <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-[#fff] bg-[#0A1811] shadow-[0_8px_30px_-4px_rgba(0,0,0,0.5)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.35)] group-hover:border-primary transition-all duration-500 overflow-hidden shrink-0 z-10">
                   <Image
-                    src="/new_assets/site_survey.PNG"
+                    src="/new_assets/site_survey.png"
                     alt="Free Home Visit & Rooftop Survey"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
@@ -534,7 +534,7 @@ export default function Home() {
                 {/* Circle Image */}
                 <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-[#fff] bg-[#0A1811] shadow-[0_8px_30px_-4px_rgba(0,0,0,0.5)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.35)] group-hover:border-primary transition-all duration-500 overflow-hidden shrink-0 z-10">
                   <Image
-                    src="/new_assets/instalation.PNG"
+                    src="/new_assets/instalation.png"
                     alt="Govt Approvals & Professional Installation"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
@@ -560,7 +560,7 @@ export default function Home() {
                 {/* Circle Image */}
                 <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-[#fff] bg-[#0A1811] shadow-[0_8px_30px_-4px_rgba(0,0,0,0.5)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.35)] group-hover:border-primary transition-all duration-500 overflow-hidden shrink-0 z-10">
                   <Image
-                    src="/new_assets/aftersales.PNG"
+                    src="/new_assets/aftersales.png"
                     alt="After-Sales Service & Performance Monitoring"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"

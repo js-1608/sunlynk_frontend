@@ -139,7 +139,7 @@ export default function About() {
           <div className="relative flex justify-center lg:justify-start">
             <div className="relative w-full max-w-[500px] aspect-[1] rounded-[3rem] rounded-tr-[120px] rounded-bl-[120px] overflow-hidden shadow-2xl border-4 border-emerald-500/10">
               <Image
-                src="/new_assets/sunlynksolar truck.PNG"
+                src="/new_assets/sunlynksolar truck.png"
                 alt="Clean energy engineers collaborating"
                 fill
                 className="object-cover"
