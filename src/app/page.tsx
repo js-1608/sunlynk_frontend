@@ -213,10 +213,11 @@ export default function Home() {
             <div className="group relative bg-white border border-gray-100 shadow-sm rounded-xl overflow-hidden flex flex-col">
               {/* Image Header */}
               <div className="relative h-60 overflow-hidden">
-                <img
+                <Image
                   src="/new_assets/housingSocities.png"
                   alt="Housing society with rooftop solar installation"
-                  className="w-full h-full object-cover object-bottom group-hover:scale-105 transition-transform duration-500"
+                  fill
+                  className="object-cover object-bottom group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                 {/* Stat Badge */}
@@ -314,7 +315,7 @@ export default function Home() {
               {/* Image Header */}
               <div className="relative h-60 overflow-hidden">
                 <img
-                  src="/new_assets/commercial.PNG"
+                  src="/new_assets/commercial.png"
                   alt="Commercial building with solar panel installation"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
@@ -421,7 +422,7 @@ export default function Home() {
         {/* Dark Primary Gradient Background with Overlay Image */}
         <div className="absolute inset-0 pointer-events-none z-0">
           <Image
-            src="/new_assets/hero banner.JPG"
+            src="/new_assets/hero banner.jpg"
             alt="Solar rooftop background"
             fill
             className="object-cover mix-blend-overlay"
@@ -481,7 +482,7 @@ export default function Home() {
                 {/* Circle Image */}
                 <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-[#fff] bg-[#0A1811] shadow-[0_8px_30px_-4px_rgba(0,0,0,0.5)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.35)] group-hover:border-primary transition-all duration-500 overflow-hidden shrink-0 z-10">
                   <Image
-                    src="/assets/images/process_survey.webp"
+                    src="/new_assets/site_survey.PNG"
                     alt="Free Home Visit & Rooftop Survey"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
@@ -533,7 +534,7 @@ export default function Home() {
                 {/* Circle Image */}
                 <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-[#fff] bg-[#0A1811] shadow-[0_8px_30px_-4px_rgba(0,0,0,0.5)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.35)] group-hover:border-primary transition-all duration-500 overflow-hidden shrink-0 z-10">
                   <Image
-                    src="/assets/images/process_installation.webp"
+                    src="/new_assets/instalation.PNG"
                     alt="Govt Approvals & Professional Installation"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
@@ -559,7 +560,7 @@ export default function Home() {
                 {/* Circle Image */}
                 <div className="relative w-44 h-44 lg:w-48 lg:h-48 rounded-full border-4 border-[#fff] bg-[#0A1811] shadow-[0_8px_30px_-4px_rgba(0,0,0,0.5)] group-hover:shadow-[0_12px_40px_-4px_rgba(46,204,113,0.35)] group-hover:border-primary transition-all duration-500 overflow-hidden shrink-0 z-10">
                   <Image
-                    src="/assets/images/process_service.webp"
+                    src="/new_assets/aftersales.PNG"
                     alt="After-Sales Service & Performance Monitoring"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"

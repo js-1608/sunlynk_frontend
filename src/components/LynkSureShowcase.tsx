@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   Shield,
+  ShieldCheck,
   Wind,
   Mountain,
   Layers,
@@ -244,22 +245,65 @@ export default function LynkSureShowcase() {
                 </div>
 
                 {/* Quick Spec Specs Bar */}
-                <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  <div className="bg-white border border-slate-200/60 rounded-xl p-3.5 text-center shadow-sm">
-                    <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">Wind resistance</span>
-                    <span className="text-sm font-black text-slate-900 mt-1 block">170 km/h</span>
+                <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  {/* Wind Resistance */}
+                  <div className="bg-white border border-slate-100 rounded-2xl p-5 text-center shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center">
+                    {/* Circle Icon Badge */}
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-emerald-50 to-emerald-100/30 border border-emerald-100/85 flex items-center justify-center mb-4 relative shadow-sm shrink-0">
+                      <div className="absolute inset-1.5 rounded-full bg-white flex items-center justify-center shadow-sm">
+                        <Wind className="w-7 h-7 text-emerald-650 stroke-[2]" />
+                      </div>
+                    </div>
+                    <span className="text-[10px] text-slate-500 font-black uppercase tracking-wider block">Wind resistance</span>
+                    <span className="w-6 h-0.5 bg-emerald-500 rounded-full mt-1.5 mb-2 block"></span>
+                    <span className="text-sm sm:text-base font-black text-slate-900 block">170 km/h</span>
                   </div>
-                  <div className="bg-white border border-slate-200/60 rounded-xl p-3.5 text-center shadow-sm">
-                    <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">Zinc protection</span>
-                    <span className="text-sm font-black text-slate-900 mt-1 block">80+ Microns</span>
+
+                  {/* Zinc Protection */}
+                  <div className="bg-white border border-slate-100 rounded-2xl p-5 text-center shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center">
+                    {/* Circle Icon Badge */}
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-emerald-50 to-emerald-100/30 border border-emerald-100/85 flex items-center justify-center mb-4 relative shadow-sm shrink-0">
+                      <div className="absolute inset-1.5 rounded-full bg-white flex items-center justify-center shadow-sm">
+                        <ShieldCheck className="w-7 h-7 text-emerald-650 stroke-[2]" />
+                      </div>
+                    </div>
+                    <span className="text-[10px] text-slate-500 font-black uppercase tracking-wider block">Zinc protection</span>
+                    <span className="w-6 h-0.5 bg-emerald-500 rounded-full mt-1.5 mb-2 block"></span>
+                    <span className="text-sm sm:text-base font-black text-slate-900 block">80+ Microns</span>
                   </div>
-                  <div className="bg-white border border-slate-200/60 rounded-xl p-3.5 text-center shadow-sm">
-                    <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">Structural Steel</span>
-                    <span className="text-sm font-black text-slate-900 mt-1 block">HDGI Column</span>
+
+                  {/* Structural Steel */}
+                  <div className="bg-white border border-slate-100 rounded-2xl p-5 text-center shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center">
+                    {/* Circle Icon Badge */}
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-emerald-50 to-emerald-100/30 border border-emerald-100/85 flex items-center justify-center mb-4 relative shadow-sm shrink-0">
+                      <div className="absolute inset-1.5 rounded-full bg-white flex items-center justify-center shadow-sm">
+                        {/* Custom vector SVG for structural steel I-beam */}
+                        <svg viewBox="0 0 24 24" className="w-7 h-7 text-emerald-650" fill="currentColor">
+                          <path d="M5 4h14v3h-5.5v10H19v3H5v-3h5.5V7H5V4z" />
+                        </svg>
+                      </div>
+                    </div>
+                    <span className="text-[10px] text-slate-500 font-black uppercase tracking-wider block">Structural Steel</span>
+                    <span className="w-6 h-0.5 bg-emerald-500 rounded-full mt-1.5 mb-2 block"></span>
+                    <span className="text-sm sm:text-base font-black text-slate-900 block">HDGI Column</span>
                   </div>
-                  <div className="bg-white border border-slate-200/60 rounded-xl p-3.5 text-center shadow-sm">
-                    <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">Structure Life</span>
-                    <span className="text-sm font-black text-emerald-600 mt-1 block">25 Years</span>
+
+                  {/* Structure Life */}
+                  <div className="bg-white border border-slate-100 rounded-2xl p-5 text-center shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center">
+                    {/* Circle Icon Badge */}
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-emerald-50 to-emerald-100/30 border border-emerald-100/85 flex items-center justify-center mb-4 relative shadow-sm shrink-0">
+                      <div className="absolute inset-1.5 rounded-full bg-white flex items-center justify-center shadow-sm">
+                        {/* Custom vector SVG for Shield with 25 YEARS */}
+                        <svg viewBox="0 0 24 24" className="w-8 h-8 text-emerald-650" fill="currentColor">
+                          <path d="M12 2S5 3.5 5 8v5c0 4.4 7 9 7 9s7-4.6 7-9V8c0-4.5-7-6-7-6zm0 1.8c3.2 1 5.2 2.2 5.2 4.2v4c0 3.2-5.2 7-5.2 7s-5.2-3.8-5.2-7V8c0-2 2-3.2 5.2-4.2z" />
+                          <text x="12" y="11.5" textAnchor="middle" fontSize="6.5" fontFamily="sans-serif" fontWeight="900" fill="currentColor">25</text>
+                          <text x="12" y="15" textAnchor="middle" fontSize="3" fontFamily="sans-serif" fontWeight="black" fill="currentColor" letterSpacing="0.2">YEARS</text>
+                        </svg>
+                      </div>
+                    </div>
+                    <span className="text-[10px] text-slate-500 font-black uppercase tracking-wider block">Structure Life</span>
+                    <span className="w-6 h-0.5 bg-emerald-500 rounded-full mt-1.5 mb-2 block"></span>
+                    <span className="text-sm sm:text-base font-black text-emerald-650 block">25 Years</span>
                   </div>
                 </div>
 
