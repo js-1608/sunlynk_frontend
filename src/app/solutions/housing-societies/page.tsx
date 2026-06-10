@@ -446,13 +446,13 @@ export default function HousingSocietiesPage() {
             <div className="p-6 bg-slate-50/60 border border-slate-200/60 rounded-3xl flex flex-col gap-3.5 mt-4">
               <span className="font-extrabold text-sm text-slate-800 block">RWA Technical Consultation</span>
               <div className="flex flex-col gap-2">
-                <a href="tel:+918922036792" className="flex items-center gap-2 text-xs font-bold text-slate-600 hover:text-emerald-700 transition-colors">
+                <a href="tel:+918573003001" className="flex items-center gap-2 text-xs font-bold text-slate-600 hover:text-emerald-700 transition-colors">
                   <Phone size={14} className="text-emerald-600" />
-                  <span>+91 8922036792</span>
+                  <span>+91 8573003001</span>
                 </a>
-                <a href="mailto:info@SunLynkSolar.com" className="flex items-center gap-2 text-xs font-bold text-slate-600 hover:text-emerald-700 transition-colors">
+                <a href="mailto:info@sunlynksolar.com" className="flex items-center gap-2 text-xs font-bold text-slate-600 hover:text-emerald-700 transition-colors">
                   <Mail size={14} className="text-emerald-600" />
-                  <span>info@SunLynkSolar.com</span>
+                  <span>info@sunlynksolar.com</span>
                 </a>
               </div>
             </div>

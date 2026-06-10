@@ -43,13 +43,13 @@ export default function Header() {
       {/* Topbar */}
       <div className="bg-dark text-gray-300 text-xs py-2 px-4 md:px-8 flex justify-between items-center border-b border-gray-800">
         <div className="flex items-center gap-4">
-          <a href="mailto:info@SunLynkSolar.com" className="flex items-center gap-1.5 hover:text-primary transition-colors">
+          <a href="mailto:info@sunlynksolar.com" className="flex items-center gap-1.5 hover:text-primary transition-colors">
             <Mail size={14} className="text-primary" />
-            <span>info@SunLynkSolar.com</span>
+            <span>info@sunlynksolar.com</span>
           </a>
-          <a href="tel:+919711882204" className="flex items-center gap-1.5 hover:text-primary transition-colors">
+          <a href="tel:+918573003001" className="flex items-center gap-1.5 hover:text-primary transition-colors">
             <Phone size={14} className="text-primary" />
-            <span>+91 8922036792</span>
+            <span>+91 8573003001</span>
           </a>
         </div>
         <div className="text-gray-400 hidden sm:flex ">
@@ -125,10 +125,10 @@ export default function Header() {
               </div>
             </div>
 
-            {/* Support Dropdown */}
+            {/* More Dropdown */}
             <div className="relative group">
               <button className="flex items-center gap-1 font-semibold text-gray-800 hover:text-primary transition-colors py-2">
-                <span>Support</span>
+                <span>More</span>
                 <ChevronDown size={16} />
               </button>
               <div className="absolute left-0 top-full hidden group-hover:block bg-white shadow-xl rounded-md border border-gray-100 py-2 w-56 mt-1 transition-all duration-200">
@@ -140,6 +140,12 @@ export default function Header() {
                 </Link>
                 <Link href="/support/inverter-downloads" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-medium">
                   Inverters and Panels
+                </Link>
+                <Link href="/careers" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-medium border-t border-gray-50 mt-1 pt-2">
+                  Careers
+                </Link>
+                <Link href="/faqs" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-medium">
+                  FAQs
                 </Link>
               </div>
             </div>
@@ -223,20 +229,22 @@ export default function Header() {
                 )}
               </div>
 
-              {/* Support mobile */}
+              {/* More mobile */}
               <div className="border-b border-gray-50 py-2">
                 <button
-                  onClick={() => toggleDropdown("support")}
+                  onClick={() => toggleDropdown("more")}
                   className="flex justify-between items-center w-full font-semibold text-gray-800"
                 >
-                  <span>Support</span>
-                  <ChevronDown size={18} className={`transform transition-transform ${activeDropdown === "support" ? "rotate-180" : ""}`} />
+                  <span>More</span>
+                  <ChevronDown size={18} className={`transform transition-transform ${activeDropdown === "more" ? "rotate-180" : ""}`} />
                 </button>
-                {activeDropdown === "support" && (
+                {activeDropdown === "more" && (
                   <div className="pl-4 mt-2 flex flex-col gap-2 text-sm text-gray-700">
                     <Link href="/support/warranty" className="py-1">Warranty Claims</Link>
                     <Link href="/support/wms-downloads" className="py-1">WMS Products</Link>
                     <Link href="/support/inverter-downloads" className="py-1">Inverters and Panels</Link>
+                    <Link href="/careers" className="py-1 border-t border-gray-50 pt-2 mt-1">Careers</Link>
+                    <Link href="/faqs" className="py-1">FAQs</Link>
                   </div>
                 )}
               </div>

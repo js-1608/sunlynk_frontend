@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { MessageCircle, Phone, Mail, X } from "lucide-react";
+import PopupForm from "@/components/PopupForm";
 
 export default function ClientLayoutWrapper({
   children,
@@ -28,6 +29,7 @@ export default function ClientLayoutWrapper({
     <>
       <Header />
       <main className="flex-grow">{children}</main>
+      <PopupForm />
       <Footer />
 
       {/* Floating Connect Widget */}
@@ -69,9 +71,9 @@ export default function ClientLayoutWrapper({
 
           {/* Email Button */}
           <a
-            href="mailto:info@sunlynksolar.in"
+            href="mailto:info@sunlynksolar.com"
             className="group relative flex items-center justify-center w-12 h-12 rounded-full bg-green-600 text-white shadow-lg hover:scale-110 active:scale-95 transition-all duration-200"
-            aria-label="Email info@sunlynksolar.in"
+            aria-label="Email info@sunlynksolar.com"
           >
             <Mail size={20} />
             <span className="absolute right-14 top-1/2 -translate-y-1/2 bg-slate-900/90 text-white text-xs font-semibold px-2.5 py-1.5 rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">

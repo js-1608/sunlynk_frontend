@@ -54,7 +54,7 @@ export default function HomesPage() {
     {
       title: "On-Grid Solar Systems",
       desc: "Ideal for homes connected to steady utility grids. Export surplus solar energy through net metering and watch your monthly bill shrink to near zero.",
-      points: ["Best Return on Investment (ROI)", "Govt subsidy up to ₹78,000", "Net metering segment clearance"],
+      points: ["Best Return on Investment (ROI)", "Govt subsidy up to ₹1,08,000", "Net metering segment clearance"],
       bg: "bg-emerald-50/20 border-emerald-100"
     },
     {
@@ -69,7 +69,7 @@ export default function HomesPage() {
     {
       id: 0,
       question: "What is the subsidy for residential solar in Lucknow under PM Surya Ghar Yojana?",
-      answer: "Under the PM Surya Ghar Muft Bijli Yojana, residential consumers can receive a subsidy of ₹30,000 per kW for up to 2 kW systems, and an additional ₹18,000 for the 3rd kW, capping at a maximum of ₹78,000 for systems of 3 kW or higher capacity. SunLynk handles all the registration and approval paperwork for you."
+      answer: "Under the PM Surya Ghar Muft Bijli Yojana, residential consumers can receive a subsidy of ₹30,000 per kW for up to 2 kW systems, and an additional ₹18,000 for the 3rd kW, capping at a maximum of ₹1,08,000 for systems of 3 kW or higher capacity. SunLynk handles all the registration and approval paperwork for you."
     },
     {
       id: 1,
@@ -705,13 +705,13 @@ export default function HomesPage() {
             <div className="p-6 bg-slate-50 border border-gray-200/80 rounded-xl flex flex-col gap-3.5 mt-4">
               <span className="font-extrabold text-sm text-gray-800 block">Have specific queries?</span>
               <div className="flex flex-col gap-2">
-                <a href="tel:+918922036792" className="flex items-center gap-2 text-xs font-bold text-gray-700 hover:text-primary transition-colors">
+                <a href="tel:+918573003001" className="flex items-center gap-2 text-xs font-bold text-gray-700 hover:text-primary transition-colors">
                   <Phone size={14} className="text-primary" />
-                  <span>+91 8922036792</span>
+                  <span>+91 8573003001</span>
                 </a>
-                <a href="mailto:info@SunLynkSolar.com" className="flex items-center gap-2 text-xs font-bold text-gray-700 hover:text-primary transition-colors">
+                <a href="mailto:info@sunlynksolar.com" className="flex items-center gap-2 text-xs font-bold text-gray-700 hover:text-primary transition-colors">
                   <Mail size={14} className="text-primary" />
-                  <span>info@SunLynkSolar.com</span>
+                  <span>info@sunlynksolar.com</span>
                 </a>
               </div>
             </div>

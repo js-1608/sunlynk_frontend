@@ -431,7 +431,20 @@ export default function LynkSureShowcase() {
 
           {/* TAB 3: Subsidy & PSU Loans */}
           {activeTab === "finance" && (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+            <div className="flex flex-col gap-10">
+              <div className="text-center max-w-3xl mx-auto mb-2">
+                <span className="text-[10px] sm:text-xs font-bold text-emerald-600 uppercase tracking-widest block mb-1">
+                  Built to Outlast. Engineered to Perform
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mb-2">
+                  LynkShield Mounting Structure
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-500 max-w-2xl leading-relaxed mx-auto mt-2">
+                  India’s heavy-duty solar mounting system designed for superior strength, higher generation, and decades of reliability.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
 
               {/* Subsidy Process Card */}
               <div className="bg-white border border-slate-200/60 rounded-3xl p-6 sm:p-8 text-left shadow-lg">
@@ -499,7 +512,7 @@ export default function LynkSureShowcase() {
                     <div>
                       <h4 className="text-sm sm:text-base font-extrabold text-slate-900 group-hover:text-emerald-600 transition-colors">Direct Subsidy Credit</h4>
                       <p className="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
-                        Under PM Surya Ghar Muft Bijli Yojana, up to ₹78,000 subsidy is deposited directly into your bank account.
+                        Under PM Surya Ghar Muft Bijli Yojana, up to ₹1,08,000 subsidy is deposited directly into your bank account.
                       </p>
                     </div>
                   </div>
@@ -596,7 +609,7 @@ export default function LynkSureShowcase() {
                     </span>
                   </div>
                   <a
-                    href="https://wa.me/918062180511?msg=Hi%2C%20I%20am%20interested%20in%20the%20solar%20loan%20scheme.%20Please%20provide%20more%20details."
+                  href="https://wa.me/918573003001?text=Hi%2C%20I%20am%20interested%20in%20the%20solar%20loan%20scheme.%20Please%20provide%20more%20details."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-black py-3 px-6 rounded-full inline-flex items-center gap-1.5 shadow-md shadow-emerald-500/10 hover:shadow-lg transition-all self-start sm:self-center cursor-pointer outline-none"
@@ -608,6 +621,7 @@ export default function LynkSureShowcase() {
               </div>
 
             </div>
+          </div>
           )}
 
         </div>

@@ -135,8 +135,8 @@ export default function Footer() {
             </div>
             <div>
               <span className="block text-xs uppercase tracking-wider text-gray-500 font-semibold">Send Email</span>
-              <a href="mailto:info@SunLynkSolar.com" className="hover:text-primary transition-colors font-medium">
-                info@SunLynkSolar.com
+              <a href="mailto:info@sunlynksolar.com" className="hover:text-primary transition-colors font-medium">
+                info@sunlynksolar.com
               </a>
             </div>
           </div>
@@ -148,8 +148,8 @@ export default function Footer() {
             </div>
             <div>
               <span className="block text-xs uppercase tracking-wider text-gray-500 font-semibold">Call Us</span>
-              <a href="tel:+919711882204" className="hover:text-primary transition-colors font-medium">
-                +91 8922036792
+              <a href="tel:+918573003001" className="hover:text-primary transition-colors font-medium">
+                +91 8573003001
               </a>
             </div>
           </div>
@@ -190,52 +190,82 @@ export default function Footer() {
                   <path d="M23.498 6.163a3.003 3.003 0 00-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.507a3.003 3.003 0 00-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 002.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 002.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                 </svg>
               </a>
+              <a href="https://www.linkedin.com/company/sunlynk-solar-energy-pvt-ltd/" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-slate-900 border border-slate-800 hover:border-[#0077B5] hover:bg-[#0077B5] hover:text-white rounded-full flex items-center justify-center transition-all duration-300 text-gray-400" aria-label="LinkedIn">
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </a>
             </div>
           </div>
 
-          {/* Products links */}
+          {/* Our Offerings links */}
           <div>
             <h4 className="text-white text-lg font-bold mb-6">
-              Our <span className="text-primary font-extrabold">Products</span>
+              Our <span className="text-primary font-extrabold">Offerings</span>
             </h4>
             <ul className="space-y-3 text-sm text-gray-400">
               <li>
-                <Link href="/products/n-type-bifacial-double-glass" className="hover:text-primary transition-colors flex items-center gap-1">
-                  <span>•</span> Solar PV Modules
+                <Link href="/solutions/homes" className="hover:text-primary transition-colors flex items-center gap-1">
+                  <span>•</span> Homes
                 </Link>
               </li>
               <li>
-                <Link href="/products/residential-inverters" className="hover:text-primary transition-colors flex items-center gap-1">
-                  <span>•</span> Solar Inverters
+                <Link href="/solutions/commercial" className="hover:text-primary transition-colors flex items-center gap-1">
+                  <span>•</span> Commercial
                 </Link>
               </li>
               <li>
-                <Link href="/products/rooftop-pv" className="hover:text-primary transition-colors flex items-center gap-1">
-                  <span>•</span> Weather Sensors
+                <Link href="/solutions/housing-societies" className="hover:text-primary transition-colors flex items-center gap-1">
+                  <span>•</span> Housing Societies
                 </Link>
               </li>
               <li>
-                <Link href="/products/low-voltage-hybrid" className="hover:text-primary transition-colors flex items-center gap-1">
-                  <span>•</span> Battery Storage
+                <Link href="/solutions/on-grid-solar" className="hover:text-primary transition-colors flex items-center gap-1">
+                  <span>•</span> On Grid Solar
+                </Link>
+              </li>
+              <li>
+                <Link href="/solutions/hybrid-solar" className="hover:text-primary transition-colors flex items-center gap-1">
+                  <span>•</span> Hybrid Solar
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Useful links */}
+          {/* More & Support links */}
           <div>
             <h4 className="text-white text-lg font-bold mb-6">
-              Useful <span className="text-primary font-extrabold">Links</span>
+              More <span className="text-primary font-extrabold">& Support</span>
             </h4>
             <ul className="space-y-3 text-sm text-gray-400">
               <li>
-                <Link href="/about" className="hover:text-primary transition-colors flex items-center gap-1">
-                  <span>•</span> About Us
+                <Link href="/support/warranty" className="hover:text-primary transition-colors flex items-center gap-1">
+                  <span>•</span> Warranty Claims
                 </Link>
               </li>
               <li>
-                <Link href="/brands" className="hover:text-primary transition-colors flex items-center gap-1">
-                  <span>•</span> Our Brands
+                <Link href="/support/wms-downloads" className="hover:text-primary transition-colors flex items-center gap-1">
+                  <span>•</span> WMS Products
+                </Link>
+              </li>
+              <li>
+                <Link href="/support/inverter-downloads" className="hover:text-primary transition-colors flex items-center gap-1">
+                  <span>•</span> Inverters & Panels
+                </Link>
+              </li>
+              <li>
+                <Link href="/careers" className="hover:text-primary transition-colors flex items-center gap-1">
+                  <span>•</span> Careers
+                </Link>
+              </li>
+              <li>
+                <Link href="/faqs" className="hover:text-primary transition-colors flex items-center gap-1">
+                  <span>•</span> FAQs
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-primary transition-colors flex items-center gap-1">
+                  <span>•</span> About Us
                 </Link>
               </li>
               <li>
@@ -246,6 +276,11 @@ export default function Footer() {
               <li>
                 <Link href="/contact" className="hover:text-primary transition-colors flex items-center gap-1">
                   <span>•</span> Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/brands" className="hover:text-primary transition-colors flex items-center gap-1">
+                  <span>•</span> Our Brands
                 </Link>
               </li>
             </ul>
@@ -296,7 +331,10 @@ export default function Footer() {
           <p>© Copyright {new Date().getFullYear()} by SunLynk Solar. All Rights Reserved.</p>
           <div className="flex gap-4">
             <Link href="/privacy" className="hover:text-gray-400">Privacy Policy</Link>
+            <span className="text-gray-700">·</span>
             <Link href="/terms" className="hover:text-gray-400">Terms of Use</Link>
+            <span className="text-gray-700">·</span>
+            <Link href="/cancellation-refund" className="hover:text-gray-400">Cancellation & Refund</Link>
           </div>
         </div>
       </div>

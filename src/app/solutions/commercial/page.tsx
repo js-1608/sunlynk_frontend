@@ -641,13 +641,13 @@ export default function CommercialPage() {
             <div className="p-6 bg-slate-50 border border-slate-200/80 rounded-xl flex flex-col gap-3.5 mt-4">
               <span className="text-base font-extrabold text-slate-950 block">Consult Our C&I Engineers</span>
               <div className="flex flex-col gap-2">
-                <a href="tel:+918922036792" className="flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-primary transition-colors">
+                <a href="tel:+918573003001" className="flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-primary transition-colors">
                   <Phone size={14} className="text-primary" />
-                  <span>+91 8922036792</span>
+                  <span>+91 8573003001</span>
                 </a>
-                <a href="mailto:info@SunLynkSolar.com" className="flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-primary transition-colors">
+                <a href="mailto:info@sunlynksolar.com" className="flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-primary transition-colors">
                   <Mail size={14} className="text-primary" />
-                  <span>info@SunLynkSolar.com</span>
+                  <span>info@sunlynksolar.com</span>
                 </a>
               </div>
             </div>

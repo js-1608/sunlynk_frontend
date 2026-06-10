@@ -228,7 +228,7 @@ export default function ContactForm({ hideTabs = false, defaultTab = "residentia
       )}
 
       {/* Main Form Content Card */}
-      <div className="bg-[#F8FAFC] p-6 md:p-8 text-left text-gray-900 relative">
+      <div className="bg-[#F8FAFC] p-6 md:p-8 text-left text-gray-900 relative rounded-3xl">
         {submitted ? (
           <div className="py-8 md:py-12 px-4 text-center">
             {/* Header Success Section */}
@@ -366,18 +366,18 @@ export default function ContactForm({ hideTabs = false, defaultTab = "residentia
               </button>
               <div className="flex items-center gap-4">
                 <a
-                  href="mailto:info@SunLynkSolar.com"
+                  href="mailto:info@sunlynksolar.com"
                   className="flex items-center gap-1.5 hover:text-primary transition-colors"
                 >
                   <Mail size={14} className="text-primary" />
-                  <span>info@SunLynkSolar.com</span>
+                  <span>info@sunlynksolar.com</span>
                 </a>
                 <a
-                  href="tel:+919711882204"
+                  href="tel:+918573003001"
                   className="flex items-center gap-1.5 hover:text-primary transition-colors"
                 >
                   <Phone size={14} className="text-primary" />
-                  <span>+91 8922036792</span>
+                  <span>+91 8573003001</span>
                 </a>
               </div>
             </div>

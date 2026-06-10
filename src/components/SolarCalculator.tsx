@@ -291,7 +291,7 @@ export default function SolarCalculator() {
                     Ready to Go Solar?
                   </h3>
                   <p className="text-xs sm:text-sm text-gray-500 leading-relaxed text-justify mb-4">
-                    The SolarSquare Solar Panel Calculator is built for precision, ease, and speed. As next steps, book a free solar consultation with our solar experts and let us help you make an informed decision.
+                    The SunLynk Solar Solar Panel Calculator is built for precision, ease, and speed. As next steps, book a free solar consultation with our solar experts and let us help you make an informed decision.
                   </p>
                   <p className="text-xs sm:text-sm font-semibold text-primary leading-relaxed text-justify">
                     Your solar journey starts here. Try the Solar Rooftop Calculator now and take your first step towards clean energy and financial freedom.

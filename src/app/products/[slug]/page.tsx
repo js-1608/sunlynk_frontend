@@ -107,13 +107,13 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 Have questions about design layout or grid capacity integration? Speak with our solar specialists.
               </p>
               <div className="flex flex-col gap-2">
-                <a href="tel:+919711882204" className="flex items-center gap-2 text-sm font-bold text-dark hover:text-primary transition-colors">
+                <a href="tel:+918573003001" className="flex items-center gap-2 text-sm font-bold text-dark hover:text-primary transition-colors">
                   <Phone size={16} className="text-primary" />
-                  <span>+91 8922036792</span>
+                  <span>+91 8573003001</span>
                 </a>
-                <a href="mailto:info@SunLynkSolar.com" className="flex items-center gap-2 text-sm font-bold text-dark hover:text-primary transition-colors">
+                <a href="mailto:info@sunlynksolar.com" className="flex items-center gap-2 text-sm font-bold text-dark hover:text-primary transition-colors">
                   <Mail size={16} className="text-primary" />
-                  <span>info@SunLynkSolar.com</span>
+                  <span>info@sunlynksolar.com</span>
                 </a>
               </div>
             </div>
