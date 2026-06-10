@@ -135,12 +135,7 @@ export default function Header() {
                 <Link href="/support/warranty" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-medium">
                   Warranty Claims
                 </Link>
-                <Link href="/support/wms-downloads" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-medium">
-                  WMS Products
-                </Link>
-                <Link href="/support/inverter-downloads" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-medium">
-                  Inverters and Panels
-                </Link>
+
                 <Link href="/careers" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-medium border-t border-gray-50 mt-1 pt-2">
                   Careers
                 </Link>
@@ -241,8 +236,6 @@ export default function Header() {
                 {activeDropdown === "more" && (
                   <div className="pl-4 mt-2 flex flex-col gap-2 text-sm text-gray-700">
                     <Link href="/support/warranty" className="py-1">Warranty Claims</Link>
-                    <Link href="/support/wms-downloads" className="py-1">WMS Products</Link>
-                    <Link href="/support/inverter-downloads" className="py-1">Inverters and Panels</Link>
                     <Link href="/careers" className="py-1 border-t border-gray-50 pt-2 mt-1">Careers</Link>
                     <Link href="/faqs" className="py-1">FAQs</Link>
                   </div>
