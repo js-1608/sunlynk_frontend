@@ -68,7 +68,7 @@ const reviews: Review[] = [
     text: "Superb installation and paperwork support for solar subsidy. Highly professional team, they handled all the government approvals without me having to follow up even once. Excellent solar energy generation!",
     avatarBg: "bg-dark",
     avatarText: "text-white",
-    image: "/new_assets/reviewimage.png",
+    image: "/new_assets/reviewimage.webp",
   },
   {
     initials: "NV",

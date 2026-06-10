@@ -434,7 +434,7 @@ export default function ServicesSection() {
             <div className="group relative bg-white border border-gray-100 shadow-sm rounded-xl overflow-hidden flex flex-col">
               <div className="relative h-60 overflow-hidden">
                 <img
-                  src="/new_assets/solarHome.png"
+                  src="/new_assets/solarHome.webp"
                   alt="Solar panels on a modern home rooftop"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -508,7 +508,7 @@ export default function ServicesSection() {
             <div className="group relative bg-white border border-gray-100 shadow-sm rounded-xl overflow-hidden flex flex-col">
               <div className="relative h-60 overflow-hidden">
                 <Image
-                  src="/new_assets/housingSocities.png"
+                  src="/new_assets/housingSocities.webp"
                   alt="Housing society with rooftop solar installation"
                   fill
                   className="object-cover object-bottom group-hover:scale-105 transition-transform duration-500"
@@ -583,7 +583,7 @@ export default function ServicesSection() {
             <div className="group relative bg-white border border-gray-100 shadow-sm rounded-xl overflow-hidden flex flex-col">
               <div className="relative h-60 overflow-hidden">
                 <img
-                  src="/new_assets/commercial.png"
+                  src="/new_assets/commercial.webp"
                   alt="Commercial building with solar panel installation"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />

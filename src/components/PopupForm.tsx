@@ -218,7 +218,7 @@ export default function PopupForm() {
           {/* ─── Left Panel: Image + headline ─── */}
           <div className="relative md:w-[42%] flex-shrink-0 min-h-[260px] md:min-h-[auto] overflow-hidden bg-emerald-900">
             <Image
-              src="/new_assets/popupImage.png"
+              src="/new_assets/popupImage.webp"
               alt="Get a free solar quote - SunLynk Solar"
               fill
               className="object-cover object-center"

@@ -60,7 +60,7 @@ export default function HeroV2() {
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none opacity-">
         {/* https://html.themewant.com/greenaro/assets/images/banner/2.webp */}
         <Image
-          src="/new_assets/hero_banner.png"
+          src="/new_assets/hero_banner.webp"
           alt="Solar background image"
           fill
           className="object-cover"

@@ -93,27 +93,27 @@ export default function CommercialPage() {
     {
       name: "Warehouses",
       desc: "Utilizes vast flat roof areas for massive generation and cold storage offsets.",
-      image: "/new_assets/commercial/warehouse.png"
+      image: "/new_assets/commercial/warehouse.webp"
     },
     {
       name: "Educational Institutions",
       desc: "Reduces high daytime lighting and computer lab loads while promoting green campus values.",
-      image: "/new_assets/commercial/school.jpeg"
+      image: "/new_assets/commercial/school.webp"
     },
     {
       name: "Hospitals",
       desc: "Secures reliable hybrid solar backup for critical care units, cooling, and diagnostic loads.",
-      image: "/new_assets/commercial/hospital.jpg"
+      image: "/new_assets/commercial/hospital.webp"
     },
     {
       name: "Hotels",
       desc: "Powers 24/7 central air conditioning, heating, and laundry systems with maximum savings.",
-      image: "/new_assets/commercial/hotels.jpg"
+      image: "/new_assets/commercial/hotels.webp"
     },
     {
       name: "Office Buildings",
       desc: "Offsets heavy HVAC overheads and meets corporate ESG carbon compliance goals.",
-      image: "/new_assets/commercial/offices.png"
+      image: "/new_assets/commercial/offices.webp"
     },
     {
       name: "Retail Establishments",

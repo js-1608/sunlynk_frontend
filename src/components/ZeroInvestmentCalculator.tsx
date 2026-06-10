@@ -88,7 +88,7 @@ export default function ZeroInvestmentCalculator() {
                 {/* Soft glow behind the avatar to integrate it into the card */}
                 {/* <div className="absolute inset-x-4 bottom-2 top-4 bg-emerald-400/30 rounded-full blur-md -z-10" /> */}
                 <Image
-                  src="/new_assets/avatar.png"
+                  src="/new_assets/avatar.webp"
                   alt="Solar Expert"
                   fill
                   sizes="(max-width: 768px) 128px, 150px"
