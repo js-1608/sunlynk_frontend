@@ -54,70 +54,6 @@ export default function HeroV2() {
 
   const formattedBill = billAmount.toLocaleString("en-IN");
 
-  const [mounted, setMounted] = useState(false);
-  const [timeLeft, setTimeLeft] = useState({
-    days: 30,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-
-  useEffect(() => {
-    setMounted(true);
-    
-    // Check localStorage for target date to make the timer feel real and persistent
-    const targetKey = "sunlynk_subsidy_target_date";
-    let targetTime = 0;
-    
-    try {
-      const stored = localStorage.getItem(targetKey);
-      if (stored) {
-        targetTime = parseInt(stored, 10);
-      }
-    } catch (e) {
-      console.error(e);
-    }
-    
-    const now = Date.now();
-    // If no target time or it is in the past, set a new target 30 days from now
-    if (!targetTime || targetTime <= now) {
-      targetTime = now + 30 * 24 * 60 * 60 * 1000;
-      try {
-        localStorage.setItem(targetKey, targetTime.toString());
-      } catch (e) {
-        console.error(e);
-      }
-    }
-
-    const calculateTimeLeft = () => {
-      const difference = targetTime - Date.now();
-      if (difference <= 0) {
-        // Reset to another 30 days if it expired to keep the urgent banner active
-        const newTarget = Date.now() + 30 * 24 * 60 * 60 * 1000;
-        try {
-          localStorage.setItem(targetKey, newTarget.toString());
-        } catch (e) {}
-        return { days: 30, hours: 0, minutes: 0, seconds: 0 };
-      }
-
-      return {
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60),
-      };
-    };
-
-    // Set initial
-    setTimeLeft(calculateTimeLeft());
-
-    const interval = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section className="relative bg-white overflow-hidden py-14">
       {/* Background image */}
@@ -164,53 +100,6 @@ export default function HeroV2() {
             <p className="text-white text-base sm:text-lg  font-medium leading-relaxed -mt-2">
               For the next <span className="text-secondary font-extrabold">25 years</span> — and beyond.*
             </p>
-
-            {/* Countdown Widget */}
-            <div className="bg-black/50 backdrop-blur-md rounded-2xl border border-white/10 p-5 mt-2 flex flex-col gap-3.5 max-w-md shadow-lg shadow-black/25">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="flex h-2 w-2 relative">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
-                  </span>
-                  <span className="text-secondary text-xs font-bold uppercase tracking-wider">Limited Time Offer</span>
-                </div>
-                <span className="text-white/60 text-[10px] font-bold tracking-wide uppercase px-2 py-0.5 rounded bg-white/5 border border-white/5">
-                  Govt Subsidy
-                </span>
-              </div>
-              
-              <p className="text-white/90 text-sm font-semibold leading-relaxed">
-                Save up to <span className="text-primary font-bold">₹1.8 Lakhs</span> in solar subsidy benefits if you apply now!
-              </p>
-              
-              <div className="grid grid-cols-4 gap-2 text-center">
-                <div className="bg-white/5 rounded-xl py-2 px-1 border border-white/5 flex flex-col items-center shadow-inner">
-                  <span className="text-2xl font-black text-white tracking-tight tabular-nums">
-                    {mounted ? String(timeLeft.days).padStart(2, "0") : "30"}
-                  </span>
-                  <span className="text-[9px] font-bold text-white/50 tracking-wider mt-0.5 uppercase">Days</span>
-                </div>
-                <div className="bg-white/5 rounded-xl py-2 px-1 border border-white/5 flex flex-col items-center shadow-inner">
-                  <span className="text-2xl font-black text-white tracking-tight tabular-nums">
-                    {mounted ? String(timeLeft.hours).padStart(2, "0") : "00"}
-                  </span>
-                  <span className="text-[9px] font-bold text-white/50 tracking-wider mt-0.5 uppercase">Hours</span>
-                </div>
-                <div className="bg-white/5 rounded-xl py-2 px-1 border border-white/5 flex flex-col items-center shadow-inner">
-                  <span className="text-2xl font-black text-white tracking-tight tabular-nums">
-                    {mounted ? String(timeLeft.minutes).padStart(2, "0") : "00"}
-                  </span>
-                  <span className="text-[9px] font-bold text-white/50 tracking-wider mt-0.5 uppercase">Mins</span>
-                </div>
-                <div className="bg-white/5 rounded-xl py-2 px-1 border border-white/5 flex flex-col items-center shadow-inner">
-                  <span className="text-2xl font-black text-primary tracking-tight tabular-nums animate-pulse">
-                    {mounted ? String(timeLeft.seconds).padStart(2, "0") : "00"}
-                  </span>
-                  <span className="text-[9px] font-bold text-white/50 tracking-wider mt-0.5 uppercase">Secs</span>
-                </div>
-              </div>
-            </div>
 
             {/* Body */}
             <p className="text-white/80 text-sm leading-relaxed max-w-md hidden lg:block">
