@@ -14,8 +14,23 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "SunLynk Solar - Advanced Weather, SCADA & ESS Solutions",
-  description: "SunLynk Solar is a leading provider of weather stations, solar forecasting, SCADA, and energy storage solutions (ESS) for the renewable energy sector in India.",
+  title: "SunLynk Solar Lucknow - Premium Rooftop Solar Solutions",
+  description: "SunLynk Solar is the leading solar panel installation company in Lucknow. We design and install high-efficiency rooftop solar systems for homes, housing societies, and commercial businesses in Lucknow, Uttar Pradesh.",
+  keywords: [
+    "solar panel Lucknow",
+    "rooftop solar Lucknow",
+    "solar company Lucknow",
+    "best solar installation Lucknow",
+    "solar subsidy Lucknow",
+    "PM Surya Ghar Yojana Lucknow",
+    "solar system Lucknow",
+    "Lucknow solar EPC"
+  ],
+  icons: {
+    icon: "/fav.png",
+    shortcut: "/fav.png",
+    apple: "/fav.png",
+  },
 };
 
 export default function RootLayout({

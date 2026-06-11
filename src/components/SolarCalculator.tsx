@@ -307,7 +307,7 @@ export default function SolarCalculator() {
                   <Award size={14} className="text-primary" />
                   SunLynk Solar Guarantee
                 </p>
-                <p className="text-[10px] text-gray-500 mt-0.5">Free rooftop site survey, 3D design & 25 years warranty.</p>
+                <p className="text-[10px] text-gray-500 mt-0.5">Free rooftop site survey, 3D design & 30 years warranty.</p>
               </div>
 
               <Link

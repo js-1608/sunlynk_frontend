@@ -1,4 +1,5 @@
 import React from "react";
+import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -8,6 +9,21 @@ import { Sun, CheckCircle, Phone, Mail, ArrowRight, ShieldCheck } from "lucide-r
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const solution = solutionsData.find((s) => s.slug === slug);
+  if (!solution) {
+    return {
+      title: "Solution Not Found | SunLynk Solar Lucknow",
+    };
+  }
+  return {
+    title: `${solution.title} in Lucknow | SunLynk Solar`,
+    description: `Discover ${solution.title} in Lucknow by SunLynk Solar. We provide high-quality solar panel installations and customized energy solutions across Lucknow. ${solution.description}`,
+    keywords: [`${solution.title} Lucknow`, `solar solutions Lucknow`, `solar company Lucknow`, `install solar Lucknow`]
+  };
 }
 
 export async function generateStaticParams() {

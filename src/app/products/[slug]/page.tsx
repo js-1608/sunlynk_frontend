@@ -1,4 +1,5 @@
 import React from "react";
+import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -7,6 +8,21 @@ import { Download, CheckCircle, ChevronRight, Phone, Mail, ArrowRight } from "lu
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const product = productsData.find((p) => p.slug === slug);
+  if (!product) {
+    return {
+      title: "Product Not Found | SunLynk Solar Lucknow",
+    };
+  }
+  return {
+    title: `${product.title} in Lucknow | SunLynk Solar`,
+    description: `Buy and install ${product.title} in Lucknow. Get high-efficiency solar panel installations from SunLynk Solar, Lucknow's leading solar provider. Model Type: ${product.type}, Max Efficiency: ${product.efficiency || "N/A"}.`,
+    keywords: [`${product.title} Lucknow`, `solar panel ${product.type} Lucknow`, `solar installation Lucknow`]
+  };
 }
 
 export async function generateStaticParams() {

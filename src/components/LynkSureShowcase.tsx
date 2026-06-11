@@ -48,7 +48,7 @@ export default function LynkSureShowcase() {
   const mountingFeatures: FeaturePoint[] = [
     {
       id: 0,
-      title: "170 km/h Wind Shield",
+      title: "Upto 170 km/h Wind Shield",
       desc: "Aerodynamically certified to withstand cyclonic wind speeds. Built robust enough to withstand Lucknow's severe storm seasons without buckling or lifting.",
       icon: Wind,
       x: "25%",
@@ -256,7 +256,7 @@ export default function LynkSureShowcase() {
                     </div>
                     <span className="text-[10px] text-slate-500 font-black uppercase tracking-wider block">Wind resistance</span>
                     <span className="w-6 h-0.5 bg-emerald-500 rounded-full mt-1.5 mb-2 block"></span>
-                    <span className="text-sm sm:text-base font-black text-slate-900 block">170 km/h</span>
+                    <span className="text-sm sm:text-base font-black text-slate-900 block">Upto 170 km/h</span>
                   </div>
 
                   {/* Zinc Protection */}

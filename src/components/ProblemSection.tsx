@@ -14,7 +14,7 @@ export default function ProblemSection() {
             <span className="text-primary">So why does it feel risky?</span>
           </h2>
           <p className="text-[15px] sm:text-base text-gray-800 leading-[1.8]">
-            Most solar buyers worry about the same three things — what if the cells break, what if generation is less than promised, and who will I call for repairs? <span className="text-dark font-semibold">We built SunLynk to answer all three. For 5 full years.</span>
+            Most solar buyers worry about the same three things — what if the cells break, what if generation is less than promised, and who will I call for repairs? <span className="text-dark font-semibold">We built SunLynk to answer all these concerns.</span>
           </p>
         </div>
 

@@ -1,6 +1,22 @@
 import React from "react";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "SunLynk Solar Lucknow - Premium Rooftop Solar Solutions",
+  description: "SunLynk Solar is the leading solar panel installation company in Lucknow. We design and install high-efficiency rooftop solar systems for homes, housing societies, and commercial businesses in Lucknow, Uttar Pradesh.",
+  keywords: [
+    "solar panel Lucknow",
+    "rooftop solar Lucknow",
+    "solar company Lucknow",
+    "best solar installation Lucknow",
+    "solar subsidy Lucknow",
+    "PM Surya Ghar Yojana Lucknow",
+    "solar system Lucknow",
+    "Lucknow solar EPC"
+  ],
+};
 import Hero from "@/components/Hero";
 import HeroV2 from "@/components/HeroV2";
 import TrustBar from "@/components/TrustBar";
