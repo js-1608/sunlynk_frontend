@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import blogsData from "@/data/blogs.json";
 import BlogSidebar from "@/components/BlogSidebar";
 import ClientCommentsSection from "@/components/ClientCommentsSection";
 import {
@@ -12,9 +11,7 @@ import {
   Layers,
   ArrowLeft,
 } from "lucide-react";
-
-type Block = (typeof blogsData)[number]["blocks"][number];
-type BlogPost = (typeof blogsData)[number];
+import { BlogPost, Block } from "@/types/blog";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -45,19 +42,14 @@ export async function generateStaticParams() {
       console.error("Failed to parse dynamic blogs in generateStaticParams", err);
     }
   }
-
-  const dynamicSlugs = dynamicBlogs.map((b) => ({ slug: b.slug }));
-  const staticSlugs = blogsData.map((post) => ({ slug: post.slug }));
-
-  const seen = new Set();
-  const combined = [];
-  for (const item of [...dynamicSlugs, ...staticSlugs]) {
-    if (!seen.has(item.slug)) {
-      seen.add(item.slug);
-      combined.push(item);
-    }
+  if (dynamicBlogs.length === 0) {
+    return [
+      { slug: "choosing-the-right-solar-inverter-for-your-needs" },
+      { slug: "why-class-a-weather-monitoring-is-essential-for-utility-pv" },
+      { slug: "integrating-battery-storage-bess-with-scada-for-grid-stability" },
+    ];
   }
-  return combined;
+  return dynamicBlogs.map((b) => ({ slug: b.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps) {
@@ -71,10 +63,6 @@ export async function generateMetadata({ params }: PageProps) {
     } catch (err) {
       // Fail silently
     }
-  }
-
-  if (!post) {
-    post = blogsData.find((b) => b.slug === slug) as BlogPost | undefined || null;
   }
 
   if (!post) return { title: "Post Not Found | SunLynk Solar" };
@@ -270,10 +258,6 @@ export default async function BlogDetailPage({ params }: PageProps) {
   }
 
   if (!post) {
-    post = blogsData.find((b) => b.slug === slug) as BlogPost | undefined || null;
-  }
-
-  if (!post) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-4">
         <h1 className="text-3xl font-black text-dark">Post Not Found</h1>
@@ -282,16 +266,13 @@ export default async function BlogDetailPage({ params }: PageProps) {
     );
   }
 
-  let allPosts = blogsData;
+  let allPosts: BlogPost[] = [];
   const allRes = await fetchFromApi("/api/blogs", { next: { revalidate: 10 } });
   if (allRes && allRes.ok) {
     try {
-      const dynamicBlogs = await allRes.json();
-      const dynamicSlugs = new Set(dynamicBlogs.map((b: any) => b.slug));
-      const filteredJSON = blogsData.filter(b => !dynamicSlugs.has(b.slug));
-      allPosts = [...dynamicBlogs, ...filteredJSON];
+      allPosts = await allRes.json();
     } catch (err) {
-      console.error("Failed to parse all blogs from API, using static JSON", err);
+      console.error("Failed to parse all blogs from API", err);
     }
   }
 

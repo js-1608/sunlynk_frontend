@@ -4,19 +4,8 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ChevronRight, Hash, Clock } from "lucide-react";
+import { BlogPost } from "@/types/blog";
 
-interface BlogPost {
-  id: string;
-  slug: string;
-  title: string;
-  date: string;
-  day: string;
-  month: string;
-  image: string;
-  categories: string[];
-  tags: string[];
-  commentsCount: number;
-}
 
 interface RelatedPost {
   id: string;

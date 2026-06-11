@@ -1,20 +1,46 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import blogsData from "@/data/blogs.json";
 import BlogSidebar from "@/components/BlogSidebar";
 import { User, MessageSquare, ArrowRight, Layers } from "lucide-react";
-
-type BlogPost = (typeof blogsData)[number];
+import { BlogPost } from "@/types/blog";
 
 interface PageProps {
   params: Promise<{ cat: string }>;
 }
 
+async function fetchFromApi(path: string, options: RequestInit = {}) {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  if (!apiUrl || !apiUrl.startsWith("http")) {
+    return null;
+  }
+  try {
+    const res = await fetch(`${apiUrl}${path}`, {
+      ...options,
+      signal: AbortSignal.timeout(3000), // 3-second timeout
+    });
+    return res;
+  } catch (err) {
+    return null;
+  }
+}
+
 export async function generateStaticParams() {
-  const allCategories = Array.from(
-    new Set(blogsData.flatMap((p) => p.categories || []))
+  let blogs: any[] = [];
+  const res = await fetchFromApi("/api/blogs");
+  if (res && res.ok) {
+    try {
+      blogs = await res.json();
+    } catch (e) {
+      console.error("Failed to parse dynamic blogs in generateStaticParams", e);
+    }
+  }
+  let allCategories = Array.from(
+    new Set(blogs.flatMap((p) => p.categories || []))
   );
+  if (allCategories.length === 0) {
+    allCategories = ["Solar Energy", "Engineering", "Monitoring", "Solutions", "Energy Storage"];
+  }
   return allCategories.map((cat) => ({
     cat: cat.toLowerCase().replace(/\s+/g, "-"),
   }));
@@ -96,8 +122,18 @@ function PostCard({ post, cat }: { post: BlogPost; cat: string }) {
 export default async function CategoryPage({ params }: PageProps) {
   const { cat } = await params;
 
+  let allBlogs: BlogPost[] = [];
+  const res = await fetchFromApi("/api/blogs", { next: { revalidate: 10 } });
+  if (res && res.ok) {
+    try {
+      allBlogs = await res.json();
+    } catch (e) {
+      console.error("Failed to parse dynamic blogs in CategoryPage", e);
+    }
+  }
+
   const allCategories = Array.from(
-    new Set(blogsData.flatMap((p) => p.categories || []))
+    new Set(allBlogs.flatMap((p) => p.categories || []))
   );
 
   // Find display name from slug
@@ -106,7 +142,7 @@ export default async function CategoryPage({ params }: PageProps) {
       (c) => c.toLowerCase().replace(/\s+/g, "-") === cat
     ) ?? decodeURIComponent(cat).replace(/-/g, " ");
 
-  const filteredPosts = blogsData.filter((p) =>
+  const filteredPosts = allBlogs.filter((p) =>
     (p.categories || []).some(
       (c) => c.toLowerCase().replace(/\s+/g, "-") === cat
     )
@@ -192,7 +228,7 @@ export default async function CategoryPage({ params }: PageProps) {
             {/* RIGHT: Sidebar */}
             <div className="lg:col-span-4">
               <div className="sticky top-24">
-                <BlogSidebar allPosts={blogsData} activeCategory={displayName} />
+                <BlogSidebar allPosts={allBlogs} activeCategory={displayName} />
               </div>
             </div>
           </div>

@@ -1,11 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import blogsData from "@/data/blogs.json";
 import BlogSidebar from "@/components/BlogSidebar";
 import { User, MessageSquare, ArrowRight, Tag, Layers } from "lucide-react";
-
-type BlogPost = (typeof blogsData)[number];
+import { BlogPost } from "@/types/blog";
 
 export const metadata = {
   title: "Blog — Solar Energy Insights | SunLynk Solar",
@@ -103,7 +101,7 @@ function PostCard({ post }: { post: BlogPost }) {
 }
 
 export default async function BlogList() {
-  let dynamicBlogs = [];
+  let allPosts: BlogPost[] = [];
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   if (apiUrl && apiUrl.startsWith("http")) {
     try {
@@ -112,16 +110,12 @@ export default async function BlogList() {
         signal: AbortSignal.timeout(3000)
       });
       if (res.ok) {
-        dynamicBlogs = await res.json();
+        allPosts = await res.json();
       }
     } catch (err) {
-      console.error("Failed to fetch dynamic blogs from API, using local fallback only", err);
+      console.error("Failed to fetch blogs from API", err);
     }
   }
-
-  const dynamicSlugs = new Set(dynamicBlogs.map((b: any) => b.slug));
-  const staticBlogs = blogsData.filter(b => !dynamicSlugs.has(b.slug));
-  const allPosts = [...dynamicBlogs, ...staticBlogs];
 
   // Collect all unique categories for the filter bar
   const allCategories = Array.from(
