@@ -23,9 +23,9 @@ export default function PopupForm() {
 
   const [mounted, setMounted] = useState(false);
   const [timeLeft, setTimeLeft] = useState({
-    days: 30,
-    hours: 0,
-    minutes: 0,
+    days: 266,
+    hours: 3,
+    minutes: 37,
     seconds: 0,
   });
 
@@ -235,7 +235,7 @@ export default function PopupForm() {
                   <Sun size={14} className="text-emerald-950 fill-emerald-950" />
                 </div>
                 <span className="text-[10px] font-black text-amber-400 uppercase tracking-widest bg-black/45 px-2 py-0.5 rounded border border-white/5">
-                  Limited Time Offer
+                  Subsidy
                 </span>
               </div>
 

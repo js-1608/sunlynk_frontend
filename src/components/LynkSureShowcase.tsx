@@ -56,27 +56,27 @@ export default function LynkSureShowcase() {
     },
     {
       id: 1,
-      title: "Tough Terrain Ready",
+      title: "Chemical Anchoring- HILTI",
       desc: "Versatile, customizable foundation joints that adapt flawlessly to sloped roofs, high parapets, or uneven rooftop surfaces, keeping panels safe.",
       icon: Mountain,
-      x: "30%",
-      y: "75%"
+      x: "73%",
+      y: "92%"
     },
     {
       id: 2,
       title: "80+ Microns HDGI Steel",
       desc: "Hot-Dip Galvanized Iron frame containing a protective zinc layer. Zero rust, zero corrosion even in heavy monsoon rain or high humidity environments.",
       icon: Layers,
-      x: "72%",
-      y: "32%"
+      x: "62%",
+      y: "62%"
     },
     {
       id: 3,
-      title: "5-Inch Leg Columns",
+      title: "C-Section Leg Columns (5 Inches)",
       desc: "Extra thick structural steel columns provide deep mechanical anchorage, maximum deadweight distribution, and rock-solid high-wind load resistance.",
       icon: Wrench,
-      x: "65%",
-      y: "68%"
+      x: "32%",
+      y: "62%"
     }
   ];
 
@@ -100,7 +100,7 @@ export default function LynkSureShowcase() {
           </div>
           <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-slate-900 leading-tight">
             Engineered with <span className="text-emerald-600">LynkShield</span> for 25 Yrs.<br className="hidden sm:inline" />
-            Backed for <span className="text-emerald-600">5 Years</span>.
+
           </h2>
           <p className="text-sm sm:text-base text-slate-600 max-w-xl leading-relaxed">
             Discover the proprietary LynkShield structural engineering and the complete peace-of-mind guarantee package that sets our solar installations apart.
