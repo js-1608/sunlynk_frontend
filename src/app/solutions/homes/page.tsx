@@ -8,6 +8,7 @@ import SolarCalculator from "@/components/SolarCalculator";
 import FaqAccordion from "@/components/FaqAccordion";
 import GoogleReviews from "@/components/GoogleReviews";
 import ZeroInvestmentCalculator from "@/components/ZeroInvestmentCalculator";
+import SolutionsCountdownTimer from "@/components/SolutionsCountdownTimer";
 
 
 export const metadata: Metadata = {
@@ -95,7 +96,7 @@ export default function HomesPage() {
         {/* ── Desktop-only background image (bottom-left) ── */}
         <div className="absolute left-0 bottom-0 w-[62%] h-[80%] z-0 pointer-events-none overflow-hidden hidden lg:block">
           <Image
-            src="/new_assets/sunlynksolartruckfamily.webp"
+            src="/new_assets/homes_banner.png"
             alt="Residential solar rooftop background"
             fill
             className="object-cover object-bottom"
@@ -115,41 +116,62 @@ export default function HomesPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-12 items-start min-h-[unset] lg:min-h-[600px]">
 
             {/* ── Left: Headline + badge ── */}
-            <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-5 text-left pt-8 sm:pt-10 pb-2 lg:py-16">
+            <div className="lg:col-span-7 relative flex flex-col justify-between text-left pt-8 sm:pt-10 pb-0 lg:py-16 -mx-4 sm:-mx-6 md:-mx-8 lg:mx-0 lg:px-0">
 
-              {/* Star badge */}
-              <div className="flex items-center gap-2 bg-white border border-gray-200 rounded-full py-1.5 px-3.5 self-start text-[11px] sm:text-xs font-bold text-slate-600 shadow-sm">
-                <span className="text-amber-500 text-sm leading-none">★★★★★</span>
-                <span>Rated 4.8 on Google</span>
-                <span className="hidden sm:inline text-slate-300">|</span>
-                <span className="hidden sm:inline">12,000+ Happy Homes</span>
+              {/* Mobile-only background image banner */}
+              <div className="lg:hidden absolute inset-0 pointer-events-none z-0 overflow-hidden select-none">
+                <Image
+                  src="/new_assets/home_hero_mobile.webp"
+                  alt="Mobile solar background"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                {/* Dark overlay for superior text contrast on mobile */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/80 to-black/60" />
               </div>
 
-              {/* Headline */}
-              <h1 className="text-[2rem] sm:text-4xl lg:text-5xl font-black leading-[1.12] tracking-tight text-slate-950">
-                Save up to 90%{" "}
-                <span className="block sm:inline">
-                  <br className="hidden sm:block lg:hidden" />
-                  <span className="text-primary">on your electricity bills.</span>
-                </span>
-              </h1>
+              {/* Text content container */}
+              <div className="relative z-10 flex flex-col gap-4 sm:gap-5 px-4 sm:px-0 mb-6 lg:mb-0">
+                {/* Star badge */}
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full py-1.5 px-3.5 self-start text-[11px] sm:text-xs font-bold text-white shadow-sm lg:bg-white lg:border-gray-200 lg:text-slate-600">
+                  <span className="text-amber-400 lg:text-amber-500 text-sm leading-none">★★★★★</span>
+                  <span>Rated 4.8 on Google</span>
+                  <span className="hidden sm:inline text-white/30 lg:text-slate-300">|</span>
+                  <span className="hidden sm:inline">12,000+ Happy Homes</span>
+                </div>
 
-              {/* Sub-copy — visible on mobile, hidden on desktop to keep it clean */}
-              <p className="text-sm sm:text-base text-slate-500 leading-relaxed max-w-sm lg:hidden">
-                India's most trusted solar partner. PM Surya Ghar subsidy handled
-                end-to-end. Zero hassle, guaranteed savings.
-              </p>
-
-              {/* Trust pills row — mobile only */}
-              <div className="flex flex-wrap gap-2 lg:hidden">
-                {["PM Subsidy up to ₹78,000", "25-yr Performance Guarantee", "Free Site Survey"].map((t) => (
-                  <span
-                    key={t}
-                    className="text-[11px] font-semibold text-slate-600 bg-slate-100 rounded-full px-3 py-1"
-                  >
-                    ✓ {t}
+                {/* Headline */}
+                <h1 className="text-[2rem] sm:text-4xl lg:text-5xl font-black leading-[1.12] tracking-tight text-white lg:text-slate-950">
+                  Save up to 90%{" "}
+                  <span className="block sm:inline">
+                    <br className="hidden sm:block lg:hidden" />
+                    <span className="text-primary">on your electricity bills.</span>
                   </span>
-                ))}
+                </h1>
+
+                {/* Sub-copy — visible on mobile, hidden on desktop to keep it clean */}
+                <p className="text-sm sm:text-base text-white/80 lg:text-slate-500 leading-relaxed max-w-sm lg:hidden">
+                  India's most trusted solar partner. PM Surya Ghar subsidy handled
+                  end-to-end. Zero hassle, guaranteed savings.
+                </p>
+
+                {/* Trust pills row — mobile only */}
+                <div className="flex flex-wrap gap-2 lg:hidden">
+                  {["PM Subsidy up to ₹78,000", "25-yr Performance Guarantee", "Free Site Survey"].map((t) => (
+                    <span
+                      key={t}
+                      className="text-[11px] font-semibold text-white bg-white/10 border border-white/10 rounded-full px-3 py-1"
+                    >
+                      ✓ {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Countdown Timer with creative tagline (Only visible on mobile) */}
+              <div className="relative z-10 w-full lg:hidden">
+                <SolutionsCountdownTimer />
               </div>
             </div>
 
