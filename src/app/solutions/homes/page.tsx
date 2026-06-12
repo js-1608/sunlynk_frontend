@@ -96,7 +96,7 @@ export default function HomesPage() {
         {/* ── Desktop-only background image (bottom-left) ── */}
         <div className="absolute left-0 bottom-0 w-[62%] h-[80%] z-0 pointer-events-none overflow-hidden hidden lg:block">
           <Image
-            src="/new_assets/homes_banner.png"
+            src="/new_assets/homes_banner.webp"
             alt="Residential solar rooftop background"
             fill
             className="object-cover object-bottom"
