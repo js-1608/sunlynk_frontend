@@ -261,7 +261,7 @@ export default function PopupForm() {
                 </div>
 
                 {/* Trust badges */}
-                <div className="flex flex-wrap gap-1.5 mt-1">
+                <div className="hidden flex-wrap gap-1.5 mt-1 lg:flex">
                   {["25yr Warranty", "Govt Approved", "Subsidy Support up to 1.8Lakhs"].map((badge) => (
                     <span
                       key={badge}
