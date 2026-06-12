@@ -33,39 +33,12 @@ export default function PopupForm() {
     if (!isVisible) return;
     setMounted(true);
 
-    // Check localStorage for target date to make the timer feel real and persistent
-    const targetKey = "sunlynk_subsidy_target_date";
-    let targetTime = 0;
-
-    try {
-      const stored = localStorage.getItem(targetKey);
-      if (stored) {
-        targetTime = parseInt(stored, 10);
-      }
-    } catch (e) {
-      console.error(e);
-    }
-
-    const now = Date.now();
-    // If no target time or it is in the past, set a new target 30 days from now
-    if (!targetTime || targetTime <= now) {
-      targetTime = now + 30 * 24 * 60 * 60 * 1000;
-      try {
-        localStorage.setItem(targetKey, targetTime.toString());
-      } catch (e) {
-        console.error(e);
-      }
-    }
+    const targetTime = new Date("2027-03-31T23:59:59").getTime();
 
     const calculateTimeLeft = () => {
       const difference = targetTime - Date.now();
       if (difference <= 0) {
-        // Reset to another 30 days if it expired to keep the urgent banner active
-        const newTarget = Date.now() + 30 * 24 * 60 * 60 * 1000;
-        try {
-          localStorage.setItem(targetKey, newTarget.toString());
-        } catch (e) { }
-        return { days: 30, hours: 0, minutes: 0, seconds: 0 };
+        return { days: 0, hours: 0, minutes: 0, seconds: 0 };
       }
 
       return {
@@ -235,7 +208,7 @@ export default function PopupForm() {
                   <Sun size={14} className="text-emerald-950 fill-emerald-950" />
                 </div>
                 <span className="text-[10px] font-black text-amber-400 uppercase tracking-widest bg-black/45 px-2 py-0.5 rounded border border-white/5">
-                  Subsidy
+                  Avail Government Solar Subsidy
                 </span>
               </div>
 
@@ -249,7 +222,7 @@ export default function PopupForm() {
                     Get up to <span className="text-amber-400 font-extrabold">₹1.8 Lakhs</span> in Government Subsidy!
                   </h2>
                   <p className="text-[11px] text-white/85 mt-1 leading-normal">
-                    Lock in Lucknow's premier solar rates and save up to 90% on electricity bills.
+                    Avail government solar subsidy before 31 March 2027 and get benefits of ₹1.8 Lakhs today before it expires!
                   </p>
                 </div>
 

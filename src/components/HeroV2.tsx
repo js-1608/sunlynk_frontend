@@ -49,16 +49,81 @@ function useCountDown(target: number, from: number, duration = 2500) {
   return { value, ref };
 }
 
+function CountdownTimer() {
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const targetDate = new Date("2027-03-31T23:59:59").getTime();
+
+    const updateTimer = () => {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+        setTimeLeft({ days, hours, minutes, seconds });
+      } else {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      }
+    };
+
+    updateTimer();
+    const interval = setInterval(updateTimer, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const placeholderTime = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  const displayTime = mounted ? timeLeft : placeholderTime;
+
+  return (
+    <div className="w-full bg-gradient-to-r from-emerald-950 via-slate-900 to-emerald-950 border-y border-emerald-500/20 py-4 px-4 sm:px-6 flex flex-col md:flex-row lg:flex-col xl:flex-row items-center justify-between gap-4 shadow-lg -mx-4 md:-mx-8 lg:mx-0 lg:rounded-xl lg:border">
+      <div className="flex flex-col text-center md:text-left lg:text-center xl:text-left">
+        <span className="text-secondary font-black text-xs uppercase tracking-widest flex items-center gap-1.5 justify-center md:justify-start lg:justify-center xl:justify-start">
+          <span className="animate-pulse text-sm">⚡</span> Limited Time Subsidy Offer
+        </span>
+        <span className="text-white font-bold text-xs sm:text-sm mt-1">
+          Avail Govt Subsidy under PM Surya Ghar Yojana before March 31, 2027
+        </span>
+      </div>
+      <div className="flex items-center gap-3">
+        <div className="flex flex-col items-center bg-emerald-900/30 border border-emerald-500/20 px-3 py-1.5 rounded-lg min-w-[52px]">
+          <span className="text-secondary font-black text-lg sm:text-xl leading-none">{displayTime.days}</span>
+          <span className="text-[9px] uppercase tracking-wider text-emerald-400 font-bold mt-1">Days</span>
+        </div>
+        <span className="text-secondary font-bold text-lg leading-none animate-pulse">:</span>
+        <div className="flex flex-col items-center bg-emerald-900/30 border border-emerald-500/20 px-3 py-1.5 rounded-lg min-w-[52px]">
+          <span className="text-secondary font-black text-lg sm:text-xl leading-none">{displayTime.hours}</span>
+          <span className="text-[9px] uppercase tracking-wider text-emerald-400 font-bold mt-1">Hrs</span>
+        </div>
+        <span className="text-secondary font-bold text-lg leading-none animate-pulse">:</span>
+        <div className="flex flex-col items-center bg-emerald-900/30 border border-emerald-500/20 px-3 py-1.5 rounded-lg min-w-[52px]">
+          <span className="text-secondary font-black text-lg sm:text-xl leading-none">{displayTime.minutes}</span>
+          <span className="text-[9px] uppercase tracking-wider text-emerald-400 font-bold mt-1">Mins</span>
+        </div>
+        <span className="text-secondary font-bold text-lg leading-none animate-pulse">:</span>
+        <div className="flex flex-col items-center bg-emerald-900/30 border border-emerald-500/20 px-3 py-1.5 rounded-lg min-w-[52px]">
+          <span className="text-secondary font-black text-lg sm:text-xl leading-none">{displayTime.seconds}</span>
+          <span className="text-[9px] uppercase tracking-wider text-emerald-400 font-bold mt-1">Secs</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function HeroV2() {
   const { value: billAmount, ref: billRef } = useCountDown(0, 5000, 5000);
 
   const formattedBill = billAmount.toLocaleString("en-IN");
 
   return (
-    <section className="relative bg-white overflow-hidden py-14">
-      {/* Background image */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none opacity-">
-        {/* https://html.themewant.com/greenaro/assets/images/banner/2.webp */}
+    <section className="relative bg-slate-50 lg:bg-white overflow-hidden py-0 lg:py-14">
+      {/* Desktop Background image */}
+      <div className="hidden lg:block absolute inset-0 pointer-events-none z-0 overflow-hidden select-none">
         <Image
           src="/new_assets/hero_banner.webp"
           alt="Solar background image"
@@ -70,79 +135,78 @@ export default function HeroV2() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/30 to-white/15" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+      <div className="max-w-7xl mx-auto px-0 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-8 items-stretch">
 
-          {/* Left — Text Content */}
-          <div className="flex flex-col gap-5 lg:gap-6 max-w-xl z-10">
-            {/* Badge */}
-            <div className="inline-flex self-start">
-              <span className="text-white inline-flex items-center gap-2  rounded-full py-1.5 px-4 text-xs font-bold text-primary tracking-wide border border-primary/20">
-                <svg className="w-3.5 h-3.5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-                5 Year Solar Commitment
-              </span>
+          {/* Left Column — Text Content + Mobile Banner Background */}
+          <div className="relative flex flex-col justify-between z-10 m-auto">
+            {/* Mobile Background image */}
+            <div className="lg:hidden absolute inset-0 pointer-events-none z-0 overflow-hidden select-none">
+              <Image
+                src="/new_assets/hero_banner.webp"
+                alt="Solar background image"
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/95 via-black/85 to-black/60" />
             </div>
 
-            {/* Heading */}
-            <div>
-              <h1 className="text-2xl lg:text-[38px] text-white  font-black  leading-[1.1] tacking-tight">
-                Guaranteed Solar Generation.
-                <span className="text-primary">
-                  &nbsp; Or We Pay You Back.
-                </span>
-              </h1>
-
-            </div>
-
-            {/* Subheading */}
-            <p className="text-white text-base sm:text-lg  font-medium leading-relaxed -mt-2">
-              For the next <span className="text-secondary font-extrabold">25 years</span> — and beyond.*
-            </p>
-
-            {/* Body */}
-            <p className="text-white/80 text-sm leading-relaxed max-w-md hidden lg:block">
-              As a premier <strong className="text-white font-extrabold">Solar Company in Lucknow</strong>, SunLynk Solar provides top-tier <strong className="text-white font-extrabold">Rooftop Solar Installation in Uttar Pradesh</strong>. We commit to your generation — and if we fall short, <span className="text-primary font-semibold">we pay you back.</span>
-            </p>
-
-            {/* CTAs */}
-            {/* <div className="flex flex-wrap items-center gap-4">
-              <a
-                href="#quote-form"
-                className="group bg-primary hover:bg-primary-hover text-white font-bold text-md py-3.5 px-8 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 flex items-center gap-2 cursor-pointer"
-              >
-                <span>Get free quote</span>
-                <ArrowRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
-              </a>
-              <a
-                href="#solar-process"
-                className="group flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-primary transition-colors py-4 px-2 hidden lg:flex"
-              >
-                <span className="w-10 h-10 rounded-full border-2 border-gray-200 group-hover:border-primary flex items-center justify-center transition-colors">
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            {/* Content Container */}
+            <div className="relative z-10 px-4 pt-12 pb-6 md:px-8 lg:px-0 lg:py-0 flex flex-col gap-5 lg:gap-6 max-w-xl">
+              {/* Badge */}
+              <div className="inline-flex self-start">
+                <span className="text-white inline-flex items-center gap-2 rounded-full py-1.5 px-4 text-xs font-bold text-primary tracking-wide border border-primary/20 bg-black/20 backdrop-blur-sm lg:bg-transparent">
+                  <svg className="w-3.5 h-3.5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
+                  5 Year Solar Commitment
                 </span>
-                <span>See how it works</span>
-              </a>
+              </div>
+
+              {/* Heading */}
+              <div>
+                <h1 className="text-2xl lg:text-[38px] text-white font-black leading-[1.1] tracking-tight">
+                  Guaranteed Solar Generation.
+                  <span className="text-primary">
+                    &nbsp; Or We Pay You Back.
+                  </span>
+                </h1>
+              </div>
+
+              {/* Subheading */}
+              <p className="text-white text-base sm:text-lg font-medium leading-relaxed -mt-2">
+                For the next <span className="text-secondary font-extrabold">25 years</span> — and beyond.*
+              </p>
+
+              {/* Body */}
+              <p className="text-white/80 text-sm leading-relaxed max-w-md hidden lg:block">
+                As a premier <strong className="text-white font-extrabold">Solar Company in Lucknow</strong>, SunLynk Solar provides top-tier <strong className="text-white font-extrabold">Rooftop Solar Installation in Uttar Pradesh</strong>. We commit to your generation — and if we fall short, <span className="text-primary font-semibold">we pay you back.</span>
+              </p>
+
+              {/* Trust mini */}
+              <div className="flex items-center gap-6 pt-6 border-t border-gray-100">
+                <div className="flex items-center gap-2">
+                  <div className="flex text-secondary">
+                    {[...Array(5)].map((_, i) => (
+                      <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <span className="text-sm font-bold text-white">4.9</span>
+                </div>
+                <span className="text-[13px] text-gray-400 font-medium">142+ Google Reviews</span>
+                <span className="text-[13px] text-gray-400 font-medium">• 10+ Years Experience</span>
+              </div>
+            </div>
+
+            {/* Subsidy Countdown Timer Separator */}
+            {/* <div className="relative z-10 w-full mt-8 lg:mt-10">
+              <CountdownTimer />
             </div> */}
 
-            {/* Trust mini */}
-            <div className="flex items-center gap-6 pt-6 border-t border-gray-100">
-              <div className="flex items-center gap-2">
-                <div className="flex text-secondary">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <span className="text-sm font-bold text-white">4.9</span>
-              </div>
-              <span className="text-[13px] text-gray-400 font-medium">142+ Google Reviews</span>
-              <span className="text-[13px] text-gray-400 font-medium">• 10+ Years Experience</span>
-            </div>
+
           </div>
 
           {/* Right — Contact Form Container */}
