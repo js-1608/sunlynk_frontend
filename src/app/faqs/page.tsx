@@ -33,7 +33,7 @@ export default function FAQs() {
     },
     {
       q: "How does the solar subsidy scheme work in India?",
-      a: "Under the PM Surya Ghar Muft Bijli Yojana, residential homeowners are eligible for significant government subsidies. For systems up to 2kW, the subsidy is ₹30,000 per kW. For 3kW, the subsidy is ₹78,000. For commercial and housing societies, other rules and accelerated depreciation benefits apply. SunLynk handles all the registration, documentation, and Discom inspection paperwork to ensure the subsidy is directly credited to your account.",
+      a: "Under the PM Surya Ghar Muft Bijli Yojana, residential homeowners are eligible for significant government subsidies. For systems up to 2kW, the subsidy is ₹30,000 per kW. For 3kW, the subsidy is ₹1,08,000. For commercial and housing societies, other rules and accelerated depreciation benefits apply. SunLynk handles all the registration, documentation, and Discom inspection paperwork to ensure the subsidy is directly credited to your account.",
       cat: "subsidies"
     },
     {
