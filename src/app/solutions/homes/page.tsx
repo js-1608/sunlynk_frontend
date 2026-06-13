@@ -158,7 +158,7 @@ export default function HomesPage() {
 
                 {/* Trust pills row — mobile only */}
                 <div className="flex flex-wrap gap-2 lg:hidden">
-                  {["PM Subsidy up to ₹78,000", "25-yr Performance Guarantee", "Free Site Survey"].map((t) => (
+                  {["PM Subsidy up to ₹1,08,000", "30-yr Performance Guarantee", "Free Site Survey"].map((t) => (
                     <span
                       key={t}
                       className="text-[11px] font-semibold text-white bg-white/10 border border-white/10 rounded-full px-3 py-1"
