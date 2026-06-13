@@ -40,7 +40,7 @@ export default function Contact() {
 
       {/* Contact Form & Main Media */}
       <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left Column: Image/Branding */}
           <div className="flex flex-col gap-6 justify-center text-left">
             <div>
@@ -52,7 +52,7 @@ export default function Contact() {
                 Please fill the form and we will get in touch with you for the consultation
               </p>
             </div>
-            <div className="relative w-full aspect-[4/3] rounded-3xl">
+            <div className="relative w-full ">
               <img
                 src="/new_assets/teams.webp"
                 alt="Contact SunLynk Solar"
