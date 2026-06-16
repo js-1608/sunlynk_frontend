@@ -137,11 +137,20 @@ export default function ZeroInvestmentCalculator() {
                 })}
               </div>
               <p className="text-xs text-slate-450 mt-2.5 leading-normal">
-                For other system size{" "}
+                For other system sizes,{" "}
                 <Link href="/contact" className="text-primary hover:underline font-bold transition-all">
                   contact our expert
                 </Link>
-                {" "} to get custom EMI plans.
+                {" "}or chat with us on{" "}
+                <a
+                  href="https://wa.me/918573003001?text=Hi, I'd like to know more about EMI Interest rates and Subsidy Process."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline font-bold transition-all"
+                >
+                  WhatsApp
+                </a>
+                {" "}to get custom EMI plans.
               </p>
             </div>
 

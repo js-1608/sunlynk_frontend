@@ -239,7 +239,7 @@ export default function GoogleReviews({ isDark = false }: { isDark?: boolean }) 
         </div>
 
         {/* Call to action */}
-        <div className={`flex flex-col sm:flex-row justify-center items-center gap-4 mt-4 pt-4 border-t ${isDark ? "border-emerald-950/40" : "border-gray-50"
+        {/* <div className={`flex flex-col sm:flex-row justify-center items-center gap-4 mt-4 pt-4 border-t ${isDark ? "border-emerald-950/40" : "border-gray-50"
           }`}>
           <span className={`text-sm ${isDark ? "text-slate-400" : "text-gray-500"}`}>Are you a satisfied customer?</span>
           <a
@@ -252,7 +252,7 @@ export default function GoogleReviews({ isDark = false }: { isDark?: boolean }) 
             <span>Write a Google Review</span>
             <ArrowRight size={14} />
           </a>
-        </div>
+        </div> */}
 
       </div>
     </section>
