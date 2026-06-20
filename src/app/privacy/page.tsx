@@ -50,7 +50,7 @@ export default function PrivacyPolicy() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            
+
             {/* Left Column: Sidebar TOC */}
             <div className="lg:col-span-4 sticky top-28 hidden lg:block bg-white p-6 rounded-2xl border border-slate-200/60 shadow-sm">
               <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">
@@ -64,11 +64,10 @@ export default function PrivacyPolicy() {
                     <button
                       key={sec.id}
                       onClick={() => scrollToSection(sec.id)}
-                      className={`flex items-center gap-3 w-full text-left px-4 py-3 rounded-xl transition-all font-semibold text-sm ${
-                        isActive
+                      className={`flex items-center gap-3 w-full text-left px-4 py-3 rounded-xl transition-all font-semibold text-sm ${isActive
                           ? "bg-primary/10 text-primary border-l-4 border-primary"
                           : "text-slate-600 hover:bg-slate-100/60 hover:text-slate-800"
-                      }`}
+                        }`}
                     >
                       <Icon size={16} />
                       {sec.title}
@@ -89,7 +88,7 @@ export default function PrivacyPolicy() {
 
             {/* Right Column: Legal Text */}
             <div className="lg:col-span-8 bg-white p-8 md:p-12 rounded-3xl border border-slate-200/60 shadow-sm flex flex-col gap-10">
-              
+
               {/* Introduction Intro Card */}
               <div className="bg-slate-50 border border-slate-200/50 rounded-2xl p-6 flex items-start gap-4">
                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
@@ -157,7 +156,7 @@ export default function PrivacyPolicy() {
                   <p>
                     In accordance with Rule 5(7) of the Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011 (“Data Protection Rules”), you have the following rights regarding the personal information and Sensitive Personal Data or Information (SPDI) you share with us:
                   </p>
-                  
+
                   <div className="bg-slate-50 border border-slate-200/60 rounded-xl p-5 my-4 space-y-3">
                     <p className="text-xs text-slate-700 leading-relaxed">
                       <strong>Right to Review and Modify:</strong> You have the right to request a review of the personal information or SPDI provided by you to ensure that any inaccurate or deficient information is corrected or amended.
@@ -202,7 +201,7 @@ export default function PrivacyPolicy() {
                   <p>
                     In accordance with Rule 5(9) of the Data Protection Rules, 2011, and Rules 3(1)(c) & 3(1)(f) of the Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021 (“Intermediary Rules”), SunLynk Solar has designated a Grievance Officer to address any questions, discrepancies, or grievances regarding the processing of your personal information.
                   </p>
-                  
+
                   <p>
                     You may contact our Grievance Officer with details of your query or grievance, and we will address your concerns within the statutory period of 15 (fifteen) business days.
                   </p>
@@ -216,7 +215,7 @@ export default function PrivacyPolicy() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                       <div>
                         <span className="block text-slate-400 font-semibold uppercase tracking-wider mb-0.5">Officer Name</span>
-                        <span className="text-slate-700 font-bold">Mr. Amit Kumar</span>
+                        <span className="text-slate-700 font-bold">Mr. Mohit</span>
                       </div>
                       <div>
                         <span className="block text-slate-400 font-semibold uppercase tracking-wider mb-0.5">Designation</span>

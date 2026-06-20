@@ -25,6 +25,7 @@ import {
   Columns,
   Hash,
   Eye,
+  BarChart3,
   PenLine,
   Newspaper,
   Minimize2,
@@ -143,7 +144,12 @@ export default function AdminDashboard() {
   const [role, setRole] = useState<string | null>(null);
   const [token, setToken] = useState<string | null>(null);
   const [userName, setUserName] = useState("");
-  const [activeTab, setActiveTab] = useState<"leads" | "blogs" | "users" | "warranty" | "careers">("leads");
+  const [activeTab, setActiveTab] = useState<"leads" | "blogs" | "users" | "warranty" | "careers" | "analytics">("leads");
+
+  // Analytics state
+  const [analyticsData, setAnalyticsData] = useState<any>(null);
+  const [analyticsLoading, setAnalyticsLoading] = useState(false);
+  const [analyticsPeriod, setAnalyticsPeriod] = useState<"daily" | "monthly" | "yearly">("daily");
 
   const [loading, setLoading] = useState(true);
   const [actionLoading, setActionLoading] = useState(false);
@@ -393,6 +399,32 @@ export default function AdminDashboard() {
     setActiveTab(savedRole === "content_editor" ? "blogs" : "leads");
     fetchData(savedToken, savedRole);
   }, [router]);
+
+  const fetchAnalytics = useCallback(async () => {
+    if (!token) return;
+    setAnalyticsLoading(true);
+    try {
+      const res = await fetch(`${API_URL}/api/analytics/stats`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setAnalyticsData(data);
+      } else {
+        console.error("Failed to fetch analytics");
+      }
+    } catch (err) {
+      console.error("Error fetching analytics stats:", err);
+    } finally {
+      setAnalyticsLoading(false);
+    }
+  }, [token]);
+
+  useEffect(() => {
+    if (activeTab === "analytics" && !analyticsData && !analyticsLoading) {
+      fetchAnalytics();
+    }
+  }, [activeTab, analyticsData, analyticsLoading, fetchAnalytics]);
 
   const fetchData = async (authToken: string, userRole: string | null) => {
     setLoading(true);
@@ -1006,6 +1038,15 @@ export default function AdminDashboard() {
             >
               <Users size={16} />
               <span className="whitespace-nowrap">Staff Accounts</span>
+            </button>
+          )}
+          {(role === "superadmin" || role === "co_admin") && (
+            <button
+              onClick={() => setActiveTab("analytics")}
+              className={`flex-1 md:flex-none flex items-center justify-center md:justify-start gap-2.5 py-3 px-4 rounded-xl text-xs font-bold transition-all cursor-pointer ${activeTab === "analytics" ? "bg-primary text-white shadow-md shadow-primary/10" : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"}`}
+            >
+              <BarChart3 size={16} />
+              <span className="whitespace-nowrap">Web Analytics</span>
             </button>
           )}
         </aside>
@@ -2552,10 +2593,492 @@ export default function AdminDashboard() {
                 </div>
               )}
 
+              {/* ═══════════════ ANALYTICS TAB ═══════════════ */}
+              {activeTab === "analytics" && (role === "superadmin" || role === "co_admin") && (
+                <div className="flex-1 flex flex-col gap-6 text-left w-full">
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div>
+                      <h2 className="text-xl font-bold text-slate-900">Website Traffic & Analytics</h2>
+                      <p className="text-xs text-slate-500">Real-time visitor logs, WhatsApp clicks, pageviews, and geographic metrics</p>
+                    </div>
+
+                    {/* Period Switcher */}
+                    <div className="bg-white border border-slate-200 rounded-xl p-1 shadow-sm flex gap-1 shrink-0">
+                      {(["daily", "monthly", "yearly"] as const).map((period) => (
+                        <button
+                          key={period}
+                          type="button"
+                          onClick={() => setAnalyticsPeriod(period)}
+                          className={`py-1.5 px-3 rounded-lg text-xs font-bold capitalize transition-all cursor-pointer ${
+                            analyticsPeriod === period
+                              ? "bg-primary text-white shadow-sm"
+                              : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                          }`}
+                        >
+                          {period === "daily" ? "Daily (30d)" : period === "monthly" ? "Monthly (12m)" : "Yearly"}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {analyticsLoading && !analyticsData ? (
+                    <div className="flex-1 flex flex-col items-center justify-center gap-3 py-16">
+                      <Loader2 className="w-8 h-8 text-primary animate-spin" />
+                      <span className="text-sm text-slate-500 font-semibold">Aggregating analytics data...</span>
+                    </div>
+                  ) : !analyticsData ? (
+                    <div className="bg-white border border-slate-200 rounded-2xl p-8 text-center text-slate-405 font-semibold shadow-sm">
+                      Failed to load analytics data.
+                    </div>
+                  ) : (
+                    <>
+                      {/* Key Metrics Cards */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+
+                        {/* 1. Pageviews Card */}
+                        <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col justify-between">
+                          <div className="flex justify-between items-start">
+                            <div>
+                              <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Total Pageviews</span>
+                              <span className="text-2xl font-black text-slate-900 block mt-1">
+                                {analyticsData.summary.totalPageviews.toLocaleString()}
+                              </span>
+                            </div>
+                            <div className="w-8 h-8 bg-teal-50 rounded-lg flex items-center justify-center text-teal-700">
+                              <Eye size={16} />
+                            </div>
+                          </div>
+                          <div className="border-t border-slate-100 pt-3.5 mt-3.5 flex justify-between text-[10px] font-bold text-slate-500">
+                            <span>Today: {analyticsData.charts.daily[analyticsData.charts.daily.length - 1]?.pageviews || 0}</span>
+                            <span>Month: {analyticsData.summary.whatsappClicks.monthly}</span>
+                          </div>
+                        </div>
+
+                        {/* 2. Unique Visitors Card */}
+                        <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col justify-between">
+                          <div className="flex justify-between items-start">
+                            <div>
+                              <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Unique Visitors</span>
+                              <span className="text-2xl font-black text-slate-900 block mt-1">
+                                {analyticsData.summary.totalUniqueVisitors.toLocaleString()}
+                              </span>
+                            </div>
+                            <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center text-blue-700">
+                              <Users size={16} />
+                            </div>
+                          </div>
+                          <div className="border-t border-slate-100 pt-3.5 mt-3.5 flex justify-between text-[10px] font-bold text-slate-500">
+                            <span>Today: {analyticsData.charts.daily[analyticsData.charts.daily.length - 1]?.uniqueVisitors || 0}</span>
+                          </div>
+                        </div>
+
+                        {/* 3. WhatsApp Clicks Card */}
+                        <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col justify-between">
+                          <div className="flex justify-between items-start">
+                            <div>
+                              <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">WhatsApp Clicks</span>
+                              <span className="text-2xl font-black text-slate-900 block mt-1">
+                                {analyticsData.summary.whatsappClicks.total.toLocaleString()}
+                              </span>
+                            </div>
+                            <div className="w-8 h-8 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-700">
+                              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                <path d="M12.012 2c-5.506 0-9.988 4.482-9.988 9.988 0 1.758.459 3.474 1.33 4.984L2 22l5.195-1.363c1.458.796 3.09 1.217 4.757 1.217h.005c5.501 0 9.983-4.481 9.983-9.988 0-2.67-1.039-5.18-2.926-7.067C17.147 2.92 14.654 2 12.012 2zm6.012 14.36c-.263.743-1.289 1.352-1.776 1.41-.487.058-1.096.096-1.782-.125-.41-.132-.933-.298-1.587-.58-2.783-1.201-4.577-4.043-4.717-4.229-.139-.185-1.127-1.498-1.127-2.859 0-1.36.709-2.029.96-2.3.251-.27.553-.339.739-.339h.525c.168 0 .385-.064.602.457.222.533.76 1.848.827 1.983.067.135.112.293.023.473-.09.18-.135.293-.27.451-.135.158-.283.353-.404.473-.135.135-.277.283-.12.553.158.27.702 1.157 1.503 1.872.8 1.157 1.474 1.517 1.777 1.677.303.16.482.135.663-.073.18-.208.777-.905.986-1.214.208-.309.416-.259.699-.153.283.107 1.796.848 2.106 1.004.31.156.517.234.593.364.077.13.077.754-.186 1.497z" />
+                              </svg>
+                            </div>
+                          </div>
+                          <div className="border-t border-slate-100 pt-3.5 mt-3.5 flex justify-between text-[10px] font-bold text-slate-500">
+                            <span>Today: {analyticsData.summary.whatsappClicks.daily}</span>
+                            <span>Month: {analyticsData.summary.whatsappClicks.monthly}</span>
+                            <span>Year: {analyticsData.summary.whatsappClicks.yearly}</span>
+                          </div>
+                        </div>
+
+                        {/* 4. Form Submissions Card */}
+                        <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col justify-between">
+                          <div className="flex justify-between items-start">
+                            <div>
+                              <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Form Submissions</span>
+                              <span className="text-2xl font-black text-slate-900 block mt-1">
+                                {analyticsData.summary.totalForms.toLocaleString()}
+                              </span>
+                            </div>
+                            <div className="w-8 h-8 bg-purple-50 rounded-lg flex items-center justify-center text-purple-700">
+                              <FileSpreadsheet size={16} />
+                            </div>
+                          </div>
+                          <div className="border-t border-slate-100 pt-3.5 mt-3.5 flex justify-between text-[10px] font-bold text-slate-500">
+                            <span>Leads: {analyticsData.summary.forms.total.lead}</span>
+                            <span>Claims: {analyticsData.summary.forms.total.warranty}</span>
+                            <span>Careers: {analyticsData.summary.forms.total.job_application}</span>
+                          </div>
+                        </div>
+
+                      </div>
+
+                      {/* Main Chart Section */}
+                      <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+                        <div className="flex justify-between items-center mb-6">
+                          <div>
+                            <h3 className="text-base font-bold text-slate-900">Traffic Trend ({analyticsPeriod})</h3>
+                            <p className="text-xs text-slate-400">Comparing pageviews (solid green) and unique visitors (dashed blue)</p>
+                          </div>
+                          <div className="flex gap-4 text-[10px] font-bold">
+                            <span className="flex items-center gap-1.5 text-teal-700">
+                              <span className="w-2.5 h-2.5 bg-teal-700 rounded-full inline-block"></span> Pageviews
+                            </span>
+                            <span className="flex items-center gap-1.5 text-blue-600">
+                              <span className="w-2.5 h-2.5 bg-blue-600 rounded-full inline-block"></span> Unique Visitors
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Interactive Render */}
+                        <AnalyticsChart data={analyticsData.charts[analyticsPeriod]} period={analyticsPeriod} />
+                      </div>
+
+                      {/* Split Info Tables Grid */}
+                      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+                        {/* Popular Pages */}
+                        <div className="lg:col-span-7 bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col gap-4">
+                          <div>
+                            <h3 className="text-sm font-black uppercase text-slate-900 tracking-wider">Top Visited Pages</h3>
+                            <p className="text-[11px] text-slate-400">Routes receiving the highest volume of traffic</p>
+                          </div>
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-xs text-left">
+                              <thead className="bg-slate-50 text-slate-500 font-bold uppercase tracking-wider border-b border-slate-200">
+                                <tr>
+                                  <th className="py-2.5 px-4">Page Path</th>
+                                  <th className="py-2.5 px-4 text-right">Views</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-100">
+                                {analyticsData.popularPages.length === 0 ? (
+                                  <tr>
+                                    <td colSpan={2} className="py-6 text-center text-slate-400">No page views recorded.</td>
+                                  </tr>
+                                ) : (
+                                  analyticsData.popularPages.map((page: any, idx: number) => (
+                                    <tr key={idx} className="hover:bg-slate-50/50 transition-colors">
+                                      <td className="py-3 px-4 font-mono font-bold text-slate-700">{page.path}</td>
+                                      <td className="py-3 px-4 text-right font-black text-slate-950">{page.count.toLocaleString()}</td>
+                                    </tr>
+                                  ))
+                                )}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+
+                        {/* Geo / Locations Breakdown */}
+                        <div className="lg:col-span-5 bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col gap-4">
+                          <div>
+                            <h3 className="text-sm font-black uppercase text-slate-900 tracking-wider">Visitor Locations</h3>
+                            <p className="text-[11px] text-slate-400">Geographic analysis of traffic sources by city and country</p>
+                          </div>
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-xs text-left">
+                              <thead className="bg-slate-50 text-slate-505 font-bold uppercase tracking-wider border-b border-slate-200">
+                                <tr>
+                                  <th className="py-2.5 px-4">Location</th>
+                                  <th className="py-2.5 px-4 text-right">Visits</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-100">
+                                {analyticsData.geoBreakdown.length === 0 ? (
+                                  <tr>
+                                    <td colSpan={2} className="py-6 text-center text-slate-400">No location data.</td>
+                                  </tr>
+                                ) : (
+                                  analyticsData.geoBreakdown.map((geo: any, idx: number) => (
+                                    <tr key={idx} className="hover:bg-slate-50/50 transition-colors">
+                                      <td className="py-3 px-4 font-semibold text-slate-700">
+                                        {geo.city === "Unknown" ? "" : `${geo.city}, `}{geo.country}
+                                      </td>
+                                      <td className="py-3 px-4 text-right font-black text-slate-950">{geo.count.toLocaleString()}</td>
+                                    </tr>
+                                  ))
+                                )}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+
+                      </div>
+
+                      {/* Detailed Form Submissions breakdown */}
+                      <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col gap-4">
+                        <div>
+                          <h3 className="text-sm font-black uppercase text-slate-900 tracking-wider">Form Submissions Breakdown</h3>
+                          <p className="text-[11px] text-slate-400">Summary of submissions across different customer contact forms</p>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                          {/* Leads Form */}
+                          <div className="bg-slate-50 border border-slate-100 rounded-xl p-4 flex flex-col gap-2">
+                            <span className="text-[10px] text-primary font-black uppercase tracking-wider">Customer Leads Form</span>
+                            <div className="flex justify-between items-center text-xs mt-1 border-b border-slate-200/50 pb-2">
+                              <span className="text-slate-500 font-medium">Daily</span>
+                              <span className="font-bold text-slate-800">{analyticsData.summary.forms.daily.lead}</span>
+                            </div>
+                            <div className="flex justify-between items-center text-xs border-b border-slate-200/50 pb-2">
+                              <span className="text-slate-500 font-medium">Monthly</span>
+                              <span className="font-bold text-slate-800">{analyticsData.summary.forms.monthly.lead}</span>
+                            </div>
+                            <div className="flex justify-between items-center text-xs border-b border-slate-200/50 pb-2">
+                              <span className="text-slate-500 font-medium">Yearly</span>
+                              <span className="font-bold text-slate-800">{analyticsData.summary.forms.yearly.lead}</span>
+                            </div>
+                            <div className="flex justify-between items-center text-xs font-bold text-slate-900 pt-1">
+                              <span>Total Submissions</span>
+                              <span>{analyticsData.summary.forms.total.lead}</span>
+                            </div>
+                          </div>
+
+                          {/* Warranty Claims Form */}
+                          <div className="bg-slate-50 border border-slate-100 rounded-xl p-4 flex flex-col gap-2">
+                            <span className="text-[10px] text-teal-700 font-black uppercase tracking-wider">Warranty Registration Form</span>
+                            <div className="flex justify-between items-center text-xs mt-1 border-b border-slate-200/50 pb-2">
+                              <span className="text-slate-500 font-medium">Daily</span>
+                              <span className="font-bold text-slate-800">{analyticsData.summary.forms.daily.warranty}</span>
+                            </div>
+                            <div className="flex justify-between items-center text-xs border-b border-slate-200/50 pb-2">
+                              <span className="text-slate-500 font-medium">Monthly</span>
+                              <span className="font-bold text-slate-800">{analyticsData.summary.forms.monthly.warranty}</span>
+                            </div>
+                            <div className="flex justify-between items-center text-xs border-b border-slate-200/50 pb-2">
+                              <span className="text-slate-500 font-medium">Yearly</span>
+                              <span className="font-bold text-slate-800">{analyticsData.summary.forms.yearly.warranty}</span>
+                            </div>
+                            <div className="flex justify-between items-center text-xs font-bold text-slate-900 pt-1">
+                              <span>Total Claims</span>
+                              <span>{analyticsData.summary.forms.total.warranty}</span>
+                            </div>
+                          </div>
+
+                          {/* Careers Form */}
+                          <div className="bg-slate-50 border border-slate-100 rounded-xl p-4 flex flex-col gap-2">
+                            <span className="text-[10px] text-purple-700 font-black uppercase tracking-wider">Careers & Job Application</span>
+                            <div className="flex justify-between items-center text-xs mt-1 border-b border-slate-200/50 pb-2">
+                              <span className="text-slate-500 font-medium">Daily</span>
+                              <span className="font-bold text-slate-800">{analyticsData.summary.forms.daily.job_application}</span>
+                            </div>
+                            <div className="flex justify-between items-center text-xs border-b border-slate-200/50 pb-2">
+                              <span className="text-slate-500 font-medium">Monthly</span>
+                              <span className="font-bold text-slate-800">{analyticsData.summary.forms.monthly.job_application}</span>
+                            </div>
+                            <div className="flex justify-between items-center text-xs border-b border-slate-200/50 pb-2">
+                              <span className="text-slate-500 font-medium">Yearly</span>
+                              <span className="font-bold text-slate-800">{analyticsData.summary.forms.yearly.job_application}</span>
+                            </div>
+                            <div className="flex justify-between items-center text-xs font-bold text-slate-900 pt-1">
+                              <span>Total Applications</span>
+                              <span>{analyticsData.summary.forms.total.job_application}</span>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+
+                      {/* Detailed Visitor Logs Table */}
+                      <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col gap-4">
+                        <div className="flex justify-between items-center">
+                          <div>
+                            <h3 className="text-sm font-black uppercase text-slate-900 tracking-wider">Recent Activity Logs</h3>
+                            <p className="text-[11px] text-slate-400">Detailed raw events captured from the active site</p>
+                          </div>
+                          <button
+                            onClick={fetchAnalytics}
+                            disabled={analyticsLoading}
+                            className="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-1.5 px-3 rounded-lg text-xs transition-colors cursor-pointer disabled:opacity-50"
+                          >
+                            Refresh Log
+                          </button>
+                        </div>
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-xs text-left">
+                            <thead className="bg-slate-50 text-slate-500 font-bold uppercase tracking-wider border-b border-slate-200">
+                              <tr>
+                                <th className="py-2.5 px-4">Event Type</th>
+                                <th className="py-2.5 px-4">Target / Value</th>
+                                <th className="py-2.5 px-4">IP Address</th>
+                                <th className="py-2.5 px-4">Location</th>
+                                <th className="py-2.5 px-4">User Agent</th>
+                                <th className="py-2.5 px-4 text-right">Time</th>
+                              </tr>
+                            </thead>
+                            <tbody className="divide-y divide-slate-100">
+                              {analyticsData.recentLogs.length === 0 ? (
+                                <tr>
+                                  <td colSpan={6} className="py-6 text-center text-slate-400">No activity logs recorded.</td>
+                                </tr>
+                              ) : (
+                                analyticsData.recentLogs.map((log: any, idx: number) => (
+                                  <tr key={idx} className="hover:bg-slate-50/50 transition-colors">
+                                    <td className="py-3 px-4">
+                                      <span
+                                        className={`px-2 py-0.5 rounded-full text-[9px] font-bold tracking-wide uppercase ${
+                                          log.eventType === "pageview"
+                                            ? "bg-blue-50 text-blue-700 border border-blue-200/50"
+                                            : log.eventType === "click"
+                                            ? "bg-green-50 text-green-700 border border-green-200/50"
+                                            : "bg-purple-50 text-purple-700 border border-purple-200/50"
+                                        }`}
+                                      >
+                                        {log.eventType}
+                                      </span>
+                                    </td>
+                                    <td className="py-3 px-4 font-mono text-[11px] font-bold text-slate-700 max-w-[200px] truncate" title={log.eventName}>
+                                      {log.eventName}
+                                    </td>
+                                    <td className="py-3 px-4 font-mono font-medium text-slate-650">{log.ip}</td>
+                                    <td className="py-3 px-4 text-slate-700">
+                                      {log.location ? `${log.location.city === "Unknown" ? "" : `${log.location.city}, `}${log.location.country}` : "Unknown"}
+                                    </td>
+                                    <td className="py-3 px-4 text-slate-400 text-[10px] max-w-[180px] truncate" title={log.userAgent}>
+                                      {log.userAgent}
+                                    </td>
+                                    <td className="py-3 px-4 text-right font-medium text-slate-500">
+                                      {new Date(log.createdAt).toLocaleString()}
+                                    </td>
+                                  </tr>
+                                ))
+                              )}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
+              )}
+
             </>
           )}
         </main>
       </div>
+    </div>
+  );
+}
+
+// Visual SVG area/line chart component
+function AnalyticsChart({ data, period }: { data: any[]; period: "daily" | "monthly" | "yearly" }) {
+  if (!data || data.length === 0) {
+    return (
+      <div className="h-64 flex items-center justify-center bg-slate-50 rounded-2xl border border-dashed border-slate-300">
+        <span className="text-slate-400 font-semibold text-xs">No chart data available for this range</span>
+      </div>
+    );
+  }
+
+  const width = 800;
+  const height = 220;
+  const paddingLeft = 50;
+  const paddingRight = 20;
+  const paddingTop = 20;
+  const paddingBottom = 30;
+
+  const chartWidth = width - paddingLeft - paddingRight;
+  const chartHeight = height - paddingTop - paddingBottom;
+
+  const pageviewsList = data.map((d: any) => d.pageviews);
+  const visitorsList = data.map((d: any) => d.uniqueVisitors);
+  const maxVal = Math.max(...pageviewsList, ...visitorsList, 10);
+
+  const getX = (index: number) => {
+    if (data.length <= 1) return paddingLeft + chartWidth / 2;
+    return paddingLeft + (index / (data.length - 1)) * chartWidth;
+  };
+
+  const getY = (val: number) => {
+    return paddingTop + chartHeight - (val / maxVal) * chartHeight;
+  };
+
+  const getLinePath = (list: number[]) => {
+    return list.map((val, idx) => `${idx === 0 ? "M" : "L"} ${getX(idx)} ${getY(val)}`).join(" ");
+  };
+
+  const getAreaPath = (list: number[]) => {
+    if (list.length === 0) return "";
+    const linePath = getLinePath(list);
+    return `${linePath} L ${getX(list.length - 1)} ${paddingTop + chartHeight} L ${getX(0)} ${paddingTop + chartHeight} Z`;
+  };
+
+  const getLabel = (d: any) => {
+    if (period === "daily") {
+      const parts = d.date.split("-");
+      return parts.length === 3 ? `${parts[2]}/${parts[1]}` : d.date;
+    }
+    if (period === "monthly") {
+      const parts = d.month.split("-");
+      return parts.length === 2 ? `${parts[1]}/${parts[0].slice(2)}` : d.month;
+    }
+    return d.year;
+  };
+
+  const labelInterval = Math.max(1, Math.ceil(data.length / 8));
+  const yGridVals = [0, maxVal * 0.33, maxVal * 0.66, maxVal];
+
+  return (
+    <div className="w-full overflow-x-auto">
+      <svg viewBox={`0 0 ${width} ${height}`} className="w-full min-w-[700px] h-auto">
+        <defs>
+          <linearGradient id="pvGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#0f766e" stopOpacity="0.15" />
+            <stop offset="100%" stopColor="#0f766e" stopOpacity="0.0" />
+          </linearGradient>
+          <linearGradient id="uvGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.15" />
+            <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.0" />
+          </linearGradient>
+        </defs>
+
+        {/* Y Axis Gridlines & Labels */}
+        {yGridVals.map((val, idx) => {
+          const y = getY(val);
+          return (
+            <g key={idx} className="opacity-40">
+              <line x1={paddingLeft} y1={y} x2={width - paddingRight} y2={y} stroke="#cbd5e1" strokeWidth={1} strokeDasharray="3 3" />
+              <text x={paddingLeft - 10} y={y + 4} textAnchor="end" className="text-[10px] font-bold fill-slate-400">{Math.round(val)}</text>
+            </g>
+          );
+        })}
+
+        {/* Area paths */}
+        <path d={getAreaPath(pageviewsList)} fill="url(#pvGrad)" />
+        <path d={getAreaPath(visitorsList)} fill="url(#uvGrad)" />
+
+        {/* Line paths */}
+        <path d={getLinePath(pageviewsList)} fill="none" stroke="#0f766e" strokeWidth={2} strokeLinecap="round" />
+        <path d={getLinePath(visitorsList)} fill="none" stroke="#3b82f6" strokeWidth={2} strokeLinecap="round" strokeDasharray="4 2" />
+
+        {/* Data points (dots) */}
+        {data.map((d: any, idx: number) => {
+          const x = getX(idx);
+          const yPv = getY(d.pageviews);
+          const yUv = getY(d.uniqueVisitors);
+          return (
+            <g key={idx}>
+              <circle cx={x} cy={yPv} r={3.5} fill="#0f766e" stroke="#fff" strokeWidth={1.5} />
+              <circle cx={x} cy={yUv} r={3.5} fill="#3b82f6" stroke="#fff" strokeWidth={1.5} />
+            </g>
+          );
+        })}
+
+        {/* X Axis Labels */}
+        {data.map((d: any, idx: number) => {
+          if (idx % labelInterval !== 0 && idx !== data.length - 1) return null;
+          const x = getX(idx);
+          const y = paddingTop + chartHeight + 18;
+          return (
+            <text key={idx} x={x} y={y} textAnchor="middle" className="text-[10px] font-bold fill-slate-400">
+              {getLabel(d)}
+            </text>
+          );
+        })}
+      </svg>
     </div>
   );
 }

@@ -54,7 +54,7 @@ const reviews: Review[] = [
   },
   {
     initials: "AP",
-    name: "Amit Patel",
+    name: "Mohit",
     time: "2 weeks ago • Verified Buyer",
     text: "Best solar product distributor in Delhi! They offered highly competitive pricing for bifacial N-type double glass modules. Fast delivery, perfect condition, and seamless Modbus connectivity guidelines.",
     avatarBg: "bg-secondary/10",

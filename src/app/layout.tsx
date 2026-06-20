@@ -3,6 +3,7 @@ import { DM_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import ClientLayoutWrapper from "@/components/ClientLayoutWrapper";
 import Script from "next/script";
+import AnalyticsTracker from "@/components/AnalyticsTracker";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -64,6 +65,7 @@ export default function RootLayout({
       className={`${dmSans.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white text-dark">
+        <AnalyticsTracker />
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
