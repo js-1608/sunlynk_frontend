@@ -141,7 +141,7 @@ export default function LynkSureShowcase() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
               {/* Left Column (Interactive Cards list - 5 cols) */}
-              <div className="lg:col-span-5 flex flex-col gap-5">
+              <div className="lg:col-span-5 flex flex-col gap-5 order-2 lg:order-1">
                 <div className="text-left mb-2">
                   <span className="text-[10px] sm:text-xs font-bold text-emerald-600 uppercase tracking-widest block mb-1">
                     Proprietary Structure
@@ -190,7 +190,7 @@ export default function LynkSureShowcase() {
               </div>
 
               {/* Right Column (Hero Product Image Spotlight - 7 cols) */}
-              <div className="lg:col-span-7 flex flex-col gap-6 items-center">
+              <div className="lg:col-span-7 flex flex-col gap-6 items-center order-1 lg:order-2">
 
                 {/* Visual Glassmorphic Showcase Box */}
                 <div className="relative w-full aspect-[4/3] flex items-center justify-center group  overflow-hidden">
