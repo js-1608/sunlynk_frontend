@@ -136,8 +136,8 @@ export default function Header() {
                   Warranty Claims
                 </Link>
 
-                <Link href="/careers" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-medium border-t border-gray-50 mt-1 pt-2">
-                  Careers
+                <Link href="/blog" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-medium border-t border-gray-50 mt-1 pt-2">
+                  Blog
                 </Link>
                 <Link href="/faqs" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-medium">
                   FAQs
@@ -153,11 +153,11 @@ export default function Header() {
               About us
             </Link>
             <Link
-              href="/blog"
-              className={`font-semibold hover:text-primary transition-colors ${pathname.startsWith("/blog") ? "text-primary" : "text-gray-800"
+              href="/careers"
+              className={`font-semibold hover:text-primary transition-colors ${pathname === "/careers" ? "text-primary" : "text-gray-800"
                 }`}
             >
-              Blog
+              Careers
             </Link>
             <Link
               href="/contact"
@@ -236,7 +236,7 @@ export default function Header() {
                 {activeDropdown === "more" && (
                   <div className="pl-4 mt-2 flex flex-col gap-2 text-sm text-gray-700">
                     <Link href="/support/warranty" className="py-1">Warranty Claims</Link>
-                    <Link href="/careers" className="py-1 border-t border-gray-50 pt-2 mt-1">Careers</Link>
+                    <Link href="/blog" className="py-1 border-t border-gray-50 pt-2 mt-1">Blog</Link>
                     <Link href="/faqs" className="py-1">FAQs</Link>
                   </div>
                 )}
@@ -245,8 +245,8 @@ export default function Header() {
               <Link href="/about" className="py-2 border-b border-gray-50 font-semibold text-gray-800">
                 About us
               </Link>
-              <Link href="/blog" className="py-2 border-b border-gray-50 font-semibold text-gray-800">
-                Blog
+              <Link href="/careers" className="py-2 border-b border-gray-50 font-semibold text-gray-800">
+                Careers
               </Link>
               <Link href="/contact" className="py-2 border-b border-gray-50 font-semibold text-gray-800">
                 Contact us
