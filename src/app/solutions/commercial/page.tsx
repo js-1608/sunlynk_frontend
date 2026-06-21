@@ -449,120 +449,120 @@ export default function CommercialPage() {
       </section>
 
       {/* Why Choose SunLynk */}
-      <section className="py-24 bg-[#065F46] border-b border-slate-100">
+      {/* <section className="py-24 bg-[#065F46] border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
 
-          {/* Section Header */}
-          <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center gap-3">
-            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/10 rounded-full py-1 px-3.5 shadow-sm">
-              <span className="text-[10px] uppercase tracking-wider font-extrabold text-emerald-300">Why Partner with Us</span>
+      <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center gap-3">
+        <div className="inline-flex items-center gap-2 bg-white/10 border border-white/10 rounded-full py-1 px-3.5 shadow-sm">
+          <span className="text-[10px] uppercase tracking-wider font-extrabold text-emerald-300">Why Partner with Us</span>
+        </div>
+        <h2 className="text-3xl md:text-5xl font-black text-white leading-tight tracking-tight">
+          Why Choose SunLynk
+        </h2>
+        <p className="text-sm sm:text-base text-gray-200 max-w-2xl leading-relaxed mt-2 font-semibold">
+          India's trusted commercial solar partner, delivering unmatched engineering capability, financial returns, and lifetime support.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
+
+        
+        <div className="lg:col-span-6 flex flex-col justify-between text-left">
+          <div>
+            <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-xl border border-slate-200/60 bg-slate-100">
+              <Image
+                src="/new_assets/small_image.webp"
+                alt="SunLynk Commercial Solar Expert"
+                fill
+                className="object-cover"
+              />
             </div>
-            <h2 className="text-3xl md:text-5xl font-black text-white leading-tight tracking-tight">
-              Why Choose SunLynk
-            </h2>
-            <p className="text-sm sm:text-base text-gray-200 max-w-2xl leading-relaxed mt-2 font-semibold">
-              India's trusted commercial solar partner, delivering unmatched engineering capability, financial returns, and lifetime support.
+            <h3 className="text-xl sm:text-2xl font-black text-white mt-6 leading-tight">
+              Quality that lasts more than 25+ years
+            </h3>
+            <p className="text-xs sm:text-sm text-gray-100 leading-relaxed mt-2.5 font-semibold text-justify">
+              From custom engineering design and flawless execution to active SCADA monitoring and lifetime maintenance, we provide end-to-end support for your enterprise energy transition.
             </p>
           </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
-
-            {/* Left Column: Visual Showcase */}
-            <div className="lg:col-span-6 flex flex-col justify-between text-left">
-              <div>
-                <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-xl border border-slate-200/60 bg-slate-100">
-                  <Image
-                    src="/new_assets/small_image.webp"
-                    alt="SunLynk Commercial Solar Expert"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-black text-white mt-6 leading-tight">
-                  Quality that lasts more than 25+ years
-                </h3>
-                <p className="text-xs sm:text-sm text-gray-100 leading-relaxed mt-2.5 font-semibold text-justify">
-                  From custom engineering design and flawless execution to active SCADA monitoring and lifetime maintenance, we provide end-to-end support for your enterprise energy transition.
-                </p>
-              </div>
-            </div>
-
-            {/* Right Column: 2x2 Stats Grid */}
-            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
-
-              {/* Stat 1: 10+ Years */}
-              <div className="bg-white border border-slate-200/60 rounded-xl p-6 flex flex-col justify-between h-[200px]  hover:shadow-md hover:border-primary/30 transition-all duration-300 group">
-                <div className="flex flex-col gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300 shrink-0">
-                    <Sun size={20} />
-                  </div>
-                  <div>
-                    <span className="block text-2xl sm:text-3xl font-black text-slate-900 leading-none">
-                      10+ Years
-                    </span>
-                    <span className="block text-xs font-bold text-slate-500 uppercase mt-2 tracking-wider leading-relaxed">
-                      Industry Experience
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Stat 2: 500+ */}
-              <div className="bg-white border border-slate-200/60 rounded-xl p-6 flex flex-col justify-between h-[200px] hover:shadow-md hover:border-primary/30 transition-all duration-300 group">
-                <div className="flex flex-col gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300 shrink-0">
-                    <Building2 size={20} />
-                  </div>
-                  <div>
-                    <span className="block text-2xl sm:text-3xl font-black text-slate-900 leading-none">
-                      500+
-                    </span>
-                    <span className="block text-xs font-bold text-slate-500 uppercase mt-2 tracking-wider leading-relaxed">
-                      Commercial & RWA Sites Solarized
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Stat 3: 27,000+ */}
-              <div className="bg-white border border-slate-200/60 rounded-xl p-6 flex flex-col justify-between h-[200px] hover:shadow-md hover:border-primary/30 transition-all duration-300 group">
-                <div className="flex flex-col gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300 shrink-0">
-                    <Users size={20} />
-                  </div>
-                  <div>
-                    <span className="block text-2xl sm:text-3xl font-black text-slate-900 leading-none">
-                      27,000+
-                    </span>
-                    <span className="block text-xs font-bold text-slate-500 uppercase mt-2 tracking-wider leading-relaxed">
-                      Happy Customers
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Stat 4: 800 Cr+ */}
-              <div className="bg-white border border-slate-200/60 rounded-xl p-6 flex flex-col justify-between h-[200px] hover:shadow-md hover:border-primary/30 transition-all duration-300 group">
-                <div className="flex flex-col gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300 shrink-0">
-                    <TrendingUp size={20} />
-                  </div>
-                  <div>
-                    <span className="block text-2xl sm:text-3xl font-black text-slate-900 leading-none">
-                      800 Cr+
-                    </span>
-                    <span className="block text-xs font-bold text-slate-500 uppercase mt-2 tracking-wider leading-relaxed">
-                      Cumulative Savings Generated
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
         </div>
-      </section>
+
+        
+        <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+          
+          <div className="bg-white border border-slate-200/60 rounded-xl p-6 flex flex-col justify-between h-[200px]  hover:shadow-md hover:border-primary/30 transition-all duration-300 group">
+            <div className="flex flex-col gap-4">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300 shrink-0">
+                <Sun size={20} />
+              </div>
+              <div>
+                <span className="block text-2xl sm:text-3xl font-black text-slate-900 leading-none">
+                  10+ Years
+                </span>
+                <span className="block text-xs font-bold text-slate-500 uppercase mt-2 tracking-wider leading-relaxed">
+                  Industry Experience
+                </span>
+              </div>
+            </div>
+          </div>
+
+         
+          <div className="bg-white border border-slate-200/60 rounded-xl p-6 flex flex-col justify-between h-[200px] hover:shadow-md hover:border-primary/30 transition-all duration-300 group">
+            <div className="flex flex-col gap-4">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300 shrink-0">
+                <Building2 size={20} />
+              </div>
+              <div>
+                <span className="block text-2xl sm:text-3xl font-black text-slate-900 leading-none">
+                  500+
+                </span>
+                <span className="block text-xs font-bold text-slate-500 uppercase mt-2 tracking-wider leading-relaxed">
+                  Commercial & RWA Sites Solarized
+                </span>
+              </div>
+            </div>
+          </div>
+
+          
+          <div className="bg-white border border-slate-200/60 rounded-xl p-6 flex flex-col justify-between h-[200px] hover:shadow-md hover:border-primary/30 transition-all duration-300 group">
+            <div className="flex flex-col gap-4">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300 shrink-0">
+                <Users size={20} />
+              </div>
+              <div>
+                <span className="block text-2xl sm:text-3xl font-black text-slate-900 leading-none">
+                  27,000+
+                </span>
+                <span className="block text-xs font-bold text-slate-500 uppercase mt-2 tracking-wider leading-relaxed">
+                  Happy Customers
+                </span>
+              </div>
+            </div>
+          </div>
+
+          
+          <div className="bg-white border border-slate-200/60 rounded-xl p-6 flex flex-col justify-between h-[200px] hover:shadow-md hover:border-primary/30 transition-all duration-300 group">
+            <div className="flex flex-col gap-4">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300 shrink-0">
+                <TrendingUp size={20} />
+              </div>
+              <div>
+                <span className="block text-2xl sm:text-3xl font-black text-slate-900 leading-none">
+                  800 Cr+
+                </span>
+                <span className="block text-xs font-bold text-slate-500 uppercase mt-2 tracking-wider leading-relaxed">
+                  Cumulative Savings Generated
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+      </section > */
+      }
 
       {/* Commercial Solar ROI Calculator */}
       <CommercialCalculator />
@@ -668,6 +668,6 @@ export default function CommercialPage() {
 
         </div>
       </section>
-    </div>
+    </div >
   );
 }
