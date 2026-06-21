@@ -41,6 +41,7 @@ import FaqAccordion from "@/components/FaqAccordion";
 import StatsCounter from "@/components/StatsCounter";
 import productsData from "@/data/products.json";
 import SolarCalculator from "@/components/SolarCalculator";
+import ActualInstallations from "@/components/ActualInstallations";
 import ContactForm from "@/components/ContactForm";
 import {
   Sun,
@@ -304,11 +305,15 @@ export default function Home() {
 
       <LynkSureShowcase />
 
+
       <ZeroInvestmentCalculator />
 
 
       {/* Solar Savings Calculator */}
       <SolarCalculator />
+
+      {/* Actual Installations Gallery */}
+      <ActualInstallations />
 
 
 

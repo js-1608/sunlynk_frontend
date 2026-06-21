@@ -434,9 +434,9 @@ export default function ServicesSection() {
             <div className="group relative bg-white border border-gray-100 shadow-sm rounded-xl overflow-hidden flex flex-col">
               <div className="relative h-60 overflow-hidden">
                 <img
-                  src="/new_assets/solarHome.webp"
+                  src="/new_assets/homes.jpeg"
                   alt="Solar panels on a modern home rooftop"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 object-bottom"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                 <div className="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-extrabold py-1.5 px-4 rounded-full shadow-md z-10">

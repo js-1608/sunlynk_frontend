@@ -119,7 +119,7 @@ export default function Footer() {
           <div className="flex items-center justify-start">
             <Link href="/" className="inline-block bg-white p-3 rounded-md">
               <Image
-                src="/logo.webp"
+                src="/new_assets/logo.jpeg"
                 width={150}
                 height={45}
                 alt="SunLynkLogo"
