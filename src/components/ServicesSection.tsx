@@ -506,7 +506,7 @@ export default function ServicesSection() {
 
             {/* ── Card 2: Housing Societies ── */}
             <div className="group relative bg-white border border-gray-100 shadow-sm rounded-xl overflow-hidden flex flex-col">
-              <div className="relative h-65 overflow-hidden">
+              <div className="relative h-auto lg:h-65 overflow-hidden">
                 <img
                   src="/new_assets/housingSocities.webp"
                   alt="Housing society with rooftop solar installation"
