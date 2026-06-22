@@ -10,6 +10,12 @@ export default function robots(): MetadataRoute.Robots {
           "Googlebot",
           "Bingbot",
           "Applebot",
+        ],
+        allow: "/",
+        disallow: ["/admin/", "/login/"],
+      },
+      {
+        userAgent: [
           "GPTBot",
           "ClaudeBot",
           "Google-Extended",

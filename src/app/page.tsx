@@ -29,7 +29,16 @@ export const metadata: Metadata = {
     "solar panel installation Lucknow",
     "solar company Lucknow",
     "solar subsidy Lucknow",
-    "rooftop solar Uttar Pradesh"
+    "rooftop solar Uttar Pradesh",
+    "sunlynk solar lucknow",
+    "sunlynk solar",
+    "sunlynk rooftop solar",
+    "sunlynk rooftop solar lucknow",
+    "sunlynk rooftop solar UP",
+    "sunlynk solar subsidy",
+    "sunlynk solar subsidy lucknow",
+    "sunlynk solar subsidy UP",
+
   ],
 };
 import Hero from "@/components/Hero";
