@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
 import blogsData from "@/data/blogs.json";
-import productsData from "@/data/products.json";
 import solutionsData from "@/data/solutions.json";
 
 const BASE_URL = "https://www.sunlynksolar.com";
@@ -98,13 +97,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.5,
   }));
 
-  // 4. Load products
-  const productRoutes: MetadataRoute.Sitemap = productsData.map((product) => ({
-    url: `${BASE_URL}/products/${product.slug}/`,
-    lastModified: new Date(),
-    changeFrequency: "monthly",
-    priority: 0.8,
-  }));
+
 
   // 5. Load solutions
   const solutionRoutes: MetadataRoute.Sitemap = solutionsData.map((solution) => ({
@@ -119,7 +112,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...staticRoutes,
     ...blogRoutes,
     ...categoryRoutes,
-    ...productRoutes,
     ...solutionRoutes,
   ];
 }

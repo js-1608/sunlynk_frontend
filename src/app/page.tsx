@@ -48,7 +48,6 @@ import ProblemSection from "@/components/ProblemSection";
 import ProductsPreview from "@/components/ProductsPreview";
 import FaqAccordion from "@/components/FaqAccordion";
 import StatsCounter from "@/components/StatsCounter";
-import productsData from "@/data/products.json";
 import SolarCalculator from "@/components/SolarCalculator";
 import ActualInstallations from "@/components/ActualInstallations";
 import ContactForm from "@/components/ContactForm";
@@ -103,7 +102,6 @@ export default function Home() {
   ];
 
   // We will display the first 4 products on the home page
-  const featuredProducts = productsData.slice(0, 4);
 
   const clientLogos = [
     "/assets/IMAGE/client/image25.avif",
