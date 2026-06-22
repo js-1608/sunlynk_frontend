@@ -12,8 +12,13 @@ export const metadata: Metadata = {
     "SunLynk Solar partners",
     "solar panel distributors",
     "solar equipment suppliers"
-  ]
+  ],
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
+
 
 export default function BrandsLayout({
   children,
