@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import solutionsData from "@/data/solutions.json";
 import SolutionAccordion from "@/components/SolutionAccordion";
 import { Sun, CheckCircle, Phone, Mail, ArrowRight, ShieldCheck } from "lucide-react";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -60,6 +61,13 @@ export default async function SolutionDetailPage({ params }: PageProps) {
 
   return (
     <div>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Solutions", item: "/#solutions" },
+          { name: sol.title, item: `/solutions/${slug}` }
+        ]}
+      />
       {/* Page Header */}
       <section className="relative bg-dark text-white py-16 overflow-hidden">
         <div

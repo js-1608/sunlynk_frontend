@@ -9,6 +9,8 @@ import FaqAccordion from "@/components/FaqAccordion";
 import GoogleReviews from "@/components/GoogleReviews";
 import ZeroInvestmentCalculator from "@/components/ZeroInvestmentCalculator";
 import SolutionsCountdownTimer from "@/components/SolutionsCountdownTimer";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import FAQSchema from "@/components/FAQSchema";
 
 
 export const metadata: Metadata = {
@@ -100,6 +102,19 @@ export default function HomesPage() {
 
   return (
     <div className="bg-white text-dark">
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Solutions", item: "/#solutions" },
+          { name: "Homes", item: "/solutions/homes" }
+        ]}
+      />
+      <FAQSchema
+        items={faqs.map((faq) => ({
+          question: faq.question,
+          answer: faq.answer
+        }))}
+      />
       <section className="relative overflow-hidden bg-white">
 
         {/* ── Desktop-only background image (bottom-left) ── */}

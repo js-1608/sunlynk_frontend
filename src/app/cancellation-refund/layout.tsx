@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 export const metadata: Metadata = {
   title: "Cancellation & Refund Policy | SunLynk Solar",
@@ -17,5 +18,15 @@ export default function CancellationRefundLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Cancellation & Refund", item: "/cancellation-refund" }
+        ]}
+      />
+      {children}
+    </>
+  );
 }

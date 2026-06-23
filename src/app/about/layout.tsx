@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 export const metadata: Metadata = {
   title: "About SunLynk Solar | Leading Rooftop Solar Provider",
@@ -20,5 +21,15 @@ export default function AboutLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: "/" },
+          { name: "About Us", item: "/about" }
+        ]}
+      />
+      {children}
+    </>
+  );
 }

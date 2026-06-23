@@ -52,6 +52,25 @@ export const metadata: Metadata = {
     shortcut: "/fav.png",
     apple: "/fav.png",
   },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://www.sunlynksolar.com",
+    title: "SunLynk Solar | Premium Rooftop Solar Solutions in Lucknow",
+    description: "SunLynk Solar is a premier solar panel installation company. We design and install high-efficiency rooftop solar systems for homes, housing societies, and commercial businesses in Lucknow, Uttar Pradesh, and across India.",
+    siteName: "SunLynk Solar",
+    images: [
+      {
+        url: "/new_assets/hero_banner.webp",
+        width: 1200,
+        height: 630,
+        alt: "SunLynk Solar - Premium Rooftop Solar Solutions in Lucknow",
+      },
+    ],
+  },
+  facebook: {
+    appId: "1041595695118356",
+  },
 };
 
 export default function RootLayout({
@@ -129,29 +148,100 @@ export default function RootLayout({
           />
         </noscript>
 
-        {/* Local Business JSON-LD Schema */}
+        {/* Schema Markup: Organization, LocalBusiness, Website */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              "name": "SunLynk Solar",
-              "url": "https://sunlynksolar.com/",
-              "telephone": "+918573003001",
-              "email": "info@sunlynksolar.com",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Vibhuti Khand Lucknow",
-                "addressRegion": "Uttar Pradesh",
-                "addressCountry": "IN"
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "@id": "https://www.sunlynksolar.com/#organization",
+                "name": "SunLynk Solar",
+                "url": "https://www.sunlynksolar.com",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://www.sunlynksolar.com/new_assets/logo.jpeg"
+                },
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "telephone": "+918573003001",
+                  "contactType": "customer service",
+                  "areaServed": "IN",
+                  "availableLanguage": ["English", "Hindi"]
+                },
+                "sameAs": [
+                  "https://www.facebook.com/sunlynksolar?mibextid=wwXIfr&mibextid=wwXIfr",
+                  "https://www.instagram.com/SunlynkIndia",
+                  "https://www.linkedin.com/company/sunlynk-solar-energy-pvt-ltd/"
+                ]
               },
-              "areaServed": [
-                "Lucknow",
-                "Uttar Pradesh"
-              ],
-              "description": "SunLynk Solar is a rooftop solar installation company in Lucknow offering residential, commercial, and housing society solar solutions with subsidy and EMI support."
-            })
+              {
+                "@context": "https://schema.org",
+                "@type": "LocalBusiness",
+                "@id": "https://www.sunlynksolar.com/#localbusiness",
+                "name": "SunLynk Solar",
+                "image": "https://www.sunlynksolar.com/new_assets/logo.jpeg",
+                "url": "https://www.sunlynksolar.com",
+                "telephone": "+918573003001",
+                "email": "info@sunlynksolar.com",
+                "priceRange": "$$",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Vibhuti Khand",
+                  "addressLocality": "Lucknow",
+                  "addressRegion": "Uttar Pradesh",
+                  "postalCode": "226010",
+                  "addressCountry": "IN"
+                },
+                "geo": {
+                  "@type": "GeoCoordinates",
+                  "latitude": 26.8640,
+                  "longitude": 81.0075
+                },
+                "openingHoursSpecification": {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday"
+                  ],
+                  "opens": "09:00",
+                  "closes": "18:30"
+                },
+                "sameAs": [
+                  "https://www.facebook.com/sunlynksolar?mibextid=wwXIfr&mibextid=wwXIfr",
+                  "https://www.instagram.com/SunlynkIndia",
+                  "https://www.linkedin.com/company/sunlynk-solar-energy-pvt-ltd/"
+                ],
+                "areaServed": [
+                  {
+                    "@type": "AdministrativeArea",
+                    "name": "Lucknow"
+                  },
+                  {
+                    "@type": "AdministrativeArea",
+                    "name": "Uttar Pradesh"
+                  }
+                ],
+                "description": "SunLynk Solar is a rooftop solar installation company in Lucknow offering residential, commercial, and housing society solar solutions with subsidy and EMI support."
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "@id": "https://www.sunlynksolar.com/#website",
+                "name": "SunLynk Solar",
+                "url": "https://www.sunlynksolar.com",
+                "potentialAction": {
+                  "@type": "SearchAction",
+                  "target": "https://www.sunlynksolar.com/search?q={search_term_string}",
+                  "query-input": "required name=search_term_string"
+                }
+              }
+            ])
           }}
         />
 

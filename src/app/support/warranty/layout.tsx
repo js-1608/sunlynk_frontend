@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 export const metadata: Metadata = {
   title: "Solar Warranty Registration & Support | SunLynk Solar",
@@ -18,5 +19,16 @@ export default function WarrantyLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Support", item: "/" },
+          { name: "Warranty Claims", item: "/support/warranty" }
+        ]}
+      />
+      {children}
+    </>
+  );
 }

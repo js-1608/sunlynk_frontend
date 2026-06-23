@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { HelpCircle, ChevronDown, ChevronUp, Search, Info, ShieldCheck, HelpCircle as HelpIcon, Sparkles } from "lucide-react";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import FAQSchema from "@/components/FAQSchema";
 
 interface FAQItem {
   q: string;
@@ -135,6 +137,18 @@ export default function FAQs() {
 
   return (
     <div className="bg-slate-50 min-h-screen text-slate-800">
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: "/" },
+          { name: "FAQs", item: "/faqs" }
+        ]}
+      />
+      <FAQSchema
+        items={faqs.map((faq) => ({
+          question: faq.q,
+          answer: faq.a
+        }))}
+      />
       {/* Page Header */}
       <section className="relative bg-dark text-white py-16 overflow-hidden">
         <div

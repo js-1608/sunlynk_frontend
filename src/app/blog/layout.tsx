@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 export const metadata: Metadata = {
   title: "Blog — Solar Energy Insights & Subsidies | SunLynk Solar",
@@ -22,5 +23,15 @@ export default function BlogLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Blog", item: "/blog" }
+        ]}
+      />
+      {children}
+    </>
+  );
 }
