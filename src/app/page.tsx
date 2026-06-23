@@ -41,7 +41,6 @@ export const metadata: Metadata = {
 
   ],
 };
-import Hero from "@/components/Hero";
 import HeroV2 from "@/components/HeroV2";
 import TrustBar from "@/components/TrustBar";
 import ProblemSection from "@/components/ProblemSection";
