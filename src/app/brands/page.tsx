@@ -22,7 +22,7 @@ export default function Brands() {
     },
     {
       name: "Hitachi",
-      category: "Solar Inverters & BESS",
+      category: "Solar Inverters",
       logo: "/assets/IMAGE/client/image26.avif",
       desc: "Hitachi provides highly reliable, bankable solar string and central inverters ranging from 3kW to 255kW. Built with smart RMS monitoring and wide MPPT voltage ranges, Hitachi inverters maximize yields for residential, commercial rooftops, and ground-mounted utility arrays.",
       highlights: [
@@ -45,19 +45,6 @@ export default function Brands() {
         "Global bankability status"
       ],
       link: "/products/commercial-rooftop"
-    },
-    {
-      name: "Professional meteorological sensors",
-      category: "Weather Monitoring Stations",
-      logo: "/assets/IMAGE/client/image28.avif",
-      desc: "SunLynkcollaborates with leading meteorological sensor providers to construct Class-A Weather Monitoring Stations (WMS) compliant with IEC 61724-1 standards. These sensors measure ambient temperature, wind characteristics, solar irradiance, and panel temperatures.",
-      highlights: [
-        "ISO 9060 Class A Pyranometers",
-        "Ultrasonic Wind Sensors",
-        "Smart modbus WMS Data Loggers",
-        "IEC 61724-1 standard compliance"
-      ],
-      link: "/products/rooftop-pv"
     }
   ];
 

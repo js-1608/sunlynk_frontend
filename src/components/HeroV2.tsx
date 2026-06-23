@@ -54,6 +54,7 @@ function CountdownTimer() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     const targetDate = new Date("2027-03-31T23:59:59").getTime();
 
@@ -140,7 +141,7 @@ export default function HeroV2() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-8 items-stretch">
 
           {/* Left Column — Text Content + Mobile Banner Background */}
-          <div className="relative flex flex-col justify-between text-left h-[80vh] lg:h-auto pt-16 pb-0 lg:py-16 -mx-4 sm:-mx-6 md:-mx-8 lg:mx-0 lg:px-0 z-10">
+          <div className="relative flex flex-col justify-between text-left h-auto lg:h-[80vh] lg:h-auto pt-16 pb-0 lg:py-16 -mx-4 sm:-mx-6 md:-mx-8 lg:mx-0 lg:px-0 z-10">
             {/* Mobile Background image */}
             <div className="lg:hidden absolute inset-0 pointer-events-none z-0 overflow-hidden select-none">
               <Image
@@ -177,11 +178,11 @@ export default function HeroV2() {
 
               {/* Subheading */}
               <p className="px-4 text-white text-base sm:text-base font-medium leading-relaxed -mt-2">
-                Premium Rooftop Solar in Lucknow <span className="text-secondary font-extrabold">With 5 Year Guaranteed </span> — Generation              </p>
+                Premium Rooftop Solar in Lucknow <span className="text-secondary font-extrabold">With 5 Year Guaranteed </span> Generation              </p>
 
               {/* Body */}
               <p className="px-4 text-white/80 text-sm leading-relaxed max-w-md hidden lg:block">
-                As a  <strong className="text-white font-extrabold">Solar Company in Lucknow</strong>, SunLynk Solar provides top-tier <strong className="text-white font-extrabold">Rooftop Solar Installation in Uttar Pradesh</strong>. We commit to your generation — and if we fall short, <span className="text-primary font-semibold">we pay you back.</span>
+                SunLynk Solar helps homeowners, housing societies, and businesses install solar with subsidy support, EMI options, and our Lynk Sure generation guarantee.
               </p>
 
               {/* Trust mini */}
@@ -189,12 +190,12 @@ export default function HeroV2() {
 
               {/* USPs Grid */}
               <div className="px-4 grid grid-cols-2 gap-3 mt-1">
-                <div className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:scale-[1.02] hover:-translate-y-0.5 shadow-md">
+                <div className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-2 backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:scale-[1.02] hover:-translate-y-0.5 shadow-md">
                   <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center text-primary">
                     <ShieldCheck size={18} />
                   </div>
                   <div className="flex flex-col">
-                    <h4 className="text-xs font-bold text-white uppercase tracking-wider leading-tight">25-Yr Panel Warranty</h4>
+                    <h4 className="text-[10px] lg:text-xs text-normal lg:font-bold text-white uppercase tracking-wider leading-tight">25-Yr Panel Warranty</h4>
                     <span className="text-[10px] text-gray-400 font-medium leading-none mt-0.5">Premium panels</span>
                   </div>
                 </div>
@@ -204,7 +205,7 @@ export default function HeroV2() {
                     <Zap size={18} />
                   </div>
                   <div className="flex flex-col">
-                    <h4 className="text-xs font-bold text-white uppercase tracking-wider leading-tight">5-Yr Unit Protection</h4>
+                    <h4 className="text-[10px] lg:text-xs text-normal lg:font-bold text-white uppercase tracking-wider leading-tight">5-Yr Unit Protection</h4>
                     <span className="text-[10px] text-gray-400 font-medium leading-none mt-0.5">Output guarantee</span>
                   </div>
                 </div>
@@ -214,7 +215,7 @@ export default function HeroV2() {
                     <Coins size={18} />
                   </div>
                   <div className="flex flex-col">
-                    <h4 className="text-xs font-bold text-white uppercase tracking-wider leading-tight">Govt. Subsidy Help</h4>
+                    <h4 className="text-[10px] lg:text-xs text-normal lg:font-bold text-white uppercase tracking-wider leading-tight">Govt. Subsidy Help</h4>
                     <span className="text-[10px] text-gray-400 font-medium leading-none mt-0.5">Complete registration</span>
                   </div>
                 </div>
@@ -224,7 +225,7 @@ export default function HeroV2() {
                     <CreditCard size={18} />
                   </div>
                   <div className="flex flex-col">
-                    <h4 className="text-xs font-bold text-white uppercase tracking-wider leading-tight">EMI Options</h4>
+                    <h4 className="text-[10px] lg:text-xs text-normal lg:font-bold text-white uppercase tracking-wider leading-tight">EMI Options</h4>
                     <span className="text-[10px] text-gray-400 font-medium leading-none mt-0.5">Flexible financing</span>
                   </div>
                 </div>

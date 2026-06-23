@@ -388,14 +388,14 @@ export default function HousingSocietiesPage() {
             <div className="group relative overflow-hidden rounded-3xl border border-slate-200/60 aspect-[4/3] shadow-sm hover:shadow-xl hover:scale-[1.01] transition-all duration-300">
               <Image
                 src="/assets/IMAGE/project/p (5).avif"
-                alt="Society Microgrid Energy Storage"
+                alt="Society Hybrid Solar"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
               <div className="absolute bottom-6 left-6 text-left text-white z-10">
-                <span className="text-[10px] bg-amber-500 text-slate-950 font-extrabold uppercase py-1 px-2.5 rounded-full">Microgrid Storage</span>
-                <h4 className="font-extrabold text-base mt-2">RWA Common-Area backup BESS</h4>
+                <span className="text-[10px] bg-amber-500 text-slate-950 font-extrabold uppercase py-1 px-2.5 rounded-full">Hybrid Solar</span>
+                <h4 className="font-extrabold text-base mt-2">RWA Common-Area Backup Battery</h4>
               </div>
             </div>
 

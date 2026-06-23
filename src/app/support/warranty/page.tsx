@@ -85,7 +85,7 @@ export default function Warranty() {
             </div>
 
             <p className="text-sm text-gray-600 mb-8 leading-relaxed">
-              If your solar module, inverter, or weather station sensor is showing defects or performance drop under the warranty period, please fill out this claim form. Our service engineers will verify the claim criteria and contact you for replacement or repair service.
+              If your solar module or inverter is showing defects or performance drop under the warranty period, please fill out this claim form. Our service engineers will verify the claim criteria and contact you for replacement or repair service.
             </p>
 
             {error && (

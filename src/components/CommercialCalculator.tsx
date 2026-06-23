@@ -281,7 +281,7 @@ export default function CommercialCalculator() {
                   <Award size={14} className="text-primary" />
                   SunLynk Solar EPC Advantage
                 </p>
-                <p className="text-[10px] text-gray-500 mt-0.5">Complimentary feasibility studies, shadow analysis & SCADA setup.</p>
+                <p className="text-[10px] text-gray-500 mt-0.5">Complimentary feasibility studies, shadow analysis.</p>
               </div>
 
               <Link

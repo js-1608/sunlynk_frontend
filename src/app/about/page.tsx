@@ -33,39 +33,8 @@ export default function About() {
     }
   };
 
-  const values = [
-    {
-      id: "01",
-      title: "Innovation-Driven Excellence",
-      icon: <Award className="text-primary" size={24} />,
-      text: "We are committed to pioneering cutting-edge solutions in weather monitoring, SCADA, and energy storage. Our focus on continuous innovation ensures that we deliver state-of-the-art technologies that optimize renewable energy operations.",
-    },
-    {
-      id: "02",
-      title: "Reliability & Precision",
-      icon: <ShieldCheck className="text-primary" size={24} />,
-      text: "In the world of renewable energy, accuracy and dependability are non-negotiable. Our solutions provide high-precision data and real-time insights, empowering power plants and grid operators to make informed decisions with confidence.",
-    },
-    {
-      id: "03",
-      title: "Sustainability at the Core",
-      icon: <Sun className="text-primary" size={24} />,
-      text: "We believe in a greener future. Every solution we develop is designed to enhance the efficiency of renewable energy projects, contributing to a cleaner, more sustainable world while maximizing energy yield.",
-    },
-    {
-      id: "04",
-      title: "Customer-Centric Approach",
-      icon: <Heart className="text-primary" size={24} />,
-      text: "Our clients are at the heart of everything we do. We build long-term partnerships by offering customized, scalable solutions that cater to unique project needs—ensuring unmatched support and service at every step.",
-    },
-  ];
 
-  const missions = [
-    { title: "GROW", text: "To grow as the most trusted and coveted solar distribution company through a customer-centric approach and offering customized solutions for every market." },
-    { title: "LEAD", text: "To be a leading solar equipment distributor in the nation, and ensure that our partners receive the latest products and the newest application techniques." },
-    { title: "ENSURE", text: "To have a vast national presence allowing to ensuring you and your team always receive superior quality and value." },
-    { title: "FULFIL", text: "To be known as one of the most responsible distribution companies in terms of supplying products of the highest quality, bankable products and ensuring total customer fulfillment before and after the purchase of solar equipment." }
-  ];
+
 
   const teamMembers = [
     {

@@ -294,30 +294,30 @@ export default function ContactForm({ hideTabs = false, defaultTab = "residentia
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs">
                 <Link
-                  href="/solutions/weather-monitoring-solutions"
+                  href="/solutions/homes"
                   className="group bg-white border border-slate-100 hover:border-primary/30 p-4 rounded-xl shadow-sm transition-all duration-300 hover:scale-[1.01] flex justify-between items-center cursor-pointer"
                 >
                   <div>
                     <span className="font-bold text-xs text-slate-900 block group-hover:text-primary transition-colors">
-                      Solar Solutions
+                      Residential Solar
                     </span>
                     <span className="text-[10px] text-slate-400 font-medium block mt-0.5">
-                      Explore Weather, SCADA & Forecasting
+                      Explore solar systems for your home
                     </span>
                   </div>
                   <ArrowUpRight size={16} className="text-slate-400 group-hover:text-primary transition-colors" />
                 </Link>
 
                 <Link
-                  href="/support/wms-downloads"
+                  href="/solutions/commercial"
                   className="group bg-white border border-slate-100 hover:border-primary/30 p-4 rounded-xl shadow-sm transition-all duration-300 hover:scale-[1.01] flex justify-between items-center cursor-pointer"
                 >
                   <div>
                     <span className="font-bold text-xs text-slate-900 block group-hover:text-primary transition-colors">
-                      Support & Downloads
+                      Commercial Solar
                     </span>
                     <span className="text-[10px] text-slate-400 font-medium block mt-0.5">
-                      Download manuals and spec sheets
+                      Explore solar solutions for businesses
                     </span>
                   </div>
                   <ArrowUpRight size={16} className="text-slate-400 group-hover:text-primary transition-colors" />

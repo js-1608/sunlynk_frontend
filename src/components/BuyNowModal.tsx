@@ -148,8 +148,6 @@ export default function BuyNowModal() {
                         <option value="Hitachi Residential Inverter">Hitachi Residential Inverter</option>
                         <option value="Commercial Inverter">Commercial & Industrial Inverter</option>
                         <option value="Utility Central Inverter">Utility Central Inverter</option>
-                        <option value="WMS Weather Station">WMS Weather Station</option>
-                        <option value="BESS Energy Storage">BESS Energy Storage Solution</option>
                       </select>
                     </div>
                     <div className="flex flex-col gap-1.5">

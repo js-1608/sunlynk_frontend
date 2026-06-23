@@ -137,7 +137,7 @@ export default function Careers() {
           </span>
           <h1 className="text-4xl md:text-6xl font-black leading-tight">Build the Future of Clean Energy</h1>
           <p className="mt-4 text-sm md:text-base text-gray-400 leading-relaxed">
-            Accelerate your career in the renewable energy sector. We are looking for passionate individuals who want to build high-performance, bankable solar and SCADA systems.
+            Accelerate your career in the renewable energy sector. We are looking for passionate individuals who want to build high-performance, bankable solar systems.
           </p>
           <div className="mt-6 flex items-center gap-2 text-xs md:text-sm text-gray-500">
             <Link href="/" className="hover:text-primary transition-colors">Home</Link>

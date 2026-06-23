@@ -52,10 +52,10 @@ export default async function SolutionDetailPage({ params }: PageProps) {
   const sol = solution as any;
 
   const sidebarHighlights = sol.highlights || [
-    "Proactive & Responsive Support",
-    "Universal Protocol Connectivity",
-    "Real-time Data Historian Integration",
-    "Highly Customizable Solutions"
+    "High-Efficiency Solar Panels",
+    "On-Grid & Hybrid System Designs",
+    "Real-Time Performance Tracking",
+    "Premium Inverters & Mounting structures"
   ];
 
   return (
@@ -174,9 +174,9 @@ export default async function SolutionDetailPage({ params }: PageProps) {
 
             {/* Quick Inquiry CTA card */}
             <div className="bg-gray-900 text-white rounded-2xl p-6 shadow-sm border border-gray-800 flex flex-col gap-4">
-              <h4 className="font-bold text-lg">Request Integration Layout</h4>
+              <h4 className="font-bold text-lg">Request Solar Quotation</h4>
               <p className="text-xs text-gray-400 leading-relaxed">
-                Need a comprehensive turnkey design solution or calibration service quotation for your renewable array?
+                Need a comprehensive rooftop solar layout design and subsidy calculation for your home or business?
               </p>
               <Link
                 href="/contact"
@@ -191,7 +191,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
             <div className="bg-primary/5 border border-primary/20 rounded-2xl p-6 flex flex-col gap-4">
               <h4 className="font-bold text-gray-800 text-lg">Inquire via Phone</h4>
               <p className="text-xs text-gray-600 leading-relaxed">
-                Get immediate technical support regarding IEC 61724 WMS standards or Active power control central inverters.
+                Get immediate assistance regarding solar system sizing, subsidies, and installation timelines.
               </p>
               <div className="flex flex-col gap-2">
                 <a href="tel:+918573003001" className="flex items-center gap-2 text-sm font-bold text-dark hover:text-primary transition-colors">
@@ -252,17 +252,13 @@ export default async function SolutionDetailPage({ params }: PageProps) {
 
         <div className="max-w-4xl mx-auto text-center px-4 relative z-10 flex flex-col items-center gap-6">
           <span className="text-primary font-bold text-xs uppercase tracking-widest bg-primary/10 border border-primary/20 px-4 py-1.5 rounded-full">
-            {slug.includes("solar") ? "Ready to Switch to Solar?" : "Have Questions or Custom Needs?"}
+            Ready to Switch to Solar?
           </span>
           <h2 className="text-3xl md:text-5xl font-black leading-tight max-w-2xl">
-            {slug.includes("solar")
-              ? "Discover how much you can save with a customized solar solution from SunLynk."
-              : "Get a comprehensive turnkey design solution or calibration service quotation."}
+            Discover how much you can save with a customized solar solution from SunLynk.
           </h2>
           <p className="text-sm md:text-base text-gray-400 max-w-xl">
-            {slug.includes("solar")
-              ? "Book a Free Consultation Today and Start Your Solar Journey with Confidence."
-              : "Contact our technical engineering division to talk about your project capacity parameters."}
+            Book a Free Consultation Today and Start Your Solar Journey with Confidence.
           </p>
           <Link
             href="/contact"

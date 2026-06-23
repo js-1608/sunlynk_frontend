@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "commercial solar panel installation",
     "industrial rooftop solar",
     "C&I solar EPC company",
-    "solar SCADA systems",
+    "commercial solar monitoring",
     "accelerated depreciation solar",
     "commercial solar cost India",
     "factory solar power plant"
@@ -79,8 +79,8 @@ export default function CommercialPage() {
       )
     },
     {
-      title: "SCADA Integrated Control",
-      desc: "Real-time generation dashboards and meteorological calibration standard on all C&I installations.",
+      title: "Smart Inverter Monitoring",
+      desc: "Real-time generation dashboards and mobile app integration standard on all installations.",
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
           <rect x="2" y="3" width="20" height="14" rx="2" />
@@ -143,8 +143,8 @@ export default function CommercialPage() {
       theme: "border-[#1E293B] bg-[#0E1524]/60"
     },
     {
-      title: "Commercial Hybrid Systems with BESS",
-      desc: "Integrates solar panels with smart Battery Energy Storage Systems (BESS). Rest assured that critical machinery, laboratory tools, and servers remain live during grid drops.",
+      title: "Commercial Hybrid Systems with Backup",
+      desc: "Integrates solar panels with high-capacity battery storage. Rest assured that critical machinery, laboratory tools, and servers remain live during grid drops.",
       points: ["Seamless backup switchovers", "Peak load shaving features", "Zero voltage dip protection"],
       theme: "border-[#1E293B] bg-[#0E1524]/60"
     },
@@ -159,7 +159,7 @@ export default function CommercialPage() {
     {
       id: 1,
       question: "What is the typical lifespan and maintenance cost of commercial solar installations?",
-      answer: "A Tier-1 solar panel has an operational life of 25+ years with a performance guarantee. Maintenance is extremely minimal, consisting primarily of regular cleaning of panels to ensure high irradiance absorption, and electrical inspections. We provide automated SCADA diagnostics to flag when cleaning is required."
+      answer: "A Tier-1 solar panel has an operational life of 25+ years with a performance guarantee. Maintenance is extremely minimal, consisting primarily of regular cleaning of panels to ensure high irradiance absorption, and electrical inspections. We provide smart app tracking to notify you of any performance drops."
     },
     {
       id: 2,
@@ -169,7 +169,7 @@ export default function CommercialPage() {
     {
       id: 3,
       question: "How do we monitor generation efficiency across large multi-site installations?",
-      answer: "SunLynk integrates standard SCADA architectures, weather monitoring stations (WMS), and cloud-based analytics with all commercial systems. Managers can check generation parameters, performance ratios (PR), and receive alert notifications on their smartphones or office screens."
+      answer: "SunLynk integrates smart cloud-based analytics with all commercial systems. Managers can check real-time generation parameters and receive alert notifications on their smartphones or office screens via the inverter's mobile app."
     }
   ];
 
@@ -219,12 +219,12 @@ export default function CommercialPage() {
               </h1>
 
               <p className="text-sm sm:text-base text-slate-500 leading-relaxed font-semibold max-w-xl">
-                Utility costs represent a major chunk of operational overhead. Stabilize your business expenses with a custom engineered commercial solar network featuring quick payback structures and premium SCADA controls.
+                Utility costs represent a major chunk of operational overhead. Stabilize your business expenses with a custom engineered commercial solar network featuring quick payback structures and premium smart tracking.
               </p>
 
               {/* Trust/Key Features row — mobile only */}
               <div className="flex flex-wrap gap-2 lg:hidden mt-1">
-                {["40% Yr 1 AD Tax Savings", "SCADA Active Monitoring", "~3.5 Yrs Payback"].map((t) => (
+                {["40% Yr 1 AD Tax Savings", "Smart App Monitoring", "~3.5 Yrs Payback"].map((t) => (
                   <span
                     key={t}
                     className="text-[11px] font-semibold text-slate-600 bg-slate-100 rounded-full px-3 py-1"
@@ -238,8 +238,8 @@ export default function CommercialPage() {
               <div className="hidden lg:grid grid-cols-3 gap-4 mt-4 max-w-xl">
                 <div className="p-4 bg-white border border-slate-200/80 rounded-xl shadow-sm hover:shadow-md transition-shadow">
                   <Cpu className="text-primary mb-2" size={20} />
-                  <span className="block text-slate-950 font-extrabold text-sm">SCADA Ready</span>
-                  <span className="block text-[10px] text-slate-400 font-bold uppercase mt-0.5">Real-time control</span>
+                  <span className="block text-slate-950 font-extrabold text-sm">Smart Tracking</span>
+                  <span className="block text-[10px] text-slate-400 font-bold uppercase mt-0.5">App Monitoring</span>
                 </div>
                 <div className="p-4 bg-white border border-slate-200/80 rounded-xl shadow-sm hover:shadow-md transition-shadow">
                   <BarChart3 className="text-primary mb-2" size={20} />
@@ -438,7 +438,7 @@ export default function CommercialPage() {
                   <Sparkles className="w-5 h-5 text-primary animate-pulse" />
                 </div>
                 <div>
-                  <span className="text-xs font-extrabold text-slate-950 leading-none block">SCADA Smart Grid</span>
+                  <span className="text-xs font-extrabold text-slate-950 leading-none block">Smart Grid Integration</span>
                   <span className="block text-[9px] text-emerald-600 font-extrabold uppercase mt-1">● Active Monitoring</span>
                 </div>
               </div>
@@ -481,7 +481,7 @@ export default function CommercialPage() {
               Quality that lasts more than 25+ years
             </h3>
             <p className="text-xs sm:text-sm text-gray-100 leading-relaxed mt-2.5 font-semibold text-justify">
-              From custom engineering design and flawless execution to active SCADA monitoring and lifetime maintenance, we provide end-to-end support for your enterprise energy transition.
+              From custom engineering design and flawless execution to active performance tracking and lifetime maintenance, we provide end-to-end support for your enterprise energy transition.
             </p>
           </div>
         </div>
@@ -616,14 +616,14 @@ export default function CommercialPage() {
             <div className="group relative overflow-hidden rounded-xl border border-slate-200 aspect-[4/3] shadow-md hover:border-primary/20 transition-all duration-300">
               <Image
                 src="/assets/IMAGE/project/p (3).avif"
-                alt="Solar SCADA Automation Console"
+                alt="Solar Performance Monitoring Console"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
               <div className="absolute bottom-6 left-6 text-left text-white z-10">
-                <span className="text-[10px] bg-sky-500 text-white font-extrabold uppercase py-1 px-2.5 rounded-full">SCADA Control</span>
-                <h3 className="text-xl font-extrabold mt-2">Smart Grid SCADA Panel</h3>
+                <span className="text-[10px] bg-sky-500 text-white font-extrabold uppercase py-1 px-2.5 rounded-full">Smart App</span>
+                <h3 className="text-xl font-extrabold mt-2">Smart Monitoring Panel</h3>
               </div>
             </div>
           </div>

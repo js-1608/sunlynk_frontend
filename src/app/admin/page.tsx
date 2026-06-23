@@ -365,7 +365,7 @@ export default function AdminDashboard() {
         { type: "heading", level: 2, text: "Step-by-Step Technical Guide" },
         { type: "paragraph", text: "Provide an introductory paragraph detailing the goal of this technical configuration guide." },
         { type: "heading", level: 2, text: "Required Equipment & Pre-requisites" },
-        { type: "list", style: "ordered", items: ["SunLynk Hybrid Inverter", "Battery energy storage pack", "SCADA connection cable"] },
+        { type: "list", style: "ordered", items: ["SunLynk Hybrid Inverter", "Battery energy storage pack", "connection cable"] },
         { type: "heading", level: 2, text: "Configuration Interface" },
         {
           type: "two_column", left: [
@@ -1327,8 +1327,8 @@ export default function AdminDashboard() {
                             if (tab.id !== "editor" && !editingBlogId) resetBlogForm();
                           }}
                           className={`flex items-center gap-2 py-2 px-4 rounded-xl text-xs font-bold transition-all cursor-pointer ${blogsSubTab === tab.id
-                              ? "bg-primary text-white shadow-md shadow-primary/10"
-                              : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                            ? "bg-primary text-white shadow-md shadow-primary/10"
+                            : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
                             }`}
                         >
                           <Icon size={14} />
@@ -1934,241 +1934,241 @@ export default function AdminDashboard() {
                                 </div>
                               </>)}
 
-                            {blogBlocks[selectedBlockIdx].type === "list" && (<>
-                              <div>
-                                <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest block mb-1.5">List Style</label>
-                                <div className="flex gap-2">
-                                  {(["bullet", "ordered"] as const).map((s) => (
-                                    <button key={s} type="button" onClick={() => updateBlock(selectedBlockIdx, { style: s })}
-                                      className={`flex-1 py-2 rounded-lg text-xs font-bold border-2 transition-all cursor-pointer capitalize ${(blogBlocks[selectedBlockIdx] as ListBlock).style === s ? "border-primary bg-primary/5 text-primary" : "border-slate-200 text-slate-500"}`}>{s}</button>
-                                  ))}
+                              {blogBlocks[selectedBlockIdx].type === "list" && (<>
+                                <div>
+                                  <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest block mb-1.5">List Style</label>
+                                  <div className="flex gap-2">
+                                    {(["bullet", "ordered"] as const).map((s) => (
+                                      <button key={s} type="button" onClick={() => updateBlock(selectedBlockIdx, { style: s })}
+                                        className={`flex-1 py-2 rounded-lg text-xs font-bold border-2 transition-all cursor-pointer capitalize ${(blogBlocks[selectedBlockIdx] as ListBlock).style === s ? "border-primary bg-primary/5 text-primary" : "border-slate-200 text-slate-500"}`}>{s}</button>
+                                    ))}
+                                  </div>
                                 </div>
-                              </div>
-                              <div>
-                                <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest block mb-1.5">Items</label>
-                                <div className="flex flex-col gap-2">
-                                  {(blogBlocks[selectedBlockIdx] as ListBlock).items.map((item, li) => (
-                                    <div key={li} className="flex gap-2">
-                                      <input type="text" value={item}
-                                        onChange={(e) => { const u = [...(blogBlocks[selectedBlockIdx] as ListBlock).items]; u[li] = e.target.value; updateBlock(selectedBlockIdx, { items: u }); }}
-                                        className="flex-1 border border-slate-200 rounded-lg py-2 px-3 text-sm text-slate-700 focus:outline-none focus:border-primary" />
-                                      <button type="button" onClick={() => { const u = (blogBlocks[selectedBlockIdx] as ListBlock).items.filter((_, i) => i !== li); updateBlock(selectedBlockIdx, { items: u }); }} className="text-red-400 hover:text-red-650 p-1.5 rounded hover:bg-red-50 cursor-pointer"><Trash2 size={12} /></button>
-                                    </div>
-                                  ))}
-                                  <button type="button" onClick={() => updateBlock(selectedBlockIdx, { items: [...(blogBlocks[selectedBlockIdx] as ListBlock).items, ""] })} className="text-xs text-slate-500 border border-dashed border-slate-200 rounded-lg py-2 hover:border-primary hover:text-primary transition-colors cursor-pointer">+ Add item</button>
-                                </div>
-                              </div>
-                            </>)}
-
-                            {blogBlocks[selectedBlockIdx].type === "grid" && (<>
-                              <div>
-                                <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest block mb-1.5">Columns</label>
-                                <div className="flex gap-2">
-                                  {([2, 3] as const).map((c) => (
-                                    <button key={c} type="button" onClick={() => updateBlock(selectedBlockIdx, { columns: c })}
-                                      className={`flex-1 py-2 rounded-lg text-sm font-bold border-2 transition-all cursor-pointer ${(blogBlocks[selectedBlockIdx] as GridBlock).columns === c ? "border-primary bg-primary/5 text-primary" : "border-slate-200 text-slate-550"}`}>{c} Col</button>
-                                  ))}
-                                </div>
-                              </div>
-                              <div>
-                                <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest block mb-1.5">Images</label>
-                                <div className="flex flex-col gap-3">
-                                  {(blogBlocks[selectedBlockIdx] as GridBlock).items.map((item, gi) => (
-                                    <div key={gi} className="flex flex-col gap-1.5 bg-slate-50 rounded-lg p-2.5 border border-slate-100">
-                                      <div className="flex gap-2">
-                                        <input type="text" value={item.image}
-                                          onChange={(e) => { const u = [...(blogBlocks[selectedBlockIdx] as GridBlock).items]; u[gi] = { ...u[gi], image: e.target.value }; updateBlock(selectedBlockIdx, { items: u }); }}
-                                          placeholder="Image URL" className="flex-1 border border-slate-200 rounded-lg py-1.5 px-2 text-xs text-slate-700 focus:outline-none focus:border-primary" />
-                                        <label className="bg-slate-100 hover:bg-slate-200 text-slate-700 p-1.5 rounded hover:bg-slate-200 cursor-pointer flex items-center justify-center shrink-0 border border-slate-200">
-                                          <Plus size={12} />
-                                          <input type="file" accept="image/*" className="hidden" onChange={(e) => {
-                                            const file = e.target.files?.[0];
-                                            if (file) {
-                                              handleImageFileUpload(file, (url) => {
-                                                const u = [...(blogBlocks[selectedBlockIdx!] as GridBlock).items];
-                                                u[gi] = { ...u[gi], image: url };
-                                                updateBlock(selectedBlockIdx!, { items: u });
-                                              });
-                                            }
-                                          }} />
-                                        </label>
-                                        <button type="button" onClick={() => { const u = (blogBlocks[selectedBlockIdx] as GridBlock).items.filter((_, i) => i !== gi); updateBlock(selectedBlockIdx, { items: u }); }} className="text-red-400 p-1.5 rounded hover:bg-red-50 cursor-pointer"><Trash2 size={11} /></button>
+                                <div>
+                                  <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest block mb-1.5">Items</label>
+                                  <div className="flex flex-col gap-2">
+                                    {(blogBlocks[selectedBlockIdx] as ListBlock).items.map((item, li) => (
+                                      <div key={li} className="flex gap-2">
+                                        <input type="text" value={item}
+                                          onChange={(e) => { const u = [...(blogBlocks[selectedBlockIdx] as ListBlock).items]; u[li] = e.target.value; updateBlock(selectedBlockIdx, { items: u }); }}
+                                          className="flex-1 border border-slate-200 rounded-lg py-2 px-3 text-sm text-slate-700 focus:outline-none focus:border-primary" />
+                                        <button type="button" onClick={() => { const u = (blogBlocks[selectedBlockIdx] as ListBlock).items.filter((_, i) => i !== li); updateBlock(selectedBlockIdx, { items: u }); }} className="text-red-400 hover:text-red-650 p-1.5 rounded hover:bg-red-50 cursor-pointer"><Trash2 size={12} /></button>
                                       </div>
-                                      {item.image && <img src={item.image.startsWith("/uploads") ? `${API_URL}${item.image}` : item.image} alt={item.caption} className="w-full aspect-video object-cover rounded" onError={(e) => { (e.target as HTMLElement).style.display = "none"; }} />}
-                                      <input type="text" value={item.caption}
-                                        onChange={(e) => { const u = [...(blogBlocks[selectedBlockIdx] as GridBlock).items]; u[gi] = { ...u[gi], caption: e.target.value }; updateBlock(selectedBlockIdx, { items: u }); }}
-                                        placeholder="Caption" className="border border-slate-200 rounded-lg py-1.5 px-2 text-xs text-slate-705 focus:outline-none focus:border-primary" />
-                                    </div>
-                                  ))}
-                                  <button type="button" onClick={() => updateBlock(selectedBlockIdx, { items: [...(blogBlocks[selectedBlockIdx] as GridBlock).items, { image: "", caption: "" }] })} className="text-xs text-slate-550 border border-dashed border-slate-200 rounded-lg py-2 hover:border-primary hover:text-primary transition-colors cursor-pointer">+ Add image</button>
+                                    ))}
+                                    <button type="button" onClick={() => updateBlock(selectedBlockIdx, { items: [...(blogBlocks[selectedBlockIdx] as ListBlock).items, ""] })} className="text-xs text-slate-500 border border-dashed border-slate-200 rounded-lg py-2 hover:border-primary hover:text-primary transition-colors cursor-pointer">+ Add item</button>
+                                  </div>
                                 </div>
-                              </div>
-                            </>)}
+                              </>)}
 
+                              {blogBlocks[selectedBlockIdx].type === "grid" && (<>
+                                <div>
+                                  <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest block mb-1.5">Columns</label>
+                                  <div className="flex gap-2">
+                                    {([2, 3] as const).map((c) => (
+                                      <button key={c} type="button" onClick={() => updateBlock(selectedBlockIdx, { columns: c })}
+                                        className={`flex-1 py-2 rounded-lg text-sm font-bold border-2 transition-all cursor-pointer ${(blogBlocks[selectedBlockIdx] as GridBlock).columns === c ? "border-primary bg-primary/5 text-primary" : "border-slate-200 text-slate-550"}`}>{c} Col</button>
+                                    ))}
+                                  </div>
+                                </div>
+                                <div>
+                                  <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest block mb-1.5">Images</label>
+                                  <div className="flex flex-col gap-3">
+                                    {(blogBlocks[selectedBlockIdx] as GridBlock).items.map((item, gi) => (
+                                      <div key={gi} className="flex flex-col gap-1.5 bg-slate-50 rounded-lg p-2.5 border border-slate-100">
+                                        <div className="flex gap-2">
+                                          <input type="text" value={item.image}
+                                            onChange={(e) => { const u = [...(blogBlocks[selectedBlockIdx] as GridBlock).items]; u[gi] = { ...u[gi], image: e.target.value }; updateBlock(selectedBlockIdx, { items: u }); }}
+                                            placeholder="Image URL" className="flex-1 border border-slate-200 rounded-lg py-1.5 px-2 text-xs text-slate-700 focus:outline-none focus:border-primary" />
+                                          <label className="bg-slate-100 hover:bg-slate-200 text-slate-700 p-1.5 rounded hover:bg-slate-200 cursor-pointer flex items-center justify-center shrink-0 border border-slate-200">
+                                            <Plus size={12} />
+                                            <input type="file" accept="image/*" className="hidden" onChange={(e) => {
+                                              const file = e.target.files?.[0];
+                                              if (file) {
+                                                handleImageFileUpload(file, (url) => {
+                                                  const u = [...(blogBlocks[selectedBlockIdx!] as GridBlock).items];
+                                                  u[gi] = { ...u[gi], image: url };
+                                                  updateBlock(selectedBlockIdx!, { items: u });
+                                                });
+                                              }
+                                            }} />
+                                          </label>
+                                          <button type="button" onClick={() => { const u = (blogBlocks[selectedBlockIdx] as GridBlock).items.filter((_, i) => i !== gi); updateBlock(selectedBlockIdx, { items: u }); }} className="text-red-400 p-1.5 rounded hover:bg-red-50 cursor-pointer"><Trash2 size={11} /></button>
+                                        </div>
+                                        {item.image && <img src={item.image.startsWith("/uploads") ? `${API_URL}${item.image}` : item.image} alt={item.caption} className="w-full aspect-video object-cover rounded" onError={(e) => { (e.target as HTMLElement).style.display = "none"; }} />}
+                                        <input type="text" value={item.caption}
+                                          onChange={(e) => { const u = [...(blogBlocks[selectedBlockIdx] as GridBlock).items]; u[gi] = { ...u[gi], caption: e.target.value }; updateBlock(selectedBlockIdx, { items: u }); }}
+                                          placeholder="Caption" className="border border-slate-200 rounded-lg py-1.5 px-2 text-xs text-slate-705 focus:outline-none focus:border-primary" />
+                                      </div>
+                                    ))}
+                                    <button type="button" onClick={() => updateBlock(selectedBlockIdx, { items: [...(blogBlocks[selectedBlockIdx] as GridBlock).items, { image: "", caption: "" }] })} className="text-xs text-slate-550 border border-dashed border-slate-200 rounded-lg py-2 hover:border-primary hover:text-primary transition-colors cursor-pointer">+ Add image</button>
+                                  </div>
+                                </div>
+                              </>)}
+
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </form>
+                  )}
+
+                  {/* SUB-TAB: Categories */}
+                  {blogsSubTab === "categories" && (
+                    <div className="flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start text-left w-full">
+                      {/* Create Category */}
+                      <div className="lg:col-span-4 bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+                        <h3 className="text-base font-bold text-slate-900 mb-4">Create Blog Category</h3>
+                        <form onSubmit={handleCreateCategory} className="flex flex-col gap-4 text-xs">
+                          <div className="flex flex-col gap-1.5">
+                            <label className="text-slate-500 font-bold uppercase tracking-wider text-[10px]">Category Name</label>
+                            <input
+                              type="text"
+                              required
+                              value={newCategoryName}
+                              onChange={(e) => setNewCategoryName(e.target.value)}
+                              placeholder="e.g. Solar Engineering"
+                              className="bg-white border border-slate-200 rounded-xl py-3 px-4 text-slate-800 focus:outline-none focus:border-primary"
+                            />
+                          </div>
+                          <button
+                            type="submit"
+                            disabled={actionLoading || !newCategoryName.trim()}
+                            className="bg-primary hover:bg-primary/90 text-white font-extrabold py-3.5 px-6 rounded-xl shadow-lg transition-all text-center mt-2 cursor-pointer disabled:opacity-50"
+                          >
+                            Create Category
+                          </button>
+                        </form>
+                      </div>
+
+                      {/* Categories List */}
+                      <div className="lg:col-span-8 flex flex-col gap-4 w-full">
+                        <div>
+                          <h2 className="text-lg font-bold text-slate-900">All Categories</h2>
+                          <p className="text-xs text-slate-500">Categories available for tag-linking and blog classification</p>
+                        </div>
+                        <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-xs text-left">
+                              <thead className="bg-slate-50 text-slate-500 font-bold uppercase tracking-wider border-b border-slate-200">
+                                <tr>
+                                  <th className="py-4 px-5">Name</th>
+                                  <th className="py-4 px-4">Slug</th>
+                                  <th className="py-4 px-5 text-right">Actions</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-100">
+                                {categories.length === 0 ? (
+                                  <tr>
+                                    <td colSpan={3} className="py-8 text-center text-slate-400 font-semibold">
+                                      No categories found.
+                                    </td>
+                                  </tr>
+                                ) : (
+                                  categories.map((cat) => (
+                                    <tr key={cat._id} className="hover:bg-slate-50/50 transition-colors">
+                                      <td className="py-4 px-5 font-bold text-slate-900">{cat.name}</td>
+                                      <td className="py-4 px-4 font-mono text-slate-500">{cat.slug}</td>
+                                      <td className="py-4 px-5 text-right">
+                                        {role === "superadmin" ? (
+                                          <button
+                                            onClick={() => handleDeleteCategory(cat._id)}
+                                            className="text-red-600 p-1.5 rounded hover:bg-red-50 transition-all cursor-pointer"
+                                          >
+                                            <Trash2 size={14} />
+                                          </button>
+                                        ) : (
+                                          <span className="text-[10px] text-slate-400 italic">No access to delete</span>
+                                        )}
+                                      </td>
+                                    </tr>
+                                  ))
+                                )}
+                              </tbody>
+                            </table>
                           </div>
                         </div>
-                      )}
-                    </div>
-                  </form>
-                )}
-
-                {/* SUB-TAB: Categories */}
-                {blogsSubTab === "categories" && (
-                  <div className="flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start text-left w-full">
-                    {/* Create Category */}
-                    <div className="lg:col-span-4 bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-                      <h3 className="text-base font-bold text-slate-900 mb-4">Create Blog Category</h3>
-                      <form onSubmit={handleCreateCategory} className="flex flex-col gap-4 text-xs">
-                        <div className="flex flex-col gap-1.5">
-                          <label className="text-slate-500 font-bold uppercase tracking-wider text-[10px]">Category Name</label>
-                          <input
-                            type="text"
-                            required
-                            value={newCategoryName}
-                            onChange={(e) => setNewCategoryName(e.target.value)}
-                            placeholder="e.g. Solar Engineering"
-                            className="bg-white border border-slate-200 rounded-xl py-3 px-4 text-slate-800 focus:outline-none focus:border-primary"
-                          />
-                        </div>
-                        <button
-                          type="submit"
-                          disabled={actionLoading || !newCategoryName.trim()}
-                          className="bg-primary hover:bg-primary/90 text-white font-extrabold py-3.5 px-6 rounded-xl shadow-lg transition-all text-center mt-2 cursor-pointer disabled:opacity-50"
-                        >
-                          Create Category
-                        </button>
-                      </form>
-                    </div>
-
-                    {/* Categories List */}
-                    <div className="lg:col-span-8 flex flex-col gap-4 w-full">
-                      <div>
-                        <h2 className="text-lg font-bold text-slate-900">All Categories</h2>
-                        <p className="text-xs text-slate-500">Categories available for tag-linking and blog classification</p>
                       </div>
-                      <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
-                        <div className="overflow-x-auto">
-                          <table className="w-full text-xs text-left">
-                            <thead className="bg-slate-50 text-slate-500 font-bold uppercase tracking-wider border-b border-slate-200">
-                              <tr>
-                                <th className="py-4 px-5">Name</th>
-                                <th className="py-4 px-4">Slug</th>
-                                <th className="py-4 px-5 text-right">Actions</th>
-                              </tr>
-                            </thead>
-                            <tbody className="divide-y divide-slate-100">
-                              {categories.length === 0 ? (
+                    </div>
+                  )}
+
+                  {/* SUB-TAB: Tags */}
+                  {blogsSubTab === "tags" && (
+                    <div className="flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start text-left w-full">
+                      {/* Create Tag */}
+                      <div className="lg:col-span-4 bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+                        <h3 className="text-base font-bold text-slate-900 mb-4">Create Blog Tag</h3>
+                        <form onSubmit={handleCreateTag} className="flex flex-col gap-4 text-xs">
+                          <div className="flex flex-col gap-1.5">
+                            <label className="text-slate-500 font-bold uppercase tracking-wider text-[10px]">Tag Name</label>
+                            <input
+                              type="text"
+                              required
+                              value={newTagName}
+                              onChange={(e) => setNewTagName(e.target.value)}
+                              placeholder="e.g. offgrid-inverters"
+                              className="bg-white border border-slate-200 rounded-xl py-3 px-4 text-slate-800 focus:outline-none focus:border-primary"
+                            />
+                          </div>
+                          <button
+                            type="submit"
+                            disabled={actionLoading || !newTagName.trim()}
+                            className="bg-primary hover:bg-primary/90 text-white font-extrabold py-3.5 px-6 rounded-xl shadow-lg transition-all text-center mt-2 cursor-pointer disabled:opacity-50"
+                          >
+                            Create Tag
+                          </button>
+                        </form>
+                      </div>
+
+                      {/* Tags List */}
+                      <div className="lg:col-span-8 flex flex-col gap-4 w-full">
+                        <div>
+                          <h2 className="text-lg font-bold text-slate-900">All Tags</h2>
+                          <p className="text-xs text-slate-500">Keywords and tag links used for SEO indexing</p>
+                        </div>
+                        <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-xs text-left">
+                              <thead className="bg-slate-50 text-slate-500 font-bold uppercase tracking-wider border-b border-slate-200">
                                 <tr>
-                                  <td colSpan={3} className="py-8 text-center text-slate-400 font-semibold">
-                                    No categories found.
-                                  </td>
+                                  <th className="py-4 px-5">Name</th>
+                                  <th className="py-4 px-4">Slug</th>
+                                  <th className="py-4 px-5 text-right">Actions</th>
                                 </tr>
-                              ) : (
-                                categories.map((cat) => (
-                                  <tr key={cat._id} className="hover:bg-slate-50/50 transition-colors">
-                                    <td className="py-4 px-5 font-bold text-slate-900">{cat.name}</td>
-                                    <td className="py-4 px-4 font-mono text-slate-500">{cat.slug}</td>
-                                    <td className="py-4 px-5 text-right">
-                                      {role === "superadmin" ? (
-                                        <button
-                                          onClick={() => handleDeleteCategory(cat._id)}
-                                          className="text-red-600 p-1.5 rounded hover:bg-red-50 transition-all cursor-pointer"
-                                        >
-                                          <Trash2 size={14} />
-                                        </button>
-                                      ) : (
-                                        <span className="text-[10px] text-slate-400 italic">No access to delete</span>
-                                      )}
+                              </thead>
+                              <tbody className="divide-y divide-slate-100">
+                                {tags.length === 0 ? (
+                                  <tr>
+                                    <td colSpan={3} className="py-8 text-center text-slate-400 font-semibold">
+                                      No tags found.
                                     </td>
                                   </tr>
-                                ))
-                              )}
-                            </tbody>
-                          </table>
+                                ) : (
+                                  tags.map((tag) => (
+                                    <tr key={tag._id} className="hover:bg-slate-50/50 transition-colors">
+                                      <td className="py-4 px-5 font-bold text-slate-900">#{tag.name}</td>
+                                      <td className="py-4 px-4 font-mono text-slate-500">{tag.slug}</td>
+                                      <td className="py-4 px-5 text-right">
+                                        {role === "superadmin" ? (
+                                          <button
+                                            onClick={() => handleDeleteTag(tag._id)}
+                                            className="text-red-650 hover:text-red-750 p-1.5 rounded hover:bg-red-50 transition-all cursor-pointer"
+                                          >
+                                            <Trash2 size={14} />
+                                          </button>
+                                        ) : (
+                                          <span className="text-[10px] text-slate-400 italic">No access to delete</span>
+                                        )}
+                                      </td>
+                                    </tr>
+                                  ))
+                                )}
+                              </tbody>
+                            </table>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                )}
-
-                {/* SUB-TAB: Tags */}
-                {blogsSubTab === "tags" && (
-                  <div className="flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start text-left w-full">
-                    {/* Create Tag */}
-                    <div className="lg:col-span-4 bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-                      <h3 className="text-base font-bold text-slate-900 mb-4">Create Blog Tag</h3>
-                      <form onSubmit={handleCreateTag} className="flex flex-col gap-4 text-xs">
-                        <div className="flex flex-col gap-1.5">
-                          <label className="text-slate-500 font-bold uppercase tracking-wider text-[10px]">Tag Name</label>
-                          <input
-                            type="text"
-                            required
-                            value={newTagName}
-                            onChange={(e) => setNewTagName(e.target.value)}
-                            placeholder="e.g. offgrid-inverters"
-                            className="bg-white border border-slate-200 rounded-xl py-3 px-4 text-slate-800 focus:outline-none focus:border-primary"
-                          />
-                        </div>
-                        <button
-                          type="submit"
-                          disabled={actionLoading || !newTagName.trim()}
-                          className="bg-primary hover:bg-primary/90 text-white font-extrabold py-3.5 px-6 rounded-xl shadow-lg transition-all text-center mt-2 cursor-pointer disabled:opacity-50"
-                        >
-                          Create Tag
-                        </button>
-                      </form>
-                    </div>
-
-                    {/* Tags List */}
-                    <div className="lg:col-span-8 flex flex-col gap-4 w-full">
-                      <div>
-                        <h2 className="text-lg font-bold text-slate-900">All Tags</h2>
-                        <p className="text-xs text-slate-500">Keywords and tag links used for SEO indexing</p>
-                      </div>
-                      <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
-                        <div className="overflow-x-auto">
-                          <table className="w-full text-xs text-left">
-                            <thead className="bg-slate-50 text-slate-500 font-bold uppercase tracking-wider border-b border-slate-200">
-                              <tr>
-                                <th className="py-4 px-5">Name</th>
-                                <th className="py-4 px-4">Slug</th>
-                                <th className="py-4 px-5 text-right">Actions</th>
-                              </tr>
-                            </thead>
-                            <tbody className="divide-y divide-slate-100">
-                              {tags.length === 0 ? (
-                                <tr>
-                                  <td colSpan={3} className="py-8 text-center text-slate-400 font-semibold">
-                                    No tags found.
-                                  </td>
-                                </tr>
-                              ) : (
-                                tags.map((tag) => (
-                                  <tr key={tag._id} className="hover:bg-slate-50/50 transition-colors">
-                                    <td className="py-4 px-5 font-bold text-slate-900">#{tag.name}</td>
-                                    <td className="py-4 px-4 font-mono text-slate-500">{tag.slug}</td>
-                                    <td className="py-4 px-5 text-right">
-                                      {role === "superadmin" ? (
-                                        <button
-                                          onClick={() => handleDeleteTag(tag._id)}
-                                          className="text-red-650 hover:text-red-750 p-1.5 rounded hover:bg-red-50 transition-all cursor-pointer"
-                                        >
-                                          <Trash2 size={14} />
-                                        </button>
-                                      ) : (
-                                        <span className="text-[10px] text-slate-400 italic">No access to delete</span>
-                                      )}
-                                    </td>
-                                  </tr>
-                                ))
-                              )}
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
+                  )}
 
                 </div>
               )}
@@ -2227,9 +2227,9 @@ export default function AdminDashboard() {
                                       onChange={(e) => updateWarrantyStatus(w._id, e.target.value)}
                                       disabled={actionLoading}
                                       className={`text-[10px] font-bold rounded-full py-1 px-2 border cursor-pointer focus:outline-none ${w.status === "Pending" ? "bg-amber-50 text-amber-700 border-amber-200" :
-                                          w.status === "Under Review" ? "bg-blue-50 text-blue-700 border-blue-200" :
-                                            w.status === "Resolved" ? "bg-emerald-50 text-emerald-700 border-emerald-200" :
-                                              "bg-rose-50 text-rose-700 border-rose-200"
+                                        w.status === "Under Review" ? "bg-blue-50 text-blue-700 border-blue-200" :
+                                          w.status === "Resolved" ? "bg-emerald-50 text-emerald-700 border-emerald-200" :
+                                            "bg-rose-50 text-rose-700 border-rose-200"
                                         }`}
                                     >
                                       <option value="Pending">Pending</option>
@@ -2467,9 +2467,9 @@ export default function AdminDashboard() {
                                           onChange={(e) => updateApplicationStatus(app._id, e.target.value)}
                                           disabled={actionLoading}
                                           className={`text-[10px] font-bold rounded-full py-1 px-2 border cursor-pointer focus:outline-none ${app.status === "New" ? "bg-sky-50 text-sky-700 border-sky-200" :
-                                              app.status === "Reviewed" ? "bg-amber-50 text-amber-700 border-amber-200" :
-                                                app.status === "Shortlisted" ? "bg-emerald-50 text-emerald-700 border-emerald-200" :
-                                                  "bg-rose-50 text-rose-700 border-rose-200"
+                                            app.status === "Reviewed" ? "bg-amber-50 text-amber-700 border-amber-200" :
+                                              app.status === "Shortlisted" ? "bg-emerald-50 text-emerald-700 border-emerald-200" :
+                                                "bg-rose-50 text-rose-700 border-rose-200"
                                             }`}>
                                           <option value="New">New</option>
                                           <option value="Reviewed">Reviewed</option>
@@ -2564,9 +2564,9 @@ export default function AdminDashboard() {
                                   <td className="py-4 px-4 text-slate-705 text-left">{u.email}</td>
                                   <td className="py-4 px-4 text-left">
                                     <span className={`px-2 py-0.5 rounded-full text-[9px] font-bold tracking-wide uppercase ${u.role === "superadmin" ? "bg-amber-50 text-amber-705 border border-amber-200" :
-                                        u.role === "co_admin" ? "bg-red-50 text-red-700 border border-red-200/50" :
-                                          u.role === "bde" ? "bg-emerald-50 text-emerald-700 border border-emerald-200/50" :
-                                            "bg-blue-50 text-blue-700 border border-blue-200/50"
+                                      u.role === "co_admin" ? "bg-red-50 text-red-700 border border-red-200/50" :
+                                        u.role === "bde" ? "bg-emerald-50 text-emerald-700 border border-emerald-200/50" :
+                                          "bg-blue-50 text-blue-700 border border-blue-200/50"
                                       }`}>
                                       {u.role === "content_editor" ? "editor" : u.role === "co_admin" ? "co-admin" : u.role}
                                     </span>
@@ -2609,11 +2609,10 @@ export default function AdminDashboard() {
                           key={period}
                           type="button"
                           onClick={() => setAnalyticsPeriod(period)}
-                          className={`py-1.5 px-3 rounded-lg text-xs font-bold capitalize transition-all cursor-pointer ${
-                            analyticsPeriod === period
+                          className={`py-1.5 px-3 rounded-lg text-xs font-bold capitalize transition-all cursor-pointer ${analyticsPeriod === period
                               ? "bg-primary text-white shadow-sm"
                               : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
-                          }`}
+                            }`}
                         >
                           {period === "daily" ? "Daily (30d)" : period === "monthly" ? "Monthly (12m)" : "Yearly"}
                         </button>
@@ -2919,13 +2918,12 @@ export default function AdminDashboard() {
                                   <tr key={idx} className="hover:bg-slate-50/50 transition-colors">
                                     <td className="py-3 px-4">
                                       <span
-                                        className={`px-2 py-0.5 rounded-full text-[9px] font-bold tracking-wide uppercase ${
-                                          log.eventType === "pageview"
+                                        className={`px-2 py-0.5 rounded-full text-[9px] font-bold tracking-wide uppercase ${log.eventType === "pageview"
                                             ? "bg-blue-50 text-blue-700 border border-blue-200/50"
                                             : log.eventType === "click"
-                                            ? "bg-green-50 text-green-700 border border-green-200/50"
-                                            : "bg-purple-50 text-purple-700 border border-purple-200/50"
-                                        }`}
+                                              ? "bg-green-50 text-green-700 border border-green-200/50"
+                                              : "bg-purple-50 text-purple-700 border border-purple-200/50"
+                                          }`}
                                       >
                                         {log.eventType}
                                       </span>

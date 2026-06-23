@@ -114,11 +114,11 @@ export default function Home() {
   ];
 
   const projectCases = [
-    { src: "/assets/IMAGE/project/p (1).avif", title: "Utility Scale PV Project" },
+    { src: "/assets/IMAGE/project/p (1).avif", title: "Rooftop Solar Project" },
     { src: "/assets/IMAGE/project/p (2).avif", title: "Industrial Rooftop Installation" },
-    { src: "/assets/IMAGE/project/p (3).avif", title: "Commercial Smart Grid SCADA" },
-    { src: "/assets/IMAGE/project/p (4).avif", title: "Residential BESS Solution" },
-    { src: "/assets/IMAGE/project/p (5).avif", title: "Solar Microgrid Storage" },
+    { src: "/assets/IMAGE/project/p (3).avif", title: "Commercial Rooftop Solar" },
+    { src: "/assets/IMAGE/project/p (4).avif", title: "Residential Solar Installation" },
+    { src: "/assets/IMAGE/project/p (5).avif", title: "Hybrid Solar Power Backup" },
   ];
 
   return (
@@ -439,14 +439,14 @@ export default function Home() {
             </h2>
             
             <p className="text-base text-gray-700 font-semibold leading-relaxed">
-              We are a leading solar PV product distributor and solar product specialists for residential & commercial headquartered in New Delhi, India.
+              We are a leading solar PV installation company and solar product specialists for residential & commercial applications.
             </p>
             
             <p className="text-sm text-gray-600 leading-relaxed">
-              SunLynk Solar is a leading provider of weather stations, solar forecasting, SCADA, and energy storage solutions (ESS) for the renewable energy sector. With a commitment to innovation, precision, and sustainability, we empower solar and wind energy projects with advanced monitoring, control, and automation technologies.
+              SunLynk Solar is a premier provider of high-efficiency rooftop solar systems and smart energy tracking solutions. With a commitment to innovation, quality installation, and sustainability, we empower homes, housing societies, and businesses with advanced solar power integration and monitoring systems.
             </p>
             <p className="text-sm text-gray-600 leading-relaxed">
-              Our solutions enhance efficiency, optimize performance, and enable seamless grid integration, ensuring reliable, data-driven energy management. Backed by deep industry expertise and a forward-thinking approach, SunLynk Solar is shaping the future of smart renewable energy solutions.
+              Our installations enhance energy savings, optimize power generation, and enable seamless net metering connection, ensuring reliable and green energy management. Backed by deep engineering expertise and a customer-first approach, SunLynk Solar is shaping a cleaner energy future.
             </p>
 
             <Link href="/about" className="btn-primary self-start mt-2">
@@ -480,7 +480,7 @@ export default function Home() {
               </div>
               <h4 className="text-lg font-bold text-gray-800">Getting Started</h4>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Initial capacity planning, technical requirement evaluation, and site mapping to match optimal weather station or SCADA architectures.
+                Initial capacity planning, technical requirement evaluation, and site mapping to match optimal rooftop solar panel placement.
               </p>
             </div>
 
@@ -491,7 +491,7 @@ export default function Home() {
               </div>
               <h4 className="text-lg font-bold text-gray-800">System Installation</h4>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Seamless calibration, heavy-duty mechanical mounting, wiring, and sensor configuration handled by certified SunLynkengineers.
+                Seamless structural alignment, heavy-duty mechanical mounting, wiring, and solar inverter setup handled by certified SunLynk engineers.
               </p>
             </div>
 
@@ -501,7 +501,7 @@ export default function Home() {
               </div>
               <h4 className="text-lg font-bold text-gray-800">Ready to Use</h4>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Universal Modbus RTU/TCP data normalization, local HMI testing, and cloud dashboard activation for real-time tracking.
+                Net-metering connection coordination, testing, commissioning, and cloud dashboard activation for real-time performance tracking.
               </p>
             </div>
 
@@ -568,7 +568,7 @@ export default function Home() {
               <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-100">
                 <Image
                   src="/assets/images/blog_weather_station.webp"
-                  alt="Class-A Weather Monitoring"
+                  alt="Solar Mounting Structures"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -580,10 +580,10 @@ export default function Home() {
                 <div>
                   <span className="text-xs font-semibold text-gray-400 block mb-2">Apr 28, 2026 • 6 min read</span>
                   <h4 className="font-bold text-gray-800 text-lg mb-3 group-hover:text-primary transition-colors duration-300">
-                    Why Class-A Weather Monitoring is Essential for Utility PV
+                    Why Professional Mounting Structures are Essential for Rooftop Solar
                   </h4>
                   <p className="text-sm text-gray-500 leading-relaxed text-justify line-clamp-3 mb-6">
-                    Precise meteorological data is key to calculating performance ratio (PR). Discover why Class-A pyranometers and weather monitoring stations are required by grid operators.
+                    Strong mechanical structures are key to ensuring wind resistance and durability. Discover why premium galvanized iron and aluminum structures are required for safe installations.
                   </p>
                 </div>
                 <div className="border-t border-gray-50 pt-4 mt-auto">
@@ -614,10 +614,10 @@ export default function Home() {
                 <div>
                   <span className="text-xs font-semibold text-gray-400 block mb-2">Apr 15, 2026 • 7 min read</span>
                   <h4 className="font-bold text-gray-800 text-lg mb-3 group-hover:text-primary transition-colors duration-300">
-                    Integrating Battery Storage (BESS) with SCADA for Grid Stability
+                    Integrating Smart Hybrid Inverters with Battery Backup
                   </h4>
                   <p className="text-sm text-gray-500 leading-relaxed text-justify line-clamp-3 mb-6">
-                    Hybrid solar systems combining battery energy storage require intelligent SCADA dispatch algorithms. We analyze how Modbus control loops maintain zero-export grid compliance.
+                    Hybrid solar systems combining battery storage require smart energy management. We analyze how modern hybrid inverters manage power dispatch during grid outages.
                   </p>
                 </div>
                 <div className="border-t border-gray-50 pt-4 mt-auto">
@@ -724,9 +724,9 @@ export default function Home() {
                 <Sun className="text-primary" size={20} />
                 <span className="text-base uppercase tracking-wider font-bold text-primary">Questions For Us</span>
               </div>
-              <h3 className="text-3xl md:text-5xl font-extrabold text-dark leading-tight">Some FAQ Questions</h3>
+              <h3 className="text-3xl md:text-5xl font-extrabold text-dark leading-tight">FAQ Questions About Rooftop Solar</h3>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Learn more about solar modules, meteorological data loggers, SCADA platforms, and storage integration technologies.
+                Learn more about solar modules, roof layouts, generation guarantees, subsidies, and installation timelines.
               </p>
             </div>
 

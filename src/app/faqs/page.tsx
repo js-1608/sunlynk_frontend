@@ -13,7 +13,7 @@ interface FAQItem {
 export default function FAQs() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const [searchQuery, setSearchQuery] = useState("");
-  const [activeCategory, setActiveCategory] = useState<string>("all");
+  const [activeCategory, setActiveCategory] = useState<string>("general");
 
   const faqs: FAQItem[] = [
     {
@@ -51,7 +51,66 @@ export default function FAQs() {
       a: "Yes, solar panels still generate electricity on cloudy, overcast, or rainy days, but at a reduced capacity (typically 10% to 25% of their peak output). The panels absorb daylight, not just direct sunlight, so power generation continues throughout the daytime.",
       cat: "safety"
     },
-
+    {
+      q: "How much does rooftop solar cost in Lucknow?",
+      a: "The cost depends on your electricity bill, roof space, system size, panel quality, inverter, and structure requirements. SunLynk gives you a custom quote after a rooftop survey.",
+      cat: "general"
+    },
+    {
+      q: "How much subsidy can I get in Uttar Pradesh?",
+      a: "Eligible residential customers can get central subsidy up to ₹78,000, and UP may offer additional state subsidy as per current rules which as in 2026 is 108,000 at the moment. SunLynk helps you check the latest applicable subsidy before installation.",
+      cat: "subsidies"
+    },
+    {
+      q: "How does SunLynk help with subsidy paperwork?",
+      a: "We assist with registration, documents, application, installation records, and subsidy submission so the process stays simple for you.",
+      cat: "subsidies"
+    },
+    {
+      q: "What is the Lynk Sure generation guarantee?",
+      a: "Lynk Sure is SunLynk’s generation assurance plan. We estimate your system’s expected solar output and commit to performance terms based on your rooftop design.",
+      cat: "technical"
+    },
+    {
+      q: "What happens if my system produces less than promised?",
+      a: "We check monitoring data, site conditions, maintenance status, and guarantee terms. If the shortfall qualifies, compensation is handled as per the Lynk Sure plan.",
+      cat: "technical"
+    },
+    {
+      q: "Can I install solar with EMI?",
+      a: "Yes. EMI and solar financing options are available for eligible customers, subject to finance partner approval.",
+      cat: "subsidies"
+    },
+    {
+      q: "How many panels do I need for a 3kW or 5kW system?",
+      a: "A 3kW system usually needs around 5 to 7 panels. A 5kW system usually needs around 9 to 12 panels, depending on panel technology (bifacial/topcon), panel wattage and roof layout.",
+      cat: "technical"
+    },
+    {
+      q: "How long does installation take?",
+      a: "Most home installations take 1 to 3 days after survey, design approval, documentation, and material planning. Although We offer 8 hour Quick Installation.",
+      cat: "general"
+    },
+    {
+      q: "Is net metering included?",
+      a: "Yes. SunLynk assists with net-metering for eligible on-grid solar systems as per DISCOM rules. (DISCOM charges will be apart from project cost)",
+      cat: "technical"
+    },
+    {
+      q: "What warranty do I get?",
+      a: "Solar panels usually come with long-term performance warranty, often up to 25 - 30 years. Inverters and other components carry separate brand warranties.",
+      cat: "technical"
+    },
+    {
+      q: "Who handles maintenance after installation?",
+      a: "SunLynk provides after-sales support, performance checks, cleaning guidance, issue diagnosis, and service coordination.",
+      cat: "general"
+    },
+    {
+      q: "Can solar reduce my electricity bill to zero?",
+      a: "Solar can reduce your bill significantly and may bring it close to zero if the system is sized correctly. Final savings depend on usage, generation, fixed charges, and net-metering rules.",
+      cat: "subsidies"
+    }
   ];
 
   const categories = [
@@ -59,6 +118,7 @@ export default function FAQs() {
     { id: "general", name: "General" },
     { id: "safety", name: "Safety & Reliability" },
     { id: "subsidies", name: "Subsidies & Billing" },
+    { id: "technical", name: "Technical Specs" },
   ];
 
   const toggleAccordion = (index: number) => {
@@ -85,7 +145,7 @@ export default function FAQs() {
           <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-2 font-mono">
             Support Center
           </span>
-          <h1 className="text-4xl md:text-5xl font-black">Frequently Asked Questions</h1>
+          <h1 className="text-3xl md:text-4xl font-black">Frequently Asked Questions About Rooftop Solar</h1>
           <p className="mt-3 text-sm text-gray-400">
             Find answers to common questions about solar panel installation, safety, net metering and government subsidies.
           </p>
@@ -164,7 +224,7 @@ export default function FAQs() {
                         )}
                       </button>
                       <div
-                        className={`transition-all duration-300 ease-in-out ${isOpen ? "max-h-[300px] border-t border-slate-100" : "max-h-0 pointer-events-none"
+                        className={`transition-all duration-300 ease-in-out ${isOpen ? "max-h-[500px] border-t border-slate-100" : "max-h-0 pointer-events-none"
                           } overflow-hidden`}
                       >
                         <div className="p-6 text-sm text-slate-600 leading-relaxed text-justify">
@@ -189,6 +249,14 @@ export default function FAQs() {
                   </button>
                 </div>
               )}
+
+              {/* Bottom Note */}
+              <div className="mt-4 flex items-start gap-3 p-4 rounded-2xl bg-slate-100/80 border border-slate-200/60 text-xs text-slate-600 leading-relaxed shadow-sm">
+                <Info size={16} className="text-primary shrink-0 mt-0.5" />
+                <p>
+                  <strong className="text-slate-800">Note:</strong> Subsidy, EMI, warranty, and guarantee benefits are subject to eligibility, government rules, finance approval, and SunLynk plan terms.
+                </p>
+              </div>
             </div>
 
           </div>
@@ -228,7 +296,7 @@ export default function FAQs() {
               <div>
                 <h4 className="font-bold text-slate-800 text-sm">5-Year Free Maintenance</h4>
                 <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">
-                  Our service support includes free module washing guidance, regular inverter calibrations, and electrical checks.
+                  Our service support includes free module washing guidance, regular inverter performance checks, and electrical system diagnostics.
                 </p>
               </div>
             </div>
