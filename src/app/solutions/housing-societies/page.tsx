@@ -7,6 +7,8 @@ import ContactForm from "@/components/ContactForm";
 import SocietyCalculator from "@/components/SocietyCalculator";
 import FaqAccordion from "@/components/FaqAccordion";
 import SocietySolutionsSelector from "@/components/SocietySolutionsSelector";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Rooftop Solar Solutions for Housing Societies & RWAs | SunLynk Solar",
@@ -141,6 +143,19 @@ export default function HousingSocietiesPage() {
 
   return (
     <div className="bg-white text-dark min-h-screen">
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Solutions", item: "/#solutions" },
+          { name: "Housing Societies", item: "/solutions/housing-societies" }
+        ]}
+      />
+      <FAQSchema
+        items={faqs.map((faq) => ({
+          question: faq.question,
+          answer: faq.answer
+        }))}
+      />
       <section className="relative overflow-hidden bg-white">
 
         {/* ── Desktop-only background image (bottom-left) ── */}

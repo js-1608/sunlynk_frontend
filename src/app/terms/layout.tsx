@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions | SunLynk Solar",
@@ -17,5 +18,15 @@ export default function TermsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Terms & Conditions", item: "/terms" }
+        ]}
+      />
+      {children}
+    </>
+  );
 }

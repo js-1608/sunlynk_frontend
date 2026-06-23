@@ -7,6 +7,8 @@ import ContactForm from "@/components/ContactForm";
 import CommercialCalculator from "@/components/CommercialCalculator";
 import FaqAccordion from "@/components/FaqAccordion";
 import GoogleReviews from "@/components/GoogleReviews";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Commercial & Industrial (C&I) Solar Solutions | SunLynk Solar",
@@ -175,6 +177,19 @@ export default function CommercialPage() {
 
   return (
     <div className="bg-white min-h-screen">
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Solutions", item: "/#solutions" },
+          { name: "Commercial", item: "/solutions/commercial" }
+        ]}
+      />
+      <FAQSchema
+        items={faqs.map((faq) => ({
+          question: faq.question,
+          answer: faq.answer
+        }))}
+      />
 
       {/* Premium Light Corporate Hero Section */}
       <section className="relative overflow-hidden bg-white">
