@@ -176,8 +176,8 @@ export default function HeroV2() {
               </div>
 
               {/* Subheading */}
-              <p className="px-4 text-white text-base sm:text-lg font-medium leading-relaxed -mt-2">
-                Rooftop Solar in Lucknow <span className="text-secondary font-extrabold">With Guaranteed </span> — Generation              </p>
+              <p className="px-4 text-white text-base sm:text-base font-medium leading-relaxed -mt-2">
+                Premium Rooftop Solar in Lucknow <span className="text-secondary font-extrabold">With 5 Year Guaranteed </span> — Generation              </p>
 
               {/* Body */}
               <p className="px-4 text-white/80 text-sm leading-relaxed max-w-md hidden lg:block">
