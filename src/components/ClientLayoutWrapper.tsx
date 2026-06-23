@@ -86,11 +86,10 @@ export default function ClientLayoutWrapper({
         <div className="relative">
           {/* "Connect Now" label that hides when isOpen is true */}
           <span
-            className={`absolute right-16 top-1/2 -translate-y-1/2 bg-emerald-800 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg pointer-events-none whitespace-nowrap transition-all duration-300 border border-emerald-700/50 flex items-center gap-1.5 ${
-              isOpen
+            className={`absolute right-16 top-1/2 -translate-y-1/2 bg-emerald-800 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg pointer-events-none whitespace-nowrap transition-all duration-300 border border-emerald-700/50 flex items-center gap-1.5 ${isOpen
                 ? "opacity-0 scale-75 translate-x-4 pointer-events-none"
                 : "opacity-100 scale-100 translate-x-0"
-            }`}
+              }`}
           >
             Connect Now
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-ping" />
