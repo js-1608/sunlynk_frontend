@@ -700,19 +700,20 @@ export default function Home() {
             <div className="flex flex-col gap-4 justify-between">
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-gray-100 shadow-md">
                 <Image
-                  src="/assets/IMAGE/solar.webp"
+                  src="/new_assets/solarHome.webp"
                   alt="Faq Detail"
                   fill
                   className="object-cover"
                 />
               </div>
               {/* Play Video Trigger */}
-              <div className="bg-primary/5 border border-primary/20 p-6 rounded-xl flex flex-col justify-center items-center text-center">
-                <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mb-3">
-                  <Sun size={20} />
-                </div>
-                {/* <h5 className="font-bold text-gray-800 text-sm">Watch Our Intro</h5> */}
-                <p className="text-xs text-gray-500 mt-1">Solar Solutions Overview</p>
+              <div className="relative flex-grow rounded-xl overflow-hidden border border-gray-100 shadow-md group cursor-pointer min-h-[140px]">
+                <Image
+                  src="/new_assets/sunlynk_solar_pannels.webp"
+                  alt="Solar Solutions Overview"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
               </div>
             </div>
           </div>
