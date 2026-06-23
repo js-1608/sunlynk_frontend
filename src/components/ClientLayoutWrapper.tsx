@@ -16,8 +16,10 @@ export default function ClientLayoutWrapper({
   const isAdminOrLogin =
     pathname === "/admin" ||
     pathname === "/login" ||
+    pathname === "/promo" ||
     pathname?.startsWith("/admin/") ||
-    pathname?.startsWith("/login/");
+    pathname?.startsWith("/login/") ||
+    pathname?.startsWith("/promo/");
 
   const [isOpen, setIsOpen] = useState(false);
 

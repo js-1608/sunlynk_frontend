@@ -45,7 +45,7 @@ export default function ZeroInvestmentCalculator() {
   const activeData = calculatorData[selectedSize];
 
   return (
-    <section className="py-20 bg-[#065F46] text-white overflow-hidden relative">
+    <section id="calculator" className="py-20 bg-[#065F46] text-white overflow-hidden relative">
       {/* Decorative ambient background glows */}
       <div className="absolute right-[-10%] top-[-10%] w-[50%] h-[50%] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
       <div className="absolute left-[-10%] bottom-[-10%] w-[40%] h-[40%] bg-yellow-500/5 rounded-full blur-[100px] pointer-events-none"></div>
