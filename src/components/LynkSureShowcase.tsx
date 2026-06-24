@@ -600,16 +600,8 @@ export default function LynkSureShowcase() {
                   </div>
 
                   <div className="mt-10 border-t border-slate-100 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                    <div>
-                      <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">
-                        Official Lending Partners
-                      </span>
-                      <span className="text-sm font-black text-slate-700 mt-1 block">
-                        SBI • PNB • Bank of Baroda
-                      </span>
-                    </div>
                     <a
-                      href="https://wa.me/918573003001?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20free%20Solar%20Consultation."
+                      href="https://wa.me/918573003001?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20EMI%20Interest%20rates%20and%Loan%20Process."
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-black py-3 px-6 rounded-full inline-flex items-center gap-1.5 shadow-md shadow-emerald-500/10 hover:shadow-lg transition-all self-start sm:self-center cursor-pointer outline-none"
