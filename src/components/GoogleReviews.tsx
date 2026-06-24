@@ -151,10 +151,12 @@ function ReviewCard({ review, reviewIdx, isDark = false, onOpenLightbox }: Revie
           <GoogleGLogoTiny />
         </div>
 
-        {/* Testimonial Text */}
-        <p className={`text-sm leading-relaxed mb-5 font-medium ${isDark ? "text-slate-300" : "text-gray-600"}`}>
-          &quot;{review.text}&quot;
-        </p>
+        {/* Testimonial Text with fixed height for visual symmetry */}
+        <div className="h-[120px] overflow-y-auto mb-5 scrollbar-none pr-1">
+          <p className={`text-sm leading-relaxed font-medium ${isDark ? "text-slate-300" : "text-gray-600"}`}>
+            &quot;{review.text}&quot;
+          </p>
+        </div>
 
         {/* Media Block */}
         {review.media.length > 0 && activeMedia && (
@@ -213,9 +215,9 @@ function ReviewCard({ review, reviewIdx, isDark = false, onOpenLightbox }: Revie
               )}
             </div>
 
-            {/* Thumbnail Navigation Row */}
-            {review.media.length > 1 && (
-              <div className="flex gap-2 mt-3 overflow-x-auto pb-1 scrollbar-thin scrollbar-thumb-emerald-800">
+            {/* Thumbnail Navigation Row (Guarantees consistent height layout across all cards) */}
+            {review.media.length > 1 ? (
+              <div className="flex gap-2 mt-3 overflow-x-auto pb-1 scrollbar-thin scrollbar-thumb-emerald-800 h-12">
                 {review.media.slice(0, 5).map((item, idx) => {
                   const isActive = idx === activeMediaIdx;
                   const isLastIdx = idx === 4 && review.media.length > 5;
@@ -261,6 +263,8 @@ function ReviewCard({ review, reviewIdx, isDark = false, onOpenLightbox }: Revie
                   );
                 })}
               </div>
+            ) : (
+              <div className="h-12 mt-3" />
             )}
           </div>
         )}
