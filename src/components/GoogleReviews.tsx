@@ -50,7 +50,7 @@ interface Review {
 const reviews: Review[] = [
   {
     initials: "FF",
-    name: "Franky Fernandez",
+    name: "Franky lawrance",
     location: "Shanti Nagar, Tedhi Puliya, Lucknow",
     projectSize: "3KW Plant",
     time: "1 month ago • Verified Owner",
@@ -127,11 +127,14 @@ function ReviewCard({ review, reviewIdx, isDark = false, onOpenLightbox }: Revie
   const [activeMediaIdx, setActiveMediaIdx] = useState(0);
   const activeMedia = review.media[activeMediaIdx];
 
+  // Find the first image in the media array to use as a video poster
+  const videoPoster = review.media.find(m => m.type === "image")?.url || "";
+
   // Helper to get descriptive content count text
   const getMediaCountText = () => {
     const videos = review.media.filter(m => m.type === "video").length;
     const images = review.media.filter(m => m.type === "image").length;
-    
+
     const parts = [];
     if (videos > 0) parts.push(`${videos} Video${videos > 1 ? "s" : ""}`);
     if (images > 0) parts.push(`${images} Photo${images > 1 ? "s" : ""}`);
@@ -139,11 +142,10 @@ function ReviewCard({ review, reviewIdx, isDark = false, onOpenLightbox }: Revie
   };
 
   return (
-    <div className={`rounded-2xl p-6 shadow-sm transition-all duration-300 flex flex-col justify-between h-full group ${
-      isDark
+    <div className={`rounded-2xl p-6 shadow-sm transition-all duration-300 flex flex-col justify-between h-full group ${isDark
         ? "bg-[#071813]/90 border border-emerald-950/45 hover:border-emerald-500/35 hover:shadow-2xl hover:shadow-emerald-950/20"
         : "bg-white border border-gray-100 hover:border-primary/30 hover:shadow-md"
-    }`}>
+      }`}>
       <div className="flex flex-col flex-grow">
         {/* Rating Stars & Google badge */}
         <div className="flex justify-between items-center mb-4">
@@ -162,23 +164,26 @@ function ReviewCard({ review, reviewIdx, isDark = false, onOpenLightbox }: Revie
         {review.media.length > 0 && activeMedia && (
           <div className="mb-5">
             {/* Primary Media Display */}
-            <div 
+            <div
               onClick={() => onOpenLightbox(reviewIdx, activeMediaIdx)}
-              className={`relative w-full h-48 rounded-xl overflow-hidden group/media border cursor-zoom-in shrink-0 ${
-                isDark ? "border-emerald-950/30" : "border-slate-100"
-              }`}
+              className={`relative w-full h-48 rounded-xl overflow-hidden group/media border cursor-zoom-in shrink-0 ${isDark ? "border-emerald-950/30" : "border-slate-100"
+                }`}
             >
               {activeMedia.type === "video" ? (
                 <div className="w-full h-full relative bg-black flex items-center justify-center">
-                  <video 
-                    src={activeMedia.url} 
-                    className="w-full h-full object-cover opacity-85" 
-                    muted 
-                    playsInline 
-                    preload="metadata" 
-                  />
+                  {videoPoster ? (
+                    <Image
+                      src={videoPoster}
+                      alt={`${review.name}'s video testimonial`}
+                      fill
+                      className="object-cover opacity-75 transition-transform duration-500 group-hover/media:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-slate-900" />
+                  )}
                   {/* Pulsing Play Button */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/30 hover:bg-black/40 transition-colors duration-300">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/35 hover:bg-black/45 transition-colors duration-300">
                     <span className="w-12 h-12 flex items-center justify-center rounded-full bg-emerald-500/90 text-white shadow-lg animate-pulse hover:scale-110 transition-transform duration-300">
                       <Play className="fill-current text-white translate-x-[2px]" size={20} />
                     </span>
@@ -221,7 +226,7 @@ function ReviewCard({ review, reviewIdx, isDark = false, onOpenLightbox }: Revie
                 {review.media.slice(0, 5).map((item, idx) => {
                   const isActive = idx === activeMediaIdx;
                   const isLastIdx = idx === 4 && review.media.length > 5;
-                  
+
                   return (
                     <button
                       key={idx}
@@ -229,31 +234,38 @@ function ReviewCard({ review, reviewIdx, isDark = false, onOpenLightbox }: Revie
                         e.stopPropagation();
                         setActiveMediaIdx(idx);
                       }}
-                      className={`relative w-11 h-11 rounded-lg overflow-hidden border-2 transition-all shrink-0 cursor-pointer ${
-                        isActive 
-                          ? "border-emerald-500 scale-105 shadow-sm" 
+                      className={`relative w-11 h-11 rounded-lg overflow-hidden border-2 transition-all shrink-0 cursor-pointer ${isActive
+                          ? "border-emerald-500 scale-105 shadow-sm"
                           : isDark
                             ? "border-emerald-950 hover:border-emerald-800/60"
                             : "border-slate-100 hover:border-slate-300"
-                      }`}
+                        }`}
                     >
                       {item.type === "video" ? (
                         <div className="w-full h-full bg-slate-900 flex items-center justify-center relative">
-                          <video src={item.url} className="w-full h-full object-cover opacity-60" preload="metadata" muted playsInline />
+                          {videoPoster ? (
+                            <Image
+                              src={videoPoster}
+                              alt="Video poster thumbnail"
+                              fill
+                              className="object-cover opacity-60"
+                              sizes="44px"
+                            />
+                          ) : null}
                           <div className="absolute inset-0 flex items-center justify-center bg-black/20">
                             <Play size={10} className="text-white fill-current" />
                           </div>
                         </div>
                       ) : (
-                        <Image 
-                          src={item.url} 
-                          alt={`Thumbnail ${idx + 1}`} 
-                          fill 
-                          className="object-cover" 
-                          sizes="44px" 
+                        <Image
+                          src={item.url}
+                          alt={`Thumbnail ${idx + 1}`}
+                          fill
+                          className="object-cover"
+                          sizes="44px"
                         />
                       )}
-                      
+
                       {isLastIdx && (
                         <div className="absolute inset-0 bg-black/75 flex items-center justify-center text-white text-[10px] font-bold">
                           +{review.media.length - 4}
@@ -283,9 +295,8 @@ function ReviewCard({ review, reviewIdx, isDark = false, onOpenLightbox }: Revie
             {review.location}
           </span>
           {review.projectSize && (
-            <span className={`inline-block text-[9px] font-bold mt-0.5 px-1.5 py-0.5 rounded ${
-              isDark ? "bg-emerald-950/40 text-emerald-400" : "bg-emerald-50 text-emerald-700"
-            }`}>
+            <span className={`inline-block text-[9px] font-bold mt-0.5 px-1.5 py-0.5 rounded ${isDark ? "bg-emerald-950/40 text-emerald-400" : "bg-emerald-50 text-emerald-700"
+              }`}>
               {review.projectSize}
             </span>
           )}
@@ -306,6 +317,7 @@ interface MediaLightboxProps {
 
 function MediaLightbox({ review, activeIndex, onClose, onPrev, onNext, onSelectMedia }: MediaLightboxProps) {
   const activeMedia = review.media[activeIndex];
+  const videoPoster = review.media.find(m => m.type === "image")?.url || "";
 
   // Lock body scroll on mount
   useEffect(() => {
@@ -329,7 +341,7 @@ function MediaLightbox({ review, activeIndex, onClose, onPrev, onNext, onSelectM
   if (!activeMedia) return null;
 
   return (
-    <div 
+    <div
       className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col justify-between select-none p-4 md:p-6"
       onClick={onClose}
     >
@@ -342,9 +354,9 @@ function MediaLightbox({ review, activeIndex, onClose, onPrev, onNext, onSelectM
           <h4 className="text-base sm:text-lg font-black">{review.name}</h4>
           <p className="text-xs text-slate-400">{review.location} • {review.projectSize}</p>
         </div>
-        
+
         {/* Close Button */}
-        <button 
+        <button
           onClick={onClose}
           className="p-2 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all cursor-pointer"
           aria-label="Close Gallery"
@@ -410,15 +422,16 @@ function MediaLightbox({ review, activeIndex, onClose, onPrev, onNext, onSelectM
                 <button
                   key={idx}
                   onClick={() => onSelectMedia(idx)}
-                  className={`relative w-12 h-12 rounded-lg overflow-hidden border-2 transition-all shrink-0 cursor-pointer ${
-                    isActive
+                  className={`relative w-12 h-12 rounded-lg overflow-hidden border-2 transition-all shrink-0 cursor-pointer ${isActive
                       ? "border-emerald-500 scale-105 shadow-md shadow-emerald-500/20"
                       : "border-white/10 hover:border-white/30"
-                  }`}
+                    }`}
                 >
                   {item.type === "video" ? (
                     <div className="w-full h-full bg-slate-900 flex items-center justify-center relative">
-                      <video src={item.url} className="w-full h-full object-cover opacity-60" preload="metadata" muted playsInline />
+                      {videoPoster ? (
+                        <img src={videoPoster} alt="Video thumbnail preview" className="w-full h-full object-cover opacity-60" />
+                      ) : null}
                       <div className="absolute inset-0 flex items-center justify-center bg-black/30">
                         <Play size={10} className="text-white fill-current" />
                       </div>
@@ -526,9 +539,8 @@ export default function GoogleReviews({ isDark = false }: { isDark?: boolean }) 
       <div className="max-w-7xl mx-auto px-4 md:px-8">
 
         {/* Header Area */}
-        <div className={`flex flex-col justify-between items-center gap-8 mb-16 border-b pb-12 text-center ${
-          isDark ? "border-white/[0.06]" : "border-gray-100"
-        }`}>
+        <div className={`flex flex-col justify-between items-center gap-8 mb-16 border-b pb-12 text-center ${isDark ? "border-white/[0.06]" : "border-gray-100"
+          }`}>
           <div className="max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2.5 mb-3">
               <span className={`h-[2px] w-6 ${isDark ? "bg-emerald-500" : "bg-primary"}`}></span>
@@ -537,16 +549,14 @@ export default function GoogleReviews({ isDark = false }: { isDark?: boolean }) 
               </span>
               <span className={`h-[2px] w-6 ${isDark ? "bg-emerald-500" : "bg-primary"}`}></span>
             </div>
-            
-            <h2 className={`text-3xl md:text-5xl font-black leading-tight tracking-tight ${
-              isDark ? "text-white" : "text-dark"
-            }`}>
+
+            <h2 className={`text-3xl md:text-5xl font-black leading-tight tracking-tight ${isDark ? "text-white" : "text-dark"
+              }`}>
               Google Reviews & Customer Feedback
             </h2>
-            
-            <p className={`text-sm sm:text-base mt-3 leading-relaxed ${
-              isDark ? "text-slate-300" : "text-gray-500"
-            }`}>
+
+            <p className={`text-sm sm:text-base mt-3 leading-relaxed ${isDark ? "text-slate-300" : "text-gray-500"
+              }`}>
               Discover what our partners, clients, and homeowners say about our engineering standards, premium modules, and solar subsidy support.
             </p>
           </div>
@@ -557,19 +567,17 @@ export default function GoogleReviews({ isDark = false }: { isDark?: boolean }) 
           {/* Navigation Arrows (visible on tablet+) */}
           <button
             onClick={() => scroll("left")}
-            className={`absolute -left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white border border-gray-200 rounded-full shadow-md flex items-center justify-center hover:border-primary hover:text-primary transition-all duration-200 hidden md:flex ${
-              !canScrollLeft ? "opacity-0 pointer-events-none" : "opacity-100"
-            }`}
+            className={`absolute -left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white border border-gray-200 rounded-full shadow-md flex items-center justify-center hover:border-primary hover:text-primary transition-all duration-200 hidden md:flex ${!canScrollLeft ? "opacity-0 pointer-events-none" : "opacity-100"
+              }`}
             aria-label="Scroll left"
           >
             <ChevronLeft size={20} />
           </button>
-          
+
           <button
             onClick={() => scroll("right")}
-            className={`absolute -right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white border border-gray-200 rounded-full shadow-md flex items-center justify-center hover:border-primary hover:text-primary transition-all duration-200 hidden md:flex ${
-              !canScrollRight ? "opacity-0 pointer-events-none" : "opacity-100"
-            }`}
+            className={`absolute -right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white border border-gray-200 rounded-full shadow-md flex items-center justify-center hover:border-primary hover:text-primary transition-all duration-200 hidden md:flex ${!canScrollRight ? "opacity-0 pointer-events-none" : "opacity-100"
+              }`}
             aria-label="Scroll right"
           >
             <ChevronRight size={20} />
@@ -587,11 +595,11 @@ export default function GoogleReviews({ isDark = false }: { isDark?: boolean }) 
                 data-review-card
                 className="snap-start shrink-0 w-[300px] sm:w-[350px] lg:w-[calc(33.333%-16px)]"
               >
-                <ReviewCard 
-                  review={review} 
-                  reviewIdx={idx} 
-                  isDark={isDark} 
-                  onOpenLightbox={openLightbox} 
+                <ReviewCard
+                  review={review}
+                  reviewIdx={idx}
+                  isDark={isDark}
+                  onOpenLightbox={openLightbox}
                 />
               </div>
             ))}

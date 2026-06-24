@@ -319,7 +319,7 @@ export default function Home() {
       <SolarCalculator />
 
       {/* Actual Installations Gallery */}
-      <ActualInstallations />
+      {/* <ActualInstallations /> */}
 
 
 
