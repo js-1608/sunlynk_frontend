@@ -95,7 +95,6 @@ const reviews: Review[] = [
     media: [
       { type: "image", url: "/new_assets/actual_installtion (1).jpeg" },
       { type: "image", url: "/new_assets/actual_installtion (2).jpeg" },
-      { type: "image", url: "/new_assets/actual_installtion (3).jpeg" },
       { type: "image", url: "/new_assets/actual_installtion (4).jpeg" },
       { type: "image", url: "/new_assets/actual_installtion (5).jpeg" },
       { type: "image", url: "/new_assets/actual_installtion (6).jpeg" },
@@ -143,8 +142,8 @@ function ReviewCard({ review, reviewIdx, isDark = false, onOpenLightbox }: Revie
 
   return (
     <div className={`rounded-2xl p-6 shadow-sm transition-all duration-300 flex flex-col justify-between h-full group ${isDark
-        ? "bg-[#071813]/90 border border-emerald-950/45 hover:border-emerald-500/35 hover:shadow-2xl hover:shadow-emerald-950/20"
-        : "bg-white border border-gray-100 hover:border-primary/30 hover:shadow-md"
+      ? "bg-[#071813]/90 border border-emerald-950/45 hover:border-emerald-500/35 hover:shadow-2xl hover:shadow-emerald-950/20"
+      : "bg-white border border-gray-100 hover:border-primary/30 hover:shadow-md"
       }`}>
       <div className="flex flex-col flex-grow">
         {/* Rating Stars & Google badge */}
@@ -235,10 +234,10 @@ function ReviewCard({ review, reviewIdx, isDark = false, onOpenLightbox }: Revie
                         setActiveMediaIdx(idx);
                       }}
                       className={`relative w-11 h-11 rounded-lg overflow-hidden border-2 transition-all shrink-0 cursor-pointer ${isActive
-                          ? "border-emerald-500 scale-105 shadow-sm"
-                          : isDark
-                            ? "border-emerald-950 hover:border-emerald-800/60"
-                            : "border-slate-100 hover:border-slate-300"
+                        ? "border-emerald-500 scale-105 shadow-sm"
+                        : isDark
+                          ? "border-emerald-950 hover:border-emerald-800/60"
+                          : "border-slate-100 hover:border-slate-300"
                         }`}
                     >
                       {item.type === "video" ? (
@@ -423,8 +422,8 @@ function MediaLightbox({ review, activeIndex, onClose, onPrev, onNext, onSelectM
                   key={idx}
                   onClick={() => onSelectMedia(idx)}
                   className={`relative w-12 h-12 rounded-lg overflow-hidden border-2 transition-all shrink-0 cursor-pointer ${isActive
-                      ? "border-emerald-500 scale-105 shadow-md shadow-emerald-500/20"
-                      : "border-white/10 hover:border-white/30"
+                    ? "border-emerald-500 scale-105 shadow-md shadow-emerald-500/20"
+                    : "border-white/10 hover:border-white/30"
                     }`}
                 >
                   {item.type === "video" ? (

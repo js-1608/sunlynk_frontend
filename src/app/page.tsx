@@ -80,23 +80,33 @@ export default function Home() {
   const faqs = [
     {
       id: 0,
-      question: "How do solar panels work?",
-      answer: "Solar panels work by absorbing sunlight with photovoltaic cells, generating direct current (DC) energy, and then converting it into usable alternating current (AC) energy with the help of inverter technology."
+      question: "How much does rooftop solar cost in Lucknow?",
+      answer: "The cost depends on your electricity bill, roof space, system size, panel quality, inverter, and structure requirements. SunLynk gives you a custom quote after a rooftop survey."
     },
     {
       id: 1,
-      question: "What are the main types of solar energy systems?",
-      answer: "There are three main types: Grid-tied systems (connected to the utility grid), Off-grid systems (independent systems with battery storage), and Hybrid systems (connected to the grid but equipped with battery storage for backup)."
+      question: "How much subsidy can I get in Uttar Pradesh?",
+      answer: "Eligible residential customers can get central subsidy up to ₹78,000, and UP may offer additional state subsidy as per current rules which as in 2026 is 108,000 at the moment. SunLynk helps you check the latest applicable subsidy before installation."
     },
     {
       id: 2,
-      question: "What are the advantages of solar energy?",
-      answer: "Solar energy is a clean, renewable, and abundant source of power. It reduces electricity bills, has low maintenance costs, helps mitigate carbon emissions, and supports energy independence."
+      question: "How does SunLynk help with subsidy paperwork?",
+      answer: "We assist with registration, documents, application, installation records, and subsidy submission so the process stays simple for you."
     },
     {
       id: 3,
-      question: "How much space do I need for solar panels?",
-      answer: "Space requirements depend on the solar panel efficiency and your energy needs. Typically, residential installations require 100 to 400 square feet of roof area, while commercial systems scale much larger."
+      question: "What is the Lynk Sure generation guarantee?",
+      answer: "Lynk Sure is SunLynk’s generation assurance plan. We estimate your system’s expected solar output and commit to performance terms based on your rooftop design."
+    },
+    {
+      id: 4,
+      question: "What happens if my system produces less than promised?",
+      answer: "We check monitoring data, site conditions, maintenance status, and guarantee terms. If the shortfall qualifies, compensation is handled as per the Lynk Sure plan."
+    },
+    {
+      id: 5,
+      question: "Can I install solar with EMI?",
+      answer: "Yes. EMI and solar financing options are available for eligible customers, subject to finance partner approval."
     }
   ];
 
@@ -732,6 +742,17 @@ export default function Home() {
 
             {/* Accordion container */}
             <FaqAccordion faqs={faqs} />
+
+            {/* Link to all FAQs */}
+            <div className="mt-8 flex justify-start">
+              <Link
+                href="/faqs"
+                className="inline-flex items-center gap-2 bg-primary hover:bg-primary-hover text-white text-sm font-bold py-3.5 px-6 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group"
+              >
+                <span>Know More</span>
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
