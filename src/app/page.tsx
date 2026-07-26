@@ -141,7 +141,7 @@ export default function Home() {
 
 
       {/* Products Preview — Lynk Lite & Lynk Sure */}
-      <ProductsPreview />
+      {/* <ProductsPreview /> */}
 
 
 
