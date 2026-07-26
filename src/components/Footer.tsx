@@ -324,6 +324,112 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* SEO Optimized Context Block */}
+      <div className="relative border-t border-slate-900 bg-black/40 py-10 z-10">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 text-xs text-gray-500 leading-relaxed space-y-4">
+          <h4 className="text-gray-400 font-extrabold text-sm uppercase tracking-wider mb-2 text-left">
+            SunLynk Solar — Premier Solar Installation Partner in Lucknow
+          </h4>
+          <p className="text-justify font-medium">
+            Looking for the best <strong>solar companies in Lucknow</strong> to transition your home or business to clean energy? <strong>SunLynk Solar</strong> (commonly known as <strong>SunLynk</strong>) is your trusted engineering, procurement, and construction (EPC) partner. As an official partner and installer of <strong>Premier Energies</strong> solar modules, we bring India&apos;s leading solar technology directly to your rooftop. Our expert engineers specialize in high-efficiency <strong>solar installation</strong> setups that maximize energy harvest, reduce utility bills, and deliver decades of maintenance-free performance.
+          </p>
+          <p className="text-justify font-medium">
+            Navigating solar subsidy paperwork can be complex, but with <strong>SunLynk Solar</strong>, it is completely hassle-free. We assist residential customers in securing the government rooftop solar subsidy under the PM Surya Ghar Muft Bijli Yojana, allowing you to claim up to <strong>₹1.08 Lakhs (₹1,08,000)</strong> in direct financial assistance. From initial 3D shadow-mapping and rooftop site assessment to official DISCOM registration, net-metering synchronization, and final subsidy disbursement, our in-house team handles all local electricity department approvals.
+          </p>
+          <p className="text-justify font-medium">
+            Whether you are comparing <strong>solar installation</strong> costs or searching for reliable <strong>solar companies in Lucknow</strong>, <strong>SunLynk</strong> guarantees Tier-1 components (featuring Premier Energies panels and smart string inverters), wind-resistant galvanized structural steel mounting, and waterproof safety execution. Empower your property with Uttar Pradesh&apos;s premier solar installer and enjoy a self-paying green investment that reduces your carbon footprint.
+          </p>
+
+          <div className="border-t border-slate-900/60 pt-6 mt-6">
+            <h5 className="text-gray-450 font-extrabold text-xs uppercase tracking-wider mb-4 text-left">
+              Quick Resources &amp; Solar Solutions in Uttar Pradesh
+            </h5>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left font-medium">
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-0.5">•</span>
+                <span>
+                  <strong>Residential Solar Installation:</strong> Turn your home rooftop into a powerhouse. Check our {" "}
+                  <Link href="/solutions/homes" className="text-primary hover:underline font-bold">
+                    Solar Solutions for Homes
+                  </Link> {" "}
+                  to claim your government subsidy.
+                </span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-0.5">•</span>
+                <span>
+                  <strong>Commercial Solar Plants:</strong> Slash high electricity expenses for businesses and industries. Discover our {" "}
+                  <Link href="/solutions/commercial" className="text-primary hover:underline font-bold">
+                    Commercial Rooftop Solar
+                  </Link> {" "}
+                  integration packages.
+                </span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-0.5">•</span>
+                <span>
+                  <strong>Society Common-Area Solar:</strong> Reduce maintenance costs for apartment complexes. Read about our {" "}
+                  <Link href="/solutions/housing-societies" className="text-primary hover:underline font-bold">
+                    Solar for Housing Societies
+                  </Link> {" "}
+                  and RWAs.
+                </span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-0.5">•</span>
+                <span>
+                  <strong>On-Grid Subsidized Systems:</strong> Save maximum on bills with official net-metering. Explore our {" "}
+                  <Link href="/solutions/on-grid-solar" className="text-primary hover:underline font-bold">
+                    On-Grid Solar Systems
+                  </Link> {" "}
+                  approved by DISCOMs.
+                </span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-0.5">•</span>
+                <span>
+                  <strong>Hybrid Solar Power Storage:</strong> Enjoy uninterrupted supply with battery bank systems. Read about {" "}
+                  <Link href="/solutions/hybrid-solar" className="text-primary hover:underline font-bold">
+                    Hybrid Solar Solutions
+                  </Link>{" "}
+                  for off-grid utility.
+                </span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-0.5">•</span>
+                <span>
+                  <strong>PM Surya Ghar Subsidy Guide:</strong> Learn about claim steps for the <strong>₹1.08 Lakhs</strong> subsidy. Browse our {" "}
+                  <Link href="/faqs" className="text-primary hover:underline font-bold">
+                    Frequently Asked Questions
+                  </Link>{" "}
+                  for documentation.
+                </span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-0.5">•</span>
+                <span>
+                  <strong>Premier Energies Module Partner:</strong> Learn about our quality standards, wind shields, and waterproof mountings. Visit our {" "}
+                  <Link href="/about" className="text-primary hover:underline font-bold">
+                    About SunLynk
+                  </Link> {" "}
+                  page.
+                </span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-0.5">•</span>
+                <span>
+                  <strong>Get a Free 3D Rooftop Simulation:</strong> Connect with our Lucknow engineering team. Book your site survey at our {" "}
+                  <Link href="/contact" className="text-primary hover:underline font-bold">
+                    Contact Us
+                  </Link> {" "}
+                  page.
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       {/* Bottom Footer: Copyright */}
       <div className="bg-black py-6 relative z-10">
         <div className="max-w-7xl mx-auto px-4 md:px-8 flex justify-between items-center text-xs text-gray-500 flex-col sm:flex-row gap-4">
