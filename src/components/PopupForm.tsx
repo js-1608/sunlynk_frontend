@@ -139,6 +139,22 @@ export default function PopupForm() {
 
       if (!res.ok) throw new Error("Submission failed");
 
+      try {
+        await fetch(`${API_URL}/api/contacts/website-webhook`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            type: "popup",
+            fullName: form.fullName.trim(),
+            whatsappNumber: form.whatsappNumber.trim(),
+            pinCode: form.pinCode.trim(),
+            monthlyBill: "1500-10000",
+          }),
+        });
+      } catch (e) {
+        console.error("Webhook submission error:", e);
+      }
+
       // Mark popup as successfully submitted in localStorage
       try {
         localStorage.setItem("sunlynk_popup_submitted", "true");

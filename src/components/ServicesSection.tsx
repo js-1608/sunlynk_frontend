@@ -113,17 +113,30 @@ function QuotePopup({
     setErrorMsg("");
 
     try {
+      const payload = {
+        type: service.type,
+        fullName: form.fullName.trim(),
+        whatsappNumber: form.whatsappNumber.trim(),
+        pinCode: form.pinCode.trim(),
+      };
+
       const res = await fetch(`${API_URL}/api/leads`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          type: service.type,
-          fullName: form.fullName.trim(),
-          whatsappNumber: form.whatsappNumber.trim(),
-          pinCode: form.pinCode.trim(),
-        }),
+        body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error("Submission failed");
+
+      try {
+        await fetch(`${API_URL}/api/contacts/website-webhook`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+      } catch (e) {
+        console.error("Webhook submission error:", e);
+      }
+
       setStatus("success");
       // Redirect after showing success for 1.8 s
       setTimeout(() => {

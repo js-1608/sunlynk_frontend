@@ -77,6 +77,19 @@ export default function ContactForm({ hideTabs = false, defaultTab = "residentia
         const errorData = await response.json();
         throw new Error(errorData.error || "Failed to submit lead");
       }
+
+      try {
+        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/contacts/website-webhook`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+      } catch (e) {
+        console.error("Webhook submission error:", e);
+      }
+
       return true;
     } catch (error: any) {
       console.error("Lead submission error:", error);
