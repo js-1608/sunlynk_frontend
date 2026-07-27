@@ -79,7 +79,7 @@ export default function ContactForm({ hideTabs = false, defaultTab = "residentia
       }
 
       try {
-        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/contacts/website-webhook`, {
+        await fetch(`https://sunlynksolar-backend.raptpurvanchal.com/api/contacts/website-webhook`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

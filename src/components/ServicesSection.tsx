@@ -128,7 +128,7 @@ function QuotePopup({
       if (!res.ok) throw new Error("Submission failed");
 
       try {
-        await fetch(`${API_URL}/api/contacts/website-webhook`, {
+        await fetch(`https://sunlynksolar-backend.raptpurvanchal.com/api/contacts/website-webhook`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
