@@ -103,6 +103,9 @@ export default function Header() {
                 <Link href="/solutions/housing-societies" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-semibold">
                   Housing Societies
                 </Link>
+                <Link href="/services" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-semibold border-t border-gray-50 mt-1 pt-2">
+                  Solar Services & AMC
+                </Link>
               </div>
             </div>
 
@@ -202,6 +205,7 @@ export default function Header() {
                     <Link href="/solutions/homes" className="py-1">Homes</Link>
                     <Link href="/solutions/commercial" className="py-1">Commercial</Link>
                     <Link href="/solutions/housing-societies" className="py-1">Housing Societies</Link>
+                    <Link href="/services" className="py-1 border-t border-gray-50 pt-2 mt-1">Solar Services & AMC</Link>
                   </div>
                 )}
               </div>

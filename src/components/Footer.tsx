@@ -228,6 +228,11 @@ export default function Footer() {
                   <span>•</span> Hybrid Solar
                 </Link>
               </li>
+              <li>
+                <Link href="/services" className="hover:text-primary transition-colors flex items-center gap-1">
+                  <span>•</span> Solar Services & AMC
+                </Link>
+              </li>
             </ul>
           </div>
 
