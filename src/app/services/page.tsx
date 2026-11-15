@@ -1,9 +1,11 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import LucknowSolarMap from "@/components/LucknowSolarMap";
+import PricingTable from "@/components/PricingTable";
+import MaintenanceReviews from "@/components/MaintenanceReviews";
 import {
   Wrench,
   Zap,
@@ -17,33 +19,28 @@ import {
   Sun,
   ShieldCheck,
   CheckCircle2,
-  X,
-  User,
   Phone,
   MapPin,
-  Loader2,
   ArrowRight,
-  TrendingUp,
   Link2,
   Sparkles,
-  Clock,
   ShieldAlert,
   Settings,
   Sliders,
-  PenTool,
-  ClipboardList
+  MessageSquare,
+  PhoneCall,
+  Clock,
+  Headphones
 } from "lucide-react";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+// Phone & WhatsApp Contact Number
+const CONTACT_NUMBER = "8573003002";
+const FORMATTED_PHONE = "+91 8573003002";
 
-// ─── Interfaces ────────────────────────────────────────────────────────────────
-
-interface FormState {
-  fullName: string;
-  whatsappNumber: string;
-  pinCode: string;
-  packageType: "trial" | "amc";
-}
+// Helper function to generate direct WhatsApp URL
+const getWhatsappUrl = (message: string) => {
+  return `https://wa.me/91${CONTACT_NUMBER}?text=${encodeURIComponent(message)}`;
+};
 
 interface ChecklistItem {
   area: string;
@@ -59,313 +56,15 @@ interface ChecklistCategory {
   items: ChecklistItem[];
 }
 
-// ─── Service Booking Popup Form ──────────────────────────────────────────────────
-
-function ServiceBookingPopup({
-  selectedPackage,
-  onClose,
-}: {
-  selectedPackage: "trial" | "amc";
-  onClose: () => void;
-}) {
-  const router = useRouter();
-  const [form, setForm] = useState<FormState>({
-    fullName: "",
-    whatsappNumber: "",
-    pinCode: "",
-    packageType: selectedPackage,
-  });
-  const [errors, setErrors] = useState<Partial<FormState>>({});
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [errorMsg, setErrorMsg] = useState("");
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setVisible(true), 10);
-    return () => clearTimeout(t);
-  }, []);
-
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === "Escape") handleClose();
-    };
-    document.addEventListener("keydown", handler);
-    return () => document.removeEventListener("keydown", handler);
-  }, []);
-
-  const handleClose = useCallback(() => {
-    setVisible(false);
-    setTimeout(onClose, 280);
-  }, [onClose]);
-
-  const validate = (): boolean => {
-    const newErrors: Partial<FormState> = {};
-    if (!form.fullName.trim()) newErrors.fullName = "Name is required";
-    if (!form.whatsappNumber.trim()) {
-      newErrors.whatsappNumber = "WhatsApp number is required";
-    } else if (!/^[6-9]\d{9}$/.test(form.whatsappNumber.replace(/\s/g, ""))) {
-      newErrors.whatsappNumber = "Enter a valid 10-digit Indian mobile number";
-    }
-    if (!form.pinCode.trim()) {
-      newErrors.pinCode = "Pincode is required";
-    } else if (!/^\d{6}$/.test(form.pinCode)) {
-      newErrors.pinCode = "Enter a valid 6-digit pincode";
-    }
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
-    if (errors[name as keyof FormState]) {
-      setErrors((prev) => ({ ...prev, [name]: undefined }));
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!validate()) return;
-    setStatus("loading");
-    setErrorMsg("");
-
-    try {
-      const payload = {
-        type: `service_${form.packageType}`,
-        fullName: form.fullName.trim(),
-        whatsappNumber: form.whatsappNumber.trim(),
-        pinCode: form.pinCode.trim(),
-        message: `Solar Service Booking Request: ${form.packageType === "trial" ? "Trial Package (₹249)" : "Full Year AMC Plan"}`
-      };
-
-      const res = await fetch(`${API_URL}/api/leads`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      if (!res.ok) throw new Error("Submission failed");
-
-      try {
-        await fetch(`https://sunlynksolar-backend.raptpurvanchal.com/api/contacts/website-webhook`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-      } catch (e) {
-        console.error("Webhook submission error:", e);
-      }
-
-      setStatus("success");
-      setTimeout(() => {
-        handleClose();
-        router.push("/contact");
-      }, 2000);
-    } catch {
-      setStatus("error");
-      setErrorMsg("Something went wrong. Please try again or call support.");
-    }
-  };
-
-  return (
-    <>
-      <div
-        className={`fixed inset-0 z-[9990] transition-all duration-300 ${visible ? "bg-black/70 backdrop-blur-sm" : "bg-black/0"
-          }`}
-        onClick={handleClose}
-        aria-hidden="true"
-      />
-
-      <div
-        role="dialog"
-        aria-modal="true"
-        className="fixed inset-0 z-[9991] flex items-center justify-center p-4 pointer-events-none"
-      >
-        <div
-          className={`pointer-events-auto relative w-full max-w-md rounded-2xl bg-white overflow-hidden shadow-[0_32px_80px_-8px_rgba(0,0,0,0.5)] border border-gray-100 transition-all duration-300 ease-out ${visible ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 translate-y-8"
-            }`}
-          onClick={(e) => e.stopPropagation()}
-        >
-          {/* Header */}
-          <div className="relative bg-gradient-to-br from-slate-900 via-slate-850 to-emerald-950 px-6 pt-6 pb-8 text-white">
-            <button
-              onClick={handleClose}
-              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors duration-250"
-              aria-label="Close"
-            >
-              <X size={15} />
-            </button>
-
-            <span className="inline-block text-[10px] font-bold text-primary uppercase tracking-widest bg-primary/10 border border-primary/20 rounded-full px-3 py-1 mb-3">
-              ☀️ SunLynk Solar Service
-            </span>
-            <h2 className="text-2xl font-black leading-snug">
-              Book Your <span className="text-primary">Solar Service</span>
-            </h2>
-            <p className="text-xs text-gray-300 mt-1.5">
-              Confirm your details. Our service technician will call within 24 hours to schedule the visit.
-            </p>
-          </div>
-
-          {/* Form */}
-          <div className="px-6 py-6 bg-white">
-            {status === "success" ? (
-              <div className="flex flex-col items-center text-center gap-4 py-6">
-                <div className="w-14 h-14 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center">
-                  <CheckCircle2 size={32} className="text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-gray-900">Request Received! 🎉</h3>
-                  <p className="text-xs text-gray-500 mt-1">
-                    Thank you. We will coordinate your solar visit shortly. Redirecting...
-                  </p>
-                </div>
-                <div className="w-full bg-gray-100 rounded-full h-1 overflow-hidden">
-                  <div className="h-full bg-primary animate-[progress_2s_linear_forwards]" />
-                </div>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                {/* Select Package */}
-                <div className="flex flex-col gap-1">
-                  <label htmlFor="packageType" className="text-xs font-bold text-gray-600 flex items-center gap-1.5">
-                    <Sliders size={11} className="text-primary" />
-                    Select Service Package
-                  </label>
-                  <select
-                    id="packageType"
-                    name="packageType"
-                    value={form.packageType}
-                    onChange={handleChange}
-                    className="w-full h-11 px-3 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-800 outline-none transition-all focus:ring-2 focus:ring-primary/25 focus:border-primary font-medium"
-                  >
-                    <option value="trial">Basic Trial Service (₹249)</option>
-                    <option value="amc">Full Year AMC Maintenance (Custom Quote)</option>
-                  </select>
-                </div>
-
-                {/* Name */}
-                <div className="flex flex-col gap-1">
-                  <label htmlFor="fullName" className="text-xs font-bold text-gray-600 flex items-center gap-1.5">
-                    <User size={11} className="text-primary" />
-                    Full Name
-                  </label>
-                  <input
-                    id="fullName"
-                    name="fullName"
-                    type="text"
-                    placeholder="e.g. Amit Kumar"
-                    value={form.fullName}
-                    onChange={handleChange}
-                    className={`w-full h-11 px-3.5 rounded-xl border text-sm text-gray-800 outline-none transition-all focus:ring-2 focus:ring-primary/25 focus:border-primary ${errors.fullName
-                      ? "border-red-400 bg-red-50/50"
-                      : "border-gray-200 bg-gray-50"
-                      }`}
-                  />
-                  {errors.fullName && (
-                    <p className="text-[11px] text-red-500 font-semibold">{errors.fullName}</p>
-                  )}
-                </div>
-
-                {/* WhatsApp Number */}
-                <div className="flex flex-col gap-1">
-                  <label htmlFor="whatsappNumber" className="text-xs font-bold text-gray-600 flex items-center gap-1.5">
-                    <Phone size={11} className="text-primary" />
-                    WhatsApp Number
-                  </label>
-                  <div className="flex">
-                    <span className="inline-flex items-center px-3 rounded-l-xl border border-r-0 border-gray-200 bg-gray-100 text-gray-500 text-sm font-semibold select-none">
-                      🇮🇳 +91
-                    </span>
-                    <input
-                      id="whatsappNumber"
-                      name="whatsappNumber"
-                      type="tel"
-                      maxLength={10}
-                      placeholder="9876543210"
-                      value={form.whatsappNumber}
-                      onChange={handleChange}
-                      className={`flex-1 h-11 px-3.5 rounded-r-xl border text-sm text-gray-800 outline-none transition-all focus:ring-2 focus:ring-primary/25 focus:border-primary ${errors.whatsappNumber
-                        ? "border-red-400 bg-red-50/50"
-                        : "border-gray-200 bg-gray-50"
-                        }`}
-                    />
-                  </div>
-                  {errors.whatsappNumber && (
-                    <p className="text-[11px] text-red-500 font-semibold">{errors.whatsappNumber}</p>
-                  )}
-                </div>
-
-                {/* Pincode */}
-                <div className="flex flex-col gap-1">
-                  <label htmlFor="pinCode" className="text-xs font-bold text-gray-600 flex items-center gap-1.5">
-                    <MapPin size={11} className="text-primary" />
-                    Pincode
-                  </label>
-                  <input
-                    id="pinCode"
-                    name="pinCode"
-                    type="text"
-                    maxLength={6}
-                    placeholder="e.g. 226010"
-                    value={form.pinCode}
-                    onChange={handleChange}
-                    className={`w-full h-11 px-3.5 rounded-xl border text-sm text-gray-800 outline-none transition-all focus:ring-2 focus:ring-primary/25 focus:border-primary ${errors.pinCode
-                      ? "border-red-400 bg-red-50/50"
-                      : "border-gray-200 bg-gray-50"
-                      }`}
-                  />
-                  {errors.pinCode && (
-                    <p className="text-[11px] text-red-500 font-semibold">{errors.pinCode}</p>
-                  )}
-                </div>
-
-                {errorMsg && (
-                  <p className="text-xs text-red-500 font-medium bg-red-50 border border-red-100 rounded-xl px-3 py-2">
-                    {errorMsg}
-                  </p>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={status === "loading"}
-                  className="w-full h-12 rounded-xl bg-primary hover:bg-primary-hover text-white font-extrabold text-sm flex items-center justify-center gap-2 transition-all shadow-md active:scale-[0.98] disabled:bg-primary/50 disabled:cursor-not-allowed cursor-pointer"
-                >
-                  {status === "loading" ? (
-                    <>
-                      <Loader2 size={16} className="animate-spin" />
-                      Booking Visit…
-                    </>
-                  ) : (
-                    <>
-                      Schedule Booking Visit
-                      <ArrowRight size={16} />
-                    </>
-                  )}
-                </button>
-                <p className="text-center text-[10px] text-gray-400">
-                  🛡️ Powered by SunLynk Service Network. Secure connection.
-                </p>
-              </form>
-            )}
-          </div>
-        </div>
-      </div>
-
-      <style>{`
-        @keyframes progress {
-          from { width: 0% }
-          to { width: 100% }
-        }
-      `}</style>
-    </>
-  );
-}
-
 // ─── Main Services Component ──────────────────────────────────────────────────
 
 export default function ServicesPage() {
   const [activeTab, setActiveTab] = useState<number>(0);
-  const [selectedPkg, setSelectedPkg] = useState<"trial" | "amc" | null>(null);
+
+  // Pre-configured WhatsApp Messages
+  const MSG_SIMPLE_CONTACT = "Hi, I am looking for maintenance of my solar";
+  const MSG_TRIAL_PACKAGE = "Hi, I am looking for solar trial package";
+  const MSG_ANNUAL_AMC = "Hi, I am looking for annual maintenance";
 
   // 18-Point Technical Checklist Data
   const categories: ChecklistCategory[] = [
@@ -426,45 +125,106 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 text-dark">
-      {/* 1. Hero Header Banner */}
-      <section className="px-4 md:px-8 pt-6 pb-2">
-        <div className="max-w-7xl mx-auto relative rounded-2xl overflow-hidden py-20 md:py-28 bg-dark text-white flex items-center justify-center">
+    <div className="min-h-screen bg-slate-50 text-dark relative pb-16">
+      {/* 1. Full-Background SUNLYNKSURE Hero Section */}
+      <section className="px-4 md:px-8 pt-4 pb-6">
+        <div className="max-w-7xl mx-auto relative rounded-3xl overflow-hidden shadow-2xl min-h-[540px] lg:min-h-[620px] flex items-center border border-gray-200">
+          {/* Full Background Image */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/new_assets/aftersales.webp"
-              alt="Solar panels cleaning technician"
+              src="/new_assets/banner.png"
+              alt="SUNLYNKSURE Solar Panel Maintenance Banner"
               fill
-              className="object-cover opacity-35 object-center"
               priority
+              className="object-cover object-[75%_center] lg:object-right"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-emerald-950/70 via-slate-950/40 to-dark/95" />
+            {/* Left Gradient Overlay to guarantee crystal clear text readability */}
+            <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 sm:via-white/85 to-transparent lg:w-3/5" />
+            <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-transparent to-transparent sm:hidden" />
           </div>
 
-          <div className="relative z-10 flex flex-col items-center justify-center gap-4 text-center max-w-4xl px-6">
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full flex items-center gap-2 text-xs text-white/90 shadow-inner">
-              <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-              <span className="text-white/40">&gt;</span>
-              <span className="text-white font-medium">Solar Services & AMC</span>
+          {/* Left Content Column */}
+          <div className="relative z-10 max-w-xl text-left p-6 sm:p-10 md:p-14 flex flex-col items-start gap-4 sm:gap-5">
+            {/* Brand Logo & Tagline */}
+            <div className="flex flex-col items-start">
+              {/* <div className="flex items-center gap-2.5">
+                <div className="w-10 h-10 rounded-xl bg-emerald-700 text-white flex items-center justify-center shadow-md">
+                  <ShieldCheck size={26} className="stroke-[2.5]" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-2xl sm:text-3xl font-black tracking-tight text-emerald-800 leading-none">
+                    SUNLYNK<span className="text-emerald-600">SURE</span>
+                  </span>
+                  <div className="flex items-center gap-1 mt-1">
+                    <span className="h-[1.5px] w-4 bg-emerald-600" />
+                    <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-emerald-700 whitespace-nowrap">
+                      YOUR LINK TO ASSURANCE
+                    </span>
+                    <span className="h-[1.5px] w-4 bg-emerald-600" />
+                  </div>
+                </div>
+              </div> */}
             </div>
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white mt-2 drop-shadow-md">
-              Solar Services & <span className="text-primary">AMC Maintenance</span>
+
+            {/* Sub-tagline */}
+            <span className="text-xs sm:text-sm font-black uppercase tracking-[0.22em] text-slate-700 mt-1">
+              CLEAN PANELS. HIGHER OUTPUT.
+            </span>
+
+            {/* Main Headline */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 leading-[1.15] tracking-tight">
+              Keep Your <br />
+              <span className="text-emerald-600">Solar Performing</span> <br />
+              at Its Best
             </h1>
-            <p className="text-sm md:text-base text-gray-300 max-w-2xl leading-relaxed mt-2">
-              Keep your solar panels performing at maximum efficiency. We provide professional cleaning, earthing audits, fault fixes, and scheduled preventive maintenance for all brands.
+
+            {/* Description */}
+            <p className="text-sm sm:text-base text-slate-600 max-w-md leading-relaxed font-medium">
+              Professional maintenance services for cleaner, safer and more efficient solar systems.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-4 mt-4">
+
+            {/* 3 Feature Badges */}
+            <div className="grid grid-cols-3 gap-3 sm:gap-6 py-2 my-1 w-full max-w-md">
+              <div className="flex flex-col items-center text-center gap-1.5 bg-white/60 backdrop-blur-xs p-2 sm:p-0 rounded-xl sm:bg-transparent">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-emerald-100/90 border border-emerald-200 flex items-center justify-center text-emerald-700 shadow-xs">
+                  <Zap size={22} className="stroke-[2.5]" />
+                </div>
+                <span className="text-[11px] sm:text-xs font-black text-slate-800 leading-tight">Higher<br />Efficiency</span>
+              </div>
+
+              <div className="flex flex-col items-center text-center gap-1.5 bg-white/60 backdrop-blur-xs p-2 sm:p-0 rounded-xl sm:bg-transparent">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-emerald-100/90 border border-emerald-200 flex items-center justify-center text-emerald-700 shadow-xs">
+                  <ShieldCheck size={22} className="stroke-[2.5]" />
+                </div>
+                <span className="text-[11px] sm:text-xs font-black text-slate-800 leading-tight">Longer<br />Lifespan</span>
+              </div>
+
+              <div className="flex flex-col items-center text-center gap-1.5 bg-white/60 backdrop-blur-xs p-2 sm:p-0 rounded-xl sm:bg-transparent">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-emerald-100/90 border border-emerald-200 flex items-center justify-center text-emerald-700 shadow-xs">
+                  <Settings size={22} className="stroke-[2.5]" />
+                </div>
+                <span className="text-[11px] sm:text-xs font-black text-slate-800 leading-tight">Reliable<br />Performance</span>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center gap-3.5 mt-2 w-full">
               <a
-                href="#packages"
-                className="bg-primary hover:bg-primary-hover text-white text-xs sm:text-sm font-extrabold px-6 py-3 rounded-xl transition-all shadow-md active:scale-95"
+                href={getWhatsappUrl(MSG_SIMPLE_CONTACT)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs sm:text-sm px-7 py-3.5 rounded-full transition-all shadow-lg hover:shadow-xl active:scale-95 flex items-center gap-2 cursor-pointer border border-emerald-500"
               >
-                View Service Plans
+                <span>Get Professional Maintenance</span>
+                <ArrowRight size={17} />
               </a>
+
               <a
-                href="#checklist"
-                className="bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl transition-all"
+                href={`tel:${CONTACT_NUMBER}`}
+                className="bg-slate-900/90 hover:bg-slate-900 text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full transition-all flex items-center gap-2 border border-slate-700 shadow-md"
               >
-                See 18-Point Checklist
+                <Phone size={15} className="text-emerald-400" />
+                <span>Call {CONTACT_NUMBER}</span>
               </a>
             </div>
           </div>
@@ -484,166 +244,11 @@ export default function ServicesPage() {
               Compare Our Cleaning & AMC Plans
             </h2>
             <p className="text-sm text-gray-500 mt-2">
-              Choose the package that fits your solar installation. From a simple trial clean to year-round technical coverage.
+              Choose the package that fits your solar installation. From a single trial wash to full-year technical maintenance.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* Package 1: Trial Package */}
-            <div className="group relative bg-white border border-gray-150 hover:border-emerald-200 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between overflow-hidden">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-500/5 rounded-bl-[100px]" />
-
-              <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold mb-4">
-                  <Sparkles size={12} />
-                  Single Service Visit
-                </div>
-                <h3 className="text-2xl font-black text-gray-900">Trial Package</h3>
-                <p className="text-xs text-gray-400 mt-1">Excellent way to try our cleaning service and verify generation.</p>
-
-                {/* Price */}
-                <div className="my-6 flex items-baseline gap-1">
-                  <span className="text-4xl font-black text-dark">₹249</span>
-                  <span className="text-xs text-gray-400 font-bold uppercase tracking-wider">/ Visit Trial</span>
-                </div>
-
-                <div className="border-t border-dashed border-gray-200 my-5" />
-
-                {/* Features */}
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <span className="w-5 h-5 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center shrink-0 mt-0.5 text-primary">
-                      <CheckCircle2 size={13} className="stroke-[2.5]" />
-                    </span>
-                    <span className="text-sm text-gray-700 font-medium">
-                      <strong>Panel cleaning:</strong> Professional manual wash of the solar array
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-5 h-5 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center shrink-0 mt-0.5 text-primary">
-                      <CheckCircle2 size={13} className="stroke-[2.5]" />
-                    </span>
-                    <span className="text-sm text-gray-700 font-medium">
-                      <strong>Basic visual inspection:</strong> Identification of cracks, structural issues, or severe nesting
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-5 h-5 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center shrink-0 mt-0.5 text-primary">
-                      <CheckCircle2 size={13} className="stroke-[2.5]" />
-                    </span>
-                    <span className="text-sm text-gray-700 font-medium">
-                      <strong>Basic generation check:</strong> Simple monitoring of generation trends
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-5 h-5 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center shrink-0 mt-0.5 text-primary">
-                      <CheckCircle2 size={13} className="stroke-[2.5]" />
-                    </span>
-                    <span className="text-sm text-gray-700 font-medium">
-                      <strong>Before / after photos:</strong> High-resolution photos sent to WhatsApp as proof
-                    </span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="mt-8">
-                <button
-                  onClick={() => setSelectedPkg("trial")}
-                  className="w-full py-3.5 rounded-xl border-2 border-emerald-600 text-emerald-800 font-extrabold text-sm hover:bg-emerald-50 hover:border-emerald-700 transition-all flex items-center justify-center gap-1.5 active:scale-[0.99] cursor-pointer"
-                >
-                  <span>Book Trial Visit</span>
-                  <ArrowRight size={14} />
-                </button>
-              </div>
-            </div>
-
-            {/* Package 2: Yearly Plans / AMC */}
-            <div className="group relative bg-slate-900 border-2 border-primary hover:border-primary-hover rounded-3xl p-6 sm:p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden text-white">
-              {/* Popular Badge */}
-              <div className="absolute top-0 right-0 bg-primary text-slate-900 text-[10px] font-black uppercase tracking-widest px-6 py-2 rounded-bl-2xl shadow-sm">
-                ⭐ Recommended
-              </div>
-
-              <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-4 border border-primary/20">
-                  <ShieldCheck size={12} />
-                  Annual Maintenance Contract
-                </div>
-                <h3 className="text-2xl font-black">Full Year Packages</h3>
-                <p className="text-xs text-gray-400 mt-1">Total care, preventive safety, and optimized energy yield all year round.</p>
-
-                {/* Price */}
-                <div className="my-6 flex items-baseline gap-1">
-                  <span className="text-4xl font-black text-white">Custom Quote</span>
-                  <span className="text-xs text-gray-400 font-bold uppercase tracking-wider">/ Yearly Plan</span>
-                </div>
-
-                <div className="border-t border-slate-800 my-5" />
-
-                {/* Features */}
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <span className="w-5 h-5 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center shrink-0 mt-0.5 text-primary">
-                      <CheckCircle2 size={13} className="stroke-[2.5]" />
-                    </span>
-                    <span className="text-sm text-gray-200 font-medium">
-                      <strong>AMC Visit = Preventive Maintenance:</strong> Scheduled checkups
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-5 h-5 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center shrink-0 mt-0.5 text-primary">
-                      <CheckCircle2 size={13} className="stroke-[2.5]" />
-                    </span>
-                    <span className="text-sm text-gray-200 font-medium">
-                      <strong>Periodic Panel cleaning:</strong> Keeps panels running with zero dust loss
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-5 h-5 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center shrink-0 mt-0.5 text-primary">
-                      <CheckCircle2 size={13} className="stroke-[2.5]" />
-                    </span>
-                    <span className="text-sm text-gray-200 font-medium">
-                      <strong>Detailed electrical inspection:</strong> Advanced tool-based cable & terminal audits
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-5 h-5 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center shrink-0 mt-0.5 text-primary">
-                      <CheckCircle2 size={13} className="stroke-[2.5]" />
-                    </span>
-                    <span className="text-sm text-gray-200 font-medium">
-                      <strong>Inverter, Cables, Structure & Earthing check:</strong> 18-Point complete verification
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-5 h-5 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center shrink-0 mt-0.5 text-primary">
-                      <CheckCircle2 size={13} className="stroke-[2.5]" />
-                    </span>
-                    <span className="text-sm text-gray-200 font-medium">
-                      <strong>Minor tightening & Service reports:</strong> Direct dashboard/PDF maintenance log
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-5 h-5 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center shrink-0 mt-0.5 text-primary">
-                      <CheckCircle2 size={13} className="stroke-[2.5]" />
-                    </span>
-                    <span className="text-sm text-gray-200 font-medium">
-                      <strong>Priority complaint handling:</strong> Dedicated fast response support
-                    </span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="mt-8">
-                <button
-                  onClick={() => setSelectedPkg("amc")}
-                  className="w-full py-4 rounded-xl bg-primary hover:bg-primary-hover text-slate-900 font-black text-sm transition-all flex items-center justify-center gap-1.5 active:scale-[0.99] cursor-pointer"
-                >
-                  <span>Request Yearly AMC Quote</span>
-                  <ArrowRight size={14} />
-                </button>
-              </div>
-            </div>
-          </div>
+          <PricingTable />
         </div>
       </section>
 
@@ -675,7 +280,7 @@ export default function ServicesPage() {
                     key={idx}
                     onClick={() => setActiveTab(idx)}
                     className={`flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-bold text-sm tracking-wide transition-all outline-none border cursor-pointer ${activeTab === idx
-                      ? "bg-primary text-white border-primary shadow-md hover:bg-primary-hover scale-[1.01]"
+                      ? "bg-primary text-slate-900 border-primary shadow-md hover:bg-primary-hover scale-[1.01]"
                       : "bg-white text-gray-600 hover:text-dark hover:bg-gray-50 border-gray-200"
                       }`}
                   >
@@ -687,7 +292,7 @@ export default function ServicesPage() {
             </div>
 
             {/* Tab content */}
-            <div className="bg-white border border-gray-150 rounded-3xl p-6 sm:p-10 shadow-sm relative overflow-hidden transition-all duration-300">
+            <div className="bg-white border border-gray-200 rounded-3xl p-6 sm:p-10 shadow-sm relative overflow-hidden transition-all duration-300">
               {/* Green Glow decoration */}
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/5 rounded-full blur-2xl pointer-events-none" />
 
@@ -775,7 +380,7 @@ export default function ServicesPage() {
             {brandNames.map((name, index) => (
               <div
                 key={index}
-                className="bg-gray-50 border border-gray-150 hover:border-emerald-200 hover:bg-emerald-50/20 rounded-2xl p-5 flex flex-col items-center justify-center text-center transition-all duration-300 shadow-sm group hover:-translate-y-0.5"
+                className="bg-gray-50 border border-gray-200 hover:border-emerald-200 hover:bg-emerald-50/20 rounded-2xl p-5 flex flex-col items-center justify-center text-center transition-all duration-300 shadow-sm group hover:-translate-y-0.5"
               >
                 <div className="w-10 h-10 rounded-full bg-white border border-gray-100 text-primary flex items-center justify-center shadow-inner group-hover:scale-110 transition-transform mb-3">
                   <Sun size={18} />
@@ -799,9 +404,15 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* 5. CTA Booking Banner */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-850 to-emerald-950 text-white relative overflow-hidden">
-        {/* Background Grid Accent */}
+
+      {/* Client Maintenance Reviews & Before/After Proof Section */}
+      <MaintenanceReviews />
+
+      {/* Lucknow Solar Installations Map Section */}
+      <LucknowSolarMap />
+
+      {/* 6. CTA Booking Banner */}
+      {/* <section className="py-20 bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20" />
         <div className="absolute -bottom-16 -left-16 w-60 h-60 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -813,33 +424,110 @@ export default function ServicesPage() {
             Ready to Restore Your Solar Performance?
           </h2>
           <p className="text-sm sm:text-base text-gray-300 max-w-2xl leading-relaxed">
-            Don't let dust, loose connections, or earth leakages drain your power output. Schedule a trial cleaning visit for ₹249 or start a full-year AMC today.
+            Don't let dust, loose connections, or earth leakages drain your power output. Contact us on WhatsApp or call {CONTACT_NUMBER} for trial cleans or full-year AMC plans.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 mt-2">
-            <button
-              onClick={() => setSelectedPkg("trial")}
-              className="bg-primary hover:bg-primary-hover text-slate-900 text-sm font-black px-8 py-3.5 rounded-xl transition-all shadow-md active:scale-95 cursor-pointer"
+            <a
+              href={getWhatsappUrl(MSG_SIMPLE_CONTACT)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-extrabold px-8 py-3.5 rounded-xl transition-all shadow-md active:scale-95 flex items-center gap-2"
             >
-              Book Professional cleaning Visit
-            </button>
-            <Link
-              href="/contact"
-              className="bg-white/10 hover:bg-white/20 border border-white/20 text-white text-sm font-bold px-8 py-3.5 rounded-xl transition-all flex items-center gap-1.5"
+              <MessageSquare size={18} />
+              <span>Contact on WhatsApp</span>
+            </a>
+            <a
+              href={`tel:${CONTACT_NUMBER}`}
+              className="bg-white/10 hover:bg-white/20 border border-white/20 text-white text-sm font-bold px-8 py-3.5 rounded-xl transition-all flex items-center gap-2"
             >
-              <span>Contact Support</span>
-              <ArrowRight size={15} />
-            </Link>
+              <Phone size={16} />
+              <span>Call Support: {CONTACT_NUMBER}</span>
+            </a>
+          </div>
+        </div>
+      </section> */}
+
+
+      {/* 5. Contact Details & Support Section */}
+      <section className="py-16 bg-gray-100 text-black relative">
+        <div className="max-w-6xl mx-auto px-4 md:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-xs uppercase tracking-widest text-primary font-extrabold bg-primary/10 border border-primary/20 px-3 py-1 rounded-full">
+              Instant Contact Details
+            </span>
+            <h2 className="text-3xl font-black text-black mt-3">
+              Get in Touch with SunLynk Solar Service
+            </h2>
+            <p className="text-xs sm:text-sm text-gray-300 mt-2">
+              Have questions about solar panel cleaning, inverter diagnostics, or AMC plans? Reach us directly on WhatsApp or call our technician helpline.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {/* Contact Card 1: Phone */}
+            <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 flex flex-col items-center text-center hover:border-primary transition-all">
+              <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-4">
+                <PhoneCall size={22} />
+              </div>
+              <h3 className="font-bold text-white text-lg">Call Helpline</h3>
+              <p className="text-xs text-gray-400 mt-1">Speak directly with our technical team</p>
+              <a
+                href={`tel:${CONTACT_NUMBER}`}
+                className="mt-4 text-xl font-black text-primary hover:underline"
+              >
+                {FORMATTED_PHONE}
+              </a>
+              <span className="text-[10px] text-gray-400 mt-1">Mon - Sun: 8:00 AM - 8:00 PM</span>
+            </div>
+
+            {/* Contact Card 2: WhatsApp */}
+            <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 flex flex-col items-center text-center hover:border-emerald-400 transition-all">
+              <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-400/20 flex items-center justify-center text-emerald-400 mb-4">
+                <MessageSquare size={22} />
+              </div>
+              <h3 className="font-bold text-white text-lg">WhatsApp Chat</h3>
+              <p className="text-xs text-gray-400 mt-1">Instant messaging & instant support</p>
+              <a
+                href={getWhatsappUrl(MSG_SIMPLE_CONTACT)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 text-xl font-black text-emerald-400 hover:underline"
+              >
+                {CONTACT_NUMBER}
+              </a>
+              <span className="text-[10px] text-gray-400 mt-1">Fast Response within Minutes</span>
+            </div>
+
+            {/* Contact Card 3: Location / Service Area */}
+            <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 flex flex-col items-center text-center hover:border-primary transition-all">
+              <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-4">
+                <MapPin size={22} />
+              </div>
+              <h3 className="font-bold text-white text-lg">Service Network</h3>
+              <p className="text-xs text-gray-400 mt-1">Lucknow & Uttar Pradesh Region</p>
+              <p className="mt-4 text-sm font-bold text-gray-200">
+                Doorstep Technician Visits
+              </p>
+              <span className="text-[10px] text-gray-400 mt-1">Scheduled within 24 Hours</span>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Service Request Popup Modal */}
-      {selectedPkg && (
-        <ServiceBookingPopup
-          selectedPackage={selectedPkg}
-          onClose={() => setSelectedPkg(null)}
-        />
-      )}
+      {/* Sticky Floating WhatsApp Widget */}
+      <a
+        href={getWhatsappUrl(MSG_SIMPLE_CONTACT)}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 bg-emerald-600 hover:bg-emerald-500 text-white p-3.5 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 flex items-center gap-2 group cursor-pointer border-2 border-white/20"
+        title="Chat on WhatsApp (8573003002)"
+        aria-label="Chat on WhatsApp"
+      >
+        <MessageSquare size={24} className="fill-current" />
+        <span className="hidden sm:inline-block max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs group-hover:px-2.5 transition-all duration-300 text-xs font-bold">
+          Chat on WhatsApp ({CONTACT_NUMBER})
+        </span>
+      </a>
     </div>
   );
 }

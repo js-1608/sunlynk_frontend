@@ -69,19 +69,6 @@ export default function PopupForm() {
     setTimeout(() => setIsVisible(false), 300); // Wait for CSS leave animation
   }, []);
 
-  useEffect(() => {
-    if (isVisible) return;
-
-    // Do not show the popup if the user has already successfully submitted it
-    try {
-      if (localStorage.getItem("sunlynk_popup_submitted") === "true") return;
-    } catch (e) {
-      console.error(e);
-    }
-
-    const timer = setTimeout(openPopup, POPUP_INTERVAL_MS);
-    return () => clearTimeout(timer);
-  }, [isVisible, openPopup]);
 
   // Close on Escape key
   useEffect(() => {

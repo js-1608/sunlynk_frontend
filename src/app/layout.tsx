@@ -161,7 +161,7 @@ export default function RootLayout({
                 "url": "https://www.sunlynksolar.com",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://www.sunlynksolar.com/new_assets/logo.png"
+                  "url": "https://www.sunlynksolar.com/newlogo.png"
                 },
                 "contactPoint": {
                   "@type": "ContactPoint",
@@ -181,7 +181,7 @@ export default function RootLayout({
                 "@type": "LocalBusiness",
                 "@id": "https://www.sunlynksolar.com/#localbusiness",
                 "name": "SunLynk Solar",
-                "image": "https://www.sunlynksolar.com/new_assets/logo.jpeg",
+                "image": "https://www.sunlynksolar.com/newlogo.png",
                 "url": "https://www.sunlynksolar.com",
                 "telephone": "+918573003001",
                 "email": "info@sunlynksolar.com",

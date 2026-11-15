@@ -1,20 +1,15 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, ChevronRight, Mail, Phone } from "lucide-react";
+import { Phone, MessageSquare } from "lucide-react";
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isSticky, setIsSticky] = useState(false);
-  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) {
+      if (window.scrollY > 50) {
         setIsSticky(true);
       } else {
         setIsSticky(false);
@@ -24,241 +19,54 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on page change
-  useEffect(() => {
-    setIsOpen(false);
-    setActiveDropdown(null);
-  }, [pathname]);
-
-  const toggleDropdown = (name: string) => {
-    if (activeDropdown === name) {
-      setActiveDropdown(null);
-    } else {
-      setActiveDropdown(name);
-    }
-  };
+  const CONTACT_NUMBER = "8573003002";
+  const WHATSAPP_URL = `https://wa.me/91${CONTACT_NUMBER}?text=${encodeURIComponent("Hi, I am looking for maintenance of my solar")}`;
 
   return (
-    <>
-      {/* Topbar */}
-      <div className="bg-dark text-gray-300 text-xs py-2 px-4 md:px-8 flex justify-between items-center border-b border-gray-800">
-        <div className="flex items-center gap-4">
-          <a href="mailto:info@sunlynksolar.com" className="flex items-center gap-1.5 hover:text-primary transition-colors">
-            <Mail size={14} className="text-primary" />
-            <span>info@sunlynksolar.com</span>
+    <header
+      className={`w-full bg-white transition-all duration-300 z-50 border-b border-gray-200 ${isSticky ? "sticky top-0 shadow-md py-2.5" : "relative py-3.5"
+        }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 md:px-8 flex justify-between items-center">
+        {/* Logo - Links to main website sunlynksolar.com */}
+        <a
+          href="/"
+          className="relative flex items-center group"
+          title="Visit SunLynk Solar Main Website"
+        >
+          <Image
+            src="/newlogo.png"
+            alt="SunLynk Solar Logo"
+            width={250}
+            height={100}
+            priority
+            className="object-contain transition-transform group-hover:scale-105"
+          />
+        </a>
+
+        {/* Contact Us Action Buttons */}
+        <div className="flex items-center gap-3">
+          {/* Phone call link */}
+          <a
+            href={`tel:${CONTACT_NUMBER}`}
+            className="hidden sm:flex items-center gap-2 text-xs md:text-sm font-bold text-gray-700 hover:text-emerald-700 bg-gray-100 hover:bg-gray-200 px-4 py-2.5 rounded-xl transition-all border border-gray-200"
+          >
+            <Phone size={15} className="text-emerald-600" />
+            <span>Call: {CONTACT_NUMBER}</span>
           </a>
-          <a href="tel:+918573003001" className="flex items-center gap-1.5 hover:text-primary transition-colors">
-            <Phone size={14} className="text-primary" />
-            <span>+91 8573003001</span>
+
+          {/* WhatsApp / Contact Us button */}
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-extrabold px-5 py-2.5 rounded-xl transition-all shadow-md active:scale-95 flex items-center gap-2"
+          >
+            <MessageSquare size={16} />
+            <span>Contact Us</span>
           </a>
-        </div>
-        <div className="text-gray-400 hidden sm:flex ">
-          <span>Hours: Mon - Sat: 9:00 AM - 6:30 PM (Sun Closed)</span>
         </div>
       </div>
-
-      {/* Main Header */}
-      <header
-        className={`w-full bg-white transition-all duration-300 z-50 border-b border-gray-300 ${isSticky
-          ? "fixed top-0 left-0 shadow-lg py-2"
-          : "relative py-2"
-          }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 md:px-4 flex justify-between items-center">
-          {/* Logo */}
-          <Link href="/" className="relative flex items-center">
-            <Image
-              src="/new_assets/logo.png"
-              alt="SunLynk Solar Logo"
-              width={200}
-              height={100}
-              priority
-              className="object-contain"
-            />
-          </Link>
-
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-6 text-md">
-            <Link
-              href="/"
-              className={`font-semibold hover:text-primary transition-colors ${pathname === "/" ? "text-primary" : "text-gray-800"
-                }`}
-            >
-              Home
-            </Link>
-
-            {/* Our Offerings Dropdown */}
-            <div className="relative group">
-              <button className="flex items-center gap-1 font-semibold text-gray-800 hover:text-primary transition-colors py-2">
-                <span>Our Offerings</span>
-                <ChevronDown size={16} />
-              </button>
-              <div className="absolute left-0 top-full hidden group-hover:block bg-white shadow-xl rounded-md border border-gray-100 py-2 w-56 mt-1 transition-all duration-200">
-                <Link href="/solutions/homes" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-semibold">
-                  Homes
-                </Link>
-                <Link href="/solutions/commercial" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-semibold">
-                  Commercial
-                </Link>
-                <Link href="/solutions/housing-societies" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-semibold">
-                  Housing Societies
-                </Link>
-                <Link href="/services" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-semibold border-t border-gray-50 mt-1 pt-2">
-                  Solar Services & AMC
-                </Link>
-              </div>
-            </div>
-
-            {/* Solar Solutions Dropdown */}
-            <div className="relative group">
-              <button className="flex items-center gap-1 font-semibold text-gray-800 hover:text-primary transition-colors py-2">
-                <span>Solar Solutions</span>
-                <ChevronDown size={16} />
-              </button>
-              <div className="absolute left-0 top-full hidden group-hover:block bg-white shadow-xl rounded-md border border-gray-100 py-2 w-56 mt-1 transition-all duration-200">
-                {/* <Link href="/solutions/energy-storage-solutions" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-semibold">
-                  Off-Grid Solar
-                </Link> */}
-                <Link href="/solutions/on-grid-solar" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-semibold">
-                  On Grid Solar
-                </Link>
-                <Link href="/solutions/hybrid-solar" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-semibold">
-                  Hybrid solar
-                </Link>
-              </div>
-            </div>
-
-            {/* More Dropdown */}
-            <div className="relative group">
-              <button className="flex items-center gap-1 font-semibold text-gray-800 hover:text-primary transition-colors py-2">
-                <span>More</span>
-                <ChevronDown size={16} />
-              </button>
-              <div className="absolute left-0 top-full hidden group-hover:block bg-white shadow-xl rounded-md border border-gray-100 py-2 w-56 mt-1 transition-all duration-200">
-                <Link href="/support/warranty" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-medium">
-                  Warranty Claims
-                </Link>
-
-                <Link href="/blog" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-medium border-t border-gray-50 mt-1 pt-2">
-                  Blog
-                </Link>
-                <Link href="/faqs" className="block px-4 py-2 hover:bg-gray-1000 text-sm text-gray-700 hover:text-primary font-medium">
-                  FAQs
-                </Link>
-              </div>
-            </div>
-
-            <Link
-              href="/about"
-              className={`font-semibold hover:text-primary transition-colors ${pathname === "/about" ? "text-primary" : "text-gray-800"
-                }`}
-            >
-              About us
-            </Link>
-            <Link
-              href="/careers"
-              className={`font-semibold hover:text-primary transition-colors ${pathname === "/careers" ? "text-primary" : "text-gray-800"
-                }`}
-            >
-              Careers
-            </Link>
-            <Link
-              href="/contact"
-              className={`font-bold text-sm px-5 py-2 rounded-md transition-all duration-300 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-95 ml-2 ${pathname === "/contact"
-                ? "bg-primary-hover text-white"
-                : "bg-primary hover:bg-primary-hover text-white"
-                }`}
-            >
-              Contact us
-            </Link>
-          </nav>
-
-          {/* Toggle Mobile Menu */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-gray-800 hover:text-primary transition-colors focus:outline-none"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
-
-        {/* Mobile Nav Drawer */}
-        {isOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-100 absolute top-full left-0 w-full shadow-xl z-50 py-4 max-h-[85vh] overflow-y-auto">
-            <div className="flex flex-col px-6 gap-3">
-              <Link href="/" className="py-2 border-b border-gray-50 font-semibold text-gray-800">
-                Home
-              </Link>
-
-              {/* Our Offerings mobile */}
-              <div className="border-b border-gray-50 py-2">
-                <button
-                  onClick={() => toggleDropdown("offerings")}
-                  className="flex justify-between items-center w-full font-semibold text-gray-800"
-                >
-                  <span>Our Offerings</span>
-                  <ChevronDown size={18} className={`transform transition-transform ${activeDropdown === "offerings" ? "rotate-180" : ""}`} />
-                </button>
-                {activeDropdown === "offerings" && (
-                  <div className="pl-4 mt-2 flex flex-col gap-2 text-sm text-gray-700">
-                    <Link href="/solutions/homes" className="py-1">Homes</Link>
-                    <Link href="/solutions/commercial" className="py-1">Commercial</Link>
-                    <Link href="/solutions/housing-societies" className="py-1">Housing Societies</Link>
-                    <Link href="/services" className="py-1 border-t border-gray-50 pt-2 mt-1">Solar Services & AMC</Link>
-                  </div>
-                )}
-              </div>
-
-              {/* Solar Solutions mobile */}
-              <div className="border-b border-gray-50 py-2">
-                <button
-                  onClick={() => toggleDropdown("solutions")}
-                  className="flex justify-between items-center w-full font-semibold text-gray-800"
-                >
-                  <span>Solar Solutions</span>
-                  <ChevronDown size={18} className={`transform transition-transform ${activeDropdown === "solutions" ? "rotate-180" : ""}`} />
-                </button>
-                {activeDropdown === "solutions" && (
-                  <div className="pl-4 mt-2 flex flex-col gap-2 text-sm text-gray-700">
-                    {/* <Link href="/solutions/energy-storage-solutions" className="py-1">Off-Grid Solar</Link> */}
-                    <Link href="/solutions/on-grid-solar" className="py-1">On Grid Solar</Link>
-                    <Link href="/solutions/hybrid-solar" className="py-1">Hybrid solar</Link>
-                  </div>
-                )}
-              </div>
-
-              {/* More mobile */}
-              <div className="border-b border-gray-50 py-2">
-                <button
-                  onClick={() => toggleDropdown("more")}
-                  className="flex justify-between items-center w-full font-semibold text-gray-800"
-                >
-                  <span>More</span>
-                  <ChevronDown size={18} className={`transform transition-transform ${activeDropdown === "more" ? "rotate-180" : ""}`} />
-                </button>
-                {activeDropdown === "more" && (
-                  <div className="pl-4 mt-2 flex flex-col gap-2 text-sm text-gray-700">
-                    <Link href="/support/warranty" className="py-1">Warranty Claims</Link>
-                    <Link href="/blog" className="py-1 border-t border-gray-50 pt-2 mt-1">Blog</Link>
-                    <Link href="/faqs" className="py-1">FAQs</Link>
-                  </div>
-                )}
-              </div>
-
-              <Link href="/about" className="py-2 border-b border-gray-50 font-semibold text-gray-800">
-                About us
-              </Link>
-              <Link href="/careers" className="py-2 border-b border-gray-50 font-semibold text-gray-800">
-                Careers
-              </Link>
-              <Link href="/contact" className="py-2 border-b border-gray-50 font-semibold text-gray-800">
-                Contact us
-              </Link>
-            </div>
-          </div>
-        )}
-      </header>
-    </>
+    </header>
   );
 }

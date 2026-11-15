@@ -228,7 +228,7 @@ export default function PromoLandingPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-8 flex justify-between items-center">
           <Link href="/" className="inline-block bg-white p-2 rounded-md">
             <Image
-              src="/new_assets/logo.jpeg"
+              src="/newlogo.png"
               width={180}
               height={60}
               alt="SunLynk Logo"
